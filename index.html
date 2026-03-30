@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн Таро - Безкоштовні розклади</title>
+    <meta name="description" content="Сервіс онлайн-гадання на картах Таро без реєстрації. 28 розкладів.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font -->
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@4.5.8/index.css" rel="stylesheet">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tarot: {
+                            dark: '#0f0c29',
+                            purple: '#302b63',
+                            light: '#24243e',
+                            gold: '#ffd700',
+                            accent: '#9d50bb'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="app" class="font-sans antialiased" v-cloak>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center cursor-pointer" @click="navigateTo('home')">
+                    <i class="fa-solid fa-moon text-tarot-gold text-2xl mr-2"></i>
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider">TARO.ONLINE</span>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a @click="navigateTo('home')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navHome }}</a>
+                        <a @click="navigateTo('catalog')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navSpreads }}</a>
+                    </div>
+                    
+                    <!-- Language Switcher -->
+                    <div class="ml-6 flex items-center bg-white/5 rounded-full p-1 border border-white/10">
+                        <button 
+                            @click="switchLanguage('uk')" 
+                            :class="['px-2 py-1 text-[10px] font-bold rounded-full transition-all', lang === 'uk' ? 'bg-tarot-gold text-tarot-dark' : 'text-gray-400 hover:text-white']"
+                        >UA</button>
+                        <button 
+                            @click="switchLanguage('en')" 
+                            :class="['px-2 py-1 text-[10px] font-bold rounded-full transition-all', lang === 'en' ? 'bg-tarot-gold text-tarot-dark' : 'text-gray-400 hover:text-white']"
+                        >EN</button>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden items-center">
+                    <!-- Mobile Language Switcher -->
+                    <div class="mr-4 flex items-center bg-white/5 rounded-full p-1 border border-white/10 scale-90">
+                        <button @click="switchLanguage('uk')" :class="['px-2 py-1 text-[9px] font-bold rounded-full transition-all', lang === 'uk' ? 'bg-tarot-gold text-tarot-dark' : 'text-gray-400']">UA</button>
+                        <button @click="switchLanguage('en')" :class="['px-2 py-1 text-[9px] font-bold rounded-full transition-all', lang === 'en' ? 'bg-tarot-gold text-tarot-dark' : 'text-gray-400']">EN</button>
+                    </div>
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div v-if="mobileMenuOpen" class="md:hidden bg-tarot-dark border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a @click="navigateTo('home'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navHome }}</a>
+                <a @click="navigateTo('catalog'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navSpreads }}</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="pt-16 min-h-screen">
+        <transition name="fade" mode="out-in">
+            
+            <!-- HOME VIEW -->
+            <div v-if="currentView === 'home'" key="home" class="animate-fade-in">
+                <!-- Hero -->
+                <div class="relative overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+                        <h1 class="text-5xl md:text-7xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-tarot-gold to-purple-400 mb-6">
+                            {{ t.heroTitle }}
+                        </h1>
+                        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300">
+                            {{ t.heroDesc }} 
+                            <span class="text-tarot-gold block mt-2">{{ t.heroBadge1 }}</span>
+                            <span class="text-tarot-gold block">{{ t.heroBadge2 }}</span>
+                        </p>
+                        <div class="mt-10 flex justify-center gap-4">
+                            <button @click="navigateTo('catalog')" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-tarot-dark bg-tarot-gold hover:bg-yellow-400 md:py-4 md:text-lg md:px-10 transition-all shadow-lg shadow-yellow-500/20">
+                                {{ t.btnSelectSpread }}
+                            </button>
+                            <button @click="scrollToSection('how-it-works')" class="px-8 py-3 border border-gray-500 text-base font-medium rounded-md text-gray-300 hover:bg-white/10 md:py-4 md:text-lg md:px-10 transition-all">
+                                {{ t.btnHowItWorks }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Spreads Section -->
+                <div class="py-16 bg-black/20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-serif font-bold text-white mb-4">{{ t.popularTitle }}</h2>
+                            <p class="text-gray-400">{{ t.popularDesc }}</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div v-for="spread in quickSpreads" :key="spread.id" 
+                                 @click="openSpread(spread)"
+                                 class="glass-panel p-6 rounded-2xl hover:border-tarot-gold/50 hover:shadow-xl hover:shadow-yellow-500/5 transition-all group cursor-pointer border border-white/5">
+                                <div class="w-14 h-14 bg-tarot-purple/50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-tarot-gold text-2xl" v-if="spread.cards_count === 3"></i>
+                                    <i class="fa-solid fa-moon text-tarot-gold text-2xl" v-else-if="spread.cards_count === 1"></i>
+                                    <i class="fa-solid fa-sun text-tarot-gold text-2xl" v-else-if="spread.cards_count === 4"></i>
+                                    <i class="fa-solid fa-star text-tarot-gold text-2xl" v-else></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-tarot-gold transition-colors">
+                                    {{ lang === 'uk' ? spread.title : spread.title_en }}
+                                </h3>
+                                <p class="text-gray-400 text-sm mb-6">
+                                    {{ lang === 'uk' ? spread.short_description : (spread.short_description_en || spread.short_description) }}
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">{{ spread.cards_count }} {{ lang === 'uk' ? 'карт' : 'cards' }}</span>
+                                    <span class="text-tarot-gold text-sm font-medium flex items-center">
+                                        {{ t.tryIt }} <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How It Works Section -->
+                <div id="how-it-works" class="py-16">
+                    <div class="max-w-4xl mx-auto px-4 text-center">
+                        <h2 class="text-3xl font-serif font-bold text-white mb-8">{{ t.howItWorksTitle }}</h2>
+                        <div class="glass-panel p-8 rounded-2xl">
+                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-tarot-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-tarot-gold">1</span>
+                                    </div>
+                                    <h4 class="font-bold text-white mb-2">{{ t.step1Title }}</h4>
+                                    <p class="text-sm text-gray-400">{{ t.step1Desc }}</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-tarot-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-tarot-gold">2</span>
+                                    </div>
+                                    <h4 class="font-bold text-white mb-2">{{ t.step2Title }}</h4>
+                                    <p class="text-sm text-gray-400">{{ t.step2Desc }}</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-tarot-purple rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-tarot-gold">3</span>
+                                    </div>
+                                    <h4 class="font-bold text-white mb-2">{{ t.step3Title }}</h4>
+                                    <p class="text-sm text-gray-400">{{ t.step3Desc }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATALOG VIEW -->
+            <div v-else-if="currentView === 'catalog'" key="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <h1 class="text-4xl font-serif font-bold text-center text-white mb-8">{{ t.catalogTitle }}</h1>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-2 mb-12">
+                    <button 
+                        v-for="cat in categories" 
+                        :key="cat"
+                        @click="setCategory(cat)"
+                        :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeCategory === cat ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
+                    >
+                        {{ cat }}
+                    </button>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div v-for="spread in filteredSpreads" :key="spread.id" class="glass-panel rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all group cursor-pointer" @click="openSpread(spread)">
+                        <div class="h-40 bg-gradient-to-br from-tarot-purple to-tarot-dark flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[url('./images/cards/card-back.png')] opacity-20 bg-cover"></div>
+                            <i class="fa-solid fa-star text-5xl text-white/10 group-hover:scale-110 transition-transform duration-500"></i>
+                            <span class="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded text-xs text-tarot-gold">{{ spread.cards_count }} {{ lang === 'uk' ? 'карт' : 'cards' }}</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-tarot-gold transition-colors">
+                                {{ lang === 'uk' ? spread.title : spread.title_en }}
+                            </h3>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                {{ lang === 'uk' ? spread.short_description : (spread.short_description_en || spread.short_description) }}
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-medium px-2 py-1 bg-white/5 rounded text-gray-300">
+                                    {{ lang === 'uk' ? spread.category : (spread.category_en || spread.category) }}
+                                </span>
+                                <span class="text-tarot-gold text-sm font-medium flex items-center">
+                                    {{ t.start }} <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPREAD DETAIL VIEW -->
+            <div v-else-if="currentView === 'spread-detail'" key="spread-detail" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <button @click="navigateTo('catalog')" class="mb-6 text-gray-400 hover:text-white flex items-center">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.backToCatalog }}
+                </button>
+                
+                <div v-if="selectedSpread" class="glass-panel rounded-2xl p-8 md:p-12">
+                    <div class="text-center mb-10">
+                        <span class="text-tarot-gold font-medium tracking-widest uppercase text-sm">
+                            {{ lang === 'uk' ? selectedSpread.category : (selectedSpread.category_en || selectedSpread.category) }}
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mt-2 mb-4">
+                            {{ lang === 'uk' ? selectedSpread.title : selectedSpread.title_en }}
+                        </h1>
+                        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                            {{ lang === 'uk' ? selectedSpread.short_description : (selectedSpread.short_description_en || selectedSpread.short_description) }}
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="md:col-span-2 space-y-6">
+                            <div>
+                                <h3 class="text-2xl font-serif font-bold text-white mb-4">{{ t.aboutSpread }}</h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    {{ lang === 'uk' ? selectedSpread.intro_text : (selectedSpread.intro_text_en || selectedSpread.intro_text) }}
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-serif font-bold text-white mb-4">{{ t.cardPositions }}</h3>
+                                <ul class="space-y-3">
+                                    <li v-for="(pos, index) in selectedSpread.positions" :key="index" class="flex items-start">
+                                        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-tarot-purple flex items-center justify-center text-tarot-gold font-bold mr-3">{{ index + 1 }}</span>
+                                        <div>
+                                            <span class="font-bold text-white block">{{ lang === 'uk' ? pos.name : (pos.name_en || pos.name) }}</span>
+                                            <span class="text-sm text-gray-400">{{ lang === 'uk' ? pos.description : (pos.description_en || pos.description) }}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:col-span-1">
+                            <div class="bg-white/5 rounded-xl p-6 sticky top-24">
+                                <h4 class="font-bold text-white mb-4">{{ t.details }}</h4>
+                                <div class="space-y-4 text-sm">
+                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                        <span class="text-gray-400">{{ t.cardCount }}</span>
+                                        <span class="text-white">{{ selectedSpread.cards_count }}</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                        <span class="text-gray-400">{{ t.difficulty }}</span>
+                                        <span class="text-white capitalize">
+                                            {{ lang === 'uk' ? selectedSpread.difficulty : (selectedSpread.difficulty_en || selectedSpread.difficulty) }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <button @click="startReading(selectedSpread)" class="w-full mt-8 bg-tarot-gold hover:bg-yellow-400 text-tarot-dark font-bold py-3 px-4 rounded-lg transition-colors shadow-lg shadow-yellow-500/20">
+                                    {{ t.startReading }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- READING VIEW -->
+            <div v-else-if="currentView === 'reading'" key="reading" class="min-h-[calc(100vh-64px)] flex flex-col relative">
+                <!-- Shuffle Step -->
+                <div v-if="readingStep === 'focus'" class="flex-1 flex flex-col items-center justify-center p-4 text-center animate-fade-in">
+                    <h2 class="text-3xl font-serif font-bold text-white mb-4">{{ t.focusTitle }}</h2>
+                    <p class="text-gray-300 mb-8 max-w-md">{{ t.focusDesc }}</p>
+                    
+                    <div class="w-48 h-48 relative mb-8">
+                        <div class="absolute inset-0 border-4 border-tarot-gold/30 rounded-full animate-spin-slow"></div>
+                        <div class="absolute inset-4 border-4 border-tarot-purple/50 rounded-full animate-spin-reverse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fa-solid fa-spinner text-4xl text-tarot-gold animate-spin"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">{{ t.shuffling }}</p>
+                </div>
+
+                <!-- Reveal Step -->
+                <div v-else-if="readingStep === 'reveal'" class="flex-1 p-4 md:p-8">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="text-center mb-8">
+                            <h2 class="text-2xl font-serif font-bold text-white">
+                                {{ lang === 'uk' ? selectedSpread.title : selectedSpread.title_en }}
+                            </h2>
+                            <p class="text-gray-400 text-sm">{{ t.yourQuestion }}: "{{ userQuestion }}"</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-12">
+                            <div v-for="(card, index) in readingResult.cards" :key="index" 
+                                 class="tarot-card-container w-full aspect-[2/3.5] relative">
+                                <div class="absolute -top-12 left-0 w-full text-center leading-tight">
+                                    <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">
+                                        {{ lang === 'uk' ? selectedSpread.positions[index]?.name : (selectedSpread.positions[index]?.name_en || selectedSpread.positions[index]?.name) }}
+                                    </div>
+                                    <div v-if="card.revealed" class="text-[11px] font-bold text-white transition-opacity duration-500">
+                                        {{ lang === 'uk' ? card.name : card.name_en }}
+                                        <span class="text-tarot-gold text-[9px] ml-1">({{ card.reversed ? t.reversed : t.upright }})</span>
+                                    </div>
+                                </div>
+                                <div class="tarot-card-inner w-full h-full" :class="{ 'flipped': card.revealed, 'reversed': card.reversed }">
+                                    <!-- Card Back -->
+                                    <div class="tarot-card-back card-back border border-tarot-gold/20"></div>
+                                    
+                                    <!-- Card Front -->
+                                    <div class="tarot-card-front">
+                                        <img :src="card.image" :alt="card.name" class="card-image-display" v-if="card.image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div v-if="showResults" class="glass-panel p-6 rounded-xl animate-slide-up mb-8">
+                            <h3 class="text-2xl font-serif font-bold text-tarot-gold mb-6">{{ t.resultTitle }}</h3>
+                            
+                            <div class="space-y-8 mb-8">
+                                <div v-for="(card, index) in readingResult.cards" :key="index" class="border-b border-white/10 pb-6 last:border-0">
+                                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                                        <span class="w-8 h-8 rounded-full bg-tarot-purple flex items-center justify-center text-tarot-gold text-sm font-bold">{{ index + 1 }}</span>
+                                        <h4 class="font-bold text-white text-lg">
+                                            {{ lang === 'uk' ? selectedSpread.positions[index]?.name : (selectedSpread.positions[index]?.name_en || selectedSpread.positions[index]?.name) }}
+                                        </h4>
+                                        <span class="text-tarot-gold px-2 py-1 bg-white/5 rounded text-sm">
+                                            {{ lang === 'uk' ? card.name : card.name_en }} ({{ card.reversed ? t.reversed : t.upright }})
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="ml-11">
+                                        <h5 class="text-white/80 font-bold text-sm mb-2 uppercase tracking-wide">{{ t.meaningInSpread }}</h5>
+                                        <p class="text-gray-300 leading-relaxed">
+                                            {{ lang === 'uk' ? (card.reversed ? card.meaning_reversed : card.meaning_upright) : (card.reversed ? (card.meaning_reversed_en || card.meaning_reversed) : (card.meaning_upright_en || card.meaning_upright)) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <button @click="copyReading" class="flex items-center px-6 py-3 bg-tarot-gold hover:bg-yellow-400 text-tarot-dark font-bold rounded-lg transition-colors shadow-lg shadow-yellow-500/20">
+                                    <i class="fa-regular fa-copy mr-2"></i> {{ t.copyResult }}
+                                </button>
+                                <button @click="copyAndGoToAI" class="flex items-center px-6 py-3 bg-indigo-600/20 hover:bg-indigo-600/40 text-white font-bold rounded-lg transition-all border border-indigo-500/30 hover:border-indigo-400 shadow-lg shadow-indigo-500/10 active:scale-95">
+                                    <i class="fa-solid fa-robot mr-2 text-indigo-300"></i> {{ t.askAI }}
+                                </button>
+                                <button @click="startNewReading" class="flex items-center px-6 py-3 border border-gray-600 hover:border-white text-gray-300 hover:text-white rounded-lg transition-colors">
+                                    <i class="fa-solid fa-rotate-right mr-2"></i> {{ t.newReading }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIVACY POLICY VIEW -->
+            <div v-else-if="currentView === 'privacy'" key="privacy" class="max-w-4xl mx-auto px-4 py-24 min-h-[70vh]">
+                <div class="glass-panel p-8 md:p-12 rounded-2xl">
+                    <h1 class="text-4xl font-serif font-bold text-tarot-gold mb-8 italic italic break-words">{{ t.privacyTitle }}</h1>
+                    <div class="space-y-6">
+                        <p v-for="line in t.privacyContent" :key="line" class="text-gray-300 leading-relaxed text-lg">
+                            {{ line }}
+                        </p>
+                    </div>
+                    <button @click="navigateTo('home')" class="mt-12 text-tarot-gold flex items-center hover:underline">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
+                    </button>
+                </div>
+            </div>
+
+            <!-- TERMS OF USE VIEW -->
+            <div v-else-if="currentView === 'terms'" key="terms" class="max-w-4xl mx-auto px-4 py-24 min-h-[70vh]">
+                <div class="glass-panel p-8 md:p-12 rounded-2xl">
+                    <h1 class="text-4xl font-serif font-bold text-tarot-gold mb-8 italic italic break-words">{{ t.termsTitle }}</h1>
+                    <div class="space-y-6">
+                        <p v-for="line in t.termsContent" :key="line" class="text-gray-300 leading-relaxed text-lg">
+                            {{ line }}
+                        </p>
+                    </div>
+                    <button @click="navigateTo('home')" class="mt-12 text-tarot-gold flex items-center hover:underline">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
+                    </button>
+                </div>
+            </div>
+        </transition>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-white/10 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider">TARO.ONLINE</span>
+                    <p class="mt-4 text-gray-400 text-sm max-w-md">
+                        {{ t.footerDesc }}
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">{{ t.footerNav }}</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a @click="navigateTo('home')" class="hover:text-tarot-gold cursor-pointer">{{ t.navHome }}</a></li>
+                        <li><a @click="navigateTo('catalog')" class="hover:text-tarot-gold cursor-pointer">{{ t.navSpreads }}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">{{ t.footerInfo }}</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a @click="navigateTo('privacy')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.privacy }}</a></li>
+                        <li><a @click="navigateTo('terms')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.terms }}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">{{ t.footerConnect }}</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://github.com/reginanka" target="_blank" title="GitHub" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-tarot-gold hover:text-tarot-dark transition-all duration-300">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                        <a href="https://t.me/Gearberry" target="_blank" title="Telegram" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-[#0088cc] hover:text-white transition-all duration-300">
+                            <i class="fa-brands fa-telegram text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gearberry_?igsh=ZmRrcWMyOHp5eWR3" target="_blank" title="Instagram" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white transition-all duration-300">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61586878866628" target="_blank" title="Facebook" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-[#1877F2] hover:text-white transition-all duration-300">
+                            <i class="fa-brands fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://www.threads.com/@gearberry_" target="_blank" title="Threads" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-all duration-300">
+                            <i class="fa-brands fa-threads text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Gearberry" target="_blank" title="YouTube" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-[#FF0000] hover:text-white transition-all duration-300">
+                            <i class="fa-brands fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <span class="text-xs text-gray-500 block mb-1 uppercase tracking-widest">{{ t.developedBy }}</span>
+                        <a href="https://t.me/Gearberry" target="_blank" class="text-tarot-gold font-bold hover:underline transition-all underline-offset-4 tracking-wider text-lg">Gearberry</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-500">
+                &copy; {{ new Date().getFullYear() }} Tarot.Online. {{ t.rights }}.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast -->
+    <transition name="slide-up">
+        <div v-if="copySuccess" class="toast-msg">
+            <i class="fa-solid fa-circle-check"></i>
+            {{ t.copySuccess }}
+        </div>
+    </transition>
+</div>
+
+<!-- Scripts -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
