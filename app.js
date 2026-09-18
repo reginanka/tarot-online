@@ -198,7 +198,7 @@ createApp({
 
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
-            selectedSpread, selectedCard, userQuestion,
+            selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI

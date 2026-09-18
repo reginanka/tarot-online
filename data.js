@@ -538,7 +538,10 @@ const uiTranslations = {
             'Результати гадання не повинні сприйматися як професійна медична, юридична або фінансова консультація.',
             'Адміністрація сайту не несе відповідальності за рішення, прийняті на основі отриманих результатів.',
             'Користування сервісом дозволено особам, які досягли 18 років.'
-        ]
+        ],
+        navCards: 'Карти Таро',
+        cardsPageTitle: 'Карти Таро',
+        cardsPageDesc: 'Всі 78 карт з зображеннями, назвами та значеннями.'
     },
     en: {
         navHome: 'Home',
@@ -605,6 +608,9 @@ const uiTranslations = {
             'Reading results should not be taken as professional medical, legal, or financial advice.',
             'The site administration is not responsible for decisions made based on the results obtained.',
             'Use of the service is permitted for persons who have reached the age of 18.'
-        ]
+        ],
+        navCards: 'Tarot Cards',
+        cardsPageTitle: 'Tarot Cards',
+        cardsPageDesc: 'All 78 cards with images, names and meanings.'
     }
 };

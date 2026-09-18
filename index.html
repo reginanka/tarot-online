@@ -69,7 +69,6 @@
                 </div>
                 <div class="hidden md:flex items-center">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a @click="navigateTo('home')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navHome }}</a>
                         <a @click="navigateTo('catalog')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navSpreads }}</a>
                     </div>
                     
@@ -100,7 +99,6 @@
         <!-- Mobile Menu -->
         <div v-if="mobileMenuOpen" class="md:hidden bg-tarot-dark border-b border-white/10">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a @click="navigateTo('home'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navHome }}</a>
                 <a @click="navigateTo('catalog'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navSpreads }}</a>
             </div>
         </div>
@@ -430,6 +428,53 @@
                     </button>
                 </div>
             </div>
+
+            <!-- TAROT CARDS VIEW -->
+            <div v-else-if="currentView === 'cards'" key="cards" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <h1 class="text-4xl font-serif font-bold text-center text-white mb-4">{{ t.cardsPageTitle }}</h1>
+                <p class="text-center text-gray-400 mb-12">{{ t.cardsPageDesc }}</p>
+
+                <!-- Major Arcana -->
+                <h2 class="text-2xl font-serif font-bold text-tarot-gold mb-6">{{ lang === 'uk' ? 'Старший Аркан' : 'Major Arcana' }}</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mb-16">
+                    <div v-for="card in cards.filter(c => c.type_en === 'Major Arcana')" :key="card.id"
+                         class="glass-panel rounded-xl overflow-hidden border border-white/5 hover:border-tarot-gold/40 transition-all group">
+                        <div class="relative aspect-[2/3.5] overflow-hidden bg-tarot-dark">
+                            <img :src="card.image" :alt="lang === 'uk' ? card.name : card.name_en"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-bold text-white text-sm mb-1 leading-tight">{{ lang === 'uk' ? card.name : card.name_en }}</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed line-clamp-4">{{ lang === 'uk' ? card.meaning_upright : card.meaning_upright_en }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minor Arcana -->
+                <template v-for="suit in (lang === 'uk' ? ['Жезли','Кубки','Мечі','Пентаклі'] : ['Wands','Cups','Swords','Pentacles'])" :key="suit">
+                    <h2 class="text-2xl font-serif font-bold text-tarot-gold mb-6">
+                        {{ suit }}
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 mb-14">
+                        <div v-for="card in cards.filter(c => c.type_en === 'Minor Arcana' && (lang === 'uk' ? c.suit === suit : c.suit_en === suit))"
+                             :key="card.id"
+                             class="glass-panel rounded-xl overflow-hidden border border-white/5 hover:border-tarot-gold/40 transition-all group">
+                            <div class="relative aspect-[2/3.5] overflow-hidden bg-tarot-dark">
+                                <img :src="card.image" :alt="lang === 'uk' ? card.name : card.name_en"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-white text-sm mb-1 leading-tight">{{ lang === 'uk' ? card.name : card.name_en }}</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-4">{{ lang === 'uk' ? card.meaning_upright : card.meaning_upright_en }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <button @click="navigateTo('home')" class="mt-4 text-tarot-gold flex items-center hover:underline">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
+                </button>
+            </div>
         </transition>
     </main>
 
@@ -448,6 +493,7 @@
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a @click="navigateTo('home')" class="hover:text-tarot-gold cursor-pointer">{{ t.navHome }}</a></li>
                         <li><a @click="navigateTo('catalog')" class="hover:text-tarot-gold cursor-pointer">{{ t.navSpreads }}</a></li>
+                        <li><a @click="navigateTo('cards')" class="hover:text-tarot-gold cursor-pointer">{{ t.navCards }}</a></li>
                     </ul>
                 </div>
                 <div>
