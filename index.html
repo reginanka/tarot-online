@@ -5,7 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн Таро - Безкоштовні розклади</title>
     <meta name="description" content="Сервіс онлайн-гадання на картах Таро без реєстрації. 28 розкладів.">
-    
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#302b63">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Таро">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Vue 3 -->
@@ -487,5 +503,75 @@
 <!-- Scripts -->
 <script src="data.js"></script>
 <script src="app.js"></script>
+
+<!-- PWA Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => console.log('[PWA] Service Worker зареєстровано:', reg.scope))
+        .catch((err) => console.error('[PWA] Помилка реєстрації SW:', err));
+    });
+  }
+
+  // Підказка «Встановити додаток» (Android/Chrome)
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Показуємо кнопку встановлення через 10 секунд
+    setTimeout(() => {
+      if (deferredPrompt) showInstallBanner();
+    }, 10000);
+  });
+
+  function showInstallBanner() {
+    const banner = document.createElement('div');
+    banner.id = 'pwa-install-banner';
+    banner.innerHTML = `
+      <div style="
+        position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+        background:linear-gradient(135deg,#302b63,#9d50bb);
+        color:#fff; padding:14px 20px; border-radius:14px;
+        box-shadow:0 8px 32px rgba(0,0,0,0.5);
+        display:flex; align-items:center; gap:12px;
+        font-family:sans-serif; font-size:14px;
+        z-index:9999; max-width:340px; width:calc(100% - 40px);
+        border:1px solid rgba(255,215,0,0.3);
+      ">
+        <img src="icons/icon-192.png" width="40" height="40" style="border-radius:8px;flex-shrink:0;">
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:2px;">Встановити Таро</div>
+          <div style="opacity:0.8;font-size:12px;">Додати на головний екран</div>
+        </div>
+        <button id="pwa-install-btn" style="
+          background:#ffd700; color:#0f0c29; border:none; border-radius:8px;
+          padding:8px 14px; font-weight:700; cursor:pointer; font-size:13px;flex-shrink:0;
+        ">Так</button>
+        <button id="pwa-dismiss-btn" style="
+          background:transparent; color:rgba(255,255,255,0.6); border:none;
+          cursor:pointer; font-size:20px; padding:0 4px; line-height:1;flex-shrink:0;
+        ">×</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+      banner.remove();
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log('[PWA] Результат встановлення:', outcome);
+        deferredPrompt = null;
+      }
+    });
+
+    document.getElementById('pwa-dismiss-btn').addEventListener('click', () => {
+      banner.remove();
+      deferredPrompt = null;
+    });
+  }
+</script>
 </body>
 </html>
