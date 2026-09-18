@@ -446,10 +446,11 @@ const suitThemes = {
 function generateMinorArcana() {
     const minor = [];
     suitsData.forEach(suit => {
-        const theme = suitThemes[suit.name];
+        const descriptions = minorArcanaDescriptions[suit.id];
         ranksUa.forEach((rank, i) => {
             const num = (i + 1).toString().padStart(2, '0');
             const rankEn = ranksEn[i];
+            const desc = descriptions[i];
             minor.push({
                 id: `${suit.id}${i + 1}`,
                 name: `${rank} ${suit.name}`,
@@ -459,10 +460,10 @@ function generateMinorArcana() {
                 type_en: 'Minor Arcana',
                 suit: suit.name,
                 suit_en: suit.name_en,
-                meaning_upright: `${rank} ${suit.name} — ${theme.upright}`,
-                meaning_upright_en: `${rankEn} of ${suit.name_en} — ${theme.upright_en}`,
-                meaning_reversed: `Перевернутий ${rank} ${suit.name} — ${theme.reversed}`,
-                meaning_reversed_en: `Reversed ${rankEn} of ${suit.name_en} — ${theme.reversed_en}`,
+                meaning_upright: desc.upright,
+                meaning_upright_en: desc.upright_en,
+                meaning_reversed: desc.reversed,
+                meaning_reversed_en: desc.reversed_en,
                 keywords: [suit.name, rank, suit.element]
             });
         });

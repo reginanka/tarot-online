@@ -7,6 +7,7 @@ const STATIC_ASSETS = [
   './style.css',
   './app.js',
   './data.js',
+  './cards-data.js',
   // Зображення карт — Старші Аркани
   './images/cards/m00.webp',
   './images/cards/m01.webp',
