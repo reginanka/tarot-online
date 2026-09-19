@@ -82,9 +82,49 @@ createApp({
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
         });
 
-        const navigateTo = (view) => {
+        const syncHashToState = () => {
+            const hash = window.location.hash.slice(1);
+            if (!hash) {
+                currentView.value = 'home';
+                return;
+            }
+            
+            const params = new URLSearchParams(hash);
+            const view = params.get('view') || 'home';
+            const id = params.get('id');
+
+            if (view === 'spread-detail' || view === 'reading') {
+                if (id) {
+                    const spread = spreads.value.find(s => s.id == id);
+                    if (spread) {
+                        selectedSpread.value = spread;
+                        currentView.value = view === 'reading' ? 'spread-detail' : 'spread-detail';
+                        return;
+                    }
+                }
+                currentView.value = 'catalog';
+            } else if (['catalog', 'privacy', 'terms', 'cards'].includes(view)) {
+                currentView.value = view;
+            } else {
+                currentView.value = 'home';
+            }
+        };
+
+        const navigateTo = (view, updateHash = true) => {
             currentView.value = view;
             window.scrollTo(0, 0);
+            
+            if (updateHash) {
+                if (view === 'home') {
+                    window.location.hash = '';
+                } else if (view === 'spread-detail' && selectedSpread.value) {
+                    window.location.hash = `view=spread-detail&id=${selectedSpread.value.id}`;
+                } else if (view === 'reading' && selectedSpread.value) {
+                    window.location.hash = `view=reading&id=${selectedSpread.value.id}`;
+                } else {
+                    window.location.hash = `view=${view}`;
+                }
+            }
         };
 
         const openSpread = (spread) => {
@@ -196,12 +236,34 @@ createApp({
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         };
 
+        // Встановлюємо початковий стан одразу, щоб уникнути блимання
+        syncHashToState();
+
+        onMounted(() => {
+            window.addEventListener('hashchange', () => {
+                syncHashToState();
+            });
+        });
+
+        const getCardWord = (count, currentLang) => {
+            if (currentLang === 'en') {
+                return count === 1 ? 'card' : 'cards';
+            }
+            const mod10 = count % 10;
+            const mod100 = count % 100;
+            if (mod100 >= 11 && mod100 <= 14) return 'карт';
+            if (mod10 === 1) return 'карта';
+            if (mod10 >= 2 && mod10 <= 4) return 'карти';
+            return 'карт';
+        };
+
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
-            copyReading, startNewReading, scrollToSection, copyAndGoToAI
+            copyReading, startNewReading, scrollToSection, copyAndGoToAI,
+            getCardWord
         };
     }
 }).mount('#app');

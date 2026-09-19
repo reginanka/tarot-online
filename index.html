@@ -151,12 +151,7 @@
                             <div v-for="spread in quickSpreads" :key="spread.id" 
                                  @click="openSpread(spread)"
                                  class="glass-panel p-6 rounded-2xl hover:border-tarot-gold/50 hover:shadow-xl hover:shadow-yellow-500/5 transition-all group cursor-pointer border border-white/5">
-                                <div class="w-14 h-14 bg-tarot-purple/50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-wand-magic-sparkles text-tarot-gold text-2xl" v-if="spread.cards_count === 3"></i>
-                                    <i class="fa-solid fa-moon text-tarot-gold text-2xl" v-else-if="spread.cards_count === 1"></i>
-                                    <i class="fa-solid fa-sun text-tarot-gold text-2xl" v-else-if="spread.cards_count === 4"></i>
-                                    <i class="fa-solid fa-star text-tarot-gold text-2xl" v-else></i>
-                                </div>
+
                                 <h3 class="text-xl font-bold text-white mb-3 group-hover:text-tarot-gold transition-colors">
                                     {{ lang === 'uk' ? spread.title : spread.title_en }}
                                 </h3>
@@ -164,7 +159,7 @@
                                     {{ lang === 'uk' ? spread.short_description : (spread.short_description_en || spread.short_description) }}
                                 </p>
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">{{ spread.cards_count }} {{ lang === 'uk' ? 'карт' : 'cards' }}</span>
+                                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">{{ spread.cards_count }} {{ getCardWord(spread.cards_count, lang) }}</span>
                                     <span class="text-tarot-gold text-sm font-medium flex items-center">
                                         {{ t.tryIt }} <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
                                     </span>
@@ -229,7 +224,7 @@
                         <div class="h-40 bg-gradient-to-br from-tarot-purple to-tarot-dark flex items-center justify-center relative overflow-hidden">
                             <div class="absolute inset-0 bg-[url('./images/cards/card-back.png')] opacity-20 bg-cover"></div>
                             <i class="fa-solid fa-star text-5xl text-white/10 group-hover:scale-110 transition-transform duration-500"></i>
-                            <span class="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded text-xs text-tarot-gold">{{ spread.cards_count }} {{ lang === 'uk' ? 'карт' : 'cards' }}</span>
+                            <span class="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded text-xs text-tarot-gold">{{ spread.cards_count }} {{ getCardWord(spread.cards_count, lang) }}</span>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-bold text-white mb-2 group-hover:text-tarot-gold transition-colors">
@@ -574,40 +569,28 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-
-    // Показуємо кнопку встановлення через 10 секунд
-    setTimeout(() => {
-      if (deferredPrompt) showInstallBanner();
-    }, 10000);
   });
+
+  // Показуємо кнопку встановлення через 3 секунди завжди (для тестування дизайну)
+  setTimeout(() => {
+    if (!document.getElementById('pwa-install-banner')) {
+      showInstallBanner();
+    }
+  }, 3000);
 
   function showInstallBanner() {
     const banner = document.createElement('div');
     banner.id = 'pwa-install-banner';
+    banner.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-40px)] max-w-[340px]';
     banner.innerHTML = `
-      <div style="
-        position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
-        background:linear-gradient(135deg,#302b63,#9d50bb);
-        color:#fff; padding:14px 20px; border-radius:14px;
-        box-shadow:0 8px 32px rgba(0,0,0,0.5);
-        display:flex; align-items:center; gap:12px;
-        font-family:sans-serif; font-size:14px;
-        z-index:9999; max-width:340px; width:calc(100% - 40px);
-        border:1px solid rgba(255,215,0,0.3);
-      ">
-        <img src="icons/icon-192.png" width="40" height="40" style="border-radius:8px;flex-shrink:0;">
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:2px;">Встановити Таро</div>
-          <div style="opacity:0.8;font-size:12px;">Додати на головний екран</div>
+      <div class="glass-panel p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 text-white font-sans backdrop-blur-md">
+        <img src="icons/icon-192.png" width="40" height="40" class="rounded-xl shrink-0 shadow-md" alt="Icon">
+        <div class="flex-1 min-w-0">
+          <div class="font-bold text-sm text-white mb-0.5 truncate">Встановити Таро</div>
+          <div class="text-xs text-gray-300 truncate">Додати на головний екран</div>
         </div>
-        <button id="pwa-install-btn" style="
-          background:#ffd700; color:#0f0c29; border:none; border-radius:8px;
-          padding:8px 14px; font-weight:700; cursor:pointer; font-size:13px;flex-shrink:0;
-        ">Так</button>
-        <button id="pwa-dismiss-btn" style="
-          background:transparent; color:rgba(255,255,255,0.6); border:none;
-          cursor:pointer; font-size:20px; padding:0 4px; line-height:1;flex-shrink:0;
-        ">×</button>
+        <button id="pwa-install-btn" class="bg-tarot-gold text-tarot-dark px-3.5 py-2 rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors shrink-0">Так</button>
+        <button id="pwa-dismiss-btn" class="text-gray-400 hover:text-white px-2 py-1 text-xl leading-none transition-colors shrink-0">&times;</button>
       </div>
     `;
     document.body.appendChild(banner);
@@ -619,6 +602,8 @@
         const { outcome } = await deferredPrompt.userChoice;
         console.log('[PWA] Результат встановлення:', outcome);
         deferredPrompt = null;
+      } else {
+        alert('Ваш браузер зараз блокує автоматичне встановлення. Скористайтеся меню браузера ("Додати на головний екран" або значок встановлення в адресному рядку).');
       }
     });
 
