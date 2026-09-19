@@ -571,12 +571,19 @@
     deferredPrompt = e;
   });
 
-  // Показуємо кнопку встановлення через 3 секунди завжди (для тестування дизайну)
+  // Показуємо кнопку встановлення через 3 секунди тільки якщо доступно
   setTimeout(() => {
-    if (!document.getElementById('pwa-install-banner')) {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    if (!document.getElementById('pwa-install-banner') && deferredPrompt && !isStandalone) {
       showInstallBanner();
     }
   }, 3000);
+
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.remove();
+  });
 
   function showInstallBanner() {
     const banner = document.createElement('div');

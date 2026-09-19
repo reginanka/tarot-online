@@ -1,6 +1,6 @@
 // Бампніть цю версію при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
 // Всі локальні ресурси для попереднього кешування
@@ -151,19 +151,43 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   if (event.request.method !== 'GET') return;
+  if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
+    return;
+  }
 
   const isLocal = url.origin === self.location.origin;
   const isCDN = CDN_HOSTS.some((host) => url.hostname.includes(host));
+  const isImage = request.destination === 'image' || url.pathname.match(/\.(png|jpg|jpeg|webp|gif|svg)$/i);
 
-  if (isLocal || isCDN) {
+  if (isImage && isLocal) {
+    event.respondWith(cacheFirst(event.request));
+  } else if (isLocal || isCDN) {
     event.respondWith(staleWhileRevalidate(event.request));
   }
 });
 
+// Cache First — ідеально для картинок, щоб вони миттєво вантажились офлайн
+async function cacheFirst(request) {
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(request, { ignoreSearch: true });
+  if (cached) {
+    return cached;
+  }
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (error) {
+    return new Response('', { status: 404, statusText: 'Offline' });
+  }
+}
+
 // Stale While Revalidate — повертаємо кеш (якщо є) і одразу оновлюємо у фоні
 async function staleWhileRevalidate(request) {
   const cache = await caches.open(CACHE_NAME);
-  const cached = await cache.match(request);
+  const cached = await cache.match(request, { ignoreSearch: true });
 
   const fetchPromise = fetch(request).then((response) => {
     if (response.ok) {
