@@ -542,7 +542,11 @@ const uiTranslations = {
         ],
         navCards: 'Карти Таро',
         cardsPageTitle: 'Карти Таро',
-        cardsPageDesc: 'Всі 78 карт з зображеннями, назвами та значеннями.'
+        cardsPageDesc: 'Всі 78 карт з зображеннями, назвами та значеннями.',
+        pwaInstallTitle: 'Встановити Таро',
+        pwaInstallDesc: 'Додати на головний екран',
+        pwaInstallYes: 'Так',
+        pwaInstallBlocked: 'Ваш браузер зараз блокує автоматичне встановлення. Скористайтеся меню браузера ("Додати на головний екран" або значок встановлення в адресному рядку).'
     },
     en: {
         navHome: 'Home',
@@ -612,6 +616,10 @@ const uiTranslations = {
         ],
         navCards: 'Tarot Cards',
         cardsPageTitle: 'Tarot Cards',
-        cardsPageDesc: 'All 78 cards with images, names and meanings.'
+        cardsPageDesc: 'All 78 cards with images, names and meanings.',
+        pwaInstallTitle: 'Install Tarot',
+        pwaInstallDesc: 'Add to Home Screen',
+        pwaInstallYes: 'Yes',
+        pwaInstallBlocked: 'Your browser is currently blocking automatic installation. Please use the browser menu ("Add to Home Screen" or the install icon in the address bar).'
     }
 };

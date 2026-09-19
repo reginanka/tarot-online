@@ -1,6 +1,6 @@
 // Бампніть цю версію при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
 // Всі локальні ресурси для попереднього кешування
@@ -157,7 +157,7 @@ self.addEventListener('fetch', (event) => {
 
   const isLocal = url.origin === self.location.origin;
   const isCDN = CDN_HOSTS.some((host) => url.hostname.includes(host));
-  const isImage = request.destination === 'image' || url.pathname.match(/\.(png|jpg|jpeg|webp|gif|svg)$/i);
+  const isImage = event.request.destination === 'image' || url.pathname.match(/\.(png|jpg|jpeg|webp|gif|svg)$/i);
 
   if (isImage && isLocal) {
     event.respondWith(cacheFirst(event.request));

@@ -98,7 +98,7 @@ createApp({
                     const spread = spreads.value.find(s => s.id == id);
                     if (spread) {
                         selectedSpread.value = spread;
-                        currentView.value = view === 'reading' ? 'spread-detail' : 'spread-detail';
+                        currentView.value = view === 'reading' ? 'reading' : 'spread-detail';
                         return;
                     }
                 }
