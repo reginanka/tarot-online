@@ -1,6 +1,9 @@
-const CACHE_NAME = 'tarot-pwa-v1';
+// Бампніть цю версію при кожному деплої зі значними змінами —
+// це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
-// Всі локальні ресурси для кешування
+// Всі локальні ресурси для попереднього кешування
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -98,7 +101,7 @@ const STATIC_ASSETS = [
   './icons/icon-512.png',
 ];
 
-// Зовнішні ресурси (CDN) — кешуємо після першого завантаження
+// Зовнішні ресурси (CDN)
 const CDN_HOSTS = [
   'cdn.tailwindcss.com',
   'unpkg.com',
@@ -121,7 +124,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// ── Activate: видаляємо старі кеші ─────────────────────────────────────────
+// ── Activate: видаляємо старі кеші (спрацює автоматично при зміні CACHE_VERSION) ──
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -140,50 +143,24 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ── Fetch: стратегія кешування ─────────────────────────────────────────────
+// ── Fetch: і локальні, і CDN ресурси йдуть через stale-while-revalidate ────
+// Це означає: користувач одразу бачить кешовану версію (швидко, працює офлайн),
+// але в фоні завжди йде запит по мережі, і кеш оновлюється свіжими файлами.
+// Завдяки цьому наступний візит уже підхопить нову версію без ручного очищення кешу.
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Ігноруємо не-GET запити
   if (event.request.method !== 'GET') return;
 
-  // Локальні ресурси: Cache First
   const isLocal = url.origin === self.location.origin;
-  if (isLocal) {
-    event.respondWith(cacheFirst(event.request));
-    return;
-  }
-
-  // CDN ресурси: Stale While Revalidate
   const isCDN = CDN_HOSTS.some((host) => url.hostname.includes(host));
-  if (isCDN) {
+
+  if (isLocal || isCDN) {
     event.respondWith(staleWhileRevalidate(event.request));
-    return;
   }
 });
 
-// Cache First — спочатку кеш, потім мережа
-async function cacheFirst(request) {
-  const cached = await caches.match(request);
-  if (cached) return cached;
-
-  try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(CACHE_NAME);
-      cache.put(request, response.clone());
-    }
-    return response;
-  } catch {
-    // Офлайн і немає кешу — нічого не можемо зробити
-    return new Response('Немає з\'єднання з мережею', {
-      status: 503,
-      statusText: 'Service Unavailable',
-    });
-  }
-}
-
-// Stale While Revalidate — повертаємо кеш і оновлюємо у фоні
+// Stale While Revalidate — повертаємо кеш (якщо є) і одразу оновлюємо у фоні
 async function staleWhileRevalidate(request) {
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(request);
