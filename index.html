@@ -573,7 +573,11 @@
 
   // Показуємо кнопку встановлення через 3 секунди тільки якщо доступно
   setTimeout(() => {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                         window.matchMedia('(display-mode: fullscreen)').matches || 
+                         window.matchMedia('(display-mode: minimal-ui)').matches || 
+                         window.navigator.standalone;
+                         
     if (!document.getElementById('pwa-install-banner') && deferredPrompt && !isStandalone) {
       showInstallBanner();
     }
