@@ -52,7 +52,13 @@ Feel free to connect with me:
 
 ## 📄 License
 
-This project is open-source. Card images used are traditionally from the public domain (Rider-Waite deck).
+This project is open-source (MIT).
+
+### Card images attribution
+
+Card images are from **[Tarot Cards WebP Collection](https://github.com/reginanka/tarot-cards)** by Gearberry, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+> Tarot Cards WebP Collection by Gearberry — https://github.com/reginanka/tarot-cards
 
 ---
 *Created with passion for Tarot and Coding.*
