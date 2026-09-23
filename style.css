@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 .card-back {
-    background-image: url('./images/cards/card-back.png');
+    background-image: url('https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/card-back.webp');
     background-size: cover;
     background-position: center;
 }

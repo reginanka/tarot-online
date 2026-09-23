@@ -350,8 +350,8 @@ const spreadsData = [
     }
 ];
 
-// Local images base directory
-const IMG_BASE = './images/cards/';
+// Card images via CDN (tarot-cards repo) — SW pre-caches them for offline
+const IMG_BASE = 'https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/';
 
 const tarotCards = [
     {

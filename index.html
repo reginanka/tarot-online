@@ -222,7 +222,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div v-for="spread in filteredSpreads" :key="spread.id" class="glass-panel rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all group cursor-pointer" @click="openSpread(spread)">
                         <div class="h-40 bg-gradient-to-br from-tarot-purple to-tarot-dark flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[url('./images/cards/card-back.png')] opacity-20 bg-cover"></div>
+                            <div class="absolute inset-0 bg-[url('https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/card-back.webp')] opacity-20 bg-cover"></div>
                             <i class="fa-solid fa-star text-5xl text-white/10 group-hover:scale-110 transition-transform duration-500"></i>
                             <span class="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded text-xs text-tarot-gold">{{ spread.cards_count }} {{ getCardWord(spread.cards_count, lang) }}</span>
                         </div>
