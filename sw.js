@@ -1,6 +1,6 @@
 // Бампніть цю версію при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v8';
 const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
 // CDN base for card images (tarot-cards repo)
@@ -42,7 +42,7 @@ const LOCAL_ASSETS = [
   './style.css',
   './app.js',
   './data.js',
-  './cards-data.js',
+  './cards.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
 ];

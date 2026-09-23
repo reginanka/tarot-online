@@ -257,13 +257,24 @@ createApp({
             return 'карт';
         };
 
+
+        const openCard = (card) => {
+            selectedCard.value = card;
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeCard = () => {
+            selectedCard.value = null;
+            document.body.style.overflow = '';
+        };
+
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
-            getCardWord
+            getCardWord, openCard, closeCard
         };
     }
 }).mount('#app');

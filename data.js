@@ -1,4 +1,8 @@
-// Spreads Data - All 28 Spreads (Enriched with detailed bilingual descriptions)
+/**
+ * data.js — spreads + UI translations only.
+ * Card data lives in cards.js (single source of truth).
+ */
+
 const spreadsData = [
     // 🌟 Універсальні
     { 
@@ -350,128 +354,7 @@ const spreadsData = [
     }
 ];
 
-// Card images via CDN (tarot-cards repo) — SW pre-caches them for offline
-const IMG_BASE = 'https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/';
-
-const tarotCards = [
-    {
-        id: 'm0',
-        name: 'Дурень', name_en: 'The Fool',
-        image: IMG_BASE + 'm00.webp',
-        type: 'Старший Аркан', type_en: 'Major Arcana',
-        meaning_upright: 'Дурень символізує нові починання, віру в життя та спонтанність. Це заклик довіритися Всесвіту і зробити крок у невідоме з відкритим серцем. Карта говорить про невинність, чистоту намірів і відсутність страху перед майбутнім.',
-        meaning_upright_en: 'The Fool represents new beginnings, faith in the future, and innocence. It is a call to trust the Universe and take a step into the unknown with an open heart. The card speaks of innocence, purity of intention, and an absence of fear for the future.',
-        meaning_reversed: 'Перевернутий Дурень попереджає про безрозсудність, недбалість і ризик прийняти поспішне рішення. Це може означати страх перед змінами або, навпаки, занадто велику наївність, яка веде до помилок.',
-        meaning_reversed_en: 'Reversed: Recklessness, risk-taking, and inconsiderateness. It can mean fear of change or, conversely, too much naivety leading to mistakes.',
-    },
-    {
-        id: 'm1',
-        name: 'Маг', name_en: 'The Magician',
-        image: IMG_BASE + 'm01.webp',
-        type: 'Старший Аркан', type_en: 'Major Arcana',
-        meaning_short: 'Воля, майстерність, здатність перетворювати ідеї на реальність.',
-        meaning_short_en: 'Will, mastery, ability to turn ideas into reality.',
-        meaning_upright: 'Маг володіє всіма інструментами (стихіями) для реалізації своїх цілей. Він уособлює концентрацію, силу волі та майстерність. Це знак того, що у вас є все необхідне для успіху, потрібно лише діяти впевнено.',
-        meaning_upright_en: 'The Magician symbols power, skill, and focused action. It is a sign that you have everything you need for success, you just need to act confidently.',
-        meaning_reversed: 'У перевернутому положенні Маг може вказувати на маніпуляції, приховані наміри або невикористаний потенціал. Також це може быть знак невпевненості у власних силах або затримки в реалізації планів.',
-        meaning_reversed_en: 'Reversed: Manipulation, poor planning, untapped talents. It can also signify self-doubt or delays in acting on plans.',
-    },
-    { id: 'm2', name: 'Жриця', name_en: 'The High Priestess', type_en: 'Major Arcana', image: IMG_BASE + 'm02.webp', meaning_upright: 'Жриця — це голос інтуїції та зв\'язок із прихованим світом. Вона закликає дослухатися до внутрішнього голосу, звернути увагу на сни та знаки.', meaning_upright_en: 'The High Priestess is the voice of intuition. She calls you to listen to your inner voice and pay attention to dreams and signs.', meaning_reversed: 'Перевернута Жриця говорить про поверхневість, ігнорування інтуїції або розкриття секретів.', meaning_reversed_en: 'Reversed: Secrets, disconnected from intuition, withdrawal.' },
-    { id: 'm3', name: 'Імператриця', name_en: 'The Empress', type_en: 'Major Arcana', image: IMG_BASE + 'm03.webp', meaning_upright: 'Імператриця — символ процвітання, творчості та турботи. Вона вказує на гармонію з природою, матеріальний добробут та успішний розвиток ідей.', meaning_upright_en: 'The Empress symbols fertility, femininity, beauty, nature, and abundance.', meaning_reversed: 'Може означати творчий застій, надмірну опіку або фінансові труднощі.', meaning_reversed_en: 'Reversed: Creative block, dependence on others.' },
-    { id: 'm4', name: 'Імператор', name_en: 'The Emperor', type_en: 'Major Arcana', image: IMG_BASE + 'm04.webp', meaning_upright: 'Імператор уособлює порядок, логіку та стабільність. Він говорить про необхідність структурованого підходу.', meaning_upright_en: 'The Emperor represents order, establishment, structure, and authority.', meaning_reversed: 'Може вказувати на тиранію, жорсткість або повну відсутність порядку.', meaning_reversed_en: 'Reversed: Domination, excessive control, lack of discipline.' },
-    { id: 'm5', name: 'Ієрофант', name_en: 'The Hierophant', type_en: 'Major Arcana', image: IMG_BASE + 'm05.webp', meaning_upright: 'Шлях до знань через традиції, віру та навчання. Він символізує духовне наставництво.', meaning_upright_en: 'The Hierophant: Spiritual wisdom, conformity, tradition, institutions.', meaning_reversed: 'Закликає до перегляду застарілих норм або пошуку власного нетрадиційного шляху.', meaning_reversed_en: 'Reversed: Personal beliefs, freedom, challenging the status quo.' },
-    { id: 'm6', name: 'Закохані', name_en: 'The Lovers', type_en: 'Major Arcana', image: IMG_BASE + 'm06.webp', meaning_upright: 'Говорить про важливий вибір, заснований на почуттях і цінностях. Символізує гармонійні стосунки.', meaning_upright_en: 'The Lovers symbols love, harmony, relationships, values alignment, choices.', meaning_reversed: 'Вказує на конфлікт цінностей, невірний вибір або дисбаланс у стосунках.', meaning_reversed_en: 'Reversed: Self-love, disharmony, imbalance, misalignment of values.' },
-    { id: 'm7', name: 'Колісниця', name_en: 'The Chariot', type_en: 'Major Arcana', image: IMG_BASE + 'm07.webp', meaning_upright: 'Символізує тріумф, отриманий завдяки самовладанню та наполегливості. Це знак того, що ви здатні подолати перешкоди.', meaning_upright_en: 'The Chariot symbols control, will power, victory, assertion, determination.', meaning_reversed: 'Вказує на втрату контролю, агресію або поразку через поспіх.', meaning_reversed_en: 'Reversed: Lack of control, opposition, lack of direction.' },
-    { id: 'm8', name: 'Справедливість', name_en: 'Justice', type_en: 'Major Arcana', image: IMG_BASE + 'm08.webp', meaning_upright: 'Говорить про те, що ви отримаєте те, на що заслуговуєте. Карта істини та відповідальності.', meaning_upright_en: 'Justice symbols fairness, truth, cause and effect, law.', meaning_reversed: 'Вказує на несправедливість, упередженість або спроби уникнути відповідальності.', meaning_reversed_en: 'Reversed: Injustice, lack of accountability, dishonesty.' },
-    { id: 'm9', name: 'Відлюдник', name_en: 'The Hermit', type_en: 'Major Arcana', image: IMG_BASE + 'm09.webp', meaning_upright: 'Закликає до усамітнення для пошуку істини всередині себе. Час рефлексії та переоцінки цінностей.', meaning_upright_en: 'The Hermit symbols soul-searching, introspection, being alone, inner guidance.', meaning_reversed: 'Може вказувати на болісну самотність, ізоляцію або відмову чути поради.', meaning_reversed_en: 'Reversed: Isolation, loneliness, withdrawal.' },
-    { id: 'm10', name: 'Колесо Фортуни', name_en: 'Wheel of Fortune', type_en: 'Major Arcana', image: IMG_BASE + 'm10.webp', meaning_upright: 'Нагадує, що все минає і все змінюється. Це знак удачі та нового циклу.', meaning_upright_en: 'Wheel of Fortune: Good luck, karma, life cycles, destiny, a turning point.', meaning_reversed: 'Може означати період невдач, опір змінам або повернення старих проблем.', meaning_reversed_en: 'Reversed: Bad luck, resistance to change, breaking cycles.' },
-    { id: 'm11', name: 'Сила', name_en: 'Strength', type_en: 'Major Arcana', image: IMG_BASE + 'm11.webp', meaning_upright: 'Перемога духу над інстинктами. Говорить про терпіння, співчуття та м\'яке приборкання внутрішнього звіра.', meaning_upright_en: 'Strength: Courage, persuasion, influence, compassion.', meaning_reversed: 'Вказує на брак впевненості, зловживання силою або напади гніву.', meaning_reversed_en: 'Reversed: Inner weakness, self-doubt, lack of self-discipline.' },
-    { id: 'm12', name: 'Повішений', name_en: 'The Hanged Man', type_en: 'Major Arcana', image: IMG_BASE + 'm12.webp', meaning_upright: 'Закликає подивитися на ситуацію под іншим кутом. Час духовного прозріння та паузи.', meaning_upright_en: 'The Hanged Man: Pause, surrender, letting go, new perspectives.', meaning_reversed: 'Вказує на даремні жертви, егоїзм або нескінченні зволікання.', meaning_reversed_en: 'Reversed: Delays, resistance, stalling, indecision.' },
-    { id: 'm13', name: 'Смерть', name_en: 'Death', type_en: 'Major Arcana', image: IMG_BASE + 'm13.webp', meaning_upright: 'Не фізичний кінець, а завершення етапу. Необхідне очищення для появи чогось нового.', meaning_upright_en: 'Death symbols endings, change, transformation, transition.', meaning_reversed: 'Говорить про страх змін, чіпляння за минуле та застій.', meaning_reversed_en: 'Reversed: Resistance to change, inability to release past.' },
-    { id: 'm14', name: 'Помірність', name_en: 'Temperance', type_en: 'Major Arcana', image: IMG_BASE + 'm14.webp', meaning_upright: 'Закликає до пошуку золотої середини. Карта гармонії, спокою та поступового зцілення.', meaning_upright_en: 'Temperance: Balance, moderation, patience, purpose.', meaning_reversed: 'Вказує на дисбаланс, надмірність або конфлікти.', meaning_reversed_en: 'Reversed: Imbalance, excess, self-healing, re-alignment.' },
-    { id: 'm15', name: 'Диявол', name_en: 'The Devil', type_en: 'Major Arcana', image: IMG_BASE + 'm15.webp', meaning_upright: 'Символізує те, що нас обмежує: шкідливі звички, токсичні стосунки або страхи.', meaning_upright_en: 'The Devil symbols attachment, addiction, restriction, sexuality.', meaning_reversed: 'Шлях до звільнення. Ви починаєте усвідомлювати свої залежності та шукати вихід.', meaning_reversed_en: 'Reversed: Releasing limiting beliefs, detachment, freedom.' },
-    { id: 'm16', name: 'Вежа', name_en: 'The Tower', type_en: 'Major Arcana', image: IMG_BASE + 'm16.webp', meaning_upright: 'Карта раптових і болісних змін, які руйнують те, що було неміцним. Очищення через кризу.', meaning_upright_en: 'The Tower symbols sudden change, upheaval, chaos, revelation.', meaning_reversed: 'Ви намагаєтеся уникнути неминучого краху, або потрясіння буде не таким масштабним.', meaning_reversed_en: 'Reversed: Personal transformation, fear of change, avoiding disaster.' },
-    { id: 'm17', name: 'Зірка', name_en: 'The Star', type_en: 'Major Arcana', image: IMG_BASE + 'm17.webp', meaning_upright: 'Символ надії, віри в майбутнє та душевного спокою. Період відновлення та натхнення.', meaning_upright_en: 'The Star symbols hope, faith, purpose, renewal, spirituality.', meaning_reversed: 'Вказує на втрату віри, песимізм або творчу кризу.', meaning_reversed_en: 'Reversed: Lack of faith, despair, self-trust.' },
-    { id: 'm18', name: 'Місяць', name_en: 'The Moon', type_en: 'Major Arcana', image: IMG_BASE + 'm18.webp', meaning_upright: 'Уособлює світ снів, підсвідомих страхів та ілюзій. Довіряйте інтуїції.', meaning_upright_en: 'The Moon symbols illusion, fear, anxiety, subconscious, intuition.', meaning_reversed: 'Означає прояснення ситуації, подолання страхів та викриття брехні.', meaning_reversed_en: 'Reversed: Release of fear, repressed emotion, inner confusion.' },
-    { id: 'm19', name: 'Сонце', name_en: 'The Sun', type_en: 'Major Arcana', image: IMG_BASE + 'm19.webp', meaning_upright: 'Обіцяє тріумф, щастя, здоров\'я та повну ясність. Час, коли все виходить.', meaning_upright_en: 'The Sun symbols positivity, fun, warmth, success, vitality.', meaning_reversed: 'Сонце залишається позитивним, хоча світло може быть дещо приглушеним.', meaning_reversed_en: 'Reversed: Inner child, feeling down, overly optimistic.' },
-    { id: 'm20', name: 'Суд', name_en: 'Judgement', type_en: 'Major Arcana', image: IMG_BASE + 'm20.webp', meaning_upright: 'Момент істини, коли ви оцінюєте минуле. Карта духовного пробудження та прощення.', meaning_upright_en: 'Judgement symbols judgement, rebirth, inner calling, absolution.', meaning_reversed: 'Говорить про страх осуду, ігнорування внутрішнього клику або нездатність відпустити минуле.', meaning_reversed_en: 'Reversed: Self-doubt, inner critic, ignoring the call.' },
-    { id: 'm21', name: 'Світ', name_en: 'The World', type_en: 'Major Arcana', image: IMG_BASE + 'm21.webp', meaning_upright: 'Карта завершеності та тріумфу. Ви досягли мети і відчуваєте гармонію.', meaning_upright_en: 'The World symbols completion, integration, accomplishment, travel.', meaning_reversed: 'Означає незавершеність, затримки або відсутність почуття задоволення.', meaning_reversed_en: 'Reversed: Seeking closure, short-cuts, delays.' }
-];
-
-const suitsData = [
-    { id: 'w', name: 'Жезли', name_en: 'Wands', key: 'w', element: 'Вогонь', element_en: 'Fire' },
-    { id: 'c', name: 'Кубки', name_en: 'Cups', key: 'c', element: 'Вода', element_en: 'Water' },
-    { id: 's', name: 'Мечі', name_en: 'Swords', key: 's', element: 'Повітря', element_en: 'Air' },
-    { id: 'p', name: 'Пентаклі', name_en: 'Pentacles', key: 'p', element: 'Земля', element_en: 'Earth' }
-];
-
-const ranksUa = ['Туз', 'Двійка', 'Трійка', 'Четвірка', 'П\'ятірка', 'Шістка', 'Сімка', 'Вісімка', 'Дев\'ятка', 'Десятка', 'Паж', 'Лицар', 'Королева', 'Король'];
-const ranksEn = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Page', 'Knight', 'Queen', 'King'];
-
-const suitThemes = {
-    'Жезли': { 
-        upright: 'це карта натхнення, ініціативи та життєвої сили.', 
-        upright_en: 'is a card of inspiration, initiative, and vitality.',
-        reversed: 'це показник того, що енергія розпорошується.', 
-        reversed_en: 'indicates that energy is being scattered.',
-        general: 'Масть Жезлів відповідає стихії Вогню.',
-        general_en: 'The suit of Wands corresponds to the element of Fire.'
-    },
-    'Кубки': { 
-        upright: 'це карта емоційного наповнення, любові та інтуїтивних прозрінь.', 
-        upright_en: 'is a card of emotional fulfillment, love, and intuitive insights.',
-        reversed: 'це знак емоційного дисбалансу або розчарування.', 
-        reversed_en: 'is a sign of emotional imbalance or disappointment.',
-        general: 'Масть Кубків відповідає стихії Води.',
-        general_en: 'The suit of Cups corresponds to the element of Water.'
-    },
-    'Мечі': { 
-        upright: 'це карта ясного розуму, стратегії та іноді — конфлікту.', 
-        upright_en: 'is a card of a clear mind, strategy, and sometimes – conflict.',
-        reversed: 'це знак заплутаності, інтелектуального тупика.', 
-        reversed_en: 'is a sign of confusion or an intellectual dead end.',
-        general: 'Масть Мечів відповідає стихії Повітря.',
-        general_en: 'The suit of Swords corresponds to the element of Air.'
-    },
-    'Пентаклі': { 
-        upright: 'це карта матеріальної стабільності, праці та реальних результатів.', 
-        upright_en: 'is a card of material stability, work, and real results.',
-        reversed: 'це знак фінансових труднощів, невпевненості.', 
-        reversed_en: 'is a sign of financial difficulties or insecurity.',
-        general: 'Масть Пентаклів відповідає стихії Землі.',
-        general_en: 'The suit of Pentacles corresponds to the element of Earth.'
-    }
-};
-
-function generateMinorArcana() {
-    const minor = [];
-    suitsData.forEach(suit => {
-        const descriptions = minorArcanaDescriptions[suit.id];
-        ranksUa.forEach((rank, i) => {
-            const num = (i + 1).toString().padStart(2, '0');
-            const rankEn = ranksEn[i];
-            const desc = descriptions[i];
-            minor.push({
-                id: `${suit.id}${i + 1}`,
-                name: `${rank} ${suit.name}`,
-                name_en: `${rankEn} of ${suit.name_en}`,
-                image: IMG_BASE + `${suit.key}${num}.webp`,
-                type: 'Молодший Аркан',
-                type_en: 'Minor Arcana',
-                suit: suit.name,
-                suit_en: suit.name_en,
-                meaning_upright: desc.upright,
-                meaning_upright_en: desc.upright_en,
-                meaning_reversed: desc.reversed,
-                meaning_reversed_en: desc.reversed_en,
-                keywords: [suit.name, rank, suit.element]
-            });
-        });
-    });
-    return minor;
-}
-
-const allTarotCards = [...tarotCards, ...generateMinorArcana()];
+// allTarotCards is defined in cards.js (loaded before this file)
 
 const uiTranslations = {
     uk: {
