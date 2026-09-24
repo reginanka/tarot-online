@@ -1,9 +1,55 @@
+// ============================================================
+// 🔮 HuggingFace Transformers — lazy ES-module import via CDN
+// ============================================================
+let _pipelineImport = null;
+async function getPipelineFn() {
+    if (!_pipelineImport) {
+        const mod = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/dist/transformers.min.js');
+        _pipelineImport = mod.pipeline;
+    }
+    return _pipelineImport;
+}
+
+// ============================================================
+// 🌐 AI Localization
+// ============================================================
+const aiLocalization = {
+    uk: {
+        systemPrompt: "Ти — таємнича, мудра та досвідчена ворожка Таро. Твоє завдання — взяти текстовий результат розкладу, який надав користувач, проаналізувати його та написати глибоке, художнє, містичне передбачення українською мовою. Звертайся до користувача на 'ти'. Текст має бути суцільним, плавним і поетичним (не повторюй карти списком 1, 2, 3, а сплітай їх у єдину історію). Наприкінці дай короткою строкою філософську пораду.",
+        loadingModel: "🔮 ШІ налаштовується на ваше інформаційне поле... Завантаження: ",
+        generating: "✨ Розшифровую знаки долі та читаю карти...",
+        buttonText: "🔮 Локальне ШІ-ворожіння",
+        resultHeader: "🌟 Пророцтво локального ШІ",
+        errorText: "⚠️ Помилка завантаження моделі. Перевірте з'єднання та спробуйте ще раз."
+    },
+    en: {
+        systemPrompt: "You are a mysterious, wise, and experienced Tarot reader. Your task is to take the textual tarot reading result provided by the user, analyze it, and write a deep, artistic, mystical prediction in English. Address the user as 'you'. The text should be continuous, smooth, and poetic (do not list cards as 1, 2, 3, but weave them into a single story). At the end, provide a brief philosophical advice.",
+        loadingModel: "🔮 AI is tuning into your information field... Downloading: ",
+        generating: "✨ Deciphering the signs of fate and reading the cards...",
+        buttonText: "🔮 Local AI Interpretation",
+        resultHeader: "🌟 Local AI Prophecy",
+        errorText: "⚠️ Model loading failed. Please check your connection and try again."
+    }
+};
+
+// ============================================================
+// Pipeline cache — singleton outside Vue to survive re-renders
+// ============================================================
+let cachedPipeline = null;
+
 const { createApp, ref, computed, onMounted } = Vue;
 
 createApp({
     setup() {
         const lang = ref(localStorage.getItem('tarot-lang') || (navigator.language.startsWith('uk') ? 'uk' : 'en'));
         const t = computed(() => uiTranslations[lang.value]);
+
+        // ── AI reactive state ──────────────────────────────────
+        const aiLoading       = ref(false);  // model is downloading
+        const aiProgress      = ref(0);      // 0–100 %
+        const aiGenerating    = ref(false);  // inference running
+        const aiReadingResult = ref('');     // text shown by typewriter
+        const aiError         = ref(false);  // error flag
 
         const currentView = ref('home');
         const mobileMenuOpen = ref(false);
@@ -210,6 +256,9 @@ createApp({
                 readingStep.value = 'focus';
                 showResults.value = false;
                 copySuccess.value = false;
+                // reset AI state
+                aiReadingResult.value = '';
+                aiError.value = false;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 setTimeout(() => {
@@ -292,6 +341,116 @@ createApp({
         };
 
 
+        // ============================================================
+        // 🔮 AI METHODS
+        // ============================================================
+
+        /** Build the same reading-text that copyReading() produces */
+        const buildReadingText = () => {
+            const l = lang.value;
+            const spreadTitle = l === 'uk' ? selectedSpread.value.title : selectedSpread.value.title_en;
+            const resultText  = t.value.resultTitle;
+            const questionLabel = t.value.yourQuestion;
+
+            const cardLines = readingResult.value.cards.map((c, i) => {
+                const posName  = l === 'uk'
+                    ? (selectedSpread.value.positions[i]?.name    || '')
+                    : (selectedSpread.value.positions[i]?.name_en || '');
+                const cardName = l === 'uk' ? c.name : c.name_en;
+                const orient   = c.reversed ? t.value.reversed : t.value.upright;
+                return `${i + 1}. ${posName}: ${cardName} (${orient})`;
+            }).join('\n');
+
+            return `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}`;
+        };
+
+        /** Animate text display one char at a time */
+        const typewriterEffect = (fullText) => {
+            aiReadingResult.value = '';
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < fullText.length) {
+                    // Add 1–2 chars per tick for a natural feel
+                    aiReadingResult.value += fullText.slice(i, i + 2);
+                    i += 2;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 25);
+        };
+
+        /** Main entry-point called by the UI button */
+        const runLocalAI = async () => {
+            if (aiLoading.value || aiGenerating.value) return;
+
+            const loc = aiLocalization[lang.value] || aiLocalization.uk;
+            aiError.value      = false;
+            aiReadingResult.value = '';
+
+            try {
+                // ── 1. Load / reuse pipeline ────────────────────────
+                if (!cachedPipeline) {
+                    aiLoading.value  = true;
+                    aiProgress.value = 0;
+
+                    const pipelineFn = await getPipelineFn();
+
+                    cachedPipeline = await pipelineFn(
+                        'text-generation',
+                        'onnx-community/Qwen2.5-0.5B-Instruct',
+                        {
+                            progress_callback: (progress) => {
+                                if (progress.total && progress.loaded) {
+                                    aiProgress.value = Math.round((progress.loaded / progress.total) * 100);
+                                }
+                            }
+                        }
+                    );
+                    aiLoading.value  = false;
+                    aiProgress.value = 100;
+                }
+
+                // ── 2. Build prompt ─────────────────────────────────
+                aiGenerating.value = true;
+                const readingText  = buildReadingText();
+                const messages = [
+                    { role: 'system',  content: loc.systemPrompt },
+                    { role: 'user',    content: readingText }
+                ];
+
+                // ── 3. Run inference ────────────────────────────────
+                const output = await cachedPipeline(messages, {
+                    max_new_tokens: 250,
+                    temperature: 0.7,
+                    do_sample: true
+                });
+
+                // ── 4. Extract assistant reply ──────────────────────
+                const generated = output?.[0]?.generated_text;
+                let assistantText = '';
+                if (Array.isArray(generated)) {
+                    // Chat format: array of message objects
+                    const last = generated[generated.length - 1];
+                    assistantText = last?.content || last?.text || JSON.stringify(last);
+                } else if (typeof generated === 'string') {
+                    assistantText = generated;
+                }
+
+                aiGenerating.value = false;
+
+                // ── 5. Typewriter display ───────────────────────────
+                typewriterEffect(assistantText.trim());
+
+            } catch (err) {
+                console.error('[LocalAI] Error:', err);
+                aiLoading.value    = false;
+                aiGenerating.value = false;
+                aiError.value      = true;
+                cachedPipeline     = null; // reset so user can retry
+            }
+        };
+
+
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             selectedSpread, selectedCard, userQuestion, cards,
@@ -299,7 +458,10 @@ createApp({
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,
-            selectedCardIndex, prevCard, nextCard
+            selectedCardIndex, prevCard, nextCard,
+            // AI
+            aiLoading, aiProgress, aiGenerating, aiReadingResult, aiError,
+            aiLocalization, runLocalAI
         };
     }
 }).mount('#app');
