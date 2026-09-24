@@ -393,10 +393,65 @@
                                 <button @click="copyAndGoToAI" class="flex items-center px-6 py-3 bg-indigo-600/20 hover:bg-indigo-600/40 text-white font-bold rounded-lg transition-all border border-indigo-500/30 hover:border-indigo-400 shadow-lg shadow-indigo-500/10 active:scale-95">
                                     <i class="fa-solid fa-robot mr-2 text-indigo-300"></i> {{ t.askAI }}
                                 </button>
+                                <!-- 🔮 Local AI Button -->
+                                <button
+                                    @click="runLocalAI"
+                                    :disabled="aiLoading || aiGenerating"
+                                    class="flex items-center px-6 py-3 font-bold rounded-lg transition-all border shadow-lg active:scale-95"
+                                    :class="(aiLoading || aiGenerating)
+                                        ? 'bg-purple-900/30 border-purple-700/30 text-purple-400 cursor-wait'
+                                        : 'bg-purple-600/20 hover:bg-purple-600/40 text-white border-purple-500/30 hover:border-purple-400 shadow-purple-500/10'"
+                                >
+                                    <i class="fa-solid fa-wand-magic-sparkles mr-2 text-purple-300"></i>
+                                    {{ aiLocalization[lang].buttonText }}
+                                </button>
                                 <button @click="startNewReading" class="flex items-center px-6 py-3 border border-gray-600 hover:border-white text-gray-300 hover:text-white rounded-lg transition-colors">
                                     <i class="fa-solid fa-rotate-right mr-2"></i> {{ t.newReading }}
                                 </button>
                             </div>
+
+                            <!-- ── AI Loading Progress Bar ── -->
+                            <div v-if="aiLoading" class="mt-6 p-4 rounded-xl bg-purple-950/40 border border-purple-700/30">
+                                <p class="text-purple-300 text-sm mb-3 font-medium">
+                                    {{ aiLocalization[lang].loadingModel }} {{ aiProgress }}%
+                                </p>
+                                <div class="w-full bg-purple-900/30 rounded-full h-2.5 overflow-hidden">
+                                    <div
+                                        class="h-2.5 rounded-full bg-gradient-to-r from-purple-500 to-tarot-gold transition-all duration-300"
+                                        :style="{ width: aiProgress + '%' }"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <!-- ── AI Generating Indicator ── -->
+                            <div v-if="aiGenerating && !aiLoading" class="mt-6 flex items-center gap-3 text-purple-300">
+                                <i class="fa-solid fa-circle-notch fa-spin text-tarot-gold"></i>
+                                <span class="text-sm font-medium">{{ aiLocalization[lang].generating }}</span>
+                            </div>
+
+                            <!-- ── AI Error ── -->
+                            <div v-if="aiError" class="mt-6 p-4 rounded-xl bg-red-950/40 border border-red-700/40 text-red-300 text-sm">
+                                {{ aiLocalization[lang].errorText }}
+                            </div>
+
+                            <!-- ── AI Result Block ── -->
+                            <div v-if="aiReadingResult" class="mt-6 rounded-2xl overflow-hidden border border-purple-500/20 shadow-xl shadow-purple-900/30">
+                                <!-- Header -->
+                                <div class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-900/60 to-tarot-dark/80 border-b border-purple-500/20">
+                                    <i class="fa-solid fa-moon text-tarot-gold text-lg"></i>
+                                    <h4 class="font-serif text-lg font-bold text-tarot-gold tracking-wider">
+                                        {{ aiLocalization[lang].resultHeader }}
+                                    </h4>
+                                    <i class="fa-solid fa-star text-tarot-gold/60 text-xs ml-auto"></i>
+                                    <i class="fa-solid fa-star text-tarot-gold/40 text-[10px]"></i>
+                                    <i class="fa-solid fa-star text-tarot-gold/60 text-xs"></i>
+                                </div>
+                                <!-- Body -->
+                                <div class="px-6 py-5 bg-gradient-to-b from-purple-950/40 to-tarot-dark/60">
+                                    <p class="font-serif text-gray-200 leading-relaxed whitespace-pre-line text-base md:text-lg">{{ aiReadingResult }}<span class="inline-block w-0.5 h-5 bg-tarot-gold/70 ml-0.5 align-middle animate-pulse"></span></p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
