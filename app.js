@@ -1,16 +1,4 @@
 // ============================================================
-// 🔮 HuggingFace Transformers — lazy ES-module import via CDN
-// ============================================================
-let _pipelineImport = null;
-async function getPipelineFn() {
-    if (!_pipelineImport) {
-        const mod = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/dist/transformers.min.js');
-        _pipelineImport = mod.pipeline;
-    }
-    return _pipelineImport;
-}
-
-// ============================================================
 // 🌐 AI Localization
 // ============================================================
 const aiLocalization = {
@@ -33,9 +21,9 @@ const aiLocalization = {
 };
 
 // ============================================================
-// Pipeline cache — singleton outside Vue to survive re-renders
+// Web Worker for AI (avoids freezing the UI)
 // ============================================================
-let cachedPipeline = null;
+let aiWorker = null;
 
 const { createApp, ref, computed, onMounted } = Vue;
 
@@ -380,74 +368,86 @@ createApp({
         };
 
         /** Main entry-point called by the UI button */
-        const runLocalAI = async () => {
+        const runLocalAI = () => {
             if (aiLoading.value || aiGenerating.value) return;
 
             const loc = aiLocalization[lang.value] || aiLocalization.uk;
             aiError.value      = false;
             aiReadingResult.value = '';
 
-            try {
-                // ── 1. Load / reuse pipeline ────────────────────────
-                if (!cachedPipeline) {
-                    aiLoading.value  = true;
-                    aiProgress.value = 0;
-
-                    const pipelineFn = await getPipelineFn();
-
-                    cachedPipeline = await pipelineFn(
-                        'text-generation',
-                        'onnx-community/Qwen2.5-0.5B-Instruct',
-                        {
-                            progress_callback: (progress) => {
-                                if (progress.total && progress.loaded) {
-                                    aiProgress.value = Math.round((progress.loaded / progress.total) * 100);
-                                }
-                            }
+            // 1. Initialize Worker if not exists
+            if (!aiWorker) {
+                aiWorker = new Worker('ai-worker.js', { type: 'module' });
+                
+                aiWorker.addEventListener('message', (e) => {
+                    const { type, payload } = e.data;
+                    
+                    if (type === 'progress') {
+                        if (payload.total && payload.loaded) {
+                            aiProgress.value = Math.round((payload.loaded / payload.total) * 100);
                         }
-                    );
-                    aiLoading.value  = false;
-                    aiProgress.value = 100;
-                }
+                    } else if (type === 'loaded') {
+                        aiLoading.value = false;
+                        aiProgress.value = 100;
+                        
+                        // Once loaded, automatically start generating
+                        startWorkerGeneration(loc);
+                    } else if (type === 'complete') {
+                        const generated = payload?.[0]?.generated_text;
+                        let assistantText = '';
+                        if (Array.isArray(generated)) {
+                            const last = generated[generated.length - 1];
+                            assistantText = last?.content || last?.text || JSON.stringify(last);
+                        } else if (typeof generated === 'string') {
+                            assistantText = generated;
+                        }
+                        
+                        aiGenerating.value = false;
+                        typewriterEffect(assistantText.trim());
+                    } else if (type === 'error') {
+                        console.error('[LocalAI Worker] Error:', payload);
+                        aiLoading.value = false;
+                        aiGenerating.value = false;
+                        aiError.value = true;
+                        // Terminate and reset so user can retry fresh
+                        aiWorker.terminate();
+                        aiWorker = null;
+                    }
+                });
+            }
 
-                // ── 2. Build prompt ─────────────────────────────────
+            // Helper to start the generation process
+            const startWorkerGeneration = (locData) => {
                 aiGenerating.value = true;
                 const readingText  = buildReadingText();
                 const messages = [
-                    { role: 'system',  content: loc.systemPrompt },
+                    { role: 'system',  content: locData.systemPrompt },
                     { role: 'user',    content: readingText }
                 ];
 
-                // ── 3. Run inference ────────────────────────────────
-                const output = await cachedPipeline(messages, {
-                    max_new_tokens: 300,
-                    temperature: 0.8,
-                    do_sample: true,
-                    repetition_penalty: 1.3   // stops word-list hallucination loops
+                aiWorker.postMessage({
+                    type: 'generate',
+                    payload: {
+                        messages,
+                        params: {
+                            max_new_tokens: 400,
+                            temperature: 0.7,
+                            do_sample: true,
+                            repetition_penalty: 1.2
+                        }
+                    }
                 });
+            };
 
-                // ── 4. Extract assistant reply ──────────────────────
-                const generated = output?.[0]?.generated_text;
-                let assistantText = '';
-                if (Array.isArray(generated)) {
-                    // Chat format: array of message objects
-                    const last = generated[generated.length - 1];
-                    assistantText = last?.content || last?.text || JSON.stringify(last);
-                } else if (typeof generated === 'string') {
-                    assistantText = generated;
-                }
-
-                aiGenerating.value = false;
-
-                // ── 5. Typewriter display ───────────────────────────
-                typewriterEffect(assistantText.trim());
-
-            } catch (err) {
-                console.error('[LocalAI] Error:', err);
-                aiLoading.value    = false;
-                aiGenerating.value = false;
-                aiError.value      = true;
-                cachedPipeline     = null; // reset so user can retry
+            // 2. Either Load or Generate
+            if (aiProgress.value === 100) {
+                // Already loaded, just generate
+                startWorkerGeneration(loc);
+            } else {
+                // Start loading process
+                aiLoading.value = true;
+                aiProgress.value = 0;
+                aiWorker.postMessage({ type: 'load' });
             }
         };
 
