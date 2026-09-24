@@ -233,15 +233,26 @@ body {
     margin-left: 12px;
 }
 
-/* On small screens: hide arrows outside, show compact */
+/* On small screens: position arrows inside the flex row */
 @media (max-width: 640px) {
     .card-nav-arrow {
         width: 38px;
         height: 38px;
         font-size: 0.9rem;
+        /* On mobile keep arrows visible at viewport level */
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 200;
     }
-    .card-nav-arrow-left { margin-right: 6px; }
-    .card-nav-arrow-right { margin-left: 6px; }
+    .card-nav-arrow-left {
+        left: 8px;
+        margin-right: 0;
+    }
+    .card-nav-arrow-right {
+        right: 8px;
+        margin-left: 0;
+    }
 }
 
 /* Card counter badge */
@@ -263,4 +274,48 @@ body {
     gap: 2px;
     white-space: nowrap;
 }
+
+/* ── Card Modal Sticky Image — top padding so it doesn't hit nav ── */
+.card-modal-sticky {
+    /* mobile: just normal flow */
+}
+@media (min-width: 768px) {
+    .card-modal-sticky {
+        position: sticky;
+        top: 3.5rem;   /* clears counter badge + breathing room */
+    }
+}
+
+/* ── Custom Scrollbar for Card Detail Modal ──────────────────────── */
+/* Styled to match the site's dark/gold aesthetic on all browsers    */
+.card-modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.35) rgba(255, 255, 255, 0.04);
+}
+.card-modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.card-modal-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 99px;
+    margin: 6px 0;
+}
+.card-modal-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 215, 0, 0.5) 0%,
+        rgba(157, 80, 187, 0.5) 100%
+    );
+    border-radius: 99px;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    box-shadow: inset 0 0 6px rgba(255, 215, 0, 0.1);
+}
+.card-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 215, 0, 0.75) 0%,
+        rgba(157, 80, 187, 0.75) 100%
+    );
+}
+
 
