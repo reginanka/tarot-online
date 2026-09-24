@@ -43,6 +43,7 @@ const LOCAL_ASSETS = [
   './app.js',
   './data.js',
   './cards.js',
+  './pwa.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
 ];

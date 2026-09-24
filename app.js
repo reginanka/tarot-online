@@ -21,56 +21,37 @@ createApp({
         const spreads = ref(spreadsData);
         const cards = ref(allTarotCards);
         
+        // Single source of truth for category name mapping
+        const CATEGORY_UA_KEYS = ['Всі', 'Універсальні', 'Кохання та Стосунки', 'Кар\'єра та Фінанси', 'Короткі (Швидкі)', 'Прогнози', 'Духовність та Здоров\'я', 'Психологія', 'Глибокі (Складні)'];
+        const CATEGORY_UA_TO_EN = {
+            'Всі': 'All',
+            'Універсальні': 'Universal',
+            'Кохання та Стосунки': 'Love & Relationships',
+            'Кар\'єра та Фінанси': 'Career & Finance',
+            'Короткі (Швидкі)': 'Quick Reads',
+            'Прогнози': 'Forecasts',
+            'Духовність та Здоров\'я': 'Spirituality & Health',
+            'Психологія': 'Psychology',
+            'Глибокі (Складні)': 'Deep Spreads'
+        };
+        const CATEGORY_EN_TO_UA = Object.fromEntries(
+            Object.entries(CATEGORY_UA_TO_EN).map(([ua, en]) => [en, ua])
+        );
+
         const categories = computed(() => {
-            const cats = ['Всі', 'Універсальні', 'Кохання та Стосунки', 'Кар\'єра та Фінанси', 'Короткі (Швидкі)', 'Прогнози', 'Духовність та Здоров\'я', 'Психологія', 'Глибокі (Складні)'];
-            if (lang.value === 'uk') return cats;
-            const enMapping = {
-                'Всі': 'All',
-                'Універсальні': 'Universal',
-                'Кохання та Стосунки': 'Love & Relationships',
-                'Кар\'єра та Фінанси': 'Career & Finance',
-                'Короткі (Швидкі)': 'Quick Reads',
-                'Прогнози': 'Forecasts',
-                'Духовність та Здоров\'я': 'Spirituality & Health',
-                'Психологія': 'Psychology',
-                'Глибокі (Складні)': 'Deep Spreads'
-            };
-            return cats.map(c => enMapping[c] || c);
+            if (lang.value === 'uk') return CATEGORY_UA_KEYS;
+            return CATEGORY_UA_KEYS.map(c => CATEGORY_UA_TO_EN[c] || c);
         });
 
         const activeCategory = computed(() => {
             if (lang.value === 'uk') return activeCategoryUa.value;
-            const enMapping = {
-                'Всі': 'All',
-                'Універсальні': 'Universal',
-                'Кохання та Стосунки': 'Love & Relationships',
-                'Кар\'єра та Фінанси': 'Career & Finance',
-                'Короткі (Швидкі)': 'Quick Reads',
-                'Прогнози': 'Forecasts',
-                'Духовність та Здоров\'я': 'Spirituality & Health',
-                'Психологія': 'Psychology',
-                'Глибокі (Складні)': 'Deep Spreads'
-            };
-            return enMapping[activeCategoryUa.value] || activeCategoryUa.value;
+            return CATEGORY_UA_TO_EN[activeCategoryUa.value] || activeCategoryUa.value;
         });
 
         const setCategory = (cat) => {
-            if (lang.value === 'en') {
-                const uaMapping = {
-                    'All': 'Всі',
-                    'Universal': 'Універсальні',
-                    'Love & Relationships': 'Кохання та Стосунки',
-                    'Career & Finance': 'Кар\'єра та Фінанси',
-                    'Quick Reads': 'Короткі (Швидкі)',
-                    'Forecasts': 'Прогнози',
-                    'Spirituality & Health': 'Духовність та Здоров\'я',
-                    'Psychology': 'Психологія',
-                    'Deep Spreads': 'Глибокі (Складні)'
-                };
-                activeCategoryUa.value = uaMapping[cat] || 'Всі';
-            } else {
-                activeCategoryUa.value = cat;
-            }
+            activeCategoryUa.value = lang.value === 'en'
+                ? (CATEGORY_EN_TO_UA[cat] || 'Всі')
+                : cat;
         };
 
         const filteredSpreads = computed(() => {
@@ -206,8 +187,6 @@ createApp({
             
             try {
                 await navigator.clipboard.writeText(text);
-                copySuccess.value = true;
-                setTimeout(() => { copySuccess.value = false; }, 3000);
             } catch (err) {
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
@@ -215,9 +194,10 @@ createApp({
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                copySuccess.value = true;
-                setTimeout(() => { copySuccess.value = false; }, 3000);
             }
+
+            copySuccess.value = true;
+            setTimeout(() => { copySuccess.value = false; }, 3000);
         };
 
         const copyAndGoToAI = async () => {
