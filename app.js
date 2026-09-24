@@ -98,7 +98,13 @@ createApp({
                     const spread = spreads.value.find(s => s.id == id);
                     if (spread) {
                         selectedSpread.value = spread;
-                        currentView.value = view === 'reading' ? 'reading' : 'spread-detail';
+                        // При оновленні сторінки під час гадання (view=reading) повертаємось
+                        // на сторінку деталей розкладу, бо стан гадання (питання, картки)
+                        // не зберігається між сесіями і нема чого відновлювати
+                        currentView.value = 'spread-detail';
+                        if (view === 'reading') {
+                            window.location.hash = `view=spread-detail&id=${spread.id}`;
+                        }
                         return;
                     }
                 }
