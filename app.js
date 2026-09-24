@@ -82,6 +82,8 @@ createApp({
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
         });
 
+        let isInitialLoad = true;
+
         const syncHashToState = () => {
             const hash = window.location.hash.slice(1);
             if (!hash) {
@@ -98,12 +100,13 @@ createApp({
                     const spread = spreads.value.find(s => s.id == id);
                     if (spread) {
                         selectedSpread.value = spread;
-                        // При оновленні сторінки під час гадання (view=reading) повертаємось
-                        // на сторінку деталей розкладу, бо стан гадання (питання, картки)
-                        // не зберігається між сесіями і нема чого відновлювати
-                        currentView.value = 'spread-detail';
-                        if (view === 'reading') {
+                        // Якщо це перше завантаження сторінки з view=reading —
+                        // стан гадання не збережено, тому повертаємось на spread-detail
+                        if (view === 'reading' && isInitialLoad) {
+                            currentView.value = 'spread-detail';
                             window.location.hash = `view=spread-detail&id=${spread.id}`;
+                        } else {
+                            currentView.value = view === 'reading' ? 'reading' : 'spread-detail';
                         }
                         return;
                     }
@@ -244,6 +247,7 @@ createApp({
 
         // Встановлюємо початковий стан одразу, щоб уникнути блимання
         syncHashToState();
+        isInitialLoad = false;
 
         onMounted(() => {
             window.addEventListener('hashchange', () => {
