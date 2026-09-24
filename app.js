@@ -1,43 +1,9 @@
-// ============================================================
-// 🌐 AI Localization
-// ============================================================
-const aiLocalization = {
-    uk: {
-        systemPrompt: "You are a mystical tarot reader. The user will give you a tarot spread result. Write a short, poetic, mystical interpretation in Ukrainian language. Be concise, 3-4 sentences maximum. End with one short philosophical advice in Ukrainian.",
-        loadingModel: "🔮 ШІ налаштовується на ваше інформаційне поле... Завантаження: ",
-        generating: "✨ Розшифровую знаки долі та читаю карти...",
-        buttonText: "🔮 Локальне ШІ-ворожіння",
-        resultHeader: "🌟 Пророцтво локального ШІ",
-        errorText: "⚠️ Помилка завантаження моделі. Перевірте з'єднання та спробуйте ще раз."
-    },
-    en: {
-        systemPrompt: "You are a mystical tarot reader. The user will give you a tarot spread result. Write a short, poetic, mystical interpretation in English. Be concise, 3-4 sentences maximum. End with one short philosophical advice.",
-        loadingModel: "🔮 AI is tuning into your information field... Downloading: ",
-        generating: "✨ Deciphering the signs of fate and reading the cards...",
-        buttonText: "🔮 Local AI Interpretation",
-        resultHeader: "🌟 Local AI Prophecy",
-        errorText: "⚠️ Model loading failed. Please check your connection and try again."
-    }
-};
-
-// ============================================================
-// Web Worker for AI (avoids freezing the UI)
-// ============================================================
-let aiWorker = null;
-
 const { createApp, ref, computed, onMounted } = Vue;
 
 createApp({
     setup() {
         const lang = ref(localStorage.getItem('tarot-lang') || (navigator.language.startsWith('uk') ? 'uk' : 'en'));
         const t = computed(() => uiTranslations[lang.value]);
-
-        // ── AI reactive state ──────────────────────────────────
-        const aiLoading       = ref(false);  // model is downloading
-        const aiProgress      = ref(0);      // 0–100 %
-        const aiGenerating    = ref(false);  // inference running
-        const aiReadingResult = ref('');     // text shown by typewriter
-        const aiError         = ref(false);  // error flag
 
         const currentView = ref('home');
         const mobileMenuOpen = ref(false);
@@ -244,9 +210,6 @@ createApp({
                 readingStep.value = 'focus';
                 showResults.value = false;
                 copySuccess.value = false;
-                // reset AI state
-                aiReadingResult.value = '';
-                aiError.value = false;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 setTimeout(() => {
@@ -329,129 +292,6 @@ createApp({
         };
 
 
-        // ============================================================
-        // 🔮 AI METHODS
-        // ============================================================
-
-        /** Build the same reading-text that copyReading() produces */
-        const buildReadingText = () => {
-            const l = lang.value;
-            const spreadTitle = l === 'uk' ? selectedSpread.value.title : selectedSpread.value.title_en;
-            const resultText  = t.value.resultTitle;
-            const questionLabel = t.value.yourQuestion;
-
-            const cardLines = readingResult.value.cards.map((c, i) => {
-                const posName  = l === 'uk'
-                    ? (selectedSpread.value.positions[i]?.name    || '')
-                    : (selectedSpread.value.positions[i]?.name_en || '');
-                const cardName = l === 'uk' ? c.name : c.name_en;
-                const orient   = c.reversed ? t.value.reversed : t.value.upright;
-                return `${i + 1}. ${posName}: ${cardName} (${orient})`;
-            }).join('\n');
-
-            return `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}`;
-        };
-
-        /** Animate text display one char at a time */
-        const typewriterEffect = (fullText) => {
-            aiReadingResult.value = '';
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < fullText.length) {
-                    // Add 1–2 chars per tick for a natural feel
-                    aiReadingResult.value += fullText.slice(i, i + 2);
-                    i += 2;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 25);
-        };
-
-        /** Main entry-point called by the UI button */
-        const runLocalAI = () => {
-            if (aiLoading.value || aiGenerating.value) return;
-
-            const loc = aiLocalization[lang.value] || aiLocalization.uk;
-            aiError.value      = false;
-            aiReadingResult.value = '';
-
-            // 1. Initialize Worker if not exists
-            if (!aiWorker) {
-                aiWorker = new Worker('ai-worker.js', { type: 'module' });
-                
-                aiWorker.addEventListener('message', (e) => {
-                    const { type, payload } = e.data;
-                    
-                    if (type === 'progress') {
-                        if (payload.total && payload.loaded) {
-                            aiProgress.value = Math.round((payload.loaded / payload.total) * 100);
-                        }
-                    } else if (type === 'loaded') {
-                        aiLoading.value = false;
-                        aiProgress.value = 100;
-                        
-                        // Once loaded, automatically start generating
-                        startWorkerGeneration(loc);
-                    } else if (type === 'complete') {
-                        const generated = payload?.[0]?.generated_text;
-                        let assistantText = '';
-                        if (Array.isArray(generated)) {
-                            const last = generated[generated.length - 1];
-                            assistantText = last?.content || last?.text || JSON.stringify(last);
-                        } else if (typeof generated === 'string') {
-                            assistantText = generated;
-                        }
-                        
-                        aiGenerating.value = false;
-                        typewriterEffect(assistantText.trim());
-                    } else if (type === 'error') {
-                        console.error('[LocalAI Worker] Error:', payload);
-                        aiLoading.value = false;
-                        aiGenerating.value = false;
-                        aiError.value = true;
-                        // Terminate and reset so user can retry fresh
-                        aiWorker.terminate();
-                        aiWorker = null;
-                    }
-                });
-            }
-
-            // Helper to start the generation process
-            const startWorkerGeneration = (locData) => {
-                aiGenerating.value = true;
-                const readingText  = buildReadingText();
-                const messages = [
-                    { role: 'system',  content: locData.systemPrompt },
-                    { role: 'user',    content: readingText }
-                ];
-
-                aiWorker.postMessage({
-                    type: 'generate',
-                    payload: {
-                        messages,
-                        params: {
-                            max_new_tokens: 400,
-                            temperature: 0.7,
-                            do_sample: true,
-                            repetition_penalty: 1.2
-                        }
-                    }
-                });
-            };
-
-            // 2. Either Load or Generate
-            if (aiProgress.value === 100) {
-                // Already loaded, just generate
-                startWorkerGeneration(loc);
-            } else {
-                // Start loading process
-                aiLoading.value = true;
-                aiProgress.value = 0;
-                aiWorker.postMessage({ type: 'load' });
-            }
-        };
-
-
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             selectedSpread, selectedCard, userQuestion, cards,
@@ -459,10 +299,7 @@ createApp({
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,
-            selectedCardIndex, prevCard, nextCard,
-            // AI
-            aiLoading, aiProgress, aiGenerating, aiReadingResult, aiError,
-            aiLocalization, runLocalAI
+            selectedCardIndex, prevCard, nextCard
         };
     }
 }).mount('#app');
