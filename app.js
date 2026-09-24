@@ -15,7 +15,7 @@ async function getPipelineFn() {
 // ============================================================
 const aiLocalization = {
     uk: {
-        systemPrompt: "Ти — таємнича, мудра та досвідчена ворожка Таро. Твоє завдання — взяти текстовий результат розкладу, який надав користувач, проаналізувати його та написати глибоке, художнє, містичне передбачення українською мовою. Звертайся до користувача на 'ти'. Текст має бути суцільним, плавним і поетичним (не повторюй карти списком 1, 2, 3, а сплітай їх у єдину історію). Наприкінці дай короткою строкою філософську пораду.",
+        systemPrompt: "You are a mystical tarot reader. The user will give you a tarot spread result. Write a short, poetic, mystical interpretation in Ukrainian language. Be concise, 3-4 sentences maximum. End with one short philosophical advice in Ukrainian.",
         loadingModel: "🔮 ШІ налаштовується на ваше інформаційне поле... Завантаження: ",
         generating: "✨ Розшифровую знаки долі та читаю карти...",
         buttonText: "🔮 Локальне ШІ-ворожіння",
@@ -23,7 +23,7 @@ const aiLocalization = {
         errorText: "⚠️ Помилка завантаження моделі. Перевірте з'єднання та спробуйте ще раз."
     },
     en: {
-        systemPrompt: "You are a mysterious, wise, and experienced Tarot reader. Your task is to take the textual tarot reading result provided by the user, analyze it, and write a deep, artistic, mystical prediction in English. Address the user as 'you'. The text should be continuous, smooth, and poetic (do not list cards as 1, 2, 3, but weave them into a single story). At the end, provide a brief philosophical advice.",
+        systemPrompt: "You are a mystical tarot reader. The user will give you a tarot spread result. Write a short, poetic, mystical interpretation in English. Be concise, 3-4 sentences maximum. End with one short philosophical advice.",
         loadingModel: "🔮 AI is tuning into your information field... Downloading: ",
         generating: "✨ Deciphering the signs of fate and reading the cards...",
         buttonText: "🔮 Local AI Interpretation",
@@ -420,9 +420,10 @@ createApp({
 
                 // ── 3. Run inference ────────────────────────────────
                 const output = await cachedPipeline(messages, {
-                    max_new_tokens: 250,
-                    temperature: 0.7,
-                    do_sample: true
+                    max_new_tokens: 300,
+                    temperature: 0.8,
+                    do_sample: true,
+                    repetition_penalty: 1.3   // stops word-list hallucination loops
                 });
 
                 // ── 4. Extract assistant reply ──────────────────────
