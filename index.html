@@ -486,20 +486,36 @@
 
     <!-- CARD DETAIL MODAL -->
     <div v-if="selectedCard" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
-         @keydown.esc="closeCard">
+         @keydown.esc="closeCard" @keydown.left="prevCard" @keydown.right="nextCard" tabindex="-1" ref="cardModalRef">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="closeCard"></div>
+
+        <!-- Prev Arrow -->
+        <button @click.stop="prevCard"
+                class="card-nav-arrow card-nav-arrow-left"
+                aria-label="Previous card">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
         <div class="relative glass-panel rounded-2xl border border-white/10 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
              @click.stop>
+            <!-- Close button -->
             <button @click="closeCard"
                     class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/50 hover:bg-tarot-gold hover:text-tarot-dark text-white flex items-center justify-center transition-colors"
                     aria-label="Close">
                 <i class="fa-solid fa-times text-lg"></i>
             </button>
 
-            <div class="flex flex-col md:flex-row gap-6 p-5 sm:p-8">
+            <!-- Card counter -->
+            <div class="card-nav-counter">
+                <span class="text-tarot-gold font-bold">{{ selectedCardIndex + 1 }}</span>
+                <span class="text-gray-500 mx-1">/</span>
+                <span class="text-gray-400">{{ cards.length }}</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-start gap-6 p-5 sm:p-8">
                 <!-- Card image -->
-                <div class="shrink-0 mx-auto md:mx-0 w-40 sm:w-48 md:w-56">
-                    <div class="aspect-[2/3.5] rounded-xl overflow-hidden border border-tarot-gold/30 shadow-lg bg-tarot-dark">
+                <div class="shrink-0 mx-auto md:mx-0 w-40 sm:w-48 md:w-56 md:sticky md:top-0">
+                    <div class="aspect-[2/3.5] rounded-xl overflow-hidden border border-tarot-gold/30 shadow-lg bg-tarot-dark card-modal-image-wrap">
                         <img :src="selectedCard.image"
                              :alt="lang === 'uk' ? selectedCard.name : selectedCard.name_en"
                              class="w-full h-full object-cover">
@@ -548,6 +564,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- Next Arrow -->
+        <button @click.stop="nextCard"
+                class="card-nav-arrow card-nav-arrow-right"
+                aria-label="Next card">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 
     <!-- Footer -->

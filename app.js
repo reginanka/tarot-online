@@ -261,6 +261,11 @@ createApp({
         const openCard = (card) => {
             selectedCard.value = card;
             document.body.style.overflow = 'hidden';
+            // Focus the modal so keyboard arrows work
+            Vue.nextTick(() => {
+                const el = document.querySelector('[ref="cardModalRef"], [data-modal="card"]');
+                if (el) el.focus();
+            });
         };
 
         const closeCard = () => {
@@ -268,13 +273,43 @@ createApp({
             document.body.style.overflow = '';
         };
 
+        const selectedCardIndex = computed(() => {
+            if (!selectedCard.value) return -1;
+            return cards.value.findIndex(c => c.id === selectedCard.value.id);
+        });
+
+        const prevCard = () => {
+            if (!selectedCard.value) return;
+            const idx = selectedCardIndex.value;
+            const newIdx = idx <= 0 ? cards.value.length - 1 : idx - 1;
+            selectedCard.value = cards.value[newIdx];
+            // scroll modal content back to top
+            Vue.nextTick(() => {
+                const panel = document.querySelector('.card-modal-image-wrap')?.closest('.overflow-y-auto');
+                if (panel) panel.scrollTop = 0;
+            });
+        };
+
+        const nextCard = () => {
+            if (!selectedCard.value) return;
+            const idx = selectedCardIndex.value;
+            const newIdx = idx >= cards.value.length - 1 ? 0 : idx + 1;
+            selectedCard.value = cards.value[newIdx];
+            Vue.nextTick(() => {
+                const panel = document.querySelector('.card-modal-image-wrap')?.closest('.overflow-y-auto');
+                if (panel) panel.scrollTop = 0;
+            });
+        };
+
+
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
-            getCardWord, openCard, closeCard
+            getCardWord, openCard, closeCard,
+            selectedCardIndex, prevCard, nextCard
         };
     }
 }).mount('#app');

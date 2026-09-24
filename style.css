@@ -87,7 +87,7 @@ body {
     background: #10b981;
     color: white;
     padding: 12px 24px;
-    border-radius: 99px;
+    border-radius: 10px;
     font-weight: bold;
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -196,3 +196,71 @@ body {
     transform: translate(100px, 100px) scale(1.15);
   }
 }
+
+/* ── Card Modal Navigation Arrows ─────────────────────────── */
+.card-nav-arrow {
+    position: relative;
+    z-index: 110;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.08);
+}
+.card-nav-arrow:hover {
+    background: rgba(255, 215, 0, 0.22);
+    border-color: #ffd700;
+    box-shadow: 0 0 28px rgba(255, 215, 0, 0.25);
+    transform: scale(1.1);
+}
+.card-nav-arrow:active {
+    transform: scale(0.95);
+}
+.card-nav-arrow-left {
+    margin-right: 12px;
+}
+.card-nav-arrow-right {
+    margin-left: 12px;
+}
+
+/* On small screens: hide arrows outside, show compact */
+@media (max-width: 640px) {
+    .card-nav-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    .card-nav-arrow-left { margin-right: 6px; }
+    .card-nav-arrow-right { margin-left: 6px; }
+}
+
+/* Card counter badge */
+.card-nav-counter {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 99px;
+    padding: 3px 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    white-space: nowrap;
+}
+
