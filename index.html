@@ -219,30 +219,30 @@
                 </div>
 
                 <!-- Filters: size (time / complexity) -->
-                <div class="flex flex-col items-center gap-2 mb-3">
-                    <span class="text-xs uppercase tracking-wider text-gray-500">{{ t.filterBySize }}</span>
+                <div class="flex flex-col items-center gap-2 mb-4">
+                    <span class="text-sm font-bold uppercase tracking-wider text-gray-300">{{ t.filterBySize }}</span>
                     <div class="flex flex-wrap justify-center gap-2">
                         <button
                             v-for="sf in sizeFilters"
                             :key="'size-'+sf.id"
                             @click="setSizeFilter(sf.id)"
-                            :class="['px-3 py-1.5 rounded-full text-sm font-medium transition-all', activeSize === sf.id ? 'bg-tarot-purple text-white ring-1 ring-tarot-gold/50' : 'bg-white/5 text-gray-400 hover:bg-white/10']"
+                            :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeSize === sf.id ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
                             :title="sf.hint || ''"
                         >
-                            {{ sf.label }}<span v-if="sf.hint" class="opacity-60 ml-1 text-xs">({{ sf.hint }})</span>
+                            {{ sf.label }}<span v-if="sf.hint" class="opacity-70 ml-1 text-xs">({{ sf.hint }})</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Filters: query type -->
                 <div class="flex flex-col items-center gap-2 mb-10">
-                    <span class="text-xs uppercase tracking-wider text-gray-500">{{ t.filterByQuery }}</span>
+                    <span class="text-sm font-bold uppercase tracking-wider text-gray-300">{{ t.filterByQuery }}</span>
                     <div class="flex flex-wrap justify-center gap-2">
                         <button
                             v-for="qf in queryFilters"
                             :key="'query-'+qf.id"
                             @click="setQueryFilter(qf.id)"
-                            :class="['px-3 py-1.5 rounded-full text-sm font-medium transition-all', activeQueryType === qf.id ? 'bg-tarot-purple text-white ring-1 ring-tarot-gold/50' : 'bg-white/5 text-gray-400 hover:bg-white/10']"
+                            :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeQueryType === qf.id ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
                         >
                             {{ qf.label }}
                         </button>
