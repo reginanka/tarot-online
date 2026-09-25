@@ -414,7 +414,7 @@
                             <!-- Automated Synthesis Block -->
                             <div v-if="readingAnalysis && readingAnalysis.items && readingAnalysis.items.length"
                                  class="mt-8 mb-8 p-5 rounded-xl border border-tarot-gold/20 bg-white/5">
-                                <h4 class="text-lg font-serif font-bold text-white mb-4 flex items-center gap-2">
+                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                                     <i class="fa-solid fa-sparkles text-tarot-gold text-sm"></i>
                                     {{ lang === 'uk' ? 'Синтез розкладу' : 'Spread Synthesis' }}
                                 </h4>
@@ -425,6 +425,10 @@
                                         <span class="whitespace-pre-line flex-1">{{ item }}</span>
                                     </li>
                                 </ul>
+                                <div class="mt-5 pt-4 border-t border-white/10 flex items-start gap-2.5 text-xs text-gray-400 leading-relaxed">
+                                    <i class="fa-solid fa-circle-info text-tarot-gold/70 mt-0.5 shrink-0 text-xs"></i>
+                                    <span>{{ t.synthesisDisclaimer }}</span>
+                                </div>
                             </div>
 
                             <div class="flex flex-wrap gap-3">

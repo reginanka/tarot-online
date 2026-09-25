@@ -638,6 +638,7 @@ const uiTranslations = {
         rights: 'Всі права захищені',
         enterQuestionPrompt: 'Введіть ваше запитання або тему (необов\'язково):',
         askAI: 'Тлумачення від ШІ (Лея)',
+        synthesisDisclaimer: 'Цей синтез згенеровано автоматично. Для отримання розгорнутого персонального прогнозу скопіюйте результат кнопкою «Копіювати результат», перейдіть у чат кнопкою «Тлумачення від ШІ (Лея)» та вставте його туди.',
         privacyTitle: 'Політика конфіденційності',
         privacyContent: [
             'Ваша конфіденційність важлива для нас. Цей сервіс створений для приватного використання.',
@@ -730,6 +731,7 @@ const uiTranslations = {
         rights: 'All rights reserved',
         enterQuestionPrompt: 'Enter your question or topic (optional):',
         askAI: 'Ask AI (Leia Interpretation)',
+        synthesisDisclaimer: 'This synthesis is generated automatically. For a detailed personalized reading, copy the result using the “Copy Result” button, open the chat via “Ask AI (Leia)”, and paste it there.',
         privacyTitle: 'Privacy Policy',
         privacyContent: [
             'Your privacy is important to us. This service is designed for private use.',
