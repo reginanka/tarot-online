@@ -425,17 +425,192 @@
       : 'Action vector: pick one priority from the spread and take the next minimal step within 24–48 hours.';
   }
 
+
+  // ─── helpers on positions (0-based) ───────────────────────────────────────
+  function enhanceContext(ctx) {
+    const cards = ctx.cards;
+    ctx.cardAt = (i) => cards[i] || null;
+    ctx.isMajorAt = (i) => isMajor(cards[i]);
+    ctx.isRevAt = (i) => !!(cards[i] && cards[i].reversed);
+    ctx.elAt = (i) => elementOf(cards[i]);
+    ctx.countMajors = (idxs) => idxs.filter((i) => isMajor(cards[i])).length;
+    ctx.countRev = (idxs) => idxs.filter((i) => cards[i] && cards[i].reversed).length;
+    ctx.pickVariant = (variants, lang) => {
+      if (!variants || !variants.length) return null;
+      const v = variants[Math.floor(Math.random() * variants.length)];
+      return lang === 'uk' ? v.uk : v.en;
+    };
+    return ctx;
+  }
+
+  // ─── Spread-specific rules registry ───────────────────────────────────────
+  // Celtic Cross positions (0-based):
+  // 0 Heart, 1 Obstacle, 2 Subconscious, 3 Past, 4 Conscious,
+  // 5 Near Future, 6 Self, 7 Environment, 8 Hopes/Fears, 9 Outcome
+
+  const SPREAD_RULES = {
+    'celtic-cross': [
+      {
+        id: 'cc_timeline_majors',
+        when: (ctx) => ctx.n >= 10 && ctx.countMajors([3, 5, 9]) >= 2,
+        variants: [
+          {
+            uk: 'У лінії часу (Минуле → Найближче майбутнє → Підсумок) багато Старших Арканів — зовнішні події сильні, «людський фактор» сам по собі ситуацію мало розверне.',
+            en: 'On the timeline (Past → Near Future → Outcome) Major Arcana dominate — outer events are strong; willpower alone rarely turns the situation.',
+          },
+          {
+            uk: 'Ключові точки часу позначені Старшими Арканами: зміни вже «вписані» в хід подій. Краще підлаштувати стратегію, ніж боротися з течією в лоб.',
+            en: 'Key time points carry Major Arcana: change is already written into the flow. Adapt strategy rather than fight the current head-on.',
+          },
+        ],
+      },
+      {
+        id: 'cc_mind_vs_heart',
+        when: (ctx) => {
+          if (ctx.n < 10) return false;
+          const c = ctx.elAt(4); // conscious
+          const s = ctx.elAt(2); // subconscious
+          return (c === 'air' && s === 'water') || (c === 'water' && s === 'air');
+        },
+        variants: [
+          {
+            uk: 'Свідомість і підсвідомість у різних стихіях (розум ↔ почуття): ви можете логічно «пояснювати» вибір, тоді як глибше рішення вже прийняте емоційно — або навпаки.',
+            en: 'Conscious and subconscious sit in different elements (mind ↔ feeling): you may justify a choice logically while the deeper decision is already emotional — or the reverse.',
+          },
+          {
+            uk: 'Розрив між тим, що ви собі кажете (Свідомість), і тим, що відчуваєте насправді (Підсвідомість). Варто назвати емоцію вголос — тоді розум і серце швидше зійдуться.',
+            en: 'A gap between what you tell yourself (Conscious) and what you actually feel (Subconscious). Name the emotion out loud — mind and heart align faster.',
+          },
+        ],
+      },
+      {
+        id: 'cc_obstacle_reversed',
+        when: (ctx) => ctx.n >= 10 && ctx.isRevAt(1),
+        variants: [
+          {
+            uk: 'Перешкода (позиція 2) перевернута — блок часто внутрішній: страх, звичка або відмова бачити проблему прямо. Зовнішній «ворог» може бути лише проекцією.',
+            en: 'The Obstacle (position 2) is reversed — the block is often internal: fear, habit, or refusal to face the issue. An outer “enemy” may be a projection.',
+          },
+          {
+            uk: 'Перевернута перешкода: опір уже слабшає, але ви ще тримаєтесь за стару рамку. Один чесний крок назустріч проблемі знімає більше напруги, ніж контроль.',
+            en: 'Reversed obstacle: resistance is already easing, but you still cling to an old frame. One honest step toward the problem releases more tension than control.',
+          },
+        ],
+      },
+      {
+        id: 'cc_hopes_vs_outcome',
+        when: (ctx) => {
+          if (ctx.n < 10) return false;
+          const hMaj = ctx.isMajorAt(8);
+          const oMaj = ctx.isMajorAt(9);
+          const hRev = ctx.isRevAt(8);
+          const oRev = ctx.isRevAt(9);
+          // conflict signals: both major but opposite orientation, or hope reversed + outcome upright major
+          return (hMaj && oMaj && hRev !== oRev) || (hRev && oMaj && !oRev);
+        },
+        variants: [
+          {
+            uk: 'Надії/страхи і Підсумок звучать у різному тоні: те, чого ви боїтесь або жадаєте, не збігається з ймовірним фіналом. Перевірте, чи не тримаєте сценарій «як має бути».',
+            en: 'Hopes/Fears and Outcome speak in different tones: what you fear or crave does not match the likely ending. Check whether you are clinging to a “should be” script.',
+          },
+          {
+            uk: 'Між очікуванням (позиція 9) і результатом (позиція 10) є напруга. Зменшіть прогноз «все або нічого» — тоді підсумок легше прийняти і використати.',
+            en: 'Tension sits between expectation (position 9) and result (position 10). Soften all-or-nothing forecasts — the outcome becomes easier to accept and use.',
+          },
+        ],
+      },
+      {
+        id: 'cc_heart_to_outcome_vector',
+        when: (ctx) => {
+          if (ctx.n < 10) return false;
+          const startMaj = ctx.isMajorAt(0);
+          const endMaj = ctx.isMajorAt(9);
+          return startMaj !== endMaj; // meaningful shift
+        },
+        variants: [
+          {
+            uk: 'Від «Серця ситуації» до «Підсумку» змінюється рівень арканів: ситуація не стоїть на місці — або побутове виростає в доленосне, або велика тема сходить у конкретні кроки.',
+            en: 'From Heart of the Matter to Outcome the arcana level shifts: the situation is not static — either the everyday grows fateful, or a big theme settles into concrete steps.',
+          },
+          {
+            uk: 'Вектор розкладу (центр → фінал) показує рух якості події. Дивіться не лише на окремі карти, а на те, куди «вирулює» історія.',
+            en: 'The spread vector (center → finale) shows how the event’s quality moves. Read not only single cards, but where the story is steering.',
+          },
+        ],
+      },
+      {
+        id: 'cc_environment_pressure',
+        when: (ctx) => ctx.n >= 10 && (ctx.isMajorAt(7) || ctx.isRevAt(7)),
+        variants: [
+          {
+            uk: 'Оточення (позиція 8) активне: люди, правила або фон подій тиснуть на розвиток. Частина рішення — не «перемагати всіх», а змінити дистанцію чи коло впливу.',
+            en: 'Environment (position 8) is active: people, rules, or context press on the development. Part of the solution is not “beating everyone”, but changing distance or circle of influence.',
+          },
+          {
+            uk: 'Сильний акцент на оточенні: підтримка або тиск ззовні помітно фарбує підсумок. Варто явно визначити, хто в ресурсі, а хто в відтоці енергії.',
+            en: 'Strong environment accent: outer support or pressure clearly colors the outcome. Name who is a resource and who drains energy.',
+          },
+        ],
+      },
+      {
+        id: 'cc_self_reversed',
+        when: (ctx) => ctx.n >= 10 && ctx.isRevAt(6),
+        variants: [
+          {
+            uk: 'Ставлення до себе перевернуте — самооцінка або роль у ситуації зараз спотворені. Перш ніж тиснути на зовнішнє, вирівняйте внутрішню позицію.',
+            en: 'Self-Perception is reversed — self-worth or your role in the situation is distorted. Before pushing outward, steady your inner stance.',
+          },
+        ],
+      },
+      {
+        id: 'cc_action',
+        when: (ctx) => ctx.n >= 10,
+        // always fires once as spread-specific advice (soft)
+        variants: [
+          {
+            uk: 'Специфіка Кельтського хреста: зберіть три відповіді — (1) що є суттю зараз, (2) що реально блокує, (3) який наступний крок у найближчому майбутньому. Без цього розклад лишається «красивою картою».',
+            en: 'Celtic Cross focus: answer three points — (1) what is the core now, (2) what truly blocks, (3) the next step in the near future. Without that the spread stays a “pretty map”.',
+          },
+          {
+            uk: 'Практичний акцент хреста: зіставте Підсвідомість і Свідомість, потім перевірте, чи Підсумок не суперечить вашим Надіям/страхам. Там, де суперечність — там точка росту.',
+            en: 'Practical Cross focus: align Subconscious and Conscious, then check whether Outcome conflicts with Hopes/Fears. Where they clash — that is the growth edge.',
+          },
+        ],
+      },
+    ],
+  };
+
+  function runSpreadRules(ctx, lang) {
+    const slug = (ctx.spread && ctx.spread.slug) || '';
+    const rules = SPREAD_RULES[slug];
+    if (!rules || !rules.length) return [];
+    const out = [];
+    for (const rule of rules) {
+      try {
+        if (rule.when(ctx)) {
+          const text = ctx.pickVariant(rule.variants, lang);
+          if (text) out.push(text);
+        }
+      } catch (e) {
+        // ignore broken rule
+      }
+    }
+    return out;
+  }
+
   /**
    * @param {Array} cards - dealt cards (with reversed, type, element, id, name…)
    * @param {Object} spread - spread object from spreadsData
    * @param {'uk'|'en'} lang
-   * @returns {{ paragraphs: string[], stats: object }}
+   * @returns {{ paragraphs: string[], specific: string[], stats: object }}
    */
   function analyzeReading(cards, spread, lang) {
     if (!cards || !cards.length) {
-      return { paragraphs: [], stats: null };
+      return { paragraphs: [], specific: [], stats: null };
     }
-    const ctx = buildContext(cards, spread || {});
+    const ctx = enhanceContext(buildContext(cards, spread || {}));
+    ctx.spread = spread || {};
+
     const paragraphs = [];
 
     paragraphs.push(analyzeMajorShare(ctx, lang));
@@ -452,8 +627,11 @@
 
     paragraphs.push(actionVector(ctx, lang));
 
+    const specific = runSpreadRules(ctx, lang);
+
     return {
       paragraphs: paragraphs.filter(Boolean),
+      specific: specific.filter(Boolean),
       stats: {
         majorCount: ctx.majorCount,
         majorPct: Math.round(ctx.majorPct),
@@ -463,9 +641,17 @@
         dominantPct: Math.round(ctx.dominantPct),
         missing: ctx.missing.slice(),
         n: ctx.n,
+        slug: (spread && spread.slug) || null,
+        specificCount: specific.length,
       },
     };
   }
 
-  global.TarotAnalysis = { analyzeReading, buildContext, isMajor, elementOf };
+  global.TarotAnalysis = {
+    analyzeReading,
+    buildContext,
+    isMajor,
+    elementOf,
+    SPREAD_RULES,
+  };
 })(typeof window !== 'undefined' ? window : globalThis);

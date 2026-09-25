@@ -258,9 +258,17 @@ createApp({
 
             let analysisBlock = '';
             const analysis = readingAnalysis.value;
-            if (analysis && analysis.paragraphs && analysis.paragraphs.length) {
-                const title = l === 'uk' ? 'Аналітичний огляд' : 'Analytical overview';
-                analysisBlock = '\n\n' + title + ':\n' + analysis.paragraphs.map(p => '• ' + p).join('\n');
+            if (analysis) {
+                const parts = [];
+                if (analysis.paragraphs && analysis.paragraphs.length) {
+                    const title = l === 'uk' ? 'Загальний огляд' : 'General overview';
+                    parts.push(title + ':\n' + analysis.paragraphs.map(p => '• ' + p).join('\n'));
+                }
+                if (analysis.specific && analysis.specific.length) {
+                    const title2 = l === 'uk' ? 'Специфіка розкладу' : 'Spread specifics';
+                    parts.push(title2 + ':\n' + analysis.specific.map(p => '• ' + p).join('\n'));
+                }
+                if (parts.length) analysisBlock = '\n\n' + parts.join('\n\n');
             }
 
             const text = `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}${analysisBlock}`;
