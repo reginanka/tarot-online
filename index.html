@@ -406,9 +406,9 @@
                                     </h4>
                                     <ul class="space-y-3">
                                         <li v-for="(p, i) in readingAnalysis.paragraphs" :key="'g-'+i"
-                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex gap-2">
+                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex items-start gap-2">
                                             <span class="text-tarot-gold mt-1 shrink-0">•</span>
-                                            <span>{{ p }}</span>
+                                            <span class="whitespace-pre-line flex-1">{{ p }}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -420,9 +420,9 @@
                                     </h4>
                                     <ul class="space-y-3">
                                         <li v-for="(p, i) in readingAnalysis.specific" :key="'s-'+i"
-                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex gap-2">
+                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex items-start gap-2">
                                             <span class="text-purple-300 mt-1 shrink-0">•</span>
-                                            <span>{{ p }}</span>
+                                            <span class="whitespace-pre-line flex-1">{{ p }}</span>
                                         </li>
                                     </ul>
                                 </div>

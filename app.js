@@ -266,7 +266,12 @@ createApp({
                 }
                 if (analysis.specific && analysis.specific.length) {
                     const title2 = l === 'uk' ? 'Специфіка розкладу' : 'Spread specifics';
-                    parts.push(title2 + ':\n' + analysis.specific.map(p => '• ' + p).join('\n'));
+                    parts.push(title2 + ':\n' + analysis.specific.map(p => {
+                        if (p.includes('\n')) {
+                            return '• ' + p.split('\n').join('\n  ');
+                        }
+                        return '• ' + p;
+                    }).join('\n'));
                 }
                 if (parts.length) analysisBlock = '\n\n' + parts.join('\n\n');
             }
