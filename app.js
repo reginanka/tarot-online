@@ -243,6 +243,28 @@ createApp({
             });
         };
 
+        const expandedCards = ref({});
+
+        const toggleCardDetails = (index) => {
+            expandedCards.value = {
+                ...expandedCards.value,
+                [index]: !expandedCards.value[index]
+            };
+        };
+
+        const getCardPositionMeaning = (card, index) => {
+            if (!card) return '';
+            if (typeof TarotPositions !== 'undefined' && TarotPositions.getPositionMeaning) {
+                return TarotPositions.getPositionMeaning(card, selectedSpread.value, index, lang.value);
+            }
+            return (lang.value === 'uk' ? (card.reversed ? card.meaning_reversed : card.meaning_upright) : (card.reversed ? (card.meaning_reversed_en || card.meaning_reversed) : (card.meaning_upright_en || card.meaning_upright))) || '';
+        };
+
+        const getCardFullMeaning = (card) => {
+            if (!card) return '';
+            return (lang.value === 'uk' ? (card.reversed ? card.meaning_reversed : card.meaning_upright) : (card.reversed ? (card.meaning_reversed_en || card.meaning_reversed) : (card.meaning_upright_en || card.meaning_upright))) || '';
+        };
+
         const copyReading = async () => {
             const l = lang.value;
             const spreadTitle = l === 'uk' ? selectedSpread.value.title : selectedSpread.value.title_en;
@@ -253,8 +275,9 @@ createApp({
                 const posName = l === 'uk' ? (selectedSpread.value.positions[i]?.name || '') : (selectedSpread.value.positions[i]?.name_en || '');
                 const cardName = l === 'uk' ? c.name : c.name_en;
                 const orientation = c.reversed ? t.value.reversed : t.value.upright;
-                return `${i+1}. ${posName}: ${cardName} (${orientation})`;
-            }).join('\n');
+                const posMeaning = getCardPositionMeaning(c, i);
+                return `${i+1}. ${posName}: ${cardName} (${orientation})` + (posMeaning ? `\n   → ${posMeaning}` : '');
+            }).join('\n\n');
 
             let analysisBlock = '';
             const analysis = readingAnalysis.value;
@@ -393,7 +416,8 @@ createApp({
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,
-            selectedCardIndex, prevCard, nextCard
+            selectedCardIndex, prevCard, nextCard,
+            expandedCards, toggleCardDetails, getCardPositionMeaning, getCardFullMeaning
         };
     }
 }).mount('#app');
