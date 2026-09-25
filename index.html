@@ -411,42 +411,20 @@
                                 </div>
                             </div>
                             
-                            <!-- Automated forecast / analysis -->
-                            <div v-if="readingAnalysis && ((readingAnalysis.paragraphs && readingAnalysis.paragraphs.length) || (readingAnalysis.specific && readingAnalysis.specific.length))"
-                                 class="mt-8 mb-8 space-y-4">
-                                <div v-if="readingAnalysis.paragraphs && readingAnalysis.paragraphs.length"
-                                     class="p-5 rounded-xl border border-tarot-gold/30 bg-tarot-gold/5">
-                                    <h4 class="text-lg font-serif font-bold text-tarot-gold mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-chart-line"></i>
-                                        {{ lang === 'uk' ? 'Загальний огляд' : 'General overview' }}
-                                    </h4>
-                                    <ul class="space-y-3">
-                                        <li v-for="(p, i) in readingAnalysis.paragraphs" :key="'g-'+i"
-                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex items-start gap-2">
-                                            <span class="text-tarot-gold mt-1 shrink-0">•</span>
-                                            <span class="whitespace-pre-line flex-1">{{ p }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div v-if="readingAnalysis.specific && readingAnalysis.specific.length"
-                                     class="p-5 rounded-xl border border-purple-400/30 bg-purple-500/10">
-                                    <h4 class="text-lg font-serif font-bold text-purple-200 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-cross"></i>
-                                        {{ lang === 'uk' ? 'Специфіка цього розкладу' : 'This spread’s specifics' }}
-                                    </h4>
-                                    <ul class="space-y-3">
-                                        <li v-for="(p, i) in readingAnalysis.specific" :key="'s-'+i"
-                                            class="text-gray-200 text-sm sm:text-base leading-relaxed flex items-start gap-2">
-                                            <span class="text-purple-300 mt-1 shrink-0">•</span>
-                                            <span class="whitespace-pre-line flex-1">{{ p }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p class="text-xs text-gray-500 italic px-1">
-                                    {{ lang === 'uk'
-                                        ? 'Автоматичні спостереження за структурою розкладу (не замінює тлумачення окремих карт).'
-                                        : 'Automated observations from spread structure (does not replace individual card meanings).' }}
-                                </p>
+                            <!-- Automated Synthesis Block -->
+                            <div v-if="readingAnalysis && readingAnalysis.items && readingAnalysis.items.length"
+                                 class="mt-8 mb-8 p-5 rounded-xl border border-tarot-gold/20 bg-white/5">
+                                <h4 class="text-lg font-serif font-bold text-white mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-sparkles text-tarot-gold text-sm"></i>
+                                    {{ lang === 'uk' ? 'Синтез розкладу' : 'Spread Synthesis' }}
+                                </h4>
+                                <ul class="space-y-3.5">
+                                    <li v-for="(item, i) in readingAnalysis.items" :key="'syn-'+i"
+                                        class="text-gray-300 text-sm sm:text-base leading-relaxed flex items-start gap-2">
+                                        <span class="text-tarot-gold mt-1 shrink-0">•</span>
+                                        <span class="whitespace-pre-line flex-1">{{ item }}</span>
+                                    </li>
+                                </ul>
                             </div>
 
                             <div class="flex flex-wrap gap-3">

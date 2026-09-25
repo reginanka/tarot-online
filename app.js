@@ -281,22 +281,15 @@ createApp({
 
             let analysisBlock = '';
             const analysis = readingAnalysis.value;
-            if (analysis) {
-                const parts = [];
-                if (analysis.paragraphs && analysis.paragraphs.length) {
-                    const title = l === 'uk' ? 'Загальний огляд' : 'General overview';
-                    parts.push(title + ':\n' + analysis.paragraphs.map(p => '• ' + p).join('\n'));
-                }
-                if (analysis.specific && analysis.specific.length) {
-                    const title2 = l === 'uk' ? 'Специфіка розкладу' : 'Spread specifics';
-                    parts.push(title2 + ':\n' + analysis.specific.map(p => {
-                        if (p.includes('\n')) {
-                            return '• ' + p.split('\n').join('\n  ');
-                        }
-                        return '• ' + p;
-                    }).join('\n'));
-                }
-                if (parts.length) analysisBlock = '\n\n' + parts.join('\n\n');
+            if (analysis && analysis.items && analysis.items.length) {
+                const title = l === 'uk' ? 'Синтез розкладу' : 'Spread synthesis';
+                const itemsText = analysis.items.map(p => {
+                    if (p.includes('\n')) {
+                        return '• ' + p.split('\n').join('\n  ');
+                    }
+                    return '• ' + p;
+                }).join('\n');
+                analysisBlock = `\n\n${title}:\n${itemsText}`;
             }
 
             const text = `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}${analysisBlock}`;
