@@ -7,103 +7,95 @@ createApp({
 
         const currentView = ref('home');
         const mobileMenuOpen = ref(false);
-        const activeCategoryUa = ref('Всі');
-        const activeSize = ref('all');      // all | quick | medium | deep
-        const activeQueryType = ref('all'); // all | yesno | choice | causes | forecast
-        const selectedSpread = ref(null);
-        const selectedCard = ref(null);
-        const userQuestion = ref('');
-        
-        const readingStep = ref('focus');
-        const readingResult = ref({ cards: [] });
-        const showResults = ref(false);
-        const copySuccess = ref(false);
-
-        // Accessing constants from data.js
-        const spreads = ref(spreadsData);
-        const cards = ref(allTarotCards);
-        
-        // Single source of truth for category name mapping
-        const CATEGORY_UA_KEYS = ['Всі', 'Універсальні', 'Кохання та Стосунки', 'Кар\'єра та Фінанси', 'Короткі (Швидкі)', 'Прогнози', 'Духовність та Здоров\'я', 'Психологія', 'Глибокі (Складні)'];
-        const CATEGORY_UA_TO_EN = {
-            'Всі': 'All',
-            'Універсальні': 'Universal',
-            'Кохання та Стосунки': 'Love & Relationships',
-            'Кар\'єра та Фінанси': 'Career & Finance',
-            'Короткі (Швидкі)': 'Quick Reads',
-            'Прогнози': 'Forecasts',
-            'Духовність та Здоров\'я': 'Spirituality & Health',
-            'Психологія': 'Psychology',
-            'Глибокі (Складні)': 'Deep Spreads'
-        };
-        const CATEGORY_EN_TO_UA = Object.fromEntries(
-            Object.entries(CATEGORY_UA_TO_EN).map(([ua, en]) => [en, ua])
-        );
-
-        const categories = computed(() => {
-            if (lang.value === 'uk') return CATEGORY_UA_KEYS;
-            return CATEGORY_UA_KEYS.map(c => CATEGORY_UA_TO_EN[c] || c);
-        });
-
-        const activeCategory = computed(() => {
-            if (lang.value === 'uk') return activeCategoryUa.value;
-            return CATEGORY_UA_TO_EN[activeCategoryUa.value] || activeCategoryUa.value;
-        });
-
-        const setCategory = (cat) => {
-            activeCategoryUa.value = lang.value === 'en'
-                ? (CATEGORY_EN_TO_UA[cat] || 'Всі')
-                : cat;
-        };
+        // Unified catalog filter (single-select)
+        // kind: 'all' | 'size' | 'query' | 'category'
+        const activeFilter = ref({ kind: 'all', id: 'all' });
 
         const getSpreadSize = (s) => {
             const n = s.cards_count || 0;
             if (n <= 4) return 'quick';
             if (n <= 7) return 'medium';
-            return 'deep'; // 8+ (10–21 grand spreads)
+            return 'deep';
+        };
+
+        // Thematic categories (без «Короткі / Прогнози / Глибокі» — їх замінюють size/query)
+        const THEME_UA = [
+            'Універсальні',
+            'Кохання та Стосунки',
+            'Кар\'єра та Фінанси',
+            'Духовність та Здоров\'я',
+            'Психологія',
+        ];
+        const THEME_UA_TO_EN = {
+            'Універсальні': 'Universal',
+            'Кохання та Стосунки': 'Love & Relationships',
+            'Кар\'єра та Фінанси': 'Career & Finance',
+            'Духовність та Здоров\'я': 'Spirituality & Health',
+            'Психологія': 'Psychology',
+        };
+
+        const catalogFilters = computed(() => {
+            const uk = lang.value === 'uk';
+            const list = [
+                { kind: 'all', id: 'all', label: uk ? 'Всі' : 'All' },
+                { kind: 'size', id: 'quick', label: uk ? 'Швидкі (1–4 карти)' : 'Quick (1–4 cards)' },
+                { kind: 'size', id: 'medium', label: uk ? 'Середні (5–7 карт)' : 'Medium (5–7 cards)' },
+                { kind: 'size', id: 'deep', label: uk ? 'Глибокі (10–21 карта)' : 'Deep (10–21 cards)' },
+                { kind: 'query', id: 'forecast', label: uk ? 'Прогноз на період' : 'Period forecast' },
+            ];
+            for (const cat of THEME_UA) {
+                list.push({
+                    kind: 'category',
+                    id: cat,
+                    label: uk ? cat : (THEME_UA_TO_EN[cat] || cat),
+                });
+            }
+            list.push(
+                { kind: 'query', id: 'yesno', label: uk ? 'Так / Ні' : 'Yes / No' },
+                { kind: 'query', id: 'choice', label: uk ? 'Вибір з двох' : 'Two options' },
+                { kind: 'query', id: 'causes', label: uk ? 'Аналіз причин' : 'Cause analysis' },
+            );
+            return list;
+        });
+
+        const activeFilterKey = computed(() => {
+            const f = activeFilter.value;
+            return f.kind + ':' + f.id;
+        });
+
+        const setCatalogFilter = (item) => {
+            activeFilter.value = { kind: item.kind, id: item.id };
         };
 
         const filteredSpreads = computed(() => {
-            return spreads.value.filter(s => {
-                const byCat = activeCategoryUa.value === 'Всі' || s.category === activeCategoryUa.value;
-                const bySize = activeSize.value === 'all' || getSpreadSize(s) === activeSize.value;
-                const types = s.query_types || [];
-                const byQuery = activeQueryType.value === 'all' || types.includes(activeQueryType.value);
-                return byCat && bySize && byQuery;
-            });
-        });
-
-        const sizeFilters = computed(() => {
-            if (lang.value === 'uk') {
-                return [
-                    { id: 'all', label: t.value.filterAll },
-                    { id: 'quick', label: t.value.sizeQuick, hint: t.value.sizeQuickHint },
-                    { id: 'medium', label: t.value.sizeMedium, hint: t.value.sizeMediumHint },
-                    { id: 'deep', label: t.value.sizeDeep, hint: t.value.sizeDeepHint },
-                ];
+            const f = activeFilter.value;
+            if (f.kind === 'all') return spreads.value;
+            if (f.kind === 'size') {
+                return spreads.value.filter(s => getSpreadSize(s) === f.id);
             }
-            return [
-                { id: 'all', label: t.value.filterAll },
-                { id: 'quick', label: t.value.sizeQuick, hint: t.value.sizeQuickHint },
-                { id: 'medium', label: t.value.sizeMedium, hint: t.value.sizeMediumHint },
-                { id: 'deep', label: t.value.sizeDeep, hint: t.value.sizeDeepHint },
-            ];
+            if (f.kind === 'query') {
+                return spreads.value.filter(s => (s.query_types || []).includes(f.id));
+            }
+            if (f.kind === 'category') {
+                return spreads.value.filter(s => s.category === f.id);
+            }
+            return spreads.value;
         });
 
-        const queryFilters = computed(() => [
-            { id: 'all', label: t.value.filterAll },
-            { id: 'yesno', label: t.value.queryYesNo },
-            { id: 'choice', label: t.value.queryChoice },
-            { id: 'causes', label: t.value.queryCauses },
-            { id: 'forecast', label: t.value.queryForecast },
-        ]);
-
-        const setSizeFilter = (id) => { activeSize.value = id; };
-        const setQueryFilter = (id) => { activeQueryType.value = id; };
-        const resetExtraFilters = () => {
-            activeSize.value = 'all';
-            activeQueryType.value = 'all';
+        // backward-compat aliases (home / other places)
+        const categories = catalogFilters;
+        const activeCategory = computed(() => {
+            const f = activeFilter.value;
+            if (f.kind === 'all') return lang.value === 'uk' ? 'Всі' : 'All';
+            const match = catalogFilters.value.find(x => x.kind === f.kind && x.id === f.id);
+            return match ? match.label : (lang.value === 'uk' ? 'Всі' : 'All');
+        });
+        const setCategory = (label) => {
+            const item = catalogFilters.value.find(x => x.label === label);
+            if (item) setCatalogFilter(item);
+            else activeFilter.value = { kind: 'all', id: 'all' };
         };
+
 
         const quickSpreads = computed(() => {
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
@@ -348,7 +340,7 @@ createApp({
 
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
-            activeSize, activeQueryType, sizeFilters, queryFilters, setSizeFilter, setQueryFilter, resetExtraFilters,
+            catalogFilters, activeFilter, activeFilterKey, setCatalogFilter,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,

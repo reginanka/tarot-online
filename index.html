@@ -206,54 +206,23 @@
             <div v-else-if="currentView === 'catalog'" key="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <h1 class="text-4xl font-serif font-bold text-center text-white mb-8">{{ t.catalogTitle }}</h1>
                 
-                <!-- Filters: category -->
-                <div class="flex flex-wrap justify-center gap-2 mb-4">
-                    <button 
-                        v-for="cat in categories" 
-                        :key="cat"
-                        @click="setCategory(cat)"
-                        :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeCategory === cat ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
+                <!-- Filters: single row -->
+                <div class="flex flex-wrap justify-center gap-2 mb-12">
+                    <button
+                        v-for="item in catalogFilters"
+                        :key="item.kind + '-' + item.id"
+                        @click="setCatalogFilter(item)"
+                        :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeFilterKey === (item.kind + ':' + item.id) ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
                     >
-                        {{ cat }}
+                        {{ item.label }}
                     </button>
-                </div>
-
-                <!-- Filters: size (time / complexity) -->
-                <div class="flex flex-col items-center gap-2 mb-4">
-                    <span class="text-sm font-bold uppercase tracking-wider text-gray-300">{{ t.filterBySize }}</span>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <button
-                            v-for="sf in sizeFilters"
-                            :key="'size-'+sf.id"
-                            @click="setSizeFilter(sf.id)"
-                            :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeSize === sf.id ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
-                            :title="sf.hint || ''"
-                        >
-                            {{ sf.label }}<span v-if="sf.hint" class="opacity-70 ml-1 text-xs">({{ sf.hint }})</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Filters: query type -->
-                <div class="flex flex-col items-center gap-2 mb-10">
-                    <span class="text-sm font-bold uppercase tracking-wider text-gray-300">{{ t.filterByQuery }}</span>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <button
-                            v-for="qf in queryFilters"
-                            :key="'query-'+qf.id"
-                            @click="setQueryFilter(qf.id)"
-                            :class="['px-4 py-2 rounded-full text-sm font-medium transition-all', activeQueryType === qf.id ? 'bg-tarot-gold text-tarot-dark' : 'bg-white/10 text-gray-300 hover:bg-white/20']"
-                        >
-                            {{ qf.label }}
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Empty state -->
                 <div v-if="filteredSpreads.length === 0" class="text-center py-16 text-gray-400">
                     <i class="fa-solid fa-filter-circle-xmark text-3xl mb-3 opacity-50"></i>
                     <p>{{ t.noSpreadsFound }}</p>
-                    <button @click="resetExtraFilters(); setCategory(lang === 'uk' ? 'Всі' : 'All')" class="mt-4 text-tarot-gold hover:underline text-sm">
+                    <button @click="setCatalogFilter({ kind: 'all', id: 'all' })" class="mt-4 text-tarot-gold hover:underline text-sm">
                         {{ t.filterAll }}
                     </button>
                 </div>
