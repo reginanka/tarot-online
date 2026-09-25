@@ -36,7 +36,15 @@ const spreadsData = [
         short_description_en: 'Helps weigh two choice options and see the consequences of each.',
         intro_text: 'Коли ви стоїте на роздоріжжі, цей розклад допомагає вийти за межі емоцій і тверезо оцінити обидва шляхи. Він не приймає рішення за вас, але показує, що чекає на вас при виборі варіанту А або варіанту Б, а також дає загальну пораду для ситуації.',
         intro_text_en: 'When you stand at a crossroads, this spread helps you go beyond emotions and soberly evaluate both paths. It doesn\'t make the decision for you, but it shows what awaits you when choosing option A or option B, and provides general advice for the situation.',
-        positions: Array(7).fill(0).map((_, i) => ({ name: `Карта ${i+1}`, name_en: `Card ${i+1}` }))
+        positions: [
+            { name: 'Ситуація', name_en: 'The Situation', description: 'Суть вибору, перед яким ви стоїте', description_en: 'The essence of the choice you face' },
+            { name: 'Варіант А', name_en: 'Option A', description: 'Перший шлях і його характер', description_en: 'The first path and its nature' },
+            { name: 'Наслідки А', name_en: 'Outcome of A', description: 'До чого веде варіант А', description_en: 'Where option A leads' },
+            { name: 'Варіант Б', name_en: 'Option B', description: 'Другий шлях і його характер', description_en: 'The second path and its nature' },
+            { name: 'Наслідки Б', name_en: 'Outcome of B', description: 'До чого веде варіант Б', description_en: 'Where option B leads' },
+            { name: 'Порада', name_en: 'Advice', description: 'Що варто врахувати при виборі', description_en: 'What to consider when choosing' },
+            { name: 'Ймовірний результат', name_en: 'Likely Result', description: 'Загальний підсумок рішення', description_en: 'Overall outcome of the decision' }
+        ]
     },
     { 
         id: 17, slug: 'horseshoe', 
@@ -47,7 +55,15 @@ const spreadsData = [
         short_description_en: 'Event development analysis that reveals hidden factors and future challenges.',
         intro_text: 'Розклад "Підкова" ідеально підходить для аналізу будь-якої заплутаної ситуації. Сім карт утворюють арку, що веде від минулого через сьогодення до майбутнього, висвітлюючи ваші сильні сторони, труднощі та найкращий шлях до вирішення.',
         intro_text_en: 'The "Horseshoe" spread is perfectly suited for analyzing any confusing situation. Seven cards form an arc leading from the past through the present to the future, highlighting your strengths, difficulties, and the best path to a solution.',
-        positions: Array(7).fill(0).map((_, i) => ({ name: `Крок ${i+1}`, name_en: `Step ${i+1}` }))
+        positions: [
+            { name: 'Минуле', name_en: 'The Past', description: 'Події, що вплинули на ситуацію', description_en: 'Events that influenced the situation' },
+            { name: 'Теперішнє', name_en: 'The Present', description: 'Поточний стан справ', description_en: 'Current state of affairs' },
+            { name: 'Приховані фактори', name_en: 'Hidden Factors', description: 'Те, що ще не видно явно', description_en: 'What is not yet clearly visible' },
+            { name: 'Перешкоди', name_en: 'Obstacles', description: 'Виклики на шляху', description_en: 'Challenges on the path' },
+            { name: 'Оточення', name_en: 'Environment', description: 'Вплив людей і обставин', description_en: 'Influence of people and circumstances' },
+            { name: 'Порада', name_en: 'Advice', description: 'Найкращий спосіб діяти', description_en: 'The best way to act' },
+            { name: 'Результат', name_en: 'Outcome', description: 'Ймовірний розвиток подій', description_en: 'Likely development of events' }
+        ]
     },
     { 
         id: 20, slug: 'pentagram', 
@@ -58,7 +74,13 @@ const spreadsData = [
         short_description_en: 'Magical situation analysis by five elements: Will, Emotions, Intellect, Matter, and Spirit.',
         intro_text: 'Пентаграма аналізує проблему на різних рівнях буття. Це допомагає зрозуміти, чи перебуваєте ви в гармонії зі стихіями, де саме стався збій — у думках, емоціях чи діях — і як відновити баланс для досягнення цілі.',
         intro_text_en: 'The Pentagram analyzes a problem at different levels of existence. This helps you understand if you are in harmony with the elements, where exactly the failure occurred — in thoughts, emotions, or actions — and how to restore balance to achieve your goal.',
-        positions: Array(5).fill(0).map((_, i) => ({ name: `Стихія ${i+1}`, name_en: `Element ${i+1}` }))
+        positions: [
+            { name: 'Дух', name_en: 'Spirit', description: 'Вища мета, сенс і духовний аспект', description_en: 'Higher purpose, meaning and spiritual aspect' },
+            { name: 'Повітря (Розум)', name_en: 'Air (Mind)', description: 'Думки, ідеї та комунікація', description_en: 'Thoughts, ideas and communication' },
+            { name: 'Вогонь (Воля)', name_en: 'Fire (Will)', description: 'Енергія, дії та наміри', description_en: 'Energy, actions and intentions' },
+            { name: 'Вода (Емоції)', name_en: 'Water (Emotions)', description: 'Почуття та внутрішній стан', description_en: 'Feelings and inner state' },
+            { name: 'Земля (Матерія)', name_en: 'Earth (Matter)', description: 'Практичний результат і ресурси', description_en: 'Practical outcome and resources' }
+        ]
     },
     { 
         id: 21, slug: 'simple-cross', 
@@ -69,7 +91,13 @@ const spreadsData = [
         short_description_en: 'Quick and effective analysis of the main influences on any of your questions.',
         intro_text: 'Якщо вам потрібна швидка відповідь без зайвих деталей, "Простий хрест" виділить головне: вашу позицію, перешкоду, основу ситуації та ймовірний результат.',
         intro_text_en: 'If you need a quick answer without unnecessary details, the "Simple Cross" will highlight the essentials: your position, the obstacle, the foundation of the situation, and the likely outcome.',
-        positions: Array(5).fill(0).map((_, i) => ({ name: `Вплив ${i+1}`, name_en: `Influence ${i+1}` }))
+        positions: [
+            { name: 'Центр', name_en: 'Center', description: 'Суть ситуації або ваша позиція', description_en: 'Core of the situation or your position' },
+            { name: 'Перешкода', name_en: 'Obstacle', description: 'Що стоїть на шляху', description_en: 'What stands in the way' },
+            { name: 'Основа', name_en: 'Foundation', description: 'Коріння та підґрунтя подій', description_en: 'Roots and foundation of events' },
+            { name: 'Минуле / Вплив', name_en: 'Past / Influence', description: 'Що вже вплинуло на розвиток', description_en: 'What has already influenced the development' },
+            { name: 'Результат', name_en: 'Outcome', description: 'Ймовірний підсумок', description_en: 'Likely outcome' }
+        ]
     },
 
     // 💖 Кохання та Стосунки
@@ -82,7 +110,14 @@ const spreadsData = [
         short_description_en: 'Detailed breakdown of relationships, feelings, and thoughts of both partners.',
         intro_text: 'Цей розклад дає можливість подивитися на стосунки з обох боків. Ви дізнаєтесь, що кожен із партнерів думає, відчуває та як діє, а також побачите перспективу союзу на найближчий час.',
         intro_text_en: 'This spread provides an opportunity to look at a relationship from both sides. You will find out what each partner thinks, feels, and how they act, as well as see the prospect of the union for the near future.',
-        positions: Array(6).fill(0).map((_, i) => ({ name: `Позиція ${i+1}`, name_en: `Position ${i+1}` }))
+        positions: [
+            { name: 'Ви: думки', name_en: 'You: Thoughts', description: 'Що ви думаєте про стосунки', description_en: 'What you think about the relationship' },
+            { name: 'Ви: почуття', name_en: 'You: Feelings', description: 'Ваші справжні емоції', description_en: 'Your true emotions' },
+            { name: 'Ви: дії', name_en: 'You: Actions', description: 'Як ви проявляєтесь у союзі', description_en: 'How you show up in the relationship' },
+            { name: 'Партнер: думки', name_en: 'Partner: Thoughts', description: 'Що думає партнер', description_en: 'What the partner thinks' },
+            { name: 'Партнер: почуття', name_en: 'Partner: Feelings', description: 'Почуття партнера', description_en: 'The partner\'s feelings' },
+            { name: 'Перспектива', name_en: 'Outlook', description: 'Розвиток стосунків у найближчий час', description_en: 'Relationship development in the near future' }
+        ]
     },
     { 
         id: 25, slug: 'love-triangle', 
@@ -93,7 +128,11 @@ const spreadsData = [
         short_description_en: 'Analysis of relationship dynamics between three people or a choice between two partners.',
         intro_text: 'Складна ситуація в коханні потребує ясності. Три карти висвітлюють приховані мотиви, почуття сторін та допомагають зрозуміти, до чого веде це заплутане коло.',
         intro_text_en: 'A complex situation in love requires clarity. Three cards highlight hidden motives, feelings of the parties, and help you understand where this tangled circle is leading.',
-        positions: Array(3).fill(0).map((_, i) => ({ name: `Позиція ${i+1}`, name_en: `Position ${i+1}` }))
+        positions: [
+            { name: 'Ви', name_en: 'You', description: 'Ваша роль і почуття в ситуації', description_en: 'Your role and feelings in the situation' },
+            { name: 'Перша особа', name_en: 'First person', description: 'Позиція та мотиви першої сторони', description_en: 'Position and motives of the first party' },
+            { name: 'Друга особа', name_en: 'Second person', description: 'Позиція та мотиви другої сторони', description_en: 'Position and motives of the second party' }
+        ]
     },
 
     // 💼 Кар'єра та Фінанси
@@ -120,10 +159,10 @@ const spreadsData = [
         title: 'Фінанси та гроші', title_en: 'Finance & Money',
         cards_count: 6, category: 'Кар\'єра та Фінанси', category_en: 'Career & Finance',
         difficulty: 'Середня', difficulty_en: 'Medium',
-        short_description: 'Показує стан фінансів, джерела прибутку, ризики та майбутню фінансову тенденцію.', 
-        short_description_en: 'Shows financial status, income sources, risks, and future financial trends.',
-        intro_text: 'Розклад допомагає тверезо подивитися на грошову ситуацію. Він висвітлює джерела поповнення бюджету, витіки ресурсів та дає пораду, як покращити матеріальне становище.',
-        intro_text_en: 'The spread helps you take a sober look at your financial situation. It highlights budget sources, resource leaks, and provides advice on how to improve your financial position.',
+        short_description: 'Аналіз грошового потоку, ризиків та можливостей для стабільності.', 
+        short_description_en: 'Analysis of cash flow, risks and opportunities for stability.',
+        intro_text: 'Розклад допомагає побачити реальну картину ваших фінансів: звідки приходять гроші, куди вони йдуть і що може загрожувати стабільності. Він дає практичні підказки для зміцнення матеріального становища.',
+        intro_text_en: 'The spread helps you see the real picture of your finances: where money comes from, where it goes, and what may threaten stability. It gives practical tips for strengthening your material situation.',
         positions: [
             { name: 'Поточний стан', name_en: 'Current State', description: 'Ваше фінансове становище зараз', description_en: 'Your financial situation now' },
             { name: 'Джерело доходу', name_en: 'Income Source', description: 'Звідки приходять гроші', description_en: 'Where the money comes from' },
@@ -140,11 +179,15 @@ const spreadsData = [
         title: 'Три карти', title_en: 'Three Cards',
         cards_count: 3, category: 'Короткі (Швидкі)', category_en: 'Quick Reads',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Класичний розклад для аналізу ситуації через час: Минуле, Теперішнє, Майбутнє.', 
-        short_description_en: 'A classic spread for situational analysis through time: Past, Present, Future.',
-        intro_text: 'Найпопулярніший розклад у світі. Три карти дають чітку лінійну картину: що було початком, в якій фазі ви зараз і куди все рухається. Ідеально для швидких відповідей на будь-які запитання.',
-        intro_text_en: 'The most popular spread in the world. Three cards provide a clear linear picture: what was the beginning, what phase you are in now, and where everything is going. Ideal for quick answers to any questions.',
-        positions: [{ name: 'Минуле', name_en: 'Past' }, { name: 'Теперішнє', name_en: 'Present' }, { name: 'Майбутнє', name_en: 'Future' }] 
+        short_description: 'Класичний швидкий розклад: минуле, теперішнє, майбутнє.', 
+        short_description_en: 'Classic quick spread: past, present, future.',
+        intro_text: 'Три карти дають чітку часову лінію розвитку ситуації. Ідеально, коли потрібна швидка відповідь без зайвої складності.',
+        intro_text_en: 'Three cards give a clear timeline of the situation. Ideal when you need a quick answer without extra complexity.',
+        positions: [
+            { name: 'Минуле', name_en: 'Past', description: 'Що вже вплинуло на ситуацію', description_en: 'What has already influenced the situation' },
+            { name: 'Теперішнє', name_en: 'Present', description: 'Поточний стан справ', description_en: 'Current state of affairs' },
+            { name: 'Майбутнє', name_en: 'Future', description: 'Ймовірний розвиток подій', description_en: 'Likely development of events' }
+        ]
     },
     { 
         id: 23, slug: 'yes-no', 
@@ -155,7 +198,11 @@ const spreadsData = [
         short_description_en: 'A specific answer to a specific question through the analysis of favorable and hindering factors.',
         intro_text: 'Коли вам потрібне чітке "так" або "ні", цей розклад допоможе зважити сили за і проти. Третя карта виступає порадою або вказує на вирішальний фактор.',
         intro_text_en: 'When you need a clear "yes" or "no", this spread helps you weigh the pros and cons. The third card acts as advice or indicates a decisive factor.',
-        positions: Array(3).fill(0).map((_, i) => ({ name: `Вплив ${i+1}`, name_en: `Influence ${i+1}` })) 
+        positions: [
+            { name: 'За (Так)', name_en: 'For (Yes)', description: 'Фактори на користь позитивної відповіді', description_en: 'Factors in favor of a positive answer' },
+            { name: 'Проти (Ні)', name_en: 'Against (No)', description: 'Фактори, що вказують на негативну відповідь', description_en: 'Factors pointing to a negative answer' },
+            { name: 'Порада / Ключ', name_en: 'Advice / Key', description: 'Вирішальний фактор або рекомендація', description_en: 'Decisive factor or recommendation' }
+        ]
     },
     { 
         id: 27, slug: 'daily-path', 
@@ -166,7 +213,12 @@ const spreadsData = [
         short_description_en: 'Daily layout helping you focus on the essentials and avoid mistakes.',
         intro_text: 'Цей розклад — ваш особистий навігатор на день. Він показує основну енергію дня, можливі перешкоди та те, де сьогодні варто шукати ресурс.',
         intro_text_en: 'This spread is your personal navigator for the day. It shows the main energy of the day, potential obstacles, and where you should look for resources today.',
-        positions: Array(4).fill(0).map((_, i) => ({ name: `Аспект ${i+1}`, name_en: `Aspect ${i+1}` })) 
+        positions: [
+            { name: 'Енергія дня', name_en: 'Day Energy', description: 'Головна тема та настрій дня', description_en: 'Main theme and mood of the day' },
+            { name: 'Перешкода', name_en: 'Obstacle', description: 'Що може завадити сьогодні', description_en: 'What may hinder you today' },
+            { name: 'Ресурс', name_en: 'Resource', description: 'Де шукати підтримку та силу', description_en: 'Where to look for support and strength' },
+            { name: 'Порада', name_en: 'Advice', description: 'Як найкраще провести день', description_en: 'How to best spend the day' }
+        ]
     },
     { 
         id: 22, slug: 'one-card', 
@@ -176,11 +228,13 @@ const spreadsData = [
         short_description: 'Миттєва порада або основна енергія моменту.', 
         short_description_en: 'Instant advice or the core energy of the moment.',
         intro_text: 'Максимально лаконічний розклад. Витягніть одну карту як натхнення на день або пряму відповідь на запитання.',
-        intro_text_en: 'The most concise spread possible. Pull one card as inspiration for the day or a direct answer to a question.',
-        positions: [{ name: 'Результат', name_en: 'Result' }] 
+        intro_text_en: 'The most concise spread. Draw one card as inspiration for the day or a direct answer to a question.',
+        positions: [
+            { name: 'Результат', name_en: 'Result', description: 'Головна відповідь або енергія моменту', description_en: 'Main answer or energy of the moment' }
+        ]
     },
 
-    // 🔮 Прогнози
+    // 📅 Прогнози
     { 
         id: 6, slug: 'week-ahead', 
         title: 'Тиждень попереду', title_en: 'Week Ahead',
@@ -190,7 +244,15 @@ const spreadsData = [
         short_description_en: 'Forecast for each day of the week, helping you plan tasks and rest.',
         intro_text: 'Сім карт на сім днів тижня. Дозволяє побачити ритм вашого життя на найближчий тиждень і бути готовим до будь-яких поворотів.',
         intro_text_en: 'Seven cards for the seven days of the week. Allows you to see the rhythm of your life for the coming week and be ready for any turns.',
-        positions: Array(7).fill(0).map((_, i) => ({ name: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'][i], name_en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i] })) 
+        positions: [
+            { name: 'Пн', name_en: 'Mon', description: 'Енергія та події понеділка', description_en: 'Monday energy and events' },
+            { name: 'Вт', name_en: 'Tue', description: 'Енергія та події вівторка', description_en: 'Tuesday energy and events' },
+            { name: 'Ср', name_en: 'Wed', description: 'Енергія та події середи', description_en: 'Wednesday energy and events' },
+            { name: 'Чт', name_en: 'Thu', description: 'Енергія та події четверга', description_en: 'Thursday energy and events' },
+            { name: 'Пт', name_en: 'Fri', description: 'Енергія та події п\'ятниці', description_en: 'Friday energy and events' },
+            { name: 'Сб', name_en: 'Sat', description: 'Енергія та події суботи', description_en: 'Saturday energy and events' },
+            { name: 'Нд', name_en: 'Sun', description: 'Енергія та події неділі', description_en: 'Sunday energy and events' }
+        ]
     },
     { 
         id: 7, slug: 'year-ahead', 
@@ -201,7 +263,20 @@ const spreadsData = [
         short_description_en: 'Global forecast for the year: one card for each month.',
         intro_text: 'Цей розклад дає загальну панораму майбутнього року. Ви зможете побачити ключові акценти кожного місяця та краще розподілити свої сили.',
         intro_text_en: 'This spread provides a general panorama of the year ahead. You can see the key highlights of each month and better distribute your energy.',
-        positions: Array(12).fill(0).map((_, i) => ({ name: `Місяць ${i+1}`, name_en: `Month ${i+1}` })) 
+        positions: [
+            { name: 'Січень', name_en: 'January', description: 'Ключова енергія січня', description_en: 'Key energy of January' },
+            { name: 'Лютий', name_en: 'February', description: 'Ключова енергія лютого', description_en: 'Key energy of February' },
+            { name: 'Березень', name_en: 'March', description: 'Ключова енергія березня', description_en: 'Key energy of March' },
+            { name: 'Квітень', name_en: 'April', description: 'Ключова енергія квітня', description_en: 'Key energy of April' },
+            { name: 'Травень', name_en: 'May', description: 'Ключова енергія травня', description_en: 'Key energy of May' },
+            { name: 'Червень', name_en: 'June', description: 'Ключова енергія червня', description_en: 'Key energy of June' },
+            { name: 'Липень', name_en: 'July', description: 'Ключова енергія липня', description_en: 'Key energy of July' },
+            { name: 'Серпень', name_en: 'August', description: 'Ключова енергія серпня', description_en: 'Key energy of August' },
+            { name: 'Вересень', name_en: 'September', description: 'Ключова енергія вересня', description_en: 'Key energy of September' },
+            { name: 'Жовтень', name_en: 'October', description: 'Ключова енергія жовтня', description_en: 'Key energy of October' },
+            { name: 'Листопад', name_en: 'November', description: 'Ключова енергія листопада', description_en: 'Key energy of November' },
+            { name: 'Грудень', name_en: 'December', description: 'Ключова енергія грудня', description_en: 'Key energy of December' }
+        ]
     },
     { 
         id: 9, slug: 'birthday', 
@@ -212,7 +287,11 @@ const spreadsData = [
         short_description_en: 'A special spread for the transition into a new personal year: summary and perspective.',
         intro_text: 'День народження — це точка сили. Цей розклад допоможе відпустити минулий досвід, визначити вашу головну енергію зараз та побачити вектор розвитку на майбутнє.',
         intro_text_en: 'A birthday is a point of power. This spread helps you release past experiences, define your main energy now, and see the vector of development for the future.',
-        positions: [{ name: 'Минуле', name_en: 'Past' }, { name: 'Енергія', name_en: 'Energy' }, { name: 'Майбутнє', name_en: 'Future' }] 
+        positions: [
+            { name: 'Минуле', name_en: 'Past', description: 'Уроки та досвід минулого року', description_en: 'Lessons and experience of the past year' },
+            { name: 'Енергія', name_en: 'Energy', description: 'Головна сила вашого нового року', description_en: 'Main force of your new year' },
+            { name: 'Майбутнє', name_en: 'Future', description: 'Вектор розвитку на рік вперед', description_en: 'Development vector for the year ahead' }
+        ]
     },
 
     // 🧘 Духовність та Здоров'я
@@ -221,44 +300,70 @@ const spreadsData = [
         title: 'Сім чакр', title_en: 'Seven Chakras',
         cards_count: 7, category: 'Духовність та Здоров\'я', category_en: 'Spirituality & Health',
         difficulty: 'Середня', difficulty_en: 'Medium',
-        short_description: 'Діагностика енергетичного балансу семи основних центрів людини.', 
-        short_description_en: 'Diagnostics of the energetic balance of the seven main human centers.',
-        intro_text: 'Розклад для тих, хто займається саморозвитком. Кожна карта відповідає одній із семи чакр, показуючи стан ваших енергетичних потоків та вказуючи на можливі блоки.',
-        intro_text_en: 'A spread for those involved in self-development. Each card corresponds to one of the seven chakras, showing the state of your energy flows and indicating potential blocks.',
-        positions: [{ name: 'Муладхара', name_en: 'Muladhara' }, { name: 'Свадхістана', name_en: 'Svadhisthana' }, { name: 'Маніпура', name_en: 'Manipura' }, { name: 'Анахата', name_en: 'Anahata' }, { name: 'Вішудха', name_en: 'Vishuddha' }, { name: 'Аджна', name_en: 'Ajna' }, { name: 'Сахасрара', name_en: 'Sahasrara' }] 
+        short_description: 'Діагностика енергетичних центрів і балансу тіла, емоцій та духу.', 
+        short_description_en: 'Diagnostics of energy centers and the balance of body, emotions and spirit.',
+        intro_text: 'Сім карт відповідають семи чакрам. Розклад показує, де енергія тече вільно, а де є блоки, і допомагає зрозуміти, на якому рівні потребує уваги ваше самопочуття.',
+        intro_text_en: 'Seven cards correspond to the seven chakras. The spread shows where energy flows freely and where there are blocks, and helps understand at which level your well-being needs attention.',
+        positions: [
+            { name: 'Муладхара', name_en: 'Muladhara', description: 'Коріння, безпека, базові потреби', description_en: 'Root, safety, basic needs' },
+            { name: 'Свадхістана', name_en: 'Svadhisthana', description: 'Емоції, творчість, задоволення', description_en: 'Emotions, creativity, pleasure' },
+            { name: 'Маніпура', name_en: 'Manipura', description: 'Воля, сила, особиста влада', description_en: 'Will, strength, personal power' },
+            { name: 'Анахата', name_en: 'Anahata', description: 'Любов, співчуття, стосунки', description_en: 'Love, compassion, relationships' },
+            { name: 'Вішудха', name_en: 'Vishuddha', description: 'Самовираження, правда, голос', description_en: 'Self-expression, truth, voice' },
+            { name: 'Аджна', name_en: 'Ajna', description: 'Інтуїція, бачення, ясність', description_en: 'Intuition, vision, clarity' },
+            { name: 'Сахасрара', name_en: 'Sahasrara', description: 'Духовність, єдність, вищий сенс', description_en: 'Spirituality, unity, higher meaning' }
+        ]
     },
     { 
         id: 3, slug: 'spiritual', 
         title: 'Духовний розвиток', title_en: 'Spiritual Growth',
         cards_count: 6, category: 'Духовність та Здоров\'я', category_en: 'Spirituality & Health',
-        difficulty: 'Висока', difficulty_en: 'High',
-        short_description: 'Для глибокого осмислення внутрішнього шляху та пошуку сенсу.', 
-        short_description_en: 'For deep consideration of the inner path and finding meaning.',
-        intro_text: 'Коли ви шукаєте відповіді на екзистенційні запитання, духовний розклад допоможе зрозуміти ваші уроки та напрямок еволюції вашої душі.',
-        intro_text_en: 'When searching for answers to existential questions, a spiritual spread helps you understand your lessons and the direction of your soul\'s evolution.',
-        positions: Array(6).fill(0).map((_, i) => ({ name: `Аспект ${i+1}`, name_en: `Aspect ${i+1}` })) 
+        difficulty: 'Середня', difficulty_en: 'Medium',
+        short_description: 'Карта внутрішнього шляху: де ви зараз і куди рухається ваша душа.', 
+        short_description_en: 'Map of the inner path: where you are now and where your soul is moving.',
+        intro_text: 'Розклад для тих, хто шукає глибший сенс. Він показує поточний духовний стан, перешкоди на шляху, ресурси та наступний крок у розвитку.',
+        intro_text_en: 'A spread for those seeking deeper meaning. It shows the current spiritual state, obstacles on the path, resources and the next step in development.',
+        positions: [
+            { name: 'Поточний стан', name_en: 'Current State', description: 'Де ви зараз на духовному шляху', description_en: 'Where you are now on the spiritual path' },
+            { name: 'Урок', name_en: 'Lesson', description: 'Головний урок цього етапу', description_en: 'Main lesson of this stage' },
+            { name: 'Перешкода', name_en: 'Obstacle', description: 'Що блокує зростання', description_en: 'What blocks growth' },
+            { name: 'Ресурс', name_en: 'Resource', description: 'Що підтримує і надихає', description_en: 'What supports and inspires' },
+            { name: 'Порада', name_en: 'Advice', description: 'Практичний крок вперед', description_en: 'Practical step forward' },
+            { name: 'Наступний етап', name_en: 'Next Stage', description: 'Куди веде ваш шлях', description_en: 'Where your path leads' }
+        ]
     },
     { 
         id: 24, slug: 'mind-body-spirit', 
         title: 'Розум-Тіло-Дух', title_en: 'Mind-Body-Spirit',
         cards_count: 3, category: 'Духовність та Здоров\'я', category_en: 'Spirituality & Health',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Аналіз гармонії трьох основних стовпів вашого буття.', 
-        short_description_en: 'Analysis of the harmony of the three main pillars of your existence.',
-        intro_text: 'Чи перебувають у злагоді ваші думки, фізичний стан та духовні переконання? Три карти висвітлять кожен із цих рівнів та підкажуть, де потрібна увага.',
-        intro_text_en: 'Are your thoughts, physical state, and spiritual beliefs in harmony? Three cards will highlight each of these levels and suggest where attention is needed.',
-        positions: [{ name: 'Розум', name_en: 'Mind' }, { name: 'Тіло', name_en: 'Body' }, { name: 'Дух', name_en: 'Spirit' }] 
+        short_description: 'Швидкий огляд балансу розуму, тіла та духу.', 
+        short_description_en: 'Quick overview of the balance of mind, body and spirit.',
+        intro_text: 'Три карти показують стан трьох ключових рівнів вашого буття. Допомагає зрозуміти, де потрібна увага для відновлення гармонії.',
+        intro_text_en: 'Three cards show the state of three key levels of your being. Helps understand where attention is needed to restore harmony.',
+        positions: [
+            { name: 'Розум', name_en: 'Mind', description: 'Думки, фокус і ментальний стан', description_en: 'Thoughts, focus and mental state' },
+            { name: 'Тіло', name_en: 'Body', description: 'Фізичний стан і енергія тіла', description_en: 'Physical state and body energy' },
+            { name: 'Дух', name_en: 'Spirit', description: 'Духовний стан і зв\'язок із сенсом', description_en: 'Spiritual state and connection to meaning' }
+        ]
     },
     { 
         id: 13, slug: 'health', 
         title: 'Здоров\'я', title_en: 'Health',
         cards_count: 6, category: 'Духовність та Здоров\'я', category_en: 'Spirituality & Health',
         difficulty: 'Середня', difficulty_en: 'Medium',
-        short_description: 'Аналіз фізичного та енергетичного стану вашого організму.', 
-        short_description_en: 'Analysis of the physical and energetic state of your body.',
-        intro_text: 'Розклад фокусується на вашому загальному самопочутті, вказуючи на причини нездужання та даючи поради щодо відновлення життєвих сил.',
-        intro_text_en: 'The spread focuses on your overall well-being, pointing to the causes of illness and providing advice on restoring vitality.',
-        positions: Array(6).fill(0).map((_, i) => ({ name: `Аспект ${i+1}`, name_en: `Aspect ${i+1}` })) 
+        short_description: 'Символічний огляд факторів, що впливають на самопочуття (не медична діагностика).', 
+        short_description_en: 'Symbolic overview of factors affecting well-being (not medical diagnosis).',
+        intro_text: 'Цей розклад не замінює консультацію лікаря. Він показує символічні впливи на ваше самопочуття: внутрішні ресурси, стресори, поради щодо турботи про себе.',
+        intro_text_en: 'This spread does not replace a doctor\'s consultation. It shows symbolic influences on your well-being: inner resources, stressors, advice on self-care.',
+        positions: [
+            { name: 'Поточний стан', name_en: 'Current State', description: 'Загальний стан самопочуття зараз', description_en: 'Overall state of well-being now' },
+            { name: 'Сильний бік', name_en: 'Strength', description: 'Що підтримує здоров\'я', description_en: 'What supports health' },
+            { name: 'Слабке місце', name_en: 'Weak Spot', description: 'Зона, що потребує уваги', description_en: 'Area that needs attention' },
+            { name: 'Причина дискомфорту', name_en: 'Cause of Discomfort', description: 'Ймовірне джерело напруги', description_en: 'Likely source of tension' },
+            { name: 'Порада', name_en: 'Advice', description: 'Як краще дбати про себе', description_en: 'How to better care for yourself' },
+            { name: 'Перспектива', name_en: 'Outlook', description: 'Тенденція розвитку самопочуття', description_en: 'Trend of well-being development' }
+        ]
     },
 
     // 🧠 Психологія
@@ -267,33 +372,53 @@ const spreadsData = [
         title: 'Розкриття таємниці', title_en: 'Secrets revealed',
         cards_count: 6, category: 'Психологія', category_en: 'Psychology',
         difficulty: 'Середня', difficulty_en: 'Medium',
-        short_description: 'Для пошуку прихованої правди та розуміння того, що замовчується.', 
-        short_description_en: 'For finding hidden truth and understanding what is being left unsaid.',
-        intro_text: 'Цей розклад використовується, коли ви відчуваєте недомовленість або хочете дізнатися про справжні, але приховані наміри людей у певній ситуації.',
-        intro_text_en: 'This spread is used when you feel something is left unsaid or you want to know the true but hidden intentions of people in a certain situation.',
-        positions: Array(6).fill(0).map((_, i) => ({ name: `Карта ${i+1}`, name_en: `Card ${i+1}` })) 
+        short_description: 'Що приховано від свідомості: мотиви, тіні та невидимі впливи.', 
+        short_description_en: 'What is hidden from consciousness: motives, shadows and invisible influences.',
+        intro_text: 'Розклад допомагає витягнути на світло те, що зазвичай залишається в тіні: неусвідомлені мотиви, приховані страхи та фактори, які керують ситуацією з-за лаштунків.',
+        intro_text_en: 'The spread helps bring to light what usually stays in the shadow: unconscious motives, hidden fears and factors that drive the situation from behind the scenes.',
+        positions: [
+            { name: 'Поверхня', name_en: 'Surface', description: 'Те, що видно всім', description_en: 'What is visible to everyone' },
+            { name: 'Приховане', name_en: 'Hidden', description: 'Що залишається поза увагою', description_en: 'What remains out of sight' },
+            { name: 'Мотив', name_en: 'Motive', description: 'Справжня рушійна сила', description_en: 'The true driving force' },
+            { name: 'Страх', name_en: 'Fear', description: 'Що блокує або стримує', description_en: 'What blocks or holds back' },
+            { name: 'Ключ', name_en: 'Key', description: 'Як розкрити таємницю', description_en: 'How to reveal the secret' },
+            { name: 'Правда', name_en: 'Truth', description: 'Суть, яка стає ясною', description_en: 'The essence that becomes clear' }
+        ]
     },
     { 
         id: 12, slug: 'detective', 
         title: 'Детектив', title_en: 'Detective',
         cards_count: 6, category: 'Психологія', category_en: 'Psychology',
         difficulty: 'Середня', difficulty_en: 'Medium',
-        short_description: 'Психологічне розслідування складної ситуації через аналіз фактів та мотивів.', 
-        short_description_en: 'Psychological investigation of a complex situation through the analysis of facts and motives.',
-        intro_text: 'Розклад-розслідування, що дозволяє поєднати розрізнені факти в єдину картину та розібрати психологічні підвалини будь-якої заплутаної події.',
-        intro_text_en: 'Investigation spread that allows you to combine scattered facts into a single picture and breakdown the psychological underpinnings of any tangled event.',
-        positions: Array(6).fill(0).map((_, i) => ({ name: `Факт ${i+1}`, name_en: `Fact ${i+1}` })) 
+        short_description: 'Пошук відповідей: факти, причини та логіка подій.', 
+        short_description_en: 'Search for answers: facts, causes and logic of events.',
+        intro_text: 'Коли ситуація виглядає як загадка, цей розклад збирає «докази»: що відомо, що приховано, хто впливає і який висновок можна зробити.',
+        intro_text_en: 'When a situation looks like a puzzle, this spread gathers the "evidence": what is known, what is hidden, who influences and what conclusion can be drawn.',
+        positions: [
+            { name: 'Факт 1', name_en: 'Fact 1', description: 'Відомий і очевидний факт', description_en: 'Known and obvious fact' },
+            { name: 'Факт 2', name_en: 'Fact 2', description: 'Другий важливий факт', description_en: 'Second important fact' },
+            { name: 'Прихований фактор', name_en: 'Hidden Factor', description: 'Те, що не на поверхні', description_en: 'What is not on the surface' },
+            { name: 'Хто/що впливає', name_en: 'Who/What Influences', description: 'Ключовий вплив на ситуацію', description_en: 'Key influence on the situation' },
+            { name: 'Мотив', name_en: 'Motive', description: 'Чому події розвиваються саме так', description_en: 'Why events unfold this way' },
+            { name: 'Висновок', name_en: 'Conclusion', description: 'Підсумок розслідування', description_en: 'Conclusion of the investigation' }
+        ]
     },
     { 
         id: 28, slug: 'shadow-work', 
         title: 'Тіньова робота', title_en: 'Shadow Work',
         cards_count: 5, category: 'Психологія', category_en: 'Psychology',
         difficulty: 'Висока', difficulty_en: 'High',
-        short_description: 'Робота з прихованими реакціями та підсвідомими частинами особистості.', 
-        short_description_en: 'Working with hidden reactions and subconscious parts of the personality.',
-        intro_text: 'Тіньова робота дозволяє зустрітися зі своїми страхами, запереченнями та прихованими бажаннями. Глибокий інструмент для внутрішньої трансформації.',
-        intro_text_en: 'Shadow work allows you to meet your fears, denials, and hidden desires. A deep tool for inner transformation.',
-        positions: Array(5).fill(0).map((_, i) => ({ name: `Аспект ${i+1}`, name_en: `Aspect ${i+1}` })) 
+        short_description: 'Робота з тінню: неприйняті частини себе та шлях до інтеграції.', 
+        short_description_en: 'Working with the shadow: rejected parts of the self and the path to integration.',
+        intro_text: 'Тінь — це те, що ми витісняємо. Цей розклад м\'яко висвітлює відкинуті аспекти особистості, показує, як вони впливають на життя, і дає шлях до прийняття.',
+        intro_text_en: 'The shadow is what we repress. This spread gently illuminates rejected aspects of the personality, shows how they affect life, and offers a path to acceptance.',
+        positions: [
+            { name: 'Тінь', name_en: 'The Shadow', description: 'Відкинута або неприйнята частина себе', description_en: 'Rejected or unaccepted part of the self' },
+            { name: 'Як проявляється', name_en: 'How it shows', description: 'Як тінь впливає на повсякденне життя', description_en: 'How the shadow affects everyday life' },
+            { name: 'Корінь', name_en: 'Root', description: 'Звідки взялося це витіснення', description_en: 'Where this repression comes from' },
+            { name: 'Дар тіні', name_en: 'Gift of the Shadow', description: 'Сила, яку можна інтегрувати', description_en: 'Strength that can be integrated' },
+            { name: 'Шлях інтеграції', name_en: 'Path of Integration', description: 'Як прийняти і використати цю частину', description_en: 'How to accept and use this part' }
+        ]
     },
 
     // 📜 Глибокі (Складні)
@@ -302,22 +427,44 @@ const spreadsData = [
         title: 'Дерево життя', title_en: 'Tree of Life',
         cards_count: 10, category: 'Глибокі (Складні)', category_en: 'Deep Contexts',
         difficulty: 'Висока', difficulty_en: 'High',
-        short_description: 'Монументальний езотеричний розклад на 10 позицій за моделлю сефірот.', 
+        short_description: 'Монументальний езотеричний розклад на 10 позицій за моделлю Сефірот.', 
         short_description_en: 'A monumental esoteric spread with 10 positions based on the Sephiroth model.',
-        intro_text: 'Масштабний розклад, що описує втілення ідеї в реальність. Через десять сефір ви побачите, як ваш задум проходить через усі рівні буття.',
-        intro_text_en: 'A large-scale spread describing the embodiment of an idea into reality. Through the ten Sephiroth, you see how your intent passes through all levels of existence.',
-        positions: Array(10).fill(0).map((_, i) => ({ name: `Сефіра ${i+1}`, name_en: `Sephirah ${i+1}` })) 
+        intro_text: 'Дерево Життя кабали — карта шляху душі. Десять сефірот описують різні рівні буття: від матеріального світу до вищої свідомості.',
+        intro_text_en: 'The Kabbalistic Tree of Life is a map of the soul\'s path. Ten sephiroth describe different levels of being: from the material world to higher consciousness.',
+        positions: [
+            { name: 'Кетер', name_en: 'Kether', description: 'Вища воля, джерело, початок', description_en: 'Higher will, source, beginning' },
+            { name: 'Хокма', name_en: 'Chokmah', description: 'Мудра ідея, імпульс, одкровення', description_en: 'Wise idea, impulse, revelation' },
+            { name: 'Біна', name_en: 'Binah', description: 'Розуміння, форма, структура', description_en: 'Understanding, form, structure' },
+            { name: 'Хесед', name_en: 'Chesed', description: 'Милосердя, розширення, щедрість', description_en: 'Mercy, expansion, generosity' },
+            { name: 'Гебура', name_en: 'Geburah', description: 'Сила, обмеження, дисципліна', description_en: 'Strength, limitation, discipline' },
+            { name: 'Тіфарет', name_en: 'Tiphareth', description: 'Гармонія, серце, баланс', description_en: 'Harmony, heart, balance' },
+            { name: 'Нецах', name_en: 'Netzach', description: 'Емоції, бажання, перемога', description_en: 'Emotions, desire, victory' },
+            { name: 'Год', name_en: 'Hod', description: 'Інтелект, комунікація, аналіз', description_en: 'Intellect, communication, analysis' },
+            { name: 'Йєсод', name_en: 'Yesod', description: 'Підсвідомість, фундамент, сни', description_en: 'Subconscious, foundation, dreams' },
+            { name: 'Малкут', name_en: 'Malkuth', description: 'Матеріальний результат, прояв', description_en: 'Material result, manifestation' }
+        ]
     },
     { 
         id: 14, slug: 'tetraktys', 
         title: 'Тетрактіс', title_en: 'Tetraktys',
         cards_count: 10, category: 'Глибокі (Складні)', category_en: 'Deep Contexts',
         difficulty: 'Висока', difficulty_en: 'High',
-        short_description: 'Піфагорійський трикутник, що розкриває ситуацію на чотирьох рівнях космосу.', 
-        short_description_en: 'Pythagorean triangle revealing the situation on four levels of the cosmos.',
-        intro_text: 'Давньогрецький спосіб пізнання світу через число 10. Розклад розкриває творчий потенціал, емоційний фон, інтелектуальну складову та матеріальний прояв ситуації.',
-        intro_text_en: 'An ancient Greek way of knowing the world through the number 10. The spread reveals creative potential, emotional background, intellectual component, and the material manifestation of a situation.',
-        positions: Array(10).fill(0).map((_, i) => ({ name: `Рівень ${i+1}`, name_en: `Level ${i+1}` })) 
+        short_description: 'Піфагорійська піраміда з 10 карт: від єдності до множинності прояву.', 
+        short_description_en: 'Pythagorean pyramid of 10 cards: from unity to multiplicity of manifestation.',
+        intro_text: 'Тетрактіс — священна піраміда чисел. Чотири рівні (1+2+3+4=10) описують, як ідея спускається від єдиного джерела до конкретного прояву в житті.',
+        intro_text_en: 'The Tetraktys is a sacred pyramid of numbers. Four levels (1+2+3+4=10) describe how an idea descends from a single source to concrete manifestation in life.',
+        positions: [
+            { name: 'Єдність', name_en: 'Unity', description: 'Джерело, вища ідея, точка відліку', description_en: 'Source, higher idea, starting point' },
+            { name: 'Дуальність А', name_en: 'Duality A', description: 'Перша полярність / сила', description_en: 'First polarity / force' },
+            { name: 'Дуальність Б', name_en: 'Duality B', description: 'Друга полярність / сила', description_en: 'Second polarity / force' },
+            { name: 'Тріада 1', name_en: 'Triad 1', description: 'Перший аспект прояву', description_en: 'First aspect of manifestation' },
+            { name: 'Тріада 2', name_en: 'Triad 2', description: 'Другий аспект прояву', description_en: 'Second aspect of manifestation' },
+            { name: 'Тріада 3', name_en: 'Triad 3', description: 'Третій аспект прояву', description_en: 'Third aspect of manifestation' },
+            { name: 'Матерія 1', name_en: 'Matter 1', description: 'Конкретний прояв 1', description_en: 'Concrete manifestation 1' },
+            { name: 'Матерія 2', name_en: 'Matter 2', description: 'Конкретний прояв 2', description_en: 'Concrete manifestation 2' },
+            { name: 'Матерія 3', name_en: 'Matter 3', description: 'Конкретний прояв 3', description_en: 'Concrete manifestation 3' },
+            { name: 'Матерія 4', name_en: 'Matter 4', description: 'Конкретний прояв 4 / підсумок', description_en: 'Concrete manifestation 4 / summary' }
+        ]
     },
     { 
         id: 8, slug: 'astro-wheel', 
@@ -328,7 +475,20 @@ const spreadsData = [
         short_description_en: 'Synergy of Tarot and astrology: forecast by the 12 astrological houses.',
         intro_text: 'Один із найповніших прогнозів. 12 карт відповідають 12 сферам життя (сім\'я, кар\'єра, подорожі тощо), даючи цілісний огляд вашої долі на поточний період.',
         intro_text_en: 'One of the most complete forecasts. Twelve cards correspond to twelve spheres of life (family, career, travel, etc.), providing a holistic view of your destiny for the current period.',
-        positions: Array(12).fill(0).map((_, i) => ({ name: `Дім ${i+1}`, name_en: `House ${i+1}` })) 
+        positions: [
+            { name: '1 дім', name_en: '1st House', description: 'Особистість, «я», зовнішній образ', description_en: 'Personality, self, outer image' },
+            { name: '2 дім', name_en: '2nd House', description: 'Ресурси, гроші, цінності', description_en: 'Resources, money, values' },
+            { name: '3 дім', name_en: '3rd House', description: 'Спілкування, навчання, близьке оточення', description_en: 'Communication, learning, close environment' },
+            { name: '4 дім', name_en: '4th House', description: 'Дім, сім\'я, коріння', description_en: 'Home, family, roots' },
+            { name: '5 дім', name_en: '5th House', description: 'Творчість, любов, діти, задоволення', description_en: 'Creativity, love, children, pleasure' },
+            { name: '6 дім', name_en: '6th House', description: 'Робота, здоров\'я, щоденні справи', description_en: 'Work, health, daily affairs' },
+            { name: '7 дім', name_en: '7th House', description: 'Партнерства, шлюб, відкриті стосунки', description_en: 'Partnerships, marriage, open relationships' },
+            { name: '8 дім', name_en: '8th House', description: 'Трансформація, спільні ресурси, кризи', description_en: 'Transformation, shared resources, crises' },
+            { name: '9 дім', name_en: '9th House', description: 'Подорожі, філософія, вища освіта', description_en: 'Travel, philosophy, higher education' },
+            { name: '10 дім', name_en: '10th House', description: 'Кар\'єра, статус, суспільне визнання', description_en: 'Career, status, public recognition' },
+            { name: '11 дім', name_en: '11th House', description: 'Друзі, спільноти, майбутні цілі', description_en: 'Friends, communities, future goals' },
+            { name: '12 дім', name_en: '12th House', description: 'Підсвідомість, таємниці, завершення', description_en: 'Subconscious, secrets, endings' }
+        ]
     },
     { 
         id: 18, slug: 'golden-dawn', 
@@ -339,7 +499,23 @@ const spreadsData = [
         short_description_en: 'Complex analytical system of the Golden Dawn order with 15 cards.',
         intro_text: 'Шедевр західного окультизму. Розклад для досвідчених практикуючих, що дозволяє вивчити розвиток події в найдрібніших деталях та часових рамках.',
         intro_text_en: 'A masterpiece of Western occultism. A spread for experienced practitioners, allowing the study of an event\'s development in the smallest details and timeframes.',
-        positions: Array(15).fill(0).map((_, i) => ({ name: `Позиція ${i+1}`, name_en: `Position ${i+1}` })) 
+        positions: [
+            { name: 'Знак питання', name_en: 'Significator', description: 'Ключова карта / сутність питання', description_en: 'Key card / essence of the question' },
+            { name: 'Покриття', name_en: 'Covering', description: 'Що покриває ситуацію зараз', description_en: 'What covers the situation now' },
+            { name: 'Хрест', name_en: 'Crossing', description: 'Перешкода або вплив, що перетинає шлях', description_en: 'Obstacle or influence crossing the path' },
+            { name: 'Основа', name_en: 'Foundation', description: 'Підґрунтя подій', description_en: 'Foundation of events' },
+            { name: 'Минуле', name_en: 'Past', description: 'Недавнє минуле', description_en: 'Recent past' },
+            { name: 'Корона', name_en: 'Crown', description: 'Можливе / те, що може статись', description_en: 'Possible / what may come to pass' },
+            { name: 'Майбутнє', name_en: 'Future', description: 'Найближче майбутнє', description_en: 'Near future' },
+            { name: 'Ви', name_en: 'You', description: 'Ваша позиція в ситуації', description_en: 'Your position in the situation' },
+            { name: 'Оточення', name_en: 'Environment', description: 'Вплив середовища', description_en: 'Environmental influence' },
+            { name: 'Надії/Страхи', name_en: 'Hopes/Fears', description: 'Внутрішні очікування та побоювання', description_en: 'Inner expectations and fears' },
+            { name: 'Результат 1', name_en: 'Outcome 1', description: 'Перший шар підсумку', description_en: 'First layer of the outcome' },
+            { name: 'Результат 2', name_en: 'Outcome 2', description: 'Другий шар підсумку', description_en: 'Second layer of the outcome' },
+            { name: 'Результат 3', name_en: 'Outcome 3', description: 'Третій шар підсумку', description_en: 'Third layer of the outcome' },
+            { name: 'Порада', name_en: 'Advice', description: 'Рекомендована дія', description_en: 'Recommended action' },
+            { name: 'Фінал', name_en: 'Final', description: 'Кінцевий синтез відповіді', description_en: 'Final synthesis of the answer' }
+        ]
     },
     { 
         id: 19, slug: 'romany', 
@@ -350,9 +526,32 @@ const spreadsData = [
         short_description_en: 'A great Gypsy fortune-telling spread for a holistic life path.',
         intro_text: 'Легендарний розклад на 21 карту. Три ряди по сім карт описують ваше минуле, теперішнє та майбутнє, створюючи монументальну картину вашої подорожі.',
         intro_text_en: 'The legendary 21-card spread. Three rows of seven cards describe your past, present, and future, creating a monumental picture of your journey.',
-        positions: Array(21).fill(0).map((_, i) => ({ name: `Карта ${i+1}`, name_en: `Card ${i+1}` })) 
+        positions: [
+            { name: 'Минуле 1', name_en: 'Past 1', description: 'Коріння минулого', description_en: 'Roots of the past' },
+            { name: 'Минуле 2', name_en: 'Past 2', description: 'Ключова подія минулого', description_en: 'Key event of the past' },
+            { name: 'Минуле 3', name_en: 'Past 3', description: 'Вплив минулого на характер', description_en: 'Past influence on character' },
+            { name: 'Минуле 4', name_en: 'Past 4', description: 'Урок минулого', description_en: 'Lesson of the past' },
+            { name: 'Минуле 5', name_en: 'Past 5', description: 'Люди з минулого', description_en: 'People from the past' },
+            { name: 'Минуле 6', name_en: 'Past 6', description: 'Незавершене з минулого', description_en: 'Unresolved from the past' },
+            { name: 'Минуле 7', name_en: 'Past 7', description: 'Підсумок минулого ряду', description_en: 'Summary of the past row' },
+            { name: 'Теперішнє 1', name_en: 'Present 1', description: 'Поточна ситуація', description_en: 'Current situation' },
+            { name: 'Теперішнє 2', name_en: 'Present 2', description: 'Ваші думки зараз', description_en: 'Your thoughts now' },
+            { name: 'Теперішнє 3', name_en: 'Present 3', description: 'Ваші почуття зараз', description_en: 'Your feelings now' },
+            { name: 'Теперішнє 4', name_en: 'Present 4', description: 'Дії та вибір зараз', description_en: 'Actions and choices now' },
+            { name: 'Теперішнє 5', name_en: 'Present 5', description: 'Оточення зараз', description_en: 'Environment now' },
+            { name: 'Теперішнє 6', name_en: 'Present 6', description: 'Приховані фактори зараз', description_en: 'Hidden factors now' },
+            { name: 'Теперішнє 7', name_en: 'Present 7', description: 'Підсумок теперішнього ряду', description_en: 'Summary of the present row' },
+            { name: 'Майбутнє 1', name_en: 'Future 1', description: 'Найближча тенденція', description_en: 'Nearest trend' },
+            { name: 'Майбутнє 2', name_en: 'Future 2', description: 'Можливості попереду', description_en: 'Opportunities ahead' },
+            { name: 'Майбутнє 3', name_en: 'Future 3', description: 'Виклики попереду', description_en: 'Challenges ahead' },
+            { name: 'Майбутнє 4', name_en: 'Future 4', description: 'Люди в майбутньому', description_en: 'People in the future' },
+            { name: 'Майбутнє 5', name_en: 'Future 5', description: 'Порада на майбутнє', description_en: 'Advice for the future' },
+            { name: 'Майбутнє 6', name_en: 'Future 6', description: 'Довгострокова перспектива', description_en: 'Long-term perspective' },
+            { name: 'Майбутнє 7', name_en: 'Future 7', description: 'Підсумок майбутнього ряду', description_en: 'Summary of the future row' }
+        ]
     }
 ];
+
 
 // allTarotCards is defined in cards.js (loaded before this file)
 
