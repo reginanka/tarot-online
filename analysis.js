@@ -92,6 +92,11 @@
   function elementOf(card) {
     if (!card) return null;
     if (card.element) return card.element.toLowerCase();
+    const id = String(card.id || '');
+    if (id.startsWith('w')) return 'fire';
+    if (id.startsWith('c')) return 'water';
+    if (id.startsWith('s')) return 'air';
+    if (id.startsWith('p')) return 'earth';
     const s = (card.suit_en || card.suit || '').toLowerCase();
     if (s.includes('wand') || s.includes('жезл')) return 'fire';
     if (s.includes('cup') || s.includes('кубк')) return 'water';
@@ -189,6 +194,10 @@
     ctx.shortMeaningAt = (i, lang) => {
       const c = cards[i];
       if (!c) return '';
+      if (typeof TarotPositions !== 'undefined' && TarotPositions.getPositionMeaning) {
+        const pm = TarotPositions.getPositionMeaning(c, ctx.spread, i, lang);
+        if (pm) return pm;
+      }
       return cleanCardMeaning(c, !!c.reversed, lang);
     };
     ctx.labelAt = (i, lang) => {
@@ -396,6 +405,141 @@
     return items;
   }
 
+  // ─── THREE CARDS SYNTHESIS (Минуле, Теперішнє, Майбутнє) ────────────────────
+  function synthesizeThreeCards(ctx, lang) {
+    const uk = lang === 'uk';
+    const items = [];
+
+    const maj1 = ctx.isMajorAt(0);
+    const maj2 = ctx.isMajorAt(1);
+    const maj3 = ctx.isMajorAt(2);
+
+    const rev1 = ctx.isRevAt(0);
+    const rev2 = ctx.isRevAt(1);
+    const rev3 = ctx.isRevAt(2);
+
+    const e1 = ctx.elAt(0);
+    const e2 = ctx.elAt(1);
+    const e3 = ctx.elAt(2);
+    const m1 = ELEMENT_META[e1] || { uk: 'стихія', en: 'element' };
+    const m2 = ELEMENT_META[e2] || { uk: 'стихія', en: 'element' };
+    const m3 = ELEMENT_META[e3] || { uk: 'стихія', en: 'element' };
+
+    // 1. Вектор процесу
+    let vectorText = '';
+    if (maj1 && maj2 && maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Усі три карти є Старшими Арканами — ви проходите фундаментальний життєвий перехід, де події минулого, теперішнього та майбутнього несуть доленосний, кармічний характер.`
+        : `Process vector: All three cards are Major Arcana — you are undergoing a fundamental life transition where events carry profound, destiny-shaping significance.`;
+    } else if (!maj1 && !maj2 && !maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Розклад складається з Молодших Арканів — динаміка ситуації формується вашими щоденними рішеннями, гнучкістю та практичними діями без непереборного зовнішнього тиску.`
+        : `Process vector: Spread consists of Minor Arcana — developments are shaped directly by your daily decisions, adaptability, and practical steps.`;
+    } else if (!maj1 && !maj2 && maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Повсякденний розвиток ситуації веде до знакового поворотного моменту в майбутньому (${ctx.nameAt(2, 'uk')}). Поточні кроки мають вирішальне значення.`
+        : `Process vector: Everyday developments lead towards a major milestone in the future (${ctx.nameAt(2, 'en')}). Present steps are crucial.`;
+    } else if (!maj1 && maj2 && !maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Старший Аркан у центрі (${ctx.nameAt(1, 'uk')}) вказує, що саме зараз відбувається ключовий поворотний момент усієї часової лінії.`
+        : `Process vector: Major Arcana at the center (${ctx.nameAt(1, 'en')}) highlights that the pivotal turning point of the entire timeline is unfolding right now.`;
+    } else if (!maj1 && maj2 && maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Ситуація стрімко набирає ваги — від побутового минулого до доленосних змін у теперішньому та майбутньому (${ctx.nameAt(1, 'uk')} та ${ctx.nameAt(2, 'uk')}).`
+        : `Process vector: The situation is rapidly gaining momentum — moving from everyday background into major shifts in present and future.`;
+    } else if (maj1 && !maj2 && !maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Доленосний імпульс минулого (${ctx.nameAt(0, 'uk')}) перейшов у площину практичних рішень. Розвиток подій повністю у ваших руках.`
+        : `Process vector: Major past momentum (${ctx.nameAt(0, 'en')}) has transitioned into practical daily choices. The outcome rests directly in your hands.`;
+    } else if (maj1 && maj2 && !maj3) {
+      vectorText = uk
+        ? `Вектор процесу: Глибока трансформація минулого та теперішнього знаходить своє практичне втілення та конкретний результат у майбутньому (${ctx.nameAt(2, 'uk')}).`
+        : `Process vector: Deep transformation of the past and present finds its practical embodiment and concrete outcome in the future (${ctx.nameAt(2, 'en')}).`;
+    } else {
+      // maj1 && !maj2 && maj3
+      vectorText = uk
+        ? `Вектор процесу: Ви проходите міст між двома доленосними віхами (${ctx.nameAt(0, 'uk')} → ${ctx.nameAt(2, 'uk')}) через тактичні щоденні дії в теперішньому.`
+        : `Process vector: You are bridging two major milestones (${ctx.nameAt(0, 'en')} → ${ctx.nameAt(2, 'en')}) through tactical daily actions in the present.`;
+    }
+    items.push(vectorText);
+
+    // 2. Стихійний міст (Минуле → Теперішнє → Майбутнє)
+    let elemText = '';
+    if (e1 && e2 && e3 && e1 === e2 && e2 === e3) {
+      elemText = uk
+        ? `Стихійний міст: Домінування однієї стихії (${m1.uk}) на всій часовій лінії свідчить про високу концентрацію енергії в одній сфері. Для гармонізації додайте гнучкості та погляду під іншим кутом.`
+        : `Elemental bridge: Dominance of a single element (${m1.en}) across the timeline shows high energy concentration. Introduce balancing perspectives for harmony.`;
+    } else if (e1 && e2 && e3) {
+      elemText = uk
+        ? `Стихійний міст (${m1.uk} → ${m2.uk} → ${m3.uk}): енергія трансформується від імпульсу минулого через поточний стан до нового балансу в майбутньому.`
+        : `Elemental bridge (${m1.en} → ${m2.en} → ${m3.en}): energy evolves from the initial state through the present into a new synthesis in the future.`;
+    }
+    if (elemText) items.push(elemText);
+
+    // 3. Часова лінія
+    let timeText = '';
+    if (rev1 && !rev2 && !rev3) {
+      timeText = uk
+        ? `Часова лінія: Напруга або застій минулого (${ctx.nameAt(0, 'uk')}) подолані — теперішнє та майбутнє розгортаються у прямому, конструктивному руслі.`
+        : `Timeline: Past tensions (${ctx.nameAt(0, 'en')}) have been cleared — present and future unfold in a constructive, forward-moving direction.`;
+    } else if (rev2) {
+      timeText = uk
+        ? `Часова лінія: У теперішньому (${ctx.nameAt(1, 'uk')}) відчувається внутрішній сумнів або необхідність ревізії намірів перед фінальним кроком.`
+        : `Timeline: The present position (${ctx.nameAt(1, 'en')}) highlights internal hesitation or the need to realign intentions before the final step.`;
+    } else if (rev3) {
+      timeText = uk
+        ? `Часова лінія: Майбутнє застерігає від поспіху (${ctx.nameAt(2, 'uk')}) — результат можна скоригувати усвідомленими діями вже на поточному етапі.`
+        : `Timeline: The future card (${ctx.nameAt(2, 'en')}) cautions against haste — the outcome can be actively guided by conscious actions today.`;
+    } else {
+      timeText = uk
+        ? `Часова лінія: Послідовний і гармонійний рух від закладеного фундаменту до очікуваного результату в майбутньому.`
+        : `Timeline: Consistent and harmonious progression from past foundations to the anticipated outcome.`;
+    }
+    items.push(timeText);
+
+    // 4. Знакові комбінації
+    analyzeCombos(ctx, lang).forEach(c => items.push(c));
+
+    // 5. Ключ розкладу
+    const pastLabel = ctx.labelAt(0, lang);
+    const presLabel = ctx.labelAt(1, lang);
+    const futLabel = ctx.labelAt(2, lang);
+
+    const keyText = uk
+      ? 'Ключ розкладу:\n' +
+        '• Минуле: ' + pastLabel + '\n' +
+        '• Теперішнє: ' + presLabel + '\n' +
+        '• Майбутнє: ' + futLabel
+      : 'Spread key:\n' +
+        '• Past: ' + pastLabel + '\n' +
+        '• Present: ' + presLabel + '\n' +
+        '• Future: ' + futLabel;
+    items.push(keyText);
+
+    // 6. Головний фокус
+    let focusText = '';
+    if (maj3) {
+      focusText = uk
+        ? `Головний фокус: Приділіть максимум уваги поточним рішенням, адже вони закладають основу для важливої події майбутнього (${ctx.nameAt(2, 'uk')}).`
+        : `Main focus: Dedicate utmost care to present choices, as they shape a significant future milestone (${ctx.nameAt(2, 'en')}).`;
+    } else if (rev2) {
+      focusText = uk
+        ? 'Головний фокус: Знайдіть внутрішню згоду та усуньте сумніви в поточному моменті, перш ніж форсувати розвиток подій.'
+        : 'Main focus: Restore inner clarity and resolve doubts in the present before forcing momentum.';
+    } else if (rev1) {
+      focusText = uk
+        ? 'Головний фокус: Остаточно залиште старі сумніви в минулому та сміливо спирайтеся на нові можливості сьогодення.'
+        : 'Main focus: Fully release past hesitation and lean confidently into present opportunities.';
+    } else {
+      focusText = uk
+        ? 'Головний фокус: Використайте набутий досвід минулого як надійну опору, щоб упевнено реалізувати потенціал майбутнього.'
+        : 'Main focus: Leverage your past experience as a solid foundation to confidently realize future potential.';
+    }
+    items.push(focusText);
+
+    return items;
+  }
+
   // ─── GENERAL FALLBACK SPREAD SYNTHESIS ────────────────────────────────────
   function synthesizeGeneralSpread(ctx, lang) {
     const uk = lang === 'uk';
@@ -450,8 +594,102 @@
     return out;
   }
 
+  // ─── YES OR NO SYNTHESIS ─────────────────────────────────────────────────────
+  function synthesizeYesNo(ctx, lang) {
+    const uk = lang === 'uk';
+    const items = [];
+
+    const majFor = ctx.isMajorAt(0);
+    const majAgainst = ctx.isMajorAt(1);
+    const majKey = ctx.isMajorAt(2);
+
+    const revFor = ctx.isRevAt(0);
+    const revAgainst = ctx.isRevAt(1);
+    const revKey = ctx.isRevAt(2);
+
+    // Вага сторін
+    const yesWeight = (majFor ? 2 : 1) + (revFor ? -1 : 1);
+    const noWeight = (majAgainst ? 2 : 1) + (revAgainst ? -1 : 1);
+    const keyPositive = !revKey;
+
+    // 1. Загальний баланс
+    let balanceText = '';
+    if (yesWeight > noWeight && keyPositive) {
+      balanceText = uk
+        ? `Загальний баланс: Сили «За» явно переважають — розклад схиляється до ствердної відповіді. Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує цей вектор.`
+        : `Overall balance: The "Yes" forces clearly outweigh — the reading leans toward a positive answer. The key card (${ctx.nameAt(2, 'en')}) confirms this direction.`;
+    } else if (yesWeight > noWeight && !keyPositive) {
+      balanceText = uk
+        ? `Загальний баланс: Сили «За» переважають, але карта-ключ (${ctx.nameAt(2, 'uk')}) застерігає від поспіху або вказує на необхідну умову для позитивного результату.`
+        : `Overall balance: "Yes" forces lead, but the key card (${ctx.nameAt(2, 'en')}) cautions against rushing or points to a necessary condition for success.`;
+    } else if (noWeight > yesWeight && !keyPositive) {
+      balanceText = uk
+        ? `Загальний баланс: Сили «Проти» переважають — розклад схиляється до заперечної відповіді. Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує наявність суттєвих перешкод.`
+        : `Overall balance: The "No" forces outweigh — the reading leans toward a negative answer. The key card (${ctx.nameAt(2, 'en')}) confirms significant obstacles.`;
+    } else if (noWeight > yesWeight && keyPositive) {
+      balanceText = uk
+        ? `Загальний баланс: Сили «Проти» переважають, але карта-ключ (${ctx.nameAt(2, 'uk')}) пропонує шлях, що може змінити ситуацію на краще.`
+        : `Overall balance: "No" forces lead, yet the key card (${ctx.nameAt(2, 'en')}) offers a path that may turn things around.`;
+    } else {
+      balanceText = uk
+        ? `Загальний баланс: Сили «За» та «Проти» врівноважені — однозначна відповідь залежить від вашого наступного кроку. Карта-ключ (${ctx.nameAt(2, 'uk')}) є вирішальним фактором.`
+        : `Overall balance: "Yes" and "No" forces are in equilibrium — the clear answer depends on your next step. The key card (${ctx.nameAt(2, 'en')}) is the decisive factor.`;
+    }
+    items.push(balanceText);
+
+    const cleanEnd = (str) => str ? str.replace(/[.,\s]+$/, '') : '';
+
+    // 2. Аналіз «За»
+    const forMeaning = cleanEnd(ctx.shortMeaningAt(0, lang));
+    items.push(uk
+      ? `Чинники «За»: ${ctx.nameAt(0, 'uk')}${forMeaning ? ' — ' + forMeaning : ''}. ${revFor ? 'Ця сила діє не в повну потужність або вимагає додаткових зусиль.' : 'Ця сила активна та сприяє позитивному вирішенню.'}`
+      : `Factors for "Yes": ${ctx.nameAt(0, 'en')}${forMeaning ? ' — ' + forMeaning : ''}. ${revFor ? 'This force is not at full strength or requires additional effort.' : 'This force is active and supports a positive outcome.'}`);
+
+    // 3. Аналіз «Проти»
+    const againstMeaning = cleanEnd(ctx.shortMeaningAt(1, lang));
+    items.push(uk
+      ? `Чинники «Проти»: ${ctx.nameAt(1, 'uk')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${revAgainst ? 'Ця перешкода вже слабшає або може бути подолана.' : 'Ця перешкода є реальною і потребує уваги.'}`
+      : `Factors against: ${ctx.nameAt(1, 'en')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${revAgainst ? 'This obstacle is already weakening or can be overcome.' : 'This obstacle is real and requires attention.'}`);
+
+    // 4. Ключ
+    const keyMeaning = cleanEnd(ctx.shortMeaningAt(2, lang));
+    items.push(uk
+      ? `Порада / Ключ: ${ctx.nameAt(2, 'uk')}${keyMeaning ? ' — ' + keyMeaning : ''}${majKey ? '. Старший Аркан у позиції ключа підкреслює принципову важливість цього фактора.' : '.'}`
+      : `Advice / Key: ${ctx.nameAt(2, 'en')}${keyMeaning ? ' — ' + keyMeaning : ''}${majKey ? '. A Major Arcana in the key position underlines the fundamental importance of this factor.' : '.'}`);
+
+    // 5. Знакові комбінації
+    analyzeCombos(ctx, lang).forEach(c => items.push(c));
+
+    // 6. Головний фокус
+    let focusText = '';
+    if (majKey && keyPositive) {
+      focusText = uk
+        ? `Головний фокус: Зверніть особливу увагу на послання карти-ключа (${ctx.nameAt(2, 'uk')}) — дотримуючись його, ви підсилите позитивний результат.`
+        : `Main focus: Pay special attention to the key card's message (${ctx.nameAt(2, 'en')}) — following it will strengthen the positive outcome.`;
+    } else if (majKey && !keyPositive) {
+      focusText = uk
+        ? `Головний фокус: Карта-ключ (${ctx.nameAt(2, 'uk')}) вказує на умову, що потребує вирішення до досягнення бажаного результату.`
+        : `Main focus: The key card (${ctx.nameAt(2, 'en')}) points to a condition that must be resolved before reaching the desired outcome.`;
+    } else if (yesWeight > noWeight) {
+      focusText = uk
+        ? 'Головний фокус: Дійте впевнено, враховуючи пораду карти-ключа для досягнення найкращого результату.'
+        : 'Main focus: Act confidently, incorporating the key card\'s guidance for the best possible outcome.';
+    } else if (noWeight > yesWeight) {
+      focusText = uk
+        ? 'Головний фокус: Спочатку усуньте або визнайте перешкоди з позиції «Проти». Карта-ключ показує шлях вперед.'
+        : 'Main focus: First address or acknowledge the obstacles from the "Against" position. The key card shows the way forward.';
+    } else {
+      focusText = uk
+        ? 'Головний фокус: Ситуація вимагає вашого активного рішення. Карта-ключ містить підказку, яка схилить шальку в потрібний бік.'
+        : 'Main focus: The situation calls for your active decision. The key card holds the insight that will tip the balance.';
+    }
+    items.push(focusText);
+
+    return items;
+  }
+
   function analyzeReading(cards, spread, lang) {
-    if (!cards || !cards.length) {
+    if (!cards || !cards.length || cards.length < 3 || (spread && spread.cards_count < 3)) {
       return { items: [], paragraphs: [], specific: [], stats: null };
     }
     const ctx = enhanceContext(buildContext(cards, spread || {}));
@@ -460,6 +698,10 @@
     let items = [];
     if (slug === 'celtic-cross' && cards.length >= 10) {
       items = synthesizeCelticCross(ctx, lang);
+    } else if (slug === 'three-cards' && cards.length === 3) {
+      items = synthesizeThreeCards(ctx, lang);
+    } else if (slug === 'yes-no' && cards.length === 3) {
+      items = synthesizeYesNo(ctx, lang);
     } else {
       items = synthesizeGeneralSpread(ctx, lang);
     }

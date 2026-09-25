@@ -1,5 +1,5 @@
 /**
- * celtic_cross_positions.js — Position-specific interpretations for Celtic Cross & Spreads
+ * celtic_cross_positions.js — Position-specific interpretations for Celtic Cross, One Card & Spreads
  */
 (function (global) {
   'use strict';
@@ -7962,6 +7962,2354 @@
     }
   }
 };
+  const ONE_CARD_DATA = {
+  "m00": {
+    "upright": {
+      "ua": "Початок із чистого аркуша. Довіртеся потоку, ризикніть і зробіть крок у невідоме.",
+      "en": "Fresh start. Trust the flow, take a risk, and step into the unknown."
+    },
+    "reversed": {
+      "ua": "Зупиніться. Не робіть необдуманих вчинків і перевірте факти, перш ніж стрибати.",
+      "en": "Stop. Do not make rash decisions and check the facts before leaping."
+    }
+  },
+  "m01": {
+    "upright": {
+      "ua": "Дійте рішуче. У вас є всі ресурси та інструменти, щоб здійснити задумане.",
+      "en": "Act decisively. You have all the resources and tools to achieve your goals."
+    },
+    "reversed": {
+      "ua": "Зачекайте з реалізацією. Остерігайтеся обману, маніпуляцій чи власної непевності.",
+      "en": "Wait on implementation. Beware of deception, manipulation, or self-doubt."
+    }
+  },
+  "m02": {
+    "upright": {
+      "ua": "Прислухайтеся до інтуїції. Відповідь вже є всередині вас, зберігайте спокій і таємницю.",
+      "en": "Listen to your intuition. The answer is already within you; keep calm and keep secrets."
+    },
+    "reversed": {
+      "ua": "Зніміть ілюзії. Ви ігноруєте очевидні факти або піддаєтеся чужим пліткам.",
+      "en": "Strip away illusions. You are ignoring obvious facts or giving in to gossip."
+    }
+  },
+  "m03": {
+    "upright": {
+      "ua": "Творіть і розквітайте. Час росту, турботи про себе, затишку та матеріального достатку.",
+      "en": "Create and flourish. A time of growth, self-care, comfort, and material abundance."
+    },
+    "reversed": {
+      "ua": "Відновіть ресурс. Ви витрачаєте занадто багато сил або занедбали свої потреби.",
+      "en": "Restore your resources. You are spending too much energy or neglecting your needs."
+    }
+  },
+  "m04": {
+    "upright": {
+      "ua": "Наведіть порядок. Наведіть дисципліну, встановіть кордони та візьміть контроль у свої руки.",
+      "en": "Establish order. Bring discipline, set boundaries, and take control."
+    },
+    "reversed": {
+      "ua": "Послабте тиск. Уникайте надмірного контролю, упертості й конфліктів із владою.",
+      "en": "Ease up on pressure. Avoid excessive control, stubbornness, and conflicts with authority."
+    }
+  },
+  "m05": {
+    "upright": {
+      "ua": "Чиніть за совістю. Дотримуйтеся правил, шукайте мудру пораду чи вчіться новому.",
+      "en": "Act with a clear conscience. Follow the rules, seek wise advice, or learn something new."
+    },
+    "reversed": {
+      "ua": "Мисліть критично. Не слідуйте сліпо чужим догмам чи застарілим стереотипам.",
+      "en": "Think critically. Do not blindly follow others' dogmas or outdated stereotypes."
+    }
+  },
+  "m06": {
+    "upright": {
+      "ua": "Зробіть вибір серцем. Час гармонії, щирості та важливого рішення на користь любові.",
+      "en": "Make a choice from the heart. A time of harmony, sincerity, and an important decision for love."
+    },
+    "reversed": {
+      "ua": "Усуньте внутрішній розкол. Уникайте сумнівів, конфліктів і хибного вибору.",
+      "en": "Resolve internal division. Avoid doubts, conflicts, and false choices."
+    }
+  },
+  "m07": {
+    "upright": {
+      "ua": "Рухайтеся вперед. Беріть кермо у свої руки, тисніть на газ і досягайте мети.",
+      "en": "Move forward. Take the wheel, push forward, and achieve your goal."
+    },
+    "reversed": {
+      "ua": "Сповільніть темп. Поспіх призведе до втрати контролю або помилок.",
+      "en": "Slow down the pace. Haste will lead to loss of control or mistakes."
+    }
+  },
+  "m08": {
+    "upright": {
+      "ua": "Дійте м'яко, але впевнено. Проявіть терпіння, витримку та внутрішню стійкість.",
+      "en": "Act gently yet confidently. Show patience, endurance, and inner resilience."
+    },
+    "reversed": {
+      "ua": "Відпочиньте. Ви емоційно виснажені або піддаєтеся спалахам агресії чи слабкості.",
+      "en": "Rest. You are emotionally exhausted or giving in to outbursts of aggression/weakness."
+    }
+  },
+  "m09": {
+    "upright": {
+      "ua": "Побудьте насамоті. Час для роздумів, пошуку власної істини та переоцінки цінностей.",
+      "en": "Spend time alone. A time for reflection, finding your own truth, and reassessing values."
+    },
+    "reversed": {
+      "ua": "Виходьте до людей. Ви занадто закрилися в собі та зловживаєте ізоляцією.",
+      "en": "Reach out to people. You have closed yourself off too much and are overusing isolation."
+    }
+  },
+  "m10": {
+    "upright": {
+      "ua": "Ловіть момент. Зміни несуть везіння, довіртеся долі та адаптуйтеся до подій.",
+      "en": "Seize the moment. Changes bring good fortune, trust destiny and adapt to events."
+    },
+    "reversed": {
+      "ua": "Перечекайте смугу затримки. Не опирайтеся обставинам, це тимчасовий спад.",
+      "en": "Wait out the delay. Do not resist circumstances; this is a temporary downturn."
+    }
+  },
+  "m11": {
+    "upright": {
+      "ua": "Будьте чесними й об'єктивними. Приймайте зважені рішення та зважуйте всі «за» і «проти».",
+      "en": "Be honest and objective. Make balanced decisions and weigh all pros and cons."
+    },
+    "reversed": {
+      "ua": "Виправте помилку. Уникайте упередженості, самообману чи порушення правил.",
+      "en": "Correct the mistake. Avoid bias, self-deception, or rule-breaking."
+    }
+  },
+  "m12": {
+    "upright": {
+      "ua": "Змініть кут зору. Зробіть паузу, ситуація вимагає іншого погляду, а не активних дій.",
+      "en": "Change your perspective. Take a pause; the situation requires a different view, not active steps."
+    },
+    "reversed": {
+      "ua": "Досить гаяти час. Припиніть грати роль жертви й зробіть вирішальний крок.",
+      "en": "Stop wasting time. Quit playing the victim and take a decisive step."
+    }
+  },
+  "m13": {
+    "upright": {
+      "ua": "Відпустіть старе. Настав час для кардинальних змін і оновлення, закрийте минуле.",
+      "en": "Let go of the old. It's time for radical changes and renewal; close the past."
+    },
+    "reversed": {
+      "ua": "Не чіпляйтеся за минуле. Опір змінам лише затягує неприємний процес.",
+      "en": "Do not cling to the past. Resistance to change only drags out an unpleasant process."
+    }
+  },
+  "m14": {
+    "upright": {
+      "ua": "Знаходьте баланс. Час для компромісів, внутрішнього спокою та поступового руху.",
+      "en": "Find balance. A time for compromises, inner peace, and gradual progress."
+    },
+    "reversed": {
+      "ua": "Уникайте крайнощів. Неспокій, поспіх чи надмірність порушують вашу гармонію.",
+      "en": "Avoid extremes. Restlessness, haste, or excess disrupt your harmony."
+    }
+  },
+  "m15": {
+    "upright": {
+      "ua": "Усвідомте свої спокуси. Остерігайтеся залежностей, токсичних зв'язків та маніпуляцій.",
+      "en": "Acknowledge your temptations. Beware of addictions, toxic ties, and manipulations."
+    },
+    "reversed": {
+      "ua": "Звільняйтеся. Ви ламаєте шкідливі звички й скидаєте чужий гніт.",
+      "en": "Break free. You are breaking bad habits and casting off someone else's yoke."
+    }
+  },
+  "m16": {
+    "upright": {
+      "ua": "Зруйнуйте ілюзії. Прийміть раптові зміни — вони звільняють місце для нового.",
+      "en": "Shatter illusions. Accept sudden changes—they make room for the new."
+    },
+    "reversed": {
+      "ua": "Відверніть катастрофу. Виправте ситуацію, поки вона не розвалилася остаточно.",
+      "en": "Avert disaster. Fix the situation before it completely collapses."
+    }
+  },
+  "m17": {
+    "upright": {
+      "ua": "Мрійте й надихайтеся. Попереду світлі перспективи, збережіть віру в успіх.",
+      "en": "Dream and be inspired. Bright prospects ahead; keep faith in success."
+    },
+    "reversed": {
+      "ua": "Поверніть надію. Не падайте духом через тимчасові розчарування.",
+      "en": "Restore hope. Do not lose heart over temporary disappointments."
+    }
+  },
+  "m18": {
+    "upright": {
+      "ua": "Будьте обережні. Не все є тим, чим здається; довіряйте інтуїції, а не страхам.",
+      "en": "Be cautious. Not everything is as it seems; trust your intuition, not your fears."
+    },
+    "reversed": {
+      "ua": "Туман розсіюється. Правду розкрито, ілюзії та страхи відступають.",
+      "en": "The fog clears. The truth is revealed; illusions and fears recede."
+    }
+  },
+  "m19": {
+    "upright": {
+      "ua": "Радійте й сяйте. На вас чекає повний успіх, ясність, тепло та енергія.",
+      "en": "Rejoice and shine. Total success, clarity, warmth, and energy await you."
+    },
+    "reversed": {
+      "ua": "Знайдіть позитив. Успіх поруч, просто хмари тимчасово заступили світло.",
+      "en": "Find the positive. Success is near; clouds have just temporarily blocked the light."
+    }
+  },
+  "m20": {
+    "upright": {
+      "ua": "Час відродження. Прийміть важливе рішення й крокуйте на новий рівень життя.",
+      "en": "Time of rebirth. Make an important decision and step into a new level of life."
+    },
+    "reversed": {
+      "ua": "Не відкладайте важливе. Подолайте сумніви й страх перед осудом.",
+      "en": "Do not delay what's important. Overcome doubts and fear of judgment."
+    }
+  },
+  "m21": {
+    "upright": {
+      "ua": "Вітаємо з фінішем. Завершення справи, повна гармонія та вихід на новий рівень.",
+      "en": "Congratulations on the finish. Completion of a matter, full harmony, and leveling up."
+    },
+    "reversed": {
+      "ua": "Доведіть справу до кінця. Лишився останній крок для повного успіху.",
+      "en": "See it through to the end. Only one final step remains for complete success."
+    }
+  },
+  "w01": {
+    "upright": {
+      "ua": "Хапайте ідею. Час для нового пристрасного старту та сміливих дій.",
+      "en": "Grab the idea. Time for a new passionate start and bold actions."
+    },
+    "reversed": {
+      "ua": "Бережіть сили. Брак енергії чи мотивації; не форсуйте події.",
+      "en": "Conserve your strength. Lack of energy or motivation; do not force events."
+    }
+  },
+  "w02": {
+    "upright": {
+      "ua": "Плануйте масштабніше. Сплануйте наступний крок і розширюйте горизонти.",
+      "en": "Plan bigger. Map out your next step and expand your horizons."
+    },
+    "reversed": {
+      "ua": "Подолайте боязнь. Не бійтеся вийти з зони комфорту.",
+      "en": "Overcome fear. Don't be afraid to step out of your comfort zone."
+    }
+  },
+  "w03": {
+    "upright": {
+      "ua": "Рухайтеся далі. Ваші перші кроки дають результати, розгортайте масштаб.",
+      "en": "Move further. Your first steps are yielding results; scale up."
+    },
+    "reversed": {
+      "ua": "Усуньте затримки. Перевірте партнерок чи деталі, десь виник збій.",
+      "en": "Eliminate delays. Check partners or details; a glitch occurred somewhere."
+    }
+  },
+  "w04": {
+    "upright": {
+      "ua": "Відсвяткуйте успіх. Насолоджуйтеся затишком, стабільністю та результатом.",
+      "en": "Celebrate success. Enjoy comfort, stability, and the outcome."
+    },
+    "reversed": {
+      "ua": "Наведіть лад у домі/колективі. Дрібні суперечки заважають затишку.",
+      "en": "Tidy up your home/team. Minor disputes are disrupting the coziness."
+    }
+  },
+  "w05": {
+    "upright": {
+      "ua": "Доведіть свою правоту. Відстоюйте позицію у здоровій конкуренції.",
+      "en": "Prove your point. Defend your position in healthy competition."
+    },
+    "reversed": {
+      "ua": "Уникайте дріб'язкових сварок. Не витрачайте ресурси на безглузді суперечки.",
+      "en": "Avoid petty quarrels. Don't waste resources on pointless arguments."
+    }
+  },
+  "w06": {
+    "upright": {
+      "ua": "Ви на висоті. Прийміть заслужену перемогу та визнання.",
+      "en": "You are on top. Accept well-deserved victory and recognition."
+    },
+    "reversed": {
+      "ua": "Не зважайте на чужі заздрощі. Поразки тимчасові, тримайте гордість.",
+      "en": "Ignore others' envy. Defeats are temporary; keep your pride."
+    }
+  },
+  "w07": {
+    "upright": {
+      "ua": "Стойте на своєму. Захищайте власні кордони та інтереси до кінця.",
+      "en": "Stand your ground. Defend your boundaries and interests to the end."
+    },
+    "reversed": {
+      "ua": "Не здавайтеся. Зберіть сили, щоб не поступитися під тиском.",
+      "en": "Do not give up. Gather your strength so you don't yield under pressure."
+    }
+  },
+  "w08": {
+    "upright": {
+      "ua": "Події прискорюються. Очікуйте швидких новин чи вирішення питань.",
+      "en": "Events accelerate. Expect quick news or resolution of issues."
+    },
+    "reversed": {
+      "ua": "Не поспішайте. Через суєту та поспіх легко припуститися помилки.",
+      "en": "Do not rush. Haste and fuss easily lead to mistakes."
+    }
+  },
+  "w09": {
+    "upright": {
+      "ua": "Будьте напоготові. Ви збудували міцну оборону, вистоїте.",
+      "en": "Stay alert. You have built a strong defense; you will hold your ground."
+    },
+    "reversed": {
+      "ua": "Послабте захист. Постійна напруга лише виснажує вас.",
+      "en": "Ease up on defense. Constant tension only exhausts you."
+    }
+  },
+  "w10": {
+    "upright": {
+      "ua": "Дотягніть до фінішу. Тягар важкий, але ви вже на порозі завершення.",
+      "en": "Push through to the finish. The burden is heavy, but you are on the verge of completion."
+    },
+    "reversed": {
+      "ua": "Скиньте зайве. Припиніть тягнути чужу відповідальність і турботи.",
+      "en": "Drop the excess. Stop pulling other people's responsibilities and worries."
+    }
+  },
+  "w11": {
+    "upright": {
+      "ua": "Відкрийтеся новому. На вас чекає цікава новина або свіжа ідея.",
+      "en": "Open up to the new. An interesting news item or fresh idea awaits you."
+    },
+    "reversed": {
+      "ua": "Перевіряйте інформацію. Не вірте чуткам і не дійте інфантильно.",
+      "en": "Verify information. Don't believe rumors or act childishly."
+    }
+  },
+  "w12": {
+    "upright": {
+      "ua": "Дійте стрімко. Час для сміливих рішень, поїздок і драйву.",
+      "en": "Act swiftly. Time for bold decisions, trips, and drive."
+    },
+    "reversed": {
+      "ua": "Вгамуйте імпульсивність. Не робіть різких рухів у гарячці.",
+      "en": "Tame your impulsivity. Avoid rash moves in the heat of the moment."
+    }
+  },
+  "w13": {
+    "upright": {
+      "ua": "Проявіть харизму. Будьте впевненими, яскравими та незалежними.",
+      "en": "Show charisma. Be confident, bright, and independent."
+    },
+    "reversed": {
+      "ua": "Відновіть самооцінку. Уникайте спалахів ревнощів чи емоційного вигорання.",
+      "en": "Restore your self-esteem. Avoid outbursts of jealousy or burnout."
+    }
+  },
+  "w14": {
+    "upright": {
+      "ua": "Беріть відповідальність. Час ставати лідером і вести за собою.",
+      "en": "Take responsibility. Time to step up as a leader and guide others."
+    },
+    "reversed": {
+      "ua": "Уникайте самодурства. Не тисніть на інших заради власного его.",
+      "en": "Avoid tyranny. Do not pressure others for the sake of your ego."
+    }
+  },
+  "c01": {
+    "upright": {
+      "ua": "Відкрийте серце. На вас чекає хвиля щирої любові, натхнення та радості.",
+      "en": "Open your heart. A wave of sincere love, inspiration, and joy awaits you."
+    },
+    "reversed": {
+      "ua": "Наповніть себе. Ви емоційно виснажені, дайте собі час на відновлення.",
+      "en": "Fill yourself up. You are emotionally exhausted; give yourself time to recover."
+    }
+  },
+  "c02": {
+    "upright": {
+      "ua": "Шукайте гармонію. Час для теплого спілкування, примирення та взаємності.",
+      "en": "Seek harmony. A time for warm communication, reconciliation, and reciprocity."
+    },
+    "reversed": {
+      "ua": "Виправте непорозуміння. Відновіть контакт і вислухайте іншу сторону.",
+      "en": "Fix the misunderstanding. Restore contact and listen to the other side."
+    }
+  },
+  "c03": {
+    "upright": {
+      "ua": "Розділіть радість. Проведіть час із друзями, святкуйте та відпочивайте.",
+      "en": "Share the joy. Spend time with friends, celebrate, and relax."
+    },
+    "reversed": {
+      "ua": "Очистіть оточення. Уникайте фальшивих друзів і пустих розмов.",
+      "en": "Clear out your circle. Avoid fake friends and empty talks."
+    }
+  },
+  "c04": {
+    "upright": {
+      "ua": "Струсіть нудьгу. Озирніться — поруч є шанс, який ви ігноруєте.",
+      "en": "Shake off boredom. Look around—there is a chance you are ignoring."
+    },
+    "reversed": {
+      "ua": "Виходьте з апатії. Час повертатися до активного життя.",
+      "en": "Break out of apathy. Time to return to active life."
+    }
+  },
+  "c05": {
+    "upright": {
+      "ua": "Відпустіть сум. Не дивіться на втрати, помітьте те, що залишилося.",
+      "en": "Let go of sorrow. Don't focus on losses; notice what remains."
+    },
+    "reversed": {
+      "ua": "Зцілення близько. Біль відступає, час дивитися в майбутнє.",
+      "en": "Healing is near. The pain is receding; time to look to the future."
+    }
+  },
+  "c06": {
+    "upright": {
+      "ua": "Подаруйте тепло. Ностальгія, приємні спогади чи щира турбота про близьких.",
+      "en": "Give warmth. Nostalgia, pleasant memories, or sincere care for loved ones."
+    },
+    "reversed": {
+      "ua": "Живіть сьогоденням. Не застрягайте в минулому.",
+      "en": "Live in the present. Do not get stuck in the past."
+    }
+  },
+  "c07": {
+    "upright": {
+      "ua": "Спустіться на землю. Оцініть мрії тверезо й зробіть реальний вибір.",
+      "en": "Come down to earth. Evaluate dreams soberly and make a real choice."
+    },
+    "reversed": {
+      "ua": "Зніміть рожеві окуляри. Прозріння допоможе уникнути обману.",
+      "en": "Take off rose-colored glasses. Enlightenment will help avoid deception."
+    }
+  },
+  "c08": {
+    "upright": {
+      "ua": "Йдіть далі. Якщо ситуація вичерпалася, час шукати нові сенси.",
+      "en": "Move on. If the situation has run its course, it's time to seek new meanings."
+    },
+    "reversed": {
+      "ua": "Зважтеся на крок. Не залишайтеся там, де немає розвитку.",
+      "en": "Take the step. Don't stay where there is no growth."
+    }
+  },
+  "c09": {
+    "upright": {
+      "ua": "Насолоджуйтеся моментом. Ваші бажання здійснюються, час задоволення.",
+      "en": "Enjoy the moment. Your wishes are coming true; a time of satisfaction."
+    },
+    "reversed": {
+      "ua": "Шукайте справжні цінності. Зовнішній блиск не замінить внутрішньої глибини.",
+      "en": "Look for true values. Outer gloss cannot replace inner depth."
+    }
+  },
+  "c10": {
+    "upright": {
+      "ua": "Бережіть родинне щастя. Гармонія, затишок та емоційна повнота в домі.",
+      "en": "Protect family happiness. Harmony, coziness, and emotional fullness at home."
+    },
+    "reversed": {
+      "ua": "Поверніть мир у дім. Усуньте дрібні побутові непорозуміння.",
+      "en": "Bring peace back home. Clear up minor domestic misunderstandings."
+    }
+  },
+  "c11": {
+    "upright": {
+      "ua": "Прийміть ніжність. Очікуйте приємного знаку, компліменту чи творчого пориву.",
+      "en": "Accept tenderness. Expect a pleasant sign, compliment, or creative impulse."
+    },
+    "reversed": {
+      "ua": "Не капризуйте. Уникайте емоційної незрілості та образ.",
+      "en": "Don't throw tantrums. Avoid emotional immaturity and taking offense."
+    }
+  },
+  "c12": {
+    "upright": {
+      "ua": "Слідуйте за мрією. Відкрийтеся романтиці, красивим жестам і гарним пропозиціям.",
+      "en": "Follow your dream. Open up to romance, grand gestures, and good proposals."
+    },
+    "reversed": {
+      "ua": "Не вірте красивим обіцянкам. Перевіряйте щирість намірів.",
+      "en": "Don't trust empty promises. Verify the sincerity of intentions."
+    }
+  },
+  "c13": {
+    "upright": {
+      "ua": "Проявіть емпатію. Дослухайтеся до почуттів і подаруйте підтримку.",
+      "en": "Show empathy. Listen to feelings and offer support."
+    },
+    "reversed": {
+      "ua": "Опануйте емоції. Не дозволяйте настрою та образам керувати вами.",
+      "en": "Master your emotions. Do not let mood and resentment control you."
+    }
+  },
+  "c14": {
+    "upright": {
+      "ua": "Зберігайте спокій. Зрілість і душевна рівновага допоможуть вирішити все.",
+      "en": "Stay calm. Maturity and mental balance will help resolve everything."
+    },
+    "reversed": {
+      "ua": "Уникайте маніпуляцій. Не приховуйте справжні почуття під маскою байдужості.",
+      "en": "Avoid manipulation. Do not hide true feelings under a mask of indifference."
+    }
+  },
+  "s01": {
+    "upright": {
+      "ua": "Внесіть ясність. Прийміть тверде рішення й відсічіть усе зайве.",
+      "en": "Bring clarity. Make a firm decision and cut away everything unnecessary."
+    },
+    "reversed": {
+      "ua": "Не рубайте з плеча. Різкі слова чи рішення зараз лише нашкодять.",
+      "en": "Don't act rashly. Harsh words or decisions now will only harm."
+    }
+  },
+  "s02": {
+    "upright": {
+      "ua": "Візьміть паузу. Зважте факти, перш ніж робити болісний вибір.",
+      "en": "Take a pause. Weigh the facts before making a painful choice."
+    },
+    "reversed": {
+      "ua": "Зніміть пов'язку з очей. Час зустрітися з реальністю віч-на-віч.",
+      "en": "Remove the blindfold. Time to face reality head-on."
+    }
+  },
+  "s03": {
+    "upright": {
+      "ua": "Прийміть правду. Навіть якщо вона болюча, це очистить вас від ілюзій.",
+      "en": "Accept the truth. Even if painful, it will cleanse you of illusions."
+    },
+    "reversed": {
+      "ua": "Загоюйте рани. Біль минає, час відпускати образи.",
+      "en": "Heal your wounds. Pain is passing; time to let go of grudges."
+    }
+  },
+  "s04": {
+    "upright": {
+      "ua": "Відпочиньте. Вашому розуму та тілу потрібне повне відновлення.",
+      "en": "Rest. Your mind and body need complete recovery."
+    },
+    "reversed": {
+      "ua": "Повертайтеся до дій. Період вимушеної паузи добігає кінця.",
+      "en": "Return to action. The period of enforced pause is coming to an end."
+    }
+  },
+  "s05": {
+    "upright": {
+      "ua": "Оберіть мир. Іноді краще зберегти спокій, ніж виграти конфлікт.",
+      "en": "Choose peace. Sometimes it's better to keep calm than to win a conflict."
+    },
+    "reversed": {
+      "ua": "Вийдіть із брудної гри. Припиніть ворожнечу та зведіть втрати до мінімуму.",
+      "en": "Step out of the dirty game. Stop the feud and minimize losses."
+    }
+  },
+  "s06": {
+    "upright": {
+      "ua": "Рухайтеся до спокою. Залиште проблеми позаду й переходьте на кращі береги.",
+      "en": "Move toward peace. Leave problems behind and cross to better shores."
+    },
+    "reversed": {
+      "ua": "Не відкладайте переїзд/зміни. Опір лише затримує вас у кризовому стані.",
+      "en": "Do not delay changes/relocation. Resistance only keeps you in crisis."
+    }
+  },
+  "s07": {
+    "upright": {
+      "ua": "Дійте гнучко. Використовуйте хитрість, дипломатію й розум, а не лобовий напад.",
+      "en": "Act flexibly. Use cunning, diplomacy, and wit rather than a frontal attack."
+    },
+    "reversed": {
+      "ua": "Будьте чесними. Таємне випливе нагору, грайте за правилами.",
+      "en": "Be honest. Secrets will come out; play by the rules."
+    }
+  },
+  "s08": {
+    "upright": {
+      "ua": "Зруйнуйте ментальні рамки. Обмеження лише у вашій голові, шукайте вихід.",
+      "en": "Shatter mental frames. Limitations are only in your head; look for a way out."
+    },
+    "reversed": {
+      "ua": "Звільніться від страхів. Ви здатні діяти, пов'язка впала.",
+      "en": "Free yourself from fears. You are capable of acting; the blindfold has fallen."
+    }
+  },
+  "s09": {
+    "upright": {
+      "ua": "Проженіть тривогу. Більшість ваших кошмарів існує лише у вашій уяві.",
+      "en": "Banish anxiety. Most of your nightmares exist only in your imagination."
+    },
+    "reversed": {
+      "ua": "Ранок наступає. Тривожний період закінчується, відпускайте паніку.",
+      "en": "Morning is coming. The anxious period is ending; let go of panic."
+    }
+  },
+  "s10": {
+    "upright": {
+      "ua": "Поставте крапку. Важкий етап завершено, попереду — світанок.",
+      "en": "Put a period. The difficult stage is over; dawn lies ahead."
+    },
+    "reversed": {
+      "ua": "Піднімайтеся. Найдепресивніший момент позаду, час відновлюватися.",
+      "en": "Get up. The most depressive moment is behind you; time to recover."
+    }
+  },
+  "s11": {
+    "upright": {
+      "ua": "Збирайте факти. Будьте уважними до деталей і критично оцінюйте інформацію.",
+      "en": "Gather facts. Pay attention to details and critically evaluate information."
+    },
+    "reversed": {
+      "ua": "Ігноруйте плітки. Не втягуйтеся в дріб'язкові суперечки.",
+      "en": "Ignore gossip. Don't get dragged into petty arguments."
+    }
+  },
+  "s12": {
+    "upright": {
+      "ua": "Вирішуйте проблему швидко. Дійте сміливо, гостро та без зволікань.",
+      "en": "Solve the problem quickly. Act boldly, sharply, and without delay."
+    },
+    "reversed": {
+      "ua": "Вгамуйте гнів. Уникайте агресивних суперечок і слів, про які пошкодуєте.",
+      "en": "Tame your anger. Avoid aggressive arguments and words you will regret."
+    }
+  },
+  "s13": {
+    "upright": {
+      "ua": "Мисліть холодно. Оцінюйте ситуацію розумом, а не емоціями; тримайте кордони.",
+      "en": "Think coldly. Evaluate the situation with reason, not emotions; hold your boundaries."
+    },
+    "reversed": {
+      "ua": "Пом'якшіть суворість. Цинізм і холодність заважають порозумінню.",
+      "en": "Softness required. Cynicism and coldness hinder mutual understanding."
+    }
+  },
+  "s14": {
+    "upright": {
+      "ua": "Будьте експертом. Приймайте справедливі, законні та логічні рішення.",
+      "en": "Be an expert. Make fair, lawful, and logical decisions."
+    },
+    "reversed": {
+      "ua": "Не будьте тираном. Авторитарність чи жорстокість зіпсують справу.",
+      "en": "Don't be a tyrant. Authoritarianism or cruelty will ruin the matter."
+    }
+  },
+  "p01": {
+    "upright": {
+      "ua": "Ловіть шанс. На вас чекає чудова матеріальна можливість чи реальний подарунок.",
+      "en": "Catch the chance. A great material opportunity or real gift awaits you."
+    },
+    "reversed": {
+      "ua": "Не проґавте вигоду. Уникайте марнотратства та непродуманих витрат.",
+      "en": "Don't miss the benefit. Avoid wastefulness and ill-considered expenses."
+    }
+  },
+  "p02": {
+    "upright": {
+      "ua": "Будьте гнучкими. Лавіруйте між справами легко та зберігайте баланс.",
+      "en": "Be flexible. Juggle tasks easily and maintain balance."
+    },
+    "reversed": {
+      "ua": "Впорядкуйте справи. Хаос у фінансах чи графіку потребує структури.",
+      "en": "Organize your affairs. Chaos in finances or schedule requires structure."
+    }
+  },
+  "p03": {
+    "upright": {
+      "ua": "Працюйте якісно. Працюйте в команді, вдосконалюйте майстерність.",
+      "en": "Work with high quality. Team up, improve your craft."
+    },
+    "reversed": {
+      "ua": "Не халтурте. Виправте огріхи в роботі та залучіть фахівців.",
+      "en": "Don't slack off. Fix flaws in your work and bring in specialists."
+    }
+  },
+  "p04": {
+    "upright": {
+      "ua": "Збережіть надбане. Закріпіть позиції, дбайте про стабільність і безпеку.",
+      "en": "Preserve what you've earned. Secure positions, care for stability and safety."
+    },
+    "reversed": {
+      "ua": "Послабте контроль. Надмірна скупість і страх втрати гальмують розвиток.",
+      "en": "Ease up control. Excessive stinginess and fear of loss hinder development."
+    }
+  },
+  "p05": {
+    "upright": {
+      "ua": "Попросіть про допомогу. Якщо ресурси на нулі, шукайте підтримку поруч.",
+      "en": "Ask for help. If resources are at zero, look for support nearby."
+    },
+    "reversed": {
+      "ua": "Криза минає. Покращення фінансового стану чи здоров'я вже близько.",
+      "en": "The crisis is passing. Improvement in financial standing or health is near."
+    }
+  },
+  "p06": {
+    "upright": {
+      "ua": "Дотримуйтеся балансу. Діліться ресурсами або сміливо приймайте підтримку.",
+      "en": "Maintain balance. Share resources or boldly accept support."
+    },
+    "reversed": {
+      "ua": "Уникайте боргових пасток. Перевірте умови угод та рівноцінність обміну.",
+      "en": "Avoid debt traps. Check agreement terms and fair exchange."
+    }
+  },
+  "p07": {
+    "upright": {
+      "ua": "Майте терпіння. Результати потребують часу, не квапте події.",
+      "en": "Have patience. Results take time; do not rush events."
+    },
+    "reversed": {
+      "ua": "Змініть стратегію. Якщо праця не дає плодів, час міняти підхід.",
+      "en": "Change strategy. If work yields no fruit, it's time to change the approach."
+    }
+  },
+  "p08": {
+    "upright": {
+      "ua": "Відточуйте майстерність. Відповідальна рутинна праця принесе стабільний дохід.",
+      "en": "Hone your skills. Responsible routine work will bring stable income."
+    },
+    "reversed": {
+      "ua": "Знайдіть мотивацію. Подолайте лінь і нудьгу у повсякденних справах.",
+      "en": "Find motivation. Overcome laziness and boredom in daily tasks."
+    }
+  },
+  "p09": {
+    "upright": {
+      "ua": "Насолоджуйтеся комфортом. Ви заслужили на відпочинок і достаток.",
+      "en": "Enjoy comfort. You have earned rest and abundance."
+    },
+    "reversed": {
+      "ua": "Не купуйтеся на зовнішній блиск. Оцінюйте свої реальні фінансові сили.",
+      "en": "Don't fall for outer gloss. Evaluate your real financial strength."
+    }
+  },
+  "p10": {
+    "upright": {
+      "ua": "Дбайте про добробут. Родинний затишок, довгострокова стабільність та впевненість.",
+      "en": "Care for well-being. Family coziness, long-term stability, and confidence."
+    },
+    "reversed": {
+      "ua": "Усуньте майнові суперечки. Не псуйте стосунки через фінансові питання.",
+      "en": "Resolve property disputes. Don't ruin relationships over financial matters."
+    }
+  },
+  "p11": {
+    "upright": {
+      "ua": "Вивчайте практичне. Гарний шанс навчитися нового або зробити вигідний крок.",
+      "en": "Study the practical. A great chance to learn something new or make a profitable step."
+    },
+    "reversed": {
+      "ua": "Будьте відповідальними. Уникайте непрактичності й легкодухливості у грошах.",
+      "en": "Be responsible. Avoid impracticality and lightheadedness with money."
+    }
+  },
+  "p12": {
+    "upright": {
+      "ua": "Рухайтеся планомірно. Повільний, але абсолютно надійний шлях до успіху.",
+      "en": "Move steadily. A slow but completely reliable path to success."
+    },
+    "reversed": {
+      "ua": "Зруште застій. Надмірний консерватизм гальмує ваші справи.",
+      "en": "Break the stagnation. Excessive conservatism is slowing down your affairs."
+    }
+  },
+  "p13": {
+    "upright": {
+      "ua": "Дбайте про ресурс. Практичність, турбота про тіло, здоров'я та комфорт.",
+      "en": "Care for your resources. Practicality, care for the body, health, and comfort."
+    },
+    "reversed": {
+      "ua": "Перестаньте тривожитися за гроші. Приділіть увагу душевній теплоті.",
+      "en": "Stop worrying about money. Pay attention to soul warmth."
+    }
+  },
+  "p14": {
+    "upright": {
+      "ua": "Управляйте розумно. Приймайте масштабні, надійні та практичні рішення.",
+      "en": "Manage wisely. Make large-scale, reliable, and practical decisions."
+    },
+    "reversed": {
+      "ua": "Не будьте скнарою. Жорстка зацикленість на вигоді шкодить стосункам.",
+      "en": "Don't be a miser. Rigid fixation on profit harms relationships."
+    }
+  }
+};
+
+  const THREE_CARDS_DATA = {
+  "m00": {
+    "upright": {
+      "ua": "Обнулення, новий початок або спонтанний крок, зроблений раніше, які повністю змінили вектор подій.",
+      "en": "Reset, a new beginning, or a spontaneous step taken earlier that completely changed the vector of events."
+    },
+    "reversed": {
+      "ua": "Необачність, легковажне рішення або втеча від відповідальності в минулому, наслідки яких відчуваються досі.",
+      "en": "Rashness, a frivolous decision, or escaping responsibility in the past, the consequences of which are still felt."
+    }
+  },
+  "m01": {
+    "upright": {
+      "ua": "Ваша активна ініціатива, виявлене майстерство або вдале використання ресурсів, що створили поточну базу.",
+      "en": "Your active initiative, demonstrated skill, or successful use of resources that created the current foundation."
+    },
+    "reversed": {
+      "ua": "Спроба маніпуляції, нечесна гра або невикористаний шанс у минулому, які призвели до поточних сумнівів.",
+      "en": "An attempt at manipulation, unfair play, or a missed opportunity in the past that led to current doubts."
+    }
+  },
+  "m02": {
+    "upright": {
+      "ua": "Події, що розвивалися приховано, або ваша внутрішня інтуїція, яка підказувала правильний напрямок.",
+      "en": "Events that developed covertly or your inner intuition that hinted at the right direction."
+    },
+    "reversed": {
+      "ua": "Ігнорування передчуттів, прихований обман або таємниці минулого, які тепер виходять на поверхню.",
+      "en": "Ignoring premonitions, hidden deception, or secrets of the past that are now coming to the surface."
+    }
+  },
+  "m03": {
+    "upright": {
+      "ua": "Період активного зростання, турботи, створення чогось нового або накопичення ресурсів, що дали свої плоди.",
+      "en": "A period of active growth, care, creation of something new, or accumulation of resources that bore fruit."
+    },
+    "reversed": {
+      "ua": "Застій у справах, матеріальні втрати або брак турботи в минулому, що створили поточний дефіцит.",
+      "en": "Stagnation in affairs, material losses, or a lack of care in the past that created the current deficit."
+    }
+  },
+  "m04": {
+    "upright": {
+      "ua": "Створення чіткої системи, порядок, дисципліна або вплив авторитетної фігури, що заклали міцний фундамент.",
+      "en": "Creation of a clear system, order, discipline, or the influence of an authoritative figure that laid a solid foundation."
+    },
+    "reversed": {
+      "ua": "Диктат, надмірний контроль або, навпаки, хаос і відсутність структури в минулих діях.",
+      "en": "Dictation, excessive control, or conversely, chaos and lack of structure in past actions."
+    }
+  },
+  "m05": {
+    "upright": {
+      "ua": "Навчання, слідування традиціям, отримання важливої поради або дія за правилами й моральними нормами.",
+      "en": "Learning, following traditions, receiving important advice, or acting according to rules and moral norms."
+    },
+    "reversed": {
+      "ua": "Відмова від традицій, конфлікт із системою або довіра фальшивому авторитету в минулому.",
+      "en": "Rejection of traditions, conflict with the system, or trusting a false authority in the past."
+    }
+  },
+  "m06": {
+    "upright": {
+      "ua": "Доленосний вибір, зроблений серцем, або важливий союз/партнерство, що визначили поточний шлях.",
+      "en": "A fateful choice made by the heart or an important union/partnership that determined the current path."
+    },
+    "reversed": {
+      "ua": "Невірний вибір, сумніви або внутрішній конфлікт минулого, який досі створює невизначеність.",
+      "en": "A wrong choice, doubts, or an internal conflict of the past that still creates uncertainty."
+    }
+  },
+  "m07": {
+    "upright": {
+      "ua": "Рішучий ривок уперед, подолання перешкод завдяки силі волі та чіткому контролю над обставинами.",
+      "en": "A decisive leap forward, overcoming obstacles through willpower and clear control over circumstances."
+    },
+    "reversed": {
+      "ua": "Втрата керування, конфлікти або раптова зупинка руху через брак дисципліни чи поспіх.",
+      "en": "Loss of control, conflicts, or a sudden stop of movement due to lack of discipline or haste."
+    }
+  },
+  "m08": {
+    "upright": {
+      "ua": "Проявлена витривалість, дипломатичність та самоконтроль, які допомогли приборкати складну ситуацію.",
+      "en": "Demonstrated endurance, diplomacy, and self-control that helped tame a difficult situation."
+    },
+    "reversed": {
+      "ua": "Спалах гніву, проявлена слабкість або відсутність віри у власні сили у вирішальний момент.",
+      "en": "An outburst of anger, demonstrated weakness, or lack of belief in one's own strength at a crucial moment."
+    }
+  },
+  "m09": {
+    "upright": {
+      "ua": "Період самотності, переоцінки цінностей, глибокого аналізу та пошуку власної правди.",
+      "en": "A period of solitude, revaluation of values, deep analysis, and the search for one's own truth."
+    },
+    "reversed": {
+      "ua": "Хвороблива ізоляція, відстороненість від світу або уперте ігнорування розумних порад.",
+      "en": "Painful isolation, detachment from the world, or stubborn ignoring of sensible advice."
+    }
+  },
+  "m10": {
+    "upright": {
+      "ua": "Раптовий поворот долі, неминучі зовнішні зміни або смуга удачі, яка вивела на новий рівень.",
+      "en": "A sudden turn of fate, inevitable external changes, or a streak of luck that led to a new level."
+    },
+    "reversed": {
+      "ua": "Несподівана невдача, спротив змінам або повторення старої помилки, яке затягнуло процес.",
+      "en": "An unexpected failure, resistance to change, or repetition of an old mistake that dragged out the process."
+    }
+  },
+  "m11": {
+    "upright": {
+      "ua": "Прийняття зваженого рішення, юридичні справи або отримання чесних наслідків за попередні дії.",
+      "en": "Making a weighed decision, legal matters, or receiving fair consequences for previous actions."
+    },
+    "reversed": {
+      "ua": "Несправедливий вчинок, упередженість або спроба уникнути відповідальності в минулому.",
+      "en": "An unfair act, bias, or an attempt to avoid responsibility in the past."
+    }
+  },
+  "m12": {
+    "upright": {
+      "ua": "Вимушена пауза, зміна пріоритетів чи свідома жертва чимось заради більшої мети.",
+      "en": "A forced pause, change of priorities, or a conscious sacrifice of something for a greater goal."
+    },
+    "reversed": {
+      "ua": "Марні жертви, довготривалий застій або уперте небажання бачити реальний стан речей.",
+      "en": "Vain sacrifices, long-term stagnation, or stubborn unwillingness to see the real state of affairs."
+    }
+  },
+  "m13": {
+    "upright": {
+      "ua": "Завершення важливого життєвого етапу, остаточне відмирання старого й звільнення місця для нового.",
+      "en": "The completion of an important life stage, the final dying away of the old, and making room for the new."
+    },
+    "reversed": {
+      "ua": "Страх відпустити минуле, болісна агонія стосунків чи справ, які давно варто було завершити.",
+      "en": "Fear of letting go of the past, the painful agony of relationships or affairs that should have been ended long ago."
+    }
+  },
+  "m14": {
+    "upright": {
+      "ua": "Знаходження балансу, компромісу, терпелива праця та поступове гармонійне вирівнювання ситуації.",
+      "en": "Finding balance, compromise, patient work, and the gradual harmonious leveling of the situation."
+    },
+    "reversed": {
+      "ua": "Втрата міри, поспіх, крайнощі в рішеннях або порушення гармонії, що розхитали ситуацію.",
+      "en": "Loss of measure, haste, extremes in decisions, or disruption of harmony that shook the situation."
+    }
+  },
+  "m15": {
+    "upright": {
+      "ua": "Потрапляння в залежність, спокуса, токсичні стосунки або прив'язаність до матеріальних вигод.",
+      "en": "Falling into addiction, temptation, toxic relationships, or attachment to material benefits."
+    },
+    "reversed": {
+      "ua": "Початок звільнення від залежностей, усвідомлення пасток або подолання прихованих спокус.",
+      "en": "The beginning of liberation from addictions, awareness of traps, or overcoming hidden temptations."
+    }
+  },
+  "m16": {
+    "upright": {
+      "ua": "Раптовий крах ілюзій, руйнування застарілих планів або шокова подія, яка докорінно все змінила.",
+      "en": "A sudden collapse of illusions, destruction of outdated plans, or a shocking event that radically changed everything."
+    },
+    "reversed": {
+      "ua": "Намагання втримати те, що руйнується, затягнута криза або прихована руйнівна ситуація.",
+      "en": "Trying to hold on to what is collapsing, a prolonged crisis, or a hidden destructive situation."
+    }
+  },
+  "m17": {
+    "upright": {
+      "ua": "Натхнення, поява нової мрії, відновлення надії та чітке бачення перспектив на майбутнє.",
+      "en": "Inspiration, the appearance of a new dream, restoration of hope, and a clear vision of prospects for the future."
+    },
+    "reversed": {
+      "ua": "Втрата віри в себе, розчарування в ідеалах або побудова нереалістичних ілюзій.",
+      "en": "Loss of self-belief, disappointment in ideals, or building unrealistic illusions."
+    }
+  },
+  "m18": {
+    "upright": {
+      "ua": "Період невизначеності, ілюзій, страхів, плутанини або прихованого обману, який вплинув на справи.",
+      "en": "A period of uncertainty, illusions, fears, confusion, or hidden deception that influenced affairs."
+    },
+    "reversed": {
+      "ua": "Розкриття таємниць, поступовий вихід із туману ілюзій та подолання дитячих страхів.",
+      "en": "Revealing secrets, a gradual exit from the fog of illusions, and overcoming childhood fears."
+    }
+  },
+  "m19": {
+    "upright": {
+      "ua": "Період ясності, успіху, радісних подій, визнання та високого рівня енергії.",
+      "en": "A period of clarity, success, joyful events, recognition, and a high level of energy."
+    },
+    "reversed": {
+      "ua": "Тимчасове затьмарення радості, засліплення власним успіхом або незначні затримки у тріумфі.",
+      "en": "Temporary clouding of joy, blinding by one's own success, or minor delays in triumph."
+    }
+  },
+  "m20": {
+    "upright": {
+      "ua": "Пробудження, підбиття підсумків, важливе доленосне рішення або внутрішній заклик до змін.",
+      "en": "Awakening, summing up results, an important fateful decision, or an internal call for change."
+    },
+    "reversed": {
+      "ua": "Каяття, затягування неминучого рішення або неприйняття уроків минулого.",
+      "en": "Remorse, delaying an inevitable decision, or non-acceptance of past lessons."
+    }
+  },
+  "m21": {
+    "upright": {
+      "ua": "Успішне завершення великого циклу, досягнення мети, відчуття цілісності та гармонії.",
+      "en": "Successful completion of a major cycle, achievement of the goal, a sense of wholeness and harmony."
+    },
+    "reversed": {
+      "ua": "Незавершені справи, брак остаточного кроку для фінішу або обмеження, які завадили тріумфу.",
+      "en": "Unfinished business, lack of a final step to the finish line, or limitations that prevented triumph."
+    }
+  },
+  "w01": {
+    "upright": {
+      "ua": "Зародження потужної ідеї, спалах натхнення або сміливий старт нового проекту.",
+      "en": "The birth of a powerful idea, a flash of inspiration, or a bold start to a new project."
+    },
+    "reversed": {
+      "ua": "Втрачена можливість, брак мотивації або фальстарт, який виснажив ресурси.",
+      "en": "A missed opportunity, lack of motivation, or a false start that depleted resources."
+    }
+  },
+  "w02": {
+    "upright": {
+      "ua": "Етап планування, вибір нового шляху та аналіз перспектив, які створили нинішні умови.",
+      "en": "The planning stage, choosing a new path, and analyzing prospects that created current conditions."
+    },
+    "reversed": {
+      "ua": "Нерішучість, страх вийти з зони комфорту або погано продуманий план.",
+      "en": "Indecision, fear of leaving the comfort zone, or a poorly thought-out plan."
+    }
+  },
+  "w03": {
+    "upright": {
+      "ua": "Перші впевнені кроки, розширення впливу та закладення фундаменту для розвитку.",
+      "en": "First confident steps, expansion of influence, and laying the foundation for development."
+    },
+    "reversed": {
+      "ua": "Затримки в реалізації, розчарування від перших результатів або брак бачення.",
+      "en": "Delays in implementation, disappointment with initial results, or lack of vision."
+    }
+  },
+  "w04": {
+    "upright": {
+      "ua": "Період стабільності, досягнення гармонії, святкування успіху або відчуття безпеки.",
+      "en": "A period of stability, achievement of harmony, celebration of success, or a sense of security."
+    },
+    "reversed": {
+      "ua": "Тимчасові непорозуміння в колективі/родині або відкладене святкування досягнень.",
+      "en": "Temporary misunderstandings in the team/family or delayed celebration of achievements."
+    }
+  },
+  "w05": {
+    "upright": {
+      "ua": "Етап конкуренції, суперечок, боротьби за лідерство та відстоювання своїх думок.",
+      "en": "A stage of competition, disputes, struggle for leadership, and defending one's opinions."
+    },
+    "reversed": {
+      "ua": "Уникнення конфлікту, хаотичні чвари або виснажливе протистояння без результату.",
+      "en": "Avoiding conflict, chaotic bickering, or exhausting confrontation without a result."
+    }
+  },
+  "w06": {
+    "upright": {
+      "ua": "Публічне визнання, перемога, тріумф і гордість за здобуті результати.",
+      "en": "Public recognition, victory, triumph, and pride in achieved results."
+    },
+    "reversed": {
+      "ua": "Неприйняття суспільством, запізніла перемога або сумніви у власній цінності.",
+      "en": "Rejection by society, a delayed victory, or doubts about one's own value."
+    }
+  },
+  "w07": {
+    "upright": {
+      "ua": "Необхідність захищати свої позиції та відстоювати інтереси під тиском оточення.",
+      "en": "The need to defend your positions and stand up for your interests under pressure from the environment."
+    },
+    "reversed": {
+      "ua": "Капітуляція перед пресингом, відчуття безсилля або втрата контролю над ситуацією.",
+      "en": "Capitulation to pressure, a sense of powerlessness, or loss of control over the situation."
+    }
+  },
+  "w08": {
+    "upright": {
+      "ua": "Швидкий перебіг подій, раптові новини або стрімкі рішення, які задали високий темп.",
+      "en": "Rapid course of events, sudden news, or swift decisions that set a high pace."
+    },
+    "reversed": {
+      "ua": "Затримки, плутанина в комунікаціях або поспішні рішення, що призвели до помилок.",
+      "en": "Delays, confusion in communications, or hasty decisions that led to mistakes."
+    }
+  },
+  "w09": {
+    "upright": {
+      "ua": "Досвід минулих поразок, який змусив закритися й зайняти оборонну позицію.",
+      "en": "The experience of past defeats that forced closing up and taking a defensive position."
+    },
+    "reversed": {
+      "ua": "Втрата пильності, виснаження через постійне очікування удару або параноя.",
+      "en": "Loss of vigilance, exhaustion due to constant expectation of a blow, or paranoia."
+    }
+  },
+  "w10": {
+    "upright": {
+      "ua": "Надмірне перевантаження, взяття на себе чужих обов'язків та робота на межі сил.",
+      "en": "Excessive overload, taking on other people's responsibilities, and working to the limit of strength."
+    },
+    "reversed": {
+      "ua": "Втрата сил через перевтому або, навпаки, свідоме скидання важкого тягаря.",
+      "en": "Loss of strength due to overwork or, conversely, consciously dropping a heavy burden."
+    }
+  },
+  "w11": {
+    "upright": {
+      "ua": "Отримання цікавої пропозиції, початок вивчення нового або імпульс до пригод.",
+      "en": "Receiving an interesting offer, starting to study something new, or an impulse for adventure."
+    },
+    "reversed": {
+      "ua": "Ненадійні новини, спалах ентузіазму, який швидко згас, або забудькуватість.",
+      "en": "Unreliable news, a burst of enthusiasm that quickly faded, or forgetfulness."
+    }
+  },
+  "w12": {
+    "upright": {
+      "ua": "Стрімкі дії, азарт, поїздка або імпульсивні рішення, що змінили декорації.",
+      "en": "Swift actions, excitement, a trip, or impulsive decisions that changed the scenery."
+    },
+    "reversed": {
+      "ua": "Хаотичність, розрив планів через спалахи гніву або непослідовні вчинки.",
+      "en": "Chaoticness, breaking plans due to outbursts of anger, or inconsistent actions."
+    }
+  },
+  "w13": {
+    "upright": {
+      "ua": "Прояв харизми, впевненості та незалежності, які дозволили взяти ситуацію в руки.",
+      "en": "Demonstration of charisma, confidence, and independence that allowed taking the situation into hand."
+    },
+    "reversed": {
+      "ua": "Вплив егоїстичної чи ревнивої особи, вигорання або владність, що зашкодила справі.",
+      "en": "The influence of a selfish or jealous person, burnout, or domineering behavior that harmed the matter."
+    }
+  },
+  "w14": {
+    "upright": {
+      "ua": "Прийняття сильного підприємницького рішення, заступництво чи рішуче керівництво.",
+      "en": "Making a strong entrepreneurial decision, patronage, or decisive leadership."
+    },
+    "reversed": {
+      "ua": "Авторитарність, імпульсивне рішення або втрата впливу через самодурство.",
+      "en": "Authoritarianism, an impulsive decision, or loss of influence due to foolish tyranny."
+    }
+  },
+  "c01": {
+    "upright": {
+      "ua": "Спалах щирих почуттів, нове кохання, емоційне піднесення або творче натхнення.",
+      "en": "An outburst of sincere feelings, new love, emotional uplift, or creative inspiration."
+    },
+    "reversed": {
+      "ua": "Емоційне виснаження, невиражені почуття або розчарування в тому, що надихало.",
+      "en": "Emotional exhaustion, unexpressed feelings, or disappointment in what used to inspire."
+    }
+  },
+  "c02": {
+    "upright": {
+      "ua": "Знайомство, примирення, гармонійний союз або взаємовигідна довірча домовленість.",
+      "en": "Acquaintance, reconciliation, a harmonious union, or a mutually beneficial trusting agreement."
+    },
+    "reversed": {
+      "ua": "Непорозуміння, розлад у стосунках, втрата довіри або розрив домовленостей.",
+      "en": "Misunderstanding, discord in relationships, loss of trust, or rupture of agreements."
+    }
+  },
+  "c03": {
+    "upright": {
+      "ua": "Спільне святкування, підтримка друзів, душевна атмосфера та радісні події.",
+      "en": "Joint celebration, friends' support, a soulful atmosphere, and joyful events."
+    },
+    "reversed": {
+      "ua": "Надмірні розваги, плітки або відчуття чужості в компанії/колективі.",
+      "en": "Excessive entertainment, gossip, or a feeling of alienation in a company/team."
+    }
+  },
+  "c04": {
+    "upright": {
+      "ua": "Період нудьги, апатії, пересичення та ігнорування вигідних пропозицій.",
+      "en": "A period of boredom, apathy, satiety, and ignoring lucrative offers."
+    },
+    "reversed": {
+      "ua": "Вихід із затяжного емоційного застою та повернення інтересу до життя.",
+      "en": "Emerging from a prolonged emotional stagnation and a return of interest in life."
+    }
+  },
+  "c05": {
+    "upright": {
+      "ua": "Печаль за втраченим, емоційна криза, розчарування або фокус лише на негативі.",
+      "en": "Grief for what is lost, an emotional crisis, disappointment, or focus solely on the negative."
+    },
+    "reversed": {
+      "ua": "Початок одужання після душевної травми, прийняття втрати й рух далі.",
+      "en": "The beginning of recovery after a mental trauma, acceptance of loss, and moving forward."
+    }
+  },
+  "c06": {
+    "upright": {
+      "ua": "Спогади з минулого, повернення старих знайомих, безкорислива допомога або дитяча щирість.",
+      "en": "Memories from the past, the return of old acquaintances, selfless help, or childhood sincerity."
+    },
+    "reversed": {
+      "ua": "Застрягання в дитячих травмах або надмірна ідеалізація того, що давно минуло.",
+      "en": "Getting stuck in childhood traumas or excessive idealization of what has long passed."
+    }
+  },
+  "c07": {
+    "upright": {
+      "ua": "Великий вибір, перебування в ілюзіях, мріях та видавання бажаного за дійсне.",
+      "en": "A large choice, staying in illusions, dreams, and wishful thinking."
+    },
+    "reversed": {
+      "ua": "Розвіювання ілюзій, усвідомлення обману та тверезий погляд на ситуацію.",
+      "en": "Dispelling illusions, realizing deception, and a sober look at the situation."
+    }
+  },
+  "c08": {
+    "upright": {
+      "ua": "Свідомий відхід від минулого, залишення звичного заради пошуку глибшого сенсу.",
+      "en": "A conscious departure from the past, leaving the familiar behind to search for a deeper meaning."
+    },
+    "reversed": {
+      "ua": "Страх перед невідомістю, чіпляння за звичне або вимушене повернення назад.",
+      "en": "Fear of the unknown, clinging to the familiar, or a forced return back."
+    }
+  },
+  "c09": {
+    "upright": {
+      "ua": "Задоволення від досягнутого, матеріальний комфорт та спокійні радощі життя.",
+      "en": "Satisfaction with what has been achieved, material comfort, and quiet joys of life."
+    },
+    "reversed": {
+      "ua": "Пересичення, надмірне самовдоволення або розчарування від отриманого результату.",
+      "en": "Satiety, excessive complacency, or disappointment with the obtained result."
+    }
+  },
+  "c10": {
+    "upright": {
+      "ua": "Глибоке сімейне щастя, гармонія у взаєминах, відчуття затишку й повноти життя.",
+      "en": "Deep family happiness, harmony in relationships, a sense of coziness and fullness of life."
+    },
+    "reversed": {
+      "ua": "Суперечки в родині, розлад у домі або показова гармонія, за якою ховався конфлікт.",
+      "en": "Family disputes, discord at home, or ostentatious harmony hiding a conflict."
+    }
+  },
+  "c11": {
+    "upright": {
+      "ua": "Романтичне послання, комплімент, зародження симпатії або творче поривання.",
+      "en": "A romantic message, a compliment, the birth of sympathy, or a creative impulse."
+    },
+    "reversed": {
+      "ua": "Емоційна вразливість, дитячі капризи або невиконані обіцянки.",
+      "en": "Emotional vulnerability, childish whims, or unfulfilled promises."
+    }
+  },
+  "c12": {
+    "upright": {
+      "ua": "Щирий романтичний порив, гарна пропозиція або слідування за мрією.",
+      "en": "A sincere romantic impulse, a good proposal, or following a dream."
+    },
+    "reversed": {
+      "ua": "Ідеалізація, маніпулювання почуттями або розчарування в людині, якій довіряли.",
+      "en": "Idealization, manipulation of feelings, or disappointment in a person who was trusted."
+    }
+  },
+  "c13": {
+    "upright": {
+      "ua": "Прояв емпатії, інтуїтивна підтримка, турбота та душевна теплота від вас чи оточуючих.",
+      "en": "Demonstration of empathy, intuitive support, care, and spiritual warmth from you or others."
+    },
+    "reversed": {
+      "ua": "Емоційна нестабільність, маніпуляція провиною або занурення у власні образи.",
+      "en": "Emotional instability, guilt manipulation, or immersion in one's own grievances."
+    }
+  },
+  "c14": {
+    "upright": {
+      "ua": "Прояв мудрості, емоційної зрілості, отримання підтримки від доброзичливої людини.",
+      "en": "Demonstration of wisdom, emotional maturity, receiving support from a benevolent person."
+    },
+    "reversed": {
+      "ua": "Холодність, прихована агресія або підступна маніпуляція почуттями з боку когось із минулого.",
+      "en": "Coldness, hidden aggression, or insidious manipulation of feelings from someone from the past."
+    }
+  },
+  "s01": {
+    "upright": {
+      "ua": "Рішучий розрив, внесення абсолютної ясності, чесна розмова чи логічне рішення.",
+      "en": "A decisive break, bringing absolute clarity, an honest conversation, or a logical decision."
+    },
+    "reversed": {
+      "ua": "Плутанина, затуманений розум, гострий конфлікт або помилкові висновки.",
+      "en": "Confusion, clouded mind, acute conflict, or erroneous conclusions."
+    }
+  },
+  "s02": {
+    "upright": {
+      "ua": "Спроба заплющити очі на проблему, відкладання вибору та закритість від фактів.",
+      "en": "An attempt to turn a blind eye to a problem, postponing a choice, and closing off from facts."
+    },
+    "reversed": {
+      "ua": "Вимушений вибір, зняття пов'язки з очей та вихід із внутрішнього кута.",
+      "en": "A forced choice, removing the blindfold, and exiting an internal corner."
+    }
+  },
+  "s03": {
+    "upright": {
+      "ua": "Болісне розчарування, розрив стосунків, смуток або конфлікт між розумом і серцем.",
+      "en": "Painful disappointment, breakup of a relationship, sadness, or a conflict between mind and heart."
+    },
+    "reversed": {
+      "ua": "Початок зцілення після важкого удару, вибачення або зменшення душевної болі.",
+      "en": "The beginning of healing after a heavy blow, apologies, or reduction of mental pain."
+    }
+  },
+  "s04": {
+    "upright": {
+      "ua": "Вимушена пауза для відновлення сил, відхід від справ, лікування чи медитація.",
+      "en": "A forced pause to restore strength, stepping away from affairs, treatment, or meditation."
+    },
+    "reversed": {
+      "ua": "Вимушений вихід із ізоляції, виснаження через відсутність нормального відпочинку.",
+      "en": "Forced exit from isolation, exhaustion due to lack of normal rest."
+    }
+  },
+  "s05": {
+    "upright": {
+      "ua": "Руйнівний конфлікт, нечесна боротьба, зрада або «перемога», яка коштувала занадто дорого.",
+      "en": "A destructive conflict, unfair fight, betrayal, or a 'victory' that cost too much."
+    },
+    "reversed": {
+      "ua": "Усвідомлення безглуздості суперечки, мінімізація втрат та вихід із ворожнечі.",
+      "en": "Realization of the futility of an argument, minimization of losses, and exiting hostility."
+    }
+  },
+  "s06": {
+    "upright": {
+      "ua": "Перехід у спокійніший період, відхід від проблем, зміна оточення або поїздка.",
+      "en": "Transition to a calmer period, moving away from problems, change of environment, or a trip."
+    },
+    "reversed": {
+      "ua": "Неможливість втекти від минулих труднощів, скасування поїздки або затримка на шляху.",
+      "en": "Inability to escape past difficulties, cancellation of a trip, or delay along the way."
+    }
+  },
+  "s07": {
+    "upright": {
+      "ua": "Хитрість, таємні дії, маніпуляції, обхідні шляхи або приховування правди.",
+      "en": "Cunning, secret actions, manipulations, workarounds, or hiding the truth."
+    },
+    "reversed": {
+      "ua": "Викриття обману, визнання помилок або невдала спроба щось приховати.",
+      "en": "Exposure of deception, admission of mistakes, or an unsuccessful attempt to hide something."
+    }
+  },
+  "s08": {
+    "upright": {
+      "ua": "Відчуття пастки, обмеження волі, загнаність у кут власними страхами чи переконаннями.",
+      "en": "A sense of a trap, limitation of will, driven into a corner by one's own fears or beliefs."
+    },
+    "reversed": {
+      "ua": "Звільнення від чужого тиску, подолання внутрішніх блоків та відновлення свободи.",
+      "en": "Liberation from external pressure, overcoming internal blocks, and restoring freedom."
+    }
+  },
+  "s09": {
+    "upright": {
+      "ua": "Нічні тривоги, безсоння, сильне відчуття провини чи страхи, які виснажили нервову систему.",
+      "en": "Night anxieties, insomnia, a strong sense of guilt, or fears that exhausted the nervous system."
+    },
+    "reversed": {
+      "ua": "Поступове повернення спокою, усвідомлення, що страхи були перебільшені.",
+      "en": "Gradual return of peace, realization that the fears were exaggerated."
+    }
+  },
+  "s10": {
+    "upright": {
+      "ua": "Раптовий і остаточний фінал, болісна крапка, крах планів чи повне знесилення.",
+      "en": "A sudden and final end, a painful full stop, collapse of plans, or complete exhaustion."
+    },
+    "reversed": {
+      "ua": "Початок відродження після катастрофи, повернення до життя після важкої поразки.",
+      "en": "The beginning of rebirth after a disaster, returning to life after a heavy defeat."
+    }
+  },
+  "s11": {
+    "upright": {
+      "ua": "Збір інформації, критичний огляд ситуації, стеження або гостра дискусія.",
+      "en": "Gathering information, a critical review of the situation, surveillance, or an acute discussion."
+    },
+    "reversed": {
+      "ua": "Плітки, дріб'язкові претензії, поширення чуток чи бракована інформація.",
+      "en": "Gossip, petty claims, spreading rumors, or defective information."
+    }
+  },
+  "s12": {
+    "upright": {
+      "ua": "Стрімка й агресивна атака, безкомпромісне відстоювання своєї правди, конфлікт.",
+      "en": "A swift and aggressive attack, uncompromising defense of one's truth, conflict."
+    },
+    "reversed": {
+      "ua": "Необачність, руйнівна критика, імпульсивні сварки або необдумані вчинки.",
+      "en": "Rashness, destructive criticism, impulsive quarrels, or reckless actions."
+    }
+  },
+  "s13": {
+    "upright": {
+      "ua": "Холодний логічний аналіз, встановлення суворих кордонів, прояв незалежності.",
+      "en": "Cold logical analysis, establishing strict boundaries, manifestation of independence."
+    },
+    "reversed": {
+      "ua": "Цинізм, жорстокість, емоційне відчуження або дія з почуття помсти.",
+      "en": "Cynicism, cruelty, emotional alienation, or acting out of a sense of revenge."
+    }
+  },
+  "s14": {
+    "upright": {
+      "ua": "Прийняття суворого, але справедливого рішення, безапеляційна логіка, вплив експерта.",
+      "en": "Making a strict but fair decision, unappealable logic, the influence of an expert."
+    },
+    "reversed": {
+      "ua": "Зловживання владою, жорсткий тиск, деспотизм або холодний маніпулятивний розрахунок.",
+      "en": "Abuse of power, hard pressure, despotism, or cold manipulative calculation."
+    }
+  },
+  "p01": {
+    "upright": {
+      "ua": "Отримання відмінної матеріальної можливості, фінансовий дарунок або міцний старт.",
+      "en": "Receiving an excellent material opportunity, a financial gift, or a solid start."
+    },
+    "reversed": {
+      "ua": "Втрачений фінансовий шанс, невдала інвестиція або брак ресурсів на початку.",
+      "en": "A missed financial chance, an unsuccessful investment, or a lack of resources at the start."
+    }
+  },
+  "p02": {
+    "upright": {
+      "ua": "Лавірування між кількома справами, пошук балансу та гнучкість у фінансових питаннях.",
+      "en": "Juggling multiple affairs, searching for balance, and flexibility in financial matters."
+    },
+    "reversed": {
+      "ua": "Втрата рівноваги, фінансовий хаос, перевантаження обов'язками.",
+      "en": "Loss of balance, financial chaos, overload with responsibilities."
+    }
+  },
+  "p03": {
+    "upright": {
+      "ua": "Командна праця, залучення фахівців, підвищення майстерності та якісна робота.",
+      "en": "Teamwork, involving specialists, improving skill, and high-quality work."
+    },
+    "reversed": {
+      "ua": "Брак професіоналізму, розлад у команді або неякісно виконана робота.",
+      "en": "Lack of professionalism, discord in the team, or poorly performed work."
+    }
+  },
+  "p04": {
+    "upright": {
+      "ua": "Збереження ресурсів, прагнення стабільності, утримання досягнутого та обережність.",
+      "en": "Preservation of resources, striving for stability, maintaining what has been achieved, and caution."
+    },
+    "reversed": {
+      "ua": "Жадібність, страх утратити контроль, марнотратство або блокування грошових потоків.",
+      "en": "Greed, fear of losing control, wastefulness, or blocking cash flows."
+    }
+  },
+  "p05": {
+    "upright": {
+      "ua": "Фінансова скрута, брак ресурсів, відчуття виключеності або тимчасова криза.",
+      "en": "Financial hardship, lack of resources, a sense of exclusion, or a temporary crisis."
+    },
+    "reversed": {
+      "ua": "Вихід із фінансової скрути, знаходження підтримки та поступове відновлення.",
+      "en": "Emerging from financial hardship, finding support, and gradual recovery."
+    }
+  },
+  "p06": {
+    "upright": {
+      "ua": "Отримання допомоги, фінансова підтримка, чесний розподіл ресурсів чи щедрість.",
+      "en": "Receiving help, financial support, fair distribution of resources, or generosity."
+    },
+    "reversed": {
+      "ua": "Нечесна угода, відмова в допомозі, борги або невигідні кабальні умови.",
+      "en": "An unfair deal, refusal of help, debts, or unfavorable bondage conditions."
+    }
+  },
+  "p07": {
+    "upright": {
+      "ua": "Вкладення праці й довготривале терпляче очікування перших результатів.",
+      "en": "Investing labor and long-term patient waiting for the first results."
+    },
+    "reversed": {
+      "ua": "Розчарування через повільний прогрес, даремно витрачений час і зусилля.",
+      "en": "Disappointment due to slow progress, wasted time, and effort."
+    }
+  },
+  "p08": {
+    "upright": {
+      "ua": "Ретельна рутинна праця, відточування навичок, навчання та увага до деталей.",
+      "en": "Thorough routine work, honing skills, learning, and attention to detail."
+    },
+    "reversed": {
+      "ua": "Перфекціонізм, лінь, недороблена робота або халтура, яка зіпсувала результат.",
+      "en": "Perfectionism, laziness, unfinished work, or sloppy performance that ruined the result."
+    }
+  },
+  "p09": {
+    "upright": {
+      "ua": "Досягнення фінансової незалежності, комфорту, самостійності та безпеки.",
+      "en": "Achieving financial independence, comfort, self-reliance, and security."
+    },
+    "reversed": {
+      "ua": "Фінансова залежність від когось, марнотратство або втрата стабільного доходу.",
+      "en": "Financial dependence on someone, wastefulness, or loss of stable income."
+    }
+  },
+  "p10": {
+    "upright": {
+      "ua": "Створення міцної матеріальної бази, підтримка родини, стабільний довгостроковий фундамент.",
+      "en": "Creating a strong material base, family support, a stable long-term foundation."
+    },
+    "reversed": {
+      "ua": "Сімейні суперечки через майно, втрата стабільності або руйнування довгострокових планів.",
+      "en": "Family disputes over property, loss of stability, or destruction of long-term plans."
+    }
+  },
+  "p11": {
+    "upright": {
+      "ua": "Початок практичного навчання, добрі новини про гроші чи роботу, ретельний підхід.",
+      "en": "The start of practical learning, good news about money or work, a thorough approach."
+    },
+    "reversed": {
+      "ua": "Легковажність, безвідповідальне ставлення до грошей, нереалізовані плани.",
+      "en": "Frivolity, irresponsible attitude towards money, unfulfilled plans."
+    }
+  },
+  "p12": {
+    "upright": {
+      "ua": "Послідовна, методична праця, відповідальність, надійність та повільний, але впевнений рух.",
+      "en": "Consistent, methodical labor, responsibility, reliability, and slow but confident movement."
+    },
+    "reversed": {
+      "ua": "Нудьга, упертість, надмірний консерватизм або застій у справах через лінь.",
+      "en": "Boredom, stubbornness, excessive conservatism, or stagnation in affairs due to laziness."
+    }
+  },
+  "p13": {
+    "upright": {
+      "ua": "Дбайливе господарювання, створення затишку, турбота про ресурси й здоров'я.",
+      "en": "Careful household management, creating coziness, caring for resources and health."
+    },
+    "reversed": {
+      "ua": "Скупість, зацикленість на матеріальному, занедбаність обов'язків.",
+      "en": "Stinginess, fixation on the material, neglect of responsibilities."
+    }
+  },
+  "p14": {
+    "upright": {
+      "ua": "Надійне фінансове заступництво, стабільний бізнес, прояв ділової хватки.",
+      "en": "Reliable financial patronage, stable business, demonstration of business acumen."
+    },
+    "reversed": {
+      "ua": "Фінансові ризики, жадібність, зацикленість лише на грошах або корупція.",
+      "en": "Financial risks, greed, fixation solely on money, or corruption."
+    }
+  }
+};
+
+  const YES_NO_DATA = {
+  "m00": {
+    "upright": {
+      "ua": "Обнулення, новий початок або спонтанний крок, зроблений раніше, які повністю змінили вектор подій.",
+      "en": "Resetting, a new beginning, or a spontaneous step taken earlier that completely changed the vector of events."
+    },
+    "reversed": {
+      "ua": "Необачність, легковажне рішення або втеча від відповідальності в минулому, наслідки яких відчуваються досі.",
+      "en": "Rashness, a frivolous decision, or running away from responsibility in the past, the consequences of which are still felt today."
+    }
+  },
+  "m01": {
+    "upright": {
+      "ua": "Ваша активна ініціатива, виявлене майстерство або вдале використання ресурсів, що створили поточну базу.",
+      "en": "Your active initiative, demonstrated skill, or successful use of resources that created the current foundation."
+    },
+    "reversed": {
+      "ua": "Спроба маніпуляції, нечесна гра або невикористаний шанс у минулому, які призвели до поточних сумнівів.",
+      "en": "An attempt at manipulation, unfair play, or a missed opportunity in the past that led to current doubts."
+    }
+  },
+  "m02": {
+    "upright": {
+      "ua": "Події, що розвивалися приховано, або ваша внутрішня інтуїція, яка підказувала правильний напрямок.",
+      "en": "Events that developed covertly, or your inner intuition which suggested the correct direction."
+    },
+    "reversed": {
+      "ua": "Ігнорування передчуттів, прихований обман або таємниці минулого, які тепер виходять на поверхню.",
+      "en": "Ignoring premonitions, hidden deception, or secrets of the past that are now coming to the surface."
+    }
+  },
+  "m03": {
+    "upright": {
+      "ua": "Період активного зростання, турботи, створення чогось нового або накопичення ресурсів, що дали свої плоди.",
+      "en": "A period of active growth, care, creation of something new, or accumulation of resources that have borne fruit."
+    },
+    "reversed": {
+      "ua": "Застій у справах, матеріальні втрати або брак турботи в минулому, що створили поточний дефіцит.",
+      "en": "Stagnation in affairs, material losses, or a lack of care in the past that created the current deficit."
+    }
+  },
+  "m04": {
+    "upright": {
+      "ua": "Створення чіткої системи, порядок, дисципліна або вплив авторитетної фігури, що заклали міцний фундамент.",
+      "en": "Creation of a clear system, order, discipline, or the influence of an authoritative figure that laid a solid foundation."
+    },
+    "reversed": {
+      "ua": "Диктат, надмірний контроль або, навпаки, хаос і відсутність структури в минулих діях.",
+      "en": "Dictate, excessive control, or conversely, chaos and lack of structure in past actions."
+    }
+  },
+  "m05": {
+    "upright": {
+      "ua": "Навчання, слідування традиціям, отримання важливої поради або дія за правилами й моральними нормами.",
+      "en": "Learning, following traditions, receiving important advice, or acting according to rules and moral norms."
+    },
+    "reversed": {
+      "ua": "Відмова від традицій, конфлікт із системою або довіра фальшивому авторитету в минулому.",
+      "en": "Rejection of traditions, conflict with the system, or trusting a false authority in the past."
+    }
+  },
+  "m06": {
+    "upright": {
+      "ua": "Доленосний вибір, зроблений серцем, або важливий союз/партнерство, що визначили поточний шлях.",
+      "en": "A fateful choice made by the heart, or an important union/partnership that determined the current path."
+    },
+    "reversed": {
+      "ua": "Невірний вибір, сумніви або внутрішній конфлікт минулого, який досі створює невизначеність.",
+      "en": "A wrong choice, doubts, or an internal conflict of the past that still creates uncertainty."
+    }
+  },
+  "m07": {
+    "upright": {
+      "ua": "Рішучий ривок уперед, подолання перешкод завдяки силі волі та чіткому контролю над обставинами.",
+      "en": "A decisive leap forward, overcoming obstacles through willpower and clear control over circumstances."
+    },
+    "reversed": {
+      "ua": "Втрата керування, конфлікти або раптова зупинка руху через брак дисципліни чи поспіх.",
+      "en": "Loss of control, conflicts, or a sudden stop of movement due to lack of discipline or haste."
+    }
+  },
+  "m08": {
+    "upright": {
+      "ua": "Проявлений витривалість, дипломатичність та самоконтроль, які допомогли приборкати складну ситуацію.",
+      "en": "Demonstrated endurance, diplomacy, and self-control that helped tame a difficult situation."
+    },
+    "reversed": {
+      "ua": "Спалах гніву, проявлена слабкість або відсутність віри у власні сили у вирішальний момент.",
+      "en": "An outburst of anger, shown weakness, or a lack of faith in one's own strength at a decisive moment."
+    }
+  },
+  "m09": {
+    "upright": {
+      "ua": "Період самотності, переоцінки цінностей, глибокого аналізу та пошуку власної правди.",
+      "en": "A period of solitude, reassessment of values, deep analysis, and the search for one's own truth."
+    },
+    "reversed": {
+      "ua": "Хвороблива ізоляція, відстороненість від світу або уперте ігнорування розумних порад.",
+      "en": "Painful isolation, detachment from the world, or stubborn ignoring of sensible advice."
+    }
+  },
+  "m10": {
+    "upright": {
+      "ua": "Раптовий поворот долі, неминучі зовнішні зміни або смуга удачі, яка вивела на новий рівень.",
+      "en": "A sudden turn of fate, inevitable external changes, or a streak of luck that led to a new level."
+    },
+    "reversed": {
+      "ua": "Несподівана невдача, спротив змінам або повторення старої помилки, яке затягнуло процес.",
+      "en": "Unexpected failure, resistance to changes, or the repetition of an old mistake that dragged out the process."
+    }
+  },
+  "m11": {
+    "upright": {
+      "ua": "Прийняття зваженого рішення, юридичні справи або отримання чесних наслідків за попередні дії.",
+      "en": "Making a balanced decision, legal matters, or receiving fair consequences for previous actions."
+    },
+    "reversed": {
+      "ua": "Несправедливий вчинок, упередженість або спроба уникнути відповідальності в минулому.",
+      "en": "An unfair act, bias, or an attempt to avoid responsibility in the past."
+    }
+  },
+  "m12": {
+    "upright": {
+      "ua": "Вимушена пауза, зміна пріоритетів чи свідома жертва чимось ради більшої мети.",
+      "en": "A forced pause, change of priorities, or a conscious sacrifice of something for a greater goal."
+    },
+    "reversed": {
+      "ua": "Марні жертви, довготривалий застій або уперте небажання бачити реальний стан речей.",
+      "en": "Inane sacrifices, long-term stagnation, or stubborn unwillingness to see the real state of affairs."
+    }
+  },
+  "m13": {
+    "upright": {
+      "ua": "Завершення важливого життєвого етапу, остаточне відмирання старого й звільнення місця для нового.",
+      "en": "Completion of an important life stage, final fading away of the old and making room for the new."
+    },
+    "reversed": {
+      "ua": "Страх відпустити минуле, болісна агонія стосунків чи справ, які давно варто було завершити.",
+      "en": "Fear of letting go of the past, painful agony of relationships or affairs that should have been ended long ago."
+    }
+  },
+  "m14": {
+    "upright": {
+      "ua": "Знаходження балансу, компромісу, терпелива праця та поступове гармонійне вирівнювання ситуації.",
+      "en": "Finding balance, compromise, patient work, and gradual harmonious alignment of the situation."
+    },
+    "reversed": {
+      "ua": "Втрата міри, поспіх, крайнощі в рішеннях або порушення гармонії, що розхитали ситуацію.",
+      "en": "Loss of measure, haste, extremes in decisions, or disruption of harmony that destabilized the situation."
+    }
+  },
+  "m15": {
+    "upright": {
+      "ua": "Потрапляння в залежність, спокуса, токсичні стосунки або прив'язаність до матеріальних вигод.",
+      "en": "Falling into dependency, temptation, toxic relationships, or attachment to material gains."
+    },
+    "reversed": {
+      "ua": "Початок звільнення від залежностей, усвідомлення пасток або подолання прихованих спокус.",
+      "en": "Beginning of liberation from dependencies, realization of traps, or overcoming hidden temptations."
+    }
+  },
+  "m16": {
+    "upright": {
+      "ua": "Раптовий крах ілюзій, руйнування застарілих планів або шокова подія, яка докорінно все змінила.",
+      "en": "Sudden collapse of illusions, destruction of outdated plans, or a shocking event that radically changed everything."
+    },
+    "reversed": {
+      "ua": "Намагання втримати те, що руйнується, затягнута криза або прихована руйнівна ситуація.",
+      "en": "Trying to hold on to what is collapsing, a protracted crisis, or a hidden destructive situation."
+    }
+  },
+  "m17": {
+    "upright": {
+      "ua": "Натхнення, поява нової мрії, відновлення надії та чітке бачення перспектив на майбутнє.",
+      "en": "Inspiration, the appearance of a new dream, renewal of hope, and a clear vision of prospects for the future."
+    },
+    "reversed": {
+      "ua": "Втрата віри в себе, розчарування в ідеалах або побудова нереалістичних ілюзій.",
+      "en": "Loss of self-belief, disappointment in ideals, or building unrealistic illusions."
+    }
+  },
+  "m18": {
+    "upright": {
+      "ua": "Період невизначеності, ілюзій, страхів, плутанини або прихованого обману, який вплинув на справи.",
+      "en": "A period of uncertainty, illusions, fears, confusion, or hidden deception that affected matters."
+    },
+    "reversed": {
+      "ua": "Розкриття таємниць, поступовий вихід із туману ілюзій та подолання дитячих страхів.",
+      "en": "Disclosure of secrets, gradual emergence from the fog of illusions, and overcoming childhood fears."
+    }
+  },
+  "m19": {
+    "upright": {
+      "ua": "Період ясності, успіху, радісних подій, визнання та високого рівня енергії.",
+      "en": "A period of clarity, success, joyful events, recognition, and high energy levels."
+    },
+    "reversed": {
+      "ua": "Тимчасове затьмарення радості, засліплення власним успіхом або незначні затримки у тріумфі.",
+      "en": "Temporary darkening of joy, blinding by one's own success, or minor delays in triumph."
+    }
+  },
+  "m20": {
+    "upright": {
+      "ua": "Пробудження, підбиття підсумків, важливе доленосне рішення або внутрішній заклик до змін.",
+      "en": "Awakening, summing up, an important fateful decision, or an internal call for change."
+    },
+    "reversed": {
+      "ua": "Каяття, затягування неминучого рішення або неприйняття уроків минулого.",
+      "en": "Remorse, delaying the inevitable decision, or non-acceptance of past lessons."
+    }
+  },
+  "m21": {
+    "upright": {
+      "ua": "Успішне завершення великого циклу, досягнення мети, відчуття цілісності та гармонії.",
+      "en": "Successful completion of a large cycle, achievement of the goal, a sense of integrity and harmony."
+    },
+    "reversed": {
+      "ua": "Незавершені справи, брак остаточного кроку для фінішу або обмеження, які завадили триумфу.",
+      "en": "Unfinished business, lack of a final step to the finish line, or limitations that prevented triumph."
+    }
+  },
+  "w01": {
+    "upright": {
+      "ua": "Зародження потужної ідеї, спалах натхнення або сміливий старт нового проекту.",
+      "en": "Birth of a powerful idea, flash of inspiration, or bold start of a new project."
+    },
+    "reversed": {
+      "ua": "Втрачена можливість, брак мотивації або фальстарт, який виснажив ресурси.",
+      "en": "Missed opportunity, lack of motivation, or a false start that drained resources."
+    }
+  },
+  "w02": {
+    "upright": {
+      "ua": "Етап планування, вибір нового шляху та аналіз перспектив, які створили нинішні умови.",
+      "en": "Planning stage, choice of a new path, and analysis of prospects that created current conditions."
+    },
+    "reversed": {
+      "ua": "Нерішучість, страх вийти з зони комфорту або погано продуманий план.",
+      "en": "Indecision, fear of leaving the comfort zone, or a poorly thought-out plan."
+    }
+  },
+  "w03": {
+    "upright": {
+      "ua": "Перші впевнені кроки, розширення впливу та закладення фундаменту для розвитку.",
+      "en": "First confident steps, expansion of influence, and laying the foundation for development."
+    },
+    "reversed": {
+      "ua": "Затримки в реалізації, розчарування від перших результатів або брак бачення.",
+      "en": "Delays in implementation, disappointment from initial results, or lack of vision."
+    }
+  },
+  "w04": {
+    "upright": {
+      "ua": "Період стабільності, досягнення гармонії, святкування успіху або відчуття безпеки.",
+      "en": "Period of stability, achieving harmony, celebration of success, or a sense of security."
+    },
+    "reversed": {
+      "ua": "Тимчасові непорозуміння в колективі/родині або відкладене святкування досягнень.",
+      "en": "Temporary misunderstandings in the team/family or delayed celebration of achievements."
+    }
+  },
+  "w05": {
+    "upright": {
+      "ua": "Етап конкуренції, суперечок, боротьби за лідерство та відстоювання своїх думок.",
+      "en": "Stage of competition, disputes, struggle for leadership, and standing up for one's thoughts."
+    },
+    "reversed": {
+      "ua": "Уникнення конфлікту, хаотичні чвари або виснажливе протистояння без результату.",
+      "en": "Avoidance of conflict, chaotic squabbles, or exhausting confrontation without a result."
+    }
+  },
+  "w06": {
+    "upright": {
+      "ua": "Публічне визнання, перемога, тріумф і гордість за здобуті результати.",
+      "en": "Public recognition, victory, triumph, and pride in achieved results."
+    },
+    "reversed": {
+      "ua": "Неприйняття суспільством, запізніла перемога або сумніви у власній цінності.",
+      "en": "Rejection by society, delayed victory, or doubts about one's own worth."
+    }
+  },
+  "w07": {
+    "upright": {
+      "ua": "Необхідність захищати свої позиції та відстоювати інтереси під тиском оточення.",
+      "en": "The need to defend one's positions and advocate for interests under the pressure of surroundings."
+    },
+    "reversed": {
+      "ua": "Капітуляція перед пресингом, відчуття безсилля або втрата контроль над ситуацією.",
+      "en": "Capitulation to pressure, a sense of powerlessness, or loss of control over the situation."
+    }
+  },
+  "w08": {
+    "upright": {
+      "ua": "Швидкий перебіг подій, раптові новини або стрімкі рішення, які задали високий темп.",
+      "en": "Rapid course of events, sudden news, or swift decisions that set a high pace."
+    },
+    "reversed": {
+      "ua": "Затримки, плутанина в комунікаціях або поспішні рішення, що призвели до помилок.",
+      "en": "Delays, confusion in communications, or hasty decisions that led to mistakes."
+    }
+  },
+  "w09": {
+    "upright": {
+      "ua": "Досвід минулих поразок, який змусив закритися й зайняти оборонну позицію.",
+      "en": "Experience of past defeats that forced one to close up and take a defensive position."
+    },
+    "reversed": {
+      "ua": "Втрата пильності, виснаження через постійне очікування удару або паранойя.",
+      "en": "Loss of vigilance, exhaustion due to constant anticipation of a blow, or paranoia."
+    }
+  },
+  "w10": {
+    "upright": {
+      "ua": "Надмірне перевантаження, взяття на себе чужих обов'язків та робота на межі сил.",
+      "en": "Excessive overload, taking on other people's responsibilities, and working to the limit of strength."
+    },
+    "reversed": {
+      "ua": "Втрата сил через перевтому або, навпаки, свідоме скидання важкого тягаря.",
+      "en": "Loss of strength due to overwork or, conversely, consciously dropping a heavy burden."
+    }
+  },
+  "w11": {
+    "upright": {
+      "ua": "Отримання цікавої пропозиції, початок вивчення нового або імпульс до пригод.",
+      "en": "Receiving an interesting offer, starting to study something new, or an impulse to adventure."
+    },
+    "reversed": {
+      "ua": "Ненадійні новини, спалах ентузіазму, який швидко згас, або забудькуватість.",
+      "en": "Unreliable news, a burst of enthusiasm that quickly faded, or forgetfulness."
+    }
+  },
+  "w12": {
+    "upright": {
+      "ua": "Стрімкі дії, азарт, поїздка або імпульсивні рішення, що змінили декорації.",
+      "en": "Swift actions, excitement, a trip, or impulsive decisions that changed the scenery."
+    },
+    "reversed": {
+      "ua": "Хаотичність, розрив планів через спалахи гніву або непослідовні вчинки.",
+      "en": "Chaotic nature, disruption of plans due to outbursts of anger, or inconsistent actions."
+    }
+  },
+  "w13": {
+    "upright": {
+      "ua": "Прояв харизми, впевненості та незалежності, які дозволили взяти ситуацію в руки.",
+      "en": "Manifestation of charisma, confidence, and independence that allowed taking the situation into hand."
+    },
+    "reversed": {
+      "ua": "Вплив егоїстичної чи ревнивої особи, вигорання або владність, що зашкодила справі.",
+      "en": "Influence of a selfish or jealous person, burnout, or domineering behavior that harmed the matter."
+    }
+  },
+  "w14": {
+    "upright": {
+      "ua": "Прийняття сильного підприємницького рішення, заступництво чи рішуче керівництво.",
+      "en": "Making a strong entrepreneurial decision, patronage, or decisive leadership."
+    },
+    "reversed": {
+      "ua": "Авторитарність, імпульсивне рішення або втрата впливу через самодурство.",
+      "en": "Authoritarianism, an impulsive decision, or loss of influence due to tyranny."
+    }
+  },
+  "c01": {
+    "upright": {
+      "ua": "Спалах щирих почуттів, нове кохання, емоційне піднесення або творче натхнення.",
+      "en": "Outburst of sincere feelings, new love, emotional uplift, or creative inspiration."
+    },
+    "reversed": {
+      "ua": "Емоційне виснаження, невиражені почуття або розчарування в тому, що надихало.",
+      "en": "Emotional exhaustion, unexpressed feelings, or disappointment in what inspired."
+    }
+  },
+  "c02": {
+    "upright": {
+      "ua": "Знайомство, примирення, гармонійний союз або взаємовигідна довірча домовленість.",
+      "en": "Acquaintance, reconciliation, harmonious union, or mutually beneficial trusting agreement."
+    },
+    "reversed": {
+      "ua": "Непорозуміння, розлад у стосунках, втрата довіри або розрив домовленостей.",
+      "en": "Misunderstanding, discord in relationships, loss of trust, or breach of agreements."
+    }
+  },
+  "c03": {
+    "upright": {
+      "ua": "Спільне святкування, підтримка друзів, душевна атмосфера та радісні події.",
+      "en": "Joint celebration, support of friends, soulful atmosphere, and joyful events."
+    },
+    "reversed": {
+      "ua": "Надмірні розваги, плітки або відчуття чужості в компанії/колективі.",
+      "en": "Excessive entertainment, gossip, or a feeling of alienation in a company/team."
+    }
+  },
+  "c04": {
+    "upright": {
+      "ua": "Період нудьги, апатії, пересичення та ігнорування вигідних пропозицій.",
+      "en": "Period of boredom, apathy, satiety, and ignoring profitable offers."
+    },
+    "reversed": {
+      "ua": "Вихід із затяжного емоційного застою та повернення інтересу до життя.",
+      "en": "Coming out of a prolonged emotional stagnation and returning interest in life."
+    }
+  },
+  "c05": {
+    "upright": {
+      "ua": "Печаль за втраченим, емоційна криза, розчарування або фокус лише на негативі.",
+      "en": "Grief over the lost, emotional crisis, disappointment, or focus only on the negative."
+    },
+    "reversed": {
+      "ua": "Початок одужання після душевної травми, прийняття втрати й рух далі.",
+      "en": "Beginning of recovery after mental trauma, acceptance of loss, and moving on."
+    }
+  },
+  "c06": {
+    "upright": {
+      "ua": "Спогади з минулого, повернення старих знайомих, безкорислива допомога або дитяча щирість.",
+      "en": "Memories from the past, return of old acquaintances, selfless help, or childish sincerity."
+    },
+    "reversed": {
+      "ua": "Застрягання в дитячих травмах або надмірна ідеалізація того, що давно минуло.",
+      "en": "Getting stuck in childhood traumas or excessive idealization of what has long passed."
+    }
+  },
+  "c07": {
+    "upright": {
+      "ua": "Великий вибір, перебування в ілюзіях, мріях та видавання бажаного за дійсне.",
+      "en": "Large choice, staying in illusions, dreams, and wishful thinking."
+    },
+    "reversed": {
+      "ua": "Розвіювання ілюзій, усвідомлення обману та тверезий погляд на ситуацію.",
+      "en": "Dispelling illusions, realization of deception, and a sober look at the situation."
+    }
+  },
+  "c08": {
+    "upright": {
+      "ua": "Свідомий відхід від минулого, залишення звичного ради пошуку глибшого сенсу.",
+      "en": "Conscious departure from the past, leaving the familiar for the sake of finding deeper meaning."
+    },
+    "reversed": {
+      "ua": "Страх перед невідомістю, чіпляння за звичне або вимушене повернення назад.",
+      "en": "Fear of the unknown, holding onto the familiar, or forced return back."
+    }
+  },
+  "c09": {
+    "upright": {
+      "ua": "Задоволення від досягнутого, матеріальний комфорт та спокійні радощі життя.",
+      "en": "Satisfaction from what has been achieved, material comfort, and quiet joys of life."
+    },
+    "reversed": {
+      "ua": "Пересичення, надмірне самовдоволення або розчарування від отриманого результату.",
+      "en": "Satiety, excessive complacency, or disappointment from the obtained result."
+    }
+  },
+  "c10": {
+    "upright": {
+      "ua": "Глибоке сімейне щастя, гармонія у взаєминах, відчуття затишку й повноти життя.",
+      "en": "Deep family happiness, harmony in relationships, a sense of coziness and fullness of life."
+    },
+    "reversed": {
+      "ua": "Суперечки в родині, розлад у домі або показова гармонія, за якою ховався конфлікт.",
+      "en": "Family disputes, discord at home, or ostentatious harmony behind which a conflict was hidden."
+    }
+  },
+  "c11": {
+    "upright": {
+      "ua": "Романтичне послання, комплімент, зародження симпатії або творче поривання.",
+      "en": "Romantic message, compliment, birth of sympathy, or creative impulse."
+    },
+    "reversed": {
+      "ua": "Емоційна вразливість, дитячі капризи або невиконані обіцянки.",
+      "en": "Emotional vulnerability, childish caprices, or unfulfilled promises."
+    }
+  },
+  "c12": {
+    "upright": {
+      "ua": "Щирий романтичний порив, гарна пропозиція або слідування за мрією.",
+      "en": "Sincere romantic impulse, good proposal, or following a dream."
+    },
+    "reversed": {
+      "ua": "Ідеалізація, маніпулювання почуттями або розчарування в людині, якій довіряли.",
+      "en": "Idealization, manipulation of feelings, or disappointment in a person who was trusted."
+    }
+  },
+  "c13": {
+    "upright": {
+      "ua": "Прояв емпатії, інтуїтивна підтримка, турбота та душевна теплота від вас чи оточуючих.",
+      "en": "Manifestation of empathy, intuitive support, care, and soulful warmth from you or others."
+    },
+    "reversed": {
+      "ua": "Емоційна нестабільність, маніпуляція провиною або занурення у власні образи.",
+      "en": "Emotional instability, manipulation of guilt, or plunging into one's own grievances."
+    }
+  },
+  "c14": {
+    "upright": {
+      "ua": "Прояв мудрості, емоційної зрілості, отримання підтримки від доброзичливої людини.",
+      "en": "Manifestation of wisdom, emotional maturity, receiving support from a benevolent person."
+    },
+    "reversed": {
+      "ua": "Холодність, прихована агресія або підступна маніпуляція почуттями з боку когось з минулого.",
+      "en": "Coldness, hidden aggression, or insidious manipulation of feelings from someone from the past."
+    }
+  },
+  "s01": {
+    "upright": {
+      "ua": "Рішучий розрив, внесення абсолютної ясності, чесна розмова чи логічне рішення.",
+      "en": "Decisive break, introduction of absolute clarity, honest conversation, or logical decision."
+    },
+    "reversed": {
+      "ua": "Плутанина, затуманений розум, гострий конфлікт або помилкові висновки.",
+      "en": "Confusion, clouded mind, acute conflict, or erroneous conclusions."
+    }
+  },
+  "s02": {
+    "upright": {
+      "ua": "Спроба заплющити очі на проблему, відкладання вибору та закритість від фактів.",
+      "en": "Attempt to turn a blind eye to a problem, postponing a choice, and closedness from facts."
+    },
+    "reversed": {
+      "ua": "Вимушений вибір, зняття пов'язки з очей та вихід із внутрішнього кута.",
+      "en": "Forced choice, removing the blindfold from eyes, and coming out of an internal corner."
+    }
+  },
+  "s03": {
+    "upright": {
+      "ua": "Болісне розчарування, розрив стосунків, смуток або конфлікт між розумом і серцем.",
+      "en": "Painful disappointment, breakdown of relationships, sadness, or conflict between mind and heart."
+    },
+    "reversed": {
+      "ua": "Початок зцілення після важкого удару, вибачення або зменшення душевної болі.",
+      "en": "Beginning of healing after a heavy blow, apology, or reduction of mental pain."
+    }
+  },
+  "s04": {
+    "upright": {
+      "ua": "Вимушена пауза для відновлення сил, відхід від справ, лікування чи медитація.",
+      "en": "Forced pause to restore strength, withdrawal from affairs, treatment, or meditation."
+    },
+    "reversed": {
+      "ua": "Вимушений вихід із ізоляції, виснаження через відсутність нормального відпочинку.",
+      "en": "Forced exit from isolation, exhaustion due to lack of normal rest."
+    }
+  },
+  "s05": {
+    "upright": {
+      "ua": "Руйнівний конфлікт, нечесна боротьба, зрада або «перемога», яка коштувала занадто дорого.",
+      "en": "Destructive conflict, unfair fight, betrayal, or a 'victory' that cost too much."
+    },
+    "reversed": {
+      "ua": "Усвідомлення безглуздості суперечки, мінімізація втрат та вихід з ворожнечі.",
+      "en": "Realization of the absurdity of the dispute, minimization of losses, and withdrawal from hostility."
+    }
+  },
+  "s06": {
+    "upright": {
+      "ua": "Перехід у спокійніший період, відхід від проблем, зміна оточення або поїздка.",
+      "en": "Transition to a calmer period, withdrawal from problems, change of environment, or a trip."
+    },
+    "reversed": {
+      "ua": "Неможливість втекти від минулих труднощів, скасування поїздки або затримка на шляху.",
+      "en": "Impossibility to escape from past difficulties, cancellation of a trip, or delay along the way."
+    }
+  },
+  "s07": {
+    "upright": {
+      "ua": "Хитрість, таємні дії, маніпуляції, обхідні шляхи або приховування правди.",
+      "en": "Cunning, secret actions, manipulations, workarounds, or hiding the truth."
+    },
+    "reversed": {
+      "ua": "Викриття обману, визнання помилок або невдала спроба щось приховати.",
+      "en": "Exposure of deception, admission of mistakes, or a failed attempt to hide something."
+    }
+  },
+  "s08": {
+    "upright": {
+      "ua": "Відчуття пастки, обмеження волі, загнаність у кут власними страхами чи переконаннями.",
+      "en": "Feeling of a trap, restriction of will, being cornered by one's own fears or beliefs."
+    },
+    "reversed": {
+      "ua": "Звільнення від чужого тиску, подолання внутрішніх блоків та відновлення свободи.",
+      "en": "Liberation from external pressure, overcoming internal blocks, and restoration of freedom."
+    }
+  },
+  "s09": {
+    "upright": {
+      "ua": "Нічні тривоги, безсоння, сильне відчуття провини чи страхи, які виснажили нервову систему.",
+      "en": "Night anxieties, insomnia, strong sense of guilt or fears that exhausted the nervous system."
+    },
+    "reversed": {
+      "ua": "Поступове повернення спокою, усвідомлення, що страхи були перебільшені.",
+      "en": "Gradual return of calm, realization that fears were exaggerated."
+    }
+  },
+  "s10": {
+    "upright": {
+      "ua": "Раптовий і остаточний фінал, болісна крапка, крах планів чи повне знесилення.",
+      "en": "Sudden and final ending, painful period, collapse of plans, or complete exhaustion."
+    },
+    "reversed": {
+      "ua": "Початок відродження після катастрофи, повернення до життя після важкої поразки.",
+      "en": "Beginning of rebirth after a catastrophe, return to life after a heavy defeat."
+    }
+  },
+  "s11": {
+    "upright": {
+      "ua": "Збір інформації, критичний огляд ситуації, стеження або гостра дискусія.",
+      "en": "Gathering information, critical review of the situation, surveillance, or sharp discussion."
+    },
+    "reversed": {
+      "ua": "Плітки, дріб'язкові претензії, поширення чуток чи бракована інформація.",
+      "en": "Gossip, petty claims, spreading rumors, or defective information."
+    }
+  },
+  "s12": {
+    "upright": {
+      "ua": "Стрімка й агресивна атака, безкомпромісне відстоювання своєї правди, конфлікт.",
+      "en": "Swift and aggressive attack, uncompromising defense of one's truth, conflict."
+    },
+    "reversed": {
+      "ua": "Необачність, руйнівна критика, імпульсивні сварки або необдумані вчинки.",
+      "en": "Rashness, destructive criticism, impulsive quarrels, or reckless actions."
+    }
+  },
+  "s13": {
+    "upright": {
+      "ua": "Холодний логічний аналіз, встановлення суворих кордонів, прояв незалежності.",
+      "en": "Cold logical analysis, establishing strict boundaries, manifestation of independence."
+    },
+    "reversed": {
+      "ua": "Цинізм, жорстокість, емоційне відчуження або дія з почуття помсти.",
+      "en": "Cynicism, cruelty, emotional alienation, or acting out of a sense of revenge."
+    }
+  },
+  "s14": {
+    "upright": {
+      "ua": "Прийняття суворого, але справедливого рішення, безапеляційна логіка, вплив експерта.",
+      "en": "Making a strict but fair decision, unequivocal logic, influence of an expert."
+    },
+    "reversed": {
+      "ua": "Зловживання владою, жорсткий тиск, деспотизм або холодний маніпулятивний розрахунок.",
+      "en": "Abuse of power, hard pressure, despotism, or cold manipulative calculation."
+    }
+  },
+  "p01": {
+    "upright": {
+      "ua": "Отримання відмінної матеріальної можливості, фінансовий дарунок або міцний старт.",
+      "en": "Receiving an excellent material opportunity, financial gift, or solid start."
+    },
+    "reversed": {
+      "ua": "Втрачений фінансовий шанс, невдала інвестиція або брак ресурсів на початку.",
+      "en": "Missed financial chance, unsuccessful investment, or lack of resources at the beginning."
+    }
+  },
+  "p02": {
+    "upright": {
+      "ua": "Лавірування між кількома справами, пошук балансу та гнучкість у фінансових питаннях.",
+      "en": "Juggling between multiple affairs, searching for balance, and flexibility in financial matters."
+    },
+    "reversed": {
+      "ua": "Втрата рівноваги, фінансовий хаос, перевантаження обов'язками.",
+      "en": "Loss of equilibrium, financial chaos, overload with responsibilities."
+    }
+  },
+  "p03": {
+    "upright": {
+      "ua": "Командна праця, залучення фахівців, підвищення майстерності та якісна робота.",
+      "en": "Teamwork, involving specialists, improving mastery, and high-quality work."
+    },
+    "reversed": {
+      "ua": "Брак професіоналізму, розлад у команді або неякісно виконана робота.",
+      "en": "Lack of professionalism, discord in the team, or poorly performed work."
+    }
+  },
+  "p04": {
+    "upright": {
+      "ua": "Збереження ресурсів, прагнення стабільності, утримання досягнутого та обережність.",
+      "en": "Preservation of resources, striving for stability, retaining what has been achieved, and caution."
+    },
+    "reversed": {
+      "ua": "Жадібність, страх утратити контроль, марнотратство або блокування грошових потоків.",
+      "en": "Greed, fear of losing control, wastefulness, or blocking money flows."
+    }
+  },
+  "p05": {
+    "upright": {
+      "ua": "Фінансова сутужність, брак ресурсів, відчуття виключеності або тимчасова криза.",
+      "en": "Financial tightness, lack of resources, sense of exclusion, or temporary crisis."
+    },
+    "reversed": {
+      "ua": "Вихід з фінансової скрути, знаходження підтримки та поступове відновлення.",
+      "en": "Getting out of financial hardship, finding support, and gradual recovery."
+    }
+  },
+  "p06": {
+    "upright": {
+      "ua": "Отримання допомоги, фінансова підтримка, чесний розподіл ресурсів чи щедрість.",
+      "en": "Receiving help, financial support, fair distribution of resources, or generosity."
+    },
+    "reversed": {
+      "ua": "Нечесна угода, відмова у допомозі, боги або невигідні кабальні умови.",
+      "en": "Unfair deal, refusal to help, debts, or unfavorable bondage conditions."
+    }
+  },
+  "p07": {
+    "upright": {
+      "ua": "Вкладення праці й довготривале терпляче очікування перших результатів.",
+      "en": "Investment of labor and long-term patient waiting for the first results."
+    },
+    "reversed": {
+      "ua": "Розчарування через повільний прогрес, даремно витрачений час і зусилля.",
+      "en": "Disappointment due to slow progress, wasted time, and effort."
+    }
+  },
+  "p08": {
+    "upright": {
+      "ua": "Ретельна рутинна праця, відточування навичок, навчання та увага до деталей.",
+      "en": "Thorough routine labor, honing skills, learning, and attention to detail."
+    },
+    "reversed": {
+      "ua": "Перфекціонізм, лінь, недороблена робота або халтура, яка зіпсувала результат.",
+      "en": "Perfectionism, laziness, unfinished work, or sloppy work that ruined the result."
+    }
+  },
+  "p09": {
+    "upright": {
+      "ua": "Досягнення фінансової незалежності, комфорту, самостійності та безпеки.",
+      "en": "Achievement of financial independence, comfort, self-reliance, and security."
+    },
+    "reversed": {
+      "ua": "Фінансова залежність від когось, марнотратство або втрата стабільного доходу.",
+      "en": "Financial dependence on someone, wastefulness, or loss of stable income."
+    }
+  },
+  "p10": {
+    "upright": {
+      "ua": "Створення міцної матеріальної бази, підтримка родини, стабільний довгостроковий фундамент.",
+      "en": "Creation of a strong material base, family support, stable long-term foundation."
+    },
+    "reversed": {
+      "ua": "Сімейні суперечки через майно, втрата стабільності або руйнування довгострокових планів.",
+      "en": "Family disputes over property, loss of stability, or destruction of long-term plans."
+    }
+  },
+  "p11": {
+    "upright": {
+      "ua": "Початок практичного навчання, добрі новини про гроші чи роботу, ретельний підхід.",
+      "en": "Beginning of practical training, good news about money or work, thorough approach."
+    },
+    "reversed": {
+      "ua": "Легковажність, безвідповідальне ставлення до грошей, нереалізовані плани.",
+      "en": "Frivolity, irresponsible attitude towards money, unrealized plans."
+    }
+  },
+  "p12": {
+    "upright": {
+      "ua": "Послідовна, методична праця, відповідальність, надійність та повільний, але впевнений рух.",
+      "en": "Consistent, methodical labor, responsibility, reliability, and slow but confident movement."
+    },
+    "reversed": {
+      "ua": "Нудьга, упертість, надмірний консерватизм або застій у справах через лінь.",
+      "en": "Boredom, stubbornness, excessive conservatism, or stagnation in affairs due to laziness."
+    }
+  },
+  "p13": {
+    "upright": {
+      "ua": "Дбайливе господарювання, створення затишку, турбота про ресурси й здоров'я.",
+      "en": "Careful housekeeping, creating coziness, caring for resources and health."
+    },
+    "reversed": {
+      "ua": "Скупість, зацикленість на матеріальному, занедбаність обов'язків.",
+      "en": "Stinginess, fixation on the material, neglect of duties."
+    }
+  },
+  "p14": {
+    "upright": {
+      "ua": "Надійне фінансове заступництво, стабільний бізнес, прояв ділової хватки.",
+      "en": "Reliable financial patronage, stable business, manifestation of business acumen."
+    },
+    "reversed": {
+      "ua": "Фінансові ризики, жадібність, зацикленість лише на грошах або корупція.",
+      "en": "Financial risks, greed, fixation only on money, or corruption."
+    }
+  }
+};
 
   function getPositionMeaning(card, spread, positionIndex, lang) {
     if (!card) return '';
@@ -7969,15 +10317,34 @@
     const isRev = !!card.reversed;
     const cid = card.id;
     const posNum = positionIndex + 1;
-
     const slug = (spread && spread.slug) || '';
+
+    // 1. One Card Spread
+    if ((slug === 'one-card' || (spread && spread.cards_count === 1)) && ONE_CARD_DATA[cid]) {
+      const branch = isRev ? ONE_CARD_DATA[cid].reversed : ONE_CARD_DATA[cid].upright;
+      if (branch && branch[l]) return branch[l];
+    }
+
+    // 2. Three Cards Spread
+    if (slug === 'three-cards' && THREE_CARDS_DATA[cid]) {
+      const branch = isRev ? THREE_CARDS_DATA[cid].reversed : THREE_CARDS_DATA[cid].upright;
+      if (branch && branch[l]) return branch[l];
+    }
+
+    // 3. Yes or No Spread
+    if (slug === 'yes-no' && YES_NO_DATA[cid]) {
+      const branch = isRev ? YES_NO_DATA[cid].reversed : YES_NO_DATA[cid].upright;
+      if (branch && branch[l]) return branch[l];
+    }
+
+    // 4. Celtic Cross
     if (slug === 'celtic-cross' && CELTIC_CROSS_DATA[cid] && CELTIC_CROSS_DATA[cid][posNum]) {
       const item = CELTIC_CROSS_DATA[cid][posNum];
       const branch = isRev ? item.reversed : item.upright;
       if (branch && branch[l]) return branch[l];
     }
 
-    // Fallback concise snippet for any spread
+    // Fallback concise snippet for any other spread
     const raw = isRev
       ? (l === 'ua' ? (card.meaning_reversed || card.meaning_upright || '') : (card.meaning_reversed_en || card.meaning_upright_en || ''))
       : (l === 'ua' ? (card.meaning_upright || '') : (card.meaning_upright_en || ''));
@@ -7993,6 +10360,9 @@
 
   global.TarotPositions = {
     CELTIC_CROSS_DATA,
+    ONE_CARD_DATA,
+    THREE_CARDS_DATA,
+    YES_NO_DATA,
     getPositionMeaning
   };
 })(typeof window !== 'undefined' ? window : globalThis);

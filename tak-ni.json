@@ -1,0 +1,684 @@
+{
+  "tarot_guide": {
+    "title_uk": "Практичний довідник для розкладу на три карти (Так чи Ні / Минуле)",
+    "title_en": "Practical Guide for Three-Card Spread (Yes or No / Past)",
+    "description_uk": "Тексти сформульовані коротко, влучно та в єдиному часовому контексті (події, досвід або рішення, які вже відбулися й сформували поточний стан).",
+    "description_en": "Texts are formulated concisely, accurately, and within a single temporal context (events, experiences, or decisions that have already occurred and shaped the current state).",
+    
+    "major_arcana": [
+      {
+        "id": 0,
+        "name_uk": "0. Дурень (The Fool)",
+        "name_en": "0. The Fool",
+        "upright_uk": "Обнулення, новий початок або спонтанний крок, зроблений раніше, які повністю змінили вектор подій.",
+        "upright_en": "Resetting, a new beginning, or a spontaneous step taken earlier that completely changed the vector of events.",
+        "reversed_uk": "Необачність, легковажне рішення або втеча від відповідальності в минулому, наслідки яких відчуваються досі.",
+        "reversed_en": "Rashness, a frivolous decision, or running away from responsibility in the past, the consequences of which are still felt today."
+      },
+      {
+        "id": 1,
+        "name_uk": "1. Маг (The Magician)",
+        "name_en": "1. The Magician",
+        "upright_uk": "Ваша активна ініціатива, виявлене майстерство або вдале використання ресурсів, що створили поточну базу.",
+        "upright_en": "Your active initiative, demonstrated skill, or successful use of resources that created the current foundation.",
+        "reversed_uk": "Спроба маніпуляції, нечесна гра або невикористаний шанс у минулому, які призвели до поточних сумнівів.",
+        "reversed_en": "An attempt at manipulation, unfair play, or a missed opportunity in the past that led to current doubts."
+      },
+      {
+        "id": 2,
+        "name_uk": "2. Верховна Жриця (The High Priestess)",
+        "name_en": "2. The High Priestess",
+        "upright_uk": "Події, що розвивалися приховано, або ваша внутрішня інтуїція, яка підказувала правильний напрямок.",
+        "upright_en": "Events that developed covertly, or your inner intuition which suggested the correct direction.",
+        "reversed_uk": "Ігнорування передчуттів, прихований обман або таємниці минулого, які тепер виходять на поверхню.",
+        "reversed_en": "Ignoring premonitions, hidden deception, or secrets of the past that are now coming to the surface."
+      },
+      {
+        "id": 3,
+        "name_uk": "3. Императриця (The Empress)",
+        "name_en": "3. The Empress",
+        "upright_uk": "Період активного зростання, турботи, створення чогось нового або накопичення ресурсів, що дали свої плоди.",
+        "upright_en": "A period of active growth, care, creation of something new, or accumulation of resources that have borne fruit.",
+        "reversed_uk": "Застій у справах, матеріальні втрати або брак турботи в минулому, що створили поточний дефіцит.",
+        "reversed_en": "Stagnation in affairs, material losses, or a lack of care in the past that created the current deficit."
+      },
+      {
+        "id": 4,
+        "name_uk": "4. Император (The Emperor)",
+        "name_en": "4. The Emperor",
+        "upright_uk": "Створення чіткої системи, порядок, дисципліна або вплив авторитетної фігури, що заклали міцний фундамент.",
+        "upright_en": "Creation of a clear system, order, discipline, or the influence of an authoritative figure that laid a solid foundation.",
+        "reversed_uk": "Диктат, надмірний контроль або, навпаки, хаос і відсутність структури в минулих діях.",
+        "reversed_en": "Dictate, excessive control, or conversely, chaos and lack of structure in past actions."
+      },
+      {
+        "id": 5,
+        "name_uk": "5. Ієрофант (The Hierophant)",
+        "name_en": "5. The Hierophant",
+        "upright_uk": "Навчання, слідування традиціям, отримання важливої поради або дія за правилами й моральними нормами.",
+        "upright_en": "Learning, following traditions, receiving important advice, or acting according to rules and moral norms.",
+        "reversed_uk": "Відмова від традицій, конфлікт із системою або довіра фальшивому авторитету в минулому.",
+        "reversed_en": "Rejection of traditions, conflict with the system, or trusting a false authority in the past."
+      },
+      {
+        "id": 6,
+        "name_uk": "6. Закохані (The Lovers)",
+        "name_en": "6. The Lovers",
+        "upright_uk": "Доленосний вибір, зроблений серцем, або важливий союз/партнерство, що визначили поточний шлях.",
+        "upright_en": "A fateful choice made by the heart, or an important union/partnership that determined the current path.",
+        "reversed_uk": "Невірний вибір, сумніви або внутрішній конфлікт минулого, який досі створює невизначеність.",
+        "reversed_en": "A wrong choice, doubts, or an internal conflict of the past that still creates uncertainty."
+      },
+      {
+        "id": 7,
+        "name_uk": "7. Колісниця (The Chariot)",
+        "name_en": "7. The Chariot",
+        "upright_uk": "Рішучий ривок уперед, подолання перешкод завдяки силі волі та чіткому контролю над обставинами.",
+        "upright_en": "A decisive leap forward, overcoming obstacles through willpower and clear control over circumstances.",
+        "reversed_uk": "Втрата керування, конфлікти або раптова зупинка руху через брак дисципліни чи поспіх.",
+        "reversed_en": "Loss of control, conflicts, or a sudden stop of movement due to lack of discipline or haste."
+      },
+      {
+        "id": 8,
+        "name_uk": "8. Сила (Strength)",
+        "name_en": "8. Strength",
+        "upright_uk": "Проявлений витривалість, дипломатичність та самоконтроль, які допомогли приборкати складну ситуацію.",
+        "upright_en": "Demonstrated endurance, diplomacy, and self-control that helped tame a difficult situation.",
+        "reversed_uk": "Спалах гніву, проявлена слабкість або відсутність віри у власні сили у вирішальний момент.",
+        "reversed_en": "An outburst of anger, shown weakness, or a lack of faith in one's own strength at a decisive moment."
+      },
+      {
+        "id": 9,
+        "name_uk": "9. Самітник (The Hermit)",
+        "name_en": "9. The Hermit",
+        "upright_uk": "Період самотності, переоцінки цінностей, глибокого аналізу та пошуку власної правди.",
+        "upright_en": "A period of solitude, reassessment of values, deep analysis, and the search for one's own truth.",
+        "reversed_uk": "Хвороблива ізоляція, відстороненість від світу або уперте ігнорування розумних порад.",
+        "reversed_en": "Painful isolation, detachment from the world, or stubborn ignoring of sensible advice."
+      },
+      {
+        "id": 10,
+        "name_uk": "10. Колесо Фортуни (Wheel of Fortune)",
+        "name_en": "10. Wheel of Fortune",
+        "upright_uk": "Раптовий поворот долі, неминучі зовнішні зміни або смуга удачі, яка вивела на новий рівень.",
+        "upright_en": "A sudden turn of fate, inevitable external changes, or a streak of luck that led to a new level.",
+        "reversed_uk": "Несподівана невдача, спротив змінам або повторення старої помилки, яке затягнуло процес.",
+        "reversed_en": "Unexpected failure, resistance to changes, or the repetition of an old mistake that dragged out the process."
+      },
+      {
+        "id": 11,
+        "name_uk": "11. Справедливість (Justice)",
+        "name_en": "11. Justice",
+        "upright_uk": "Прийняття зваженого рішення, юридичні справи або отримання чесних наслідків за попередні дії.",
+        "upright_en": "Making a balanced decision, legal matters, or receiving fair consequences for previous actions.",
+        "reversed_uk": "Несправедливий вчинок, упередженість або спроба уникнути відповідальності в минулому.",
+        "reversed_en": "An unfair act, bias, or an attempt to avoid responsibility in the past."
+      },
+      {
+        "id": 12,
+        "name_uk": "12. Повішений (The Hanged Man)",
+        "name_en": "12. The Hanged Man",
+        "upright_uk": "Вимушена пауза, зміна пріоритетів чи свідома жертва чимось ради більшої мети.",
+        "upright_en": "A forced pause, change of priorities, or a conscious sacrifice of something for a greater goal.",
+        "reversed_uk": "Марні жертви, довготривалий застій або уперте небажання бачити реальний стан речей.",
+        "reversed_en": "Inane sacrifices, long-term stagnation, or stubborn unwillingness to see the real state of affairs."
+      },
+      {
+        "id": 13,
+        "name_uk": "13. Смерть (Death)",
+        "name_en": "13. Death",
+        "upright_uk": "Завершення важливого життєвого етапу, остаточне відмирання старого й звільнення місця для нового.",
+        "upright_en": "Completion of an important life stage, final fading away of the old and making room for the new.",
+        "reversed_uk": "Страх відпустити минуле, болісна агонія стосунків чи справ, які давно варто було завершити.",
+        "reversed_en": "Fear of letting go of the past, painful agony of relationships or affairs that should have been ended long ago."
+      },
+      {
+        "id": 14,
+        "name_uk": "14. Помірність (Temperance)",
+        "name_en": "14. Temperance",
+        "upright_uk": "Знаходження балансу, компромісу, терпелива праця та поступове гармонійне вирівнювання ситуації.",
+        "upright_en": "Finding balance, compromise, patient work, and gradual harmonious alignment of the situation.",
+        "reversed_uk": "Втрата міри, поспіх, крайнощі в рішеннях або порушення гармонії, що розхитали ситуацію.",
+        "reversed_en": "Loss of measure, haste, extremes in decisions, or disruption of harmony that destabilized the situation."
+      },
+      {
+        "id": 15,
+        "name_uk": "15. Диявол (The Devil)",
+        "name_en": "15. The Devil",
+        "upright_uk": "Потрапляння в залежність, спокуса, токсичні стосунки або прив'язаність до матеріальних вигод.",
+        "upright_en": "Falling into dependency, temptation, toxic relationships, or attachment to material gains.",
+        "reversed_uk": "Початок звільнення від залежностей, усвідомлення пасток або подолання прихованих спокус.",
+        "reversed_en": "Beginning of liberation from dependencies, realization of traps, or overcoming hidden temptations."
+      },
+      {
+        "id": 16,
+        "name_uk": "16. Вежа (The Tower)",
+        "name_en": "16. The Tower",
+        "upright_uk": "Раптовий крах ілюзій, руйнування застарілих планів або шокова подія, яка докорінно все змінила.",
+        "upright_en": "Sudden collapse of illusions, destruction of outdated plans, or a shocking event that radically changed everything.",
+        "reversed_uk": "Намагання втримати те, що руйнується, затягнута криза або прихована руйнівна ситуація.",
+        "reversed_en": "Trying to hold on to what is collapsing, a protracted crisis, or a hidden destructive situation."
+      },
+      {
+        "id": 17,
+        "name_uk": "17. Зірка (The Star)",
+        "name_en": "17. The Star",
+        "upright_uk": "Натхнення, поява нової мрії, відновлення надії та чітке бачення перспектив на майбутнє.",
+        "upright_en": "Inspiration, the appearance of a new dream, renewal of hope, and a clear vision of prospects for the future.",
+        "reversed_uk": "Втрата віри в себе, розчарування в ідеалах або побудова нереалістичних ілюзій.",
+        "reversed_en": "Loss of self-belief, disappointment in ideals, or building unrealistic illusions."
+      },
+      {
+        "id": 18,
+        "name_uk": "18. Місяць (The Moon)",
+        "name_en": "18. The Moon",
+        "upright_uk": "Період невизначеності, ілюзій, страхів, плутанини або прихованого обману, який вплинув на справи.",
+        "upright_en": "A period of uncertainty, illusions, fears, confusion, or hidden deception that affected matters.",
+        "reversed_uk": "Розкриття таємниць, поступовий вихід із туману ілюзій та подолання дитячих страхів.",
+        "reversed_en": "Disclosure of secrets, gradual emergence from the fog of illusions, and overcoming childhood fears."
+      },
+      {
+        "id": 19,
+        "name_uk": "19. Сонце (The Sun)",
+        "name_en": "19. The Sun",
+        "upright_uk": "Період ясності, успіху, радісних подій, визнання та високого рівня енергії.",
+        "upright_en": "A period of clarity, success, joyful events, recognition, and high energy levels.",
+        "reversed_uk": "Тимчасове затьмарення радості, засліплення власним успіхом або незначні затримки у тріумфі.",
+        "reversed_en": "Temporary darkening of joy, blinding by one's own success, or minor delays in triumph."
+      },
+      {
+        "id": 20,
+        "name_uk": "20. Страшний Суд (Judgement)",
+        "name_en": "20. Judgement",
+        "upright_uk": "Пробудження, підбиття підсумків, важливе доленосне рішення або внутрішній заклик до змін.",
+        "upright_en": "Awakening, summing up, an important fateful decision, or an internal call for change.",
+        "reversed_uk": "Каяття, затягування неминучого рішення або неприйняття уроків минулого.",
+        "reversed_en": "Remorse, delaying the inevitable decision, or non-acceptance of past lessons."
+      },
+      {
+        "id": 21,
+        "name_uk": "21. Світ (The World)",
+        "name_en": "21. The World",
+        "upright_uk": "Успішне завершення великого циклу, досягнення мети, відчуття цілісності та гармонії.",
+        "upright_en": "Successful completion of a large cycle, achievement of the goal, a sense of integrity and harmony.",
+        "reversed_uk": "Незавершені справи, брак остаточного кроку для фінішу або обмеження, які завадили триумфу.",
+        "reversed_en": "Unfinished business, lack of a final step to the finish line, or limitations that prevented triumph."
+      }
+    ],
+
+    "suits": {
+      "wands": {
+        "name_uk": "Жезли — Вогонь, Енергія, Дія",
+        "name_en": "Wands — Fire, Energy, Action",
+        "cards": [
+          {
+            "card_uk": "Туз Жезлів",
+            "card_en": "Ace of Wands",
+            "upright_uk": "Зародження потужної ідеї, спалах натхнення або сміливий старт нового проекту.",
+            "upright_en": "Birth of a powerful idea, flash of inspiration, or bold start of a new project.",
+            "reversed_uk": "Втрачена можливість, брак мотивації або фальстарт, який виснажив ресурси.",
+            "reversed_en": "Missed opportunity, lack of motivation, or a false start that drained resources."
+          },
+          {
+            "card_uk": "2 Жезлів",
+            "card_en": "2 of Wands",
+            "upright_uk": "Етап планування, вибір нового шляху та аналіз перспектив, які створили нинішні умови.",
+            "upright_en": "Planning stage, choice of a new path, and analysis of prospects that created current conditions.",
+            "reversed_uk": "Нерішучість, страх вийти з зони комфорту або погано продуманий план.",
+            "reversed_en": "Indecision, fear of leaving the comfort zone, or a poorly thought-out plan."
+          },
+          {
+            "card_uk": "3 Жезлів",
+            "card_en": "3 of Wands",
+            "upright_uk": "Перші впевнені кроки, розширення впливу та закладення фундаменту для розвитку.",
+            "upright_en": "First confident steps, expansion of influence, and laying the foundation for development.",
+            "reversed_uk": "Затримки в реалізації, розчарування від перших результатів або брак бачення.",
+            "reversed_en": "Delays in implementation, disappointment from initial results, or lack of vision."
+          },
+          {
+            "card_uk": "4 Жезлів",
+            "card_en": "4 of Wands",
+            "upright_uk": "Період стабільності, досягнення гармонії, святкування успіху або відчуття безпеки.",
+            "upright_en": "Period of stability, achieving harmony, celebration of success, or a sense of security.",
+            "reversed_uk": "Тимчасові непорозуміння в колективі/родині або відкладене святкування досягнень.",
+            "reversed_en": "Temporary misunderstandings in the team/family or delayed celebration of achievements."
+          },
+          {
+            "card_uk": "5 Жезлів",
+            "card_en": "5 of Wands",
+            "upright_uk": "Етап конкуренції, суперечок, боротьби за лідерство та відстоювання своїх думок.",
+            "upright_en": "Stage of competition, disputes, struggle for leadership, and standing up for one's thoughts.",
+            "reversed_uk": "Уникнення конфлікту, хаотичні чвари або виснажливе протистояння без результату.",
+            "reversed_en": "Avoidance of conflict, chaotic squabbles, or exhausting confrontation without a result."
+          },
+          {
+            "card_uk": "6 Жезлів",
+            "card_en": "6 of Wands",
+            "upright_uk": "Публічне визнання, перемога, тріумф і гордість за здобуті результати.",
+            "upright_en": "Public recognition, victory, triumph, and pride in achieved results.",
+            "reversed_uk": "Неприйняття суспільством, запізніла перемога або сумніви у власній цінності.",
+            "reversed_en": "Rejection by society, delayed victory, or doubts about one's own worth."
+          },
+          {
+            "card_uk": "7 Жезлів",
+            "card_en": "7 of Wands",
+            "upright_uk": "Необхідність захищати свої позиції та відстоювати інтереси під тиском оточення.",
+            "upright_en": "The need to defend one's positions and advocate for interests under the pressure of surroundings.",
+            "reversed_uk": "Капітуляція перед пресингом, відчуття безсилля або втрата контроль над ситуацією.",
+            "reversed_en": "Capitulation to pressure, a sense of powerlessness, or loss of control over the situation."
+          },
+          {
+            "card_uk": "8 Жезлів",
+            "card_en": "8 of Wands",
+            "upright_uk": "Швидкий перебіг подій, раптові новини або стрімкі рішення, які задали високий темп.",
+            "upright_en": "Rapid course of events, sudden news, or swift decisions that set a high pace.",
+            "reversed_uk": "Затримки, плутанина в комунікаціях або поспішні рішення, що призвели до помилок.",
+            "reversed_en": "Delays, confusion in communications, or hasty decisions that led to mistakes."
+          },
+          {
+            "card_uk": "9 Жезлів",
+            "card_en": "9 of Wands",
+            "upright_uk": "Досвід минулих поразок, який змусив закритися й зайняти оборонну позицію.",
+            "upright_en": "Experience of past defeats that forced one to close up and take a defensive position.",
+            "reversed_uk": "Втрата пильності, виснаження через постійне очікування удару або паранойя.",
+            "reversed_en": "Loss of vigilance, exhaustion due to constant anticipation of a blow, or paranoia."
+          },
+          {
+            "card_uk": "10 Жезлів",
+            "card_en": "10 of Wands",
+            "upright_uk": "Надмірне перевантаження, взяття на себе чужих обов'язків та робота на межі сил.",
+            "upright_en": "Excessive overload, taking on other people's responsibilities, and working to the limit of strength.",
+            "reversed_uk": "Втрата сил через перевтому або, навпаки, свідоме скидання важкого тягаря.",
+            "reversed_en": "Loss of strength due to overwork or, conversely, consciously dropping a heavy burden."
+          },
+          {
+            "card_uk": "Паж Жезлів",
+            "card_en": "Page of Wands",
+            "upright_uk": "Отримання цікавої пропозиції, початок вивчення нового або імпульс до пригод.",
+            "upright_en": "Receiving an interesting offer, starting to study something new, or an impulse to adventure.",
+            "reversed_uk": "Ненадійні новини, спалах ентузіазму, який швидко згас, або забудькуватість.",
+            "reversed_en": "Unreliable news, a burst of enthusiasm that quickly faded, or forgetfulness."
+          },
+          {
+            "card_uk": "Лицар Жезлів",
+            "card_en": "Knight of Wands",
+            "upright_uk": "Стрімкі дії, азарт, поїздка або імпульсивні рішення, що змінили декорації.",
+            "upright_en": "Swift actions, excitement, a trip, or impulsive decisions that changed the scenery.",
+            "reversed_uk": "Хаотичність, розрив планів через спалахи гніву або непослідовні вчинки.",
+            "reversed_en": "Chaotic nature, disruption of plans due to outbursts of anger, or inconsistent actions."
+          },
+          {
+            "card_uk": "Королева Жезлів",
+            "card_en": "Queen of Wands",
+            "upright_uk": "Прояв харизми, впевненості та незалежності, які дозволили взяти ситуацію в руки.",
+            "upright_en": "Manifestation of charisma, confidence, and independence that allowed taking the situation into hand.",
+            "reversed_uk": "Вплив егоїстичної чи ревнивої особи, вигорання або владність, що зашкодила справі.",
+            "reversed_en": "Influence of a selfish or jealous person, burnout, or domineering behavior that harmed the matter."
+          },
+          {
+            "card_uk": "Король Жезлів",
+            "card_en": "King of Wands",
+            "upright_uk": "Прийняття сильного підприємницького рішення, заступництво чи рішуче керівництво.",
+            "upright_en": "Making a strong entrepreneurial decision, patronage, or decisive leadership.",
+            "reversed_uk": "Авторитарність, імпульсивне рішення або втрата впливу через самодурство.",
+            "reversed_en": "Authoritarianism, an impulsive decision, or loss of influence due to tyranny."
+          }
+        ]
+      },
+      "cups": {
+        "name_uk": "Кубки — Вода, Емоції, Стосунки",
+        "name_en": "Cups — Water, Emotions, Relationships",
+        "cards": [
+          {
+            "card_uk": "Туз Кубків",
+            "card_en": "Ace of Cups",
+            "upright_uk": "Спалах щирих почуттів, нове кохання, емоційне піднесення або творче натхнення.",
+            "upright_en": "Outburst of sincere feelings, new love, emotional uplift, or creative inspiration.",
+            "reversed_uk": "Емоційне виснаження, невиражені почуття або розчарування в тому, що надихало.",
+            "reversed_en": "Emotional exhaustion, unexpressed feelings, or disappointment in what inspired."
+          },
+          {
+            "card_uk": "2 Кубків",
+            "card_en": "2 of Cups",
+            "upright_uk": "Знайомство, примирення, гармонійний союз або взаємовигідна довірча домовленість.",
+            "upright_en": "Acquaintance, reconciliation, harmonious union, or mutually beneficial trusting agreement.",
+            "reversed_uk": "Непорозуміння, розлад у стосунках, втрата довіри або розрив домовленостей.",
+            "reversed_en": "Misunderstanding, discord in relationships, loss of trust, or breach of agreements."
+          },
+          {
+            "card_uk": "3 Кубків",
+            "card_en": "3 of Cups",
+            "upright_uk": "Спільне святкування, підтримка друзів, душевна атмосфера та радісні події.",
+            "upright_en": "Joint celebration, support of friends, soulful atmosphere, and joyful events.",
+            "reversed_uk": "Надмірні розваги, плітки або відчуття чужості в компанії/колективі.",
+            "reversed_en": "Excessive entertainment, gossip, or a feeling of alienation in a company/team."
+          },
+          {
+            "card_uk": "4 Кубків",
+            "card_en": "4 of Cups",
+            "upright_uk": "Період нудьги, апатії, пересичення та ігнорування вигідних пропозицій.",
+            "upright_en": "Period of boredom, apathy, satiety, and ignoring profitable offers.",
+            "reversed_uk": "Вихід із затяжного емоційного застою та повернення інтересу до життя.",
+            "reversed_en": "Coming out of a prolonged emotional stagnation and returning interest in life."
+          },
+          {
+            "card_uk": "5 Кубків",
+            "card_en": "5 of Cups",
+            "upright_uk": "Печаль за втраченим, емоційна криза, розчарування або фокус лише на негативі.",
+            "upright_en": "Grief over the lost, emotional crisis, disappointment, or focus only on the negative.",
+            "reversed_uk": "Початок одужання після душевної травми, прийняття втрати й рух далі.",
+            "reversed_en": "Beginning of recovery after mental trauma, acceptance of loss, and moving on."
+          },
+          {
+            "card_uk": "6 Кубків",
+            "card_en": "6 of Cups",
+            "upright_uk": "Спогади з минулого, повернення старих знайомих, безкорислива допомога або дитяча щирість.",
+            "upright_en": "Memories from the past, return of old acquaintances, selfless help, or childish sincerity.",
+            "reversed_uk": "Застрягання в дитячих травмах або надмірна ідеалізація того, що давно минуло.",
+            "reversed_en": "Getting stuck in childhood traumas or excessive idealization of what has long passed."
+          },
+          {
+            "card_uk": "7 Кубків",
+            "card_en": "7 of Cups",
+            "upright_uk": "Великий вибір, перебування в ілюзіях, мріях та видавання бажаного за дійсне.",
+            "upright_en": "Large choice, staying in illusions, dreams, and wishful thinking.",
+            "reversed_uk": "Розвіювання ілюзій, усвідомлення обману та тверезий погляд на ситуацію.",
+            "reversed_en": "Dispelling illusions, realization of deception, and a sober look at the situation."
+          },
+          {
+            "card_uk": "8 Кубків",
+            "card_en": "8 of Cups",
+            "upright_uk": "Свідомий відхід від минулого, залишення звичного ради пошуку глибшого сенсу.",
+            "upright_en": "Conscious departure from the past, leaving the familiar for the sake of finding deeper meaning.",
+            "reversed_uk": "Страх перед невідомістю, чіпляння за звичне або вимушене повернення назад.",
+            "reversed_en": "Fear of the unknown, holding onto the familiar, or forced return back."
+          },
+          {
+            "card_uk": "9 Кубків",
+            "card_en": "9 of Cups",
+            "upright_uk": "Задоволення від досягнутого, матеріальний комфорт та спокійні радощі життя.",
+            "upright_en": "Satisfaction from what has been achieved, material comfort, and quiet joys of life.",
+            "reversed_uk": "Пересичення, надмірне самовдоволення або розчарування від отриманого результату.",
+            "reversed_en": "Satiety, excessive complacency, or disappointment from the obtained result."
+          },
+          {
+            "card_uk": "10 Кубків",
+            "card_en": "10 of Cups",
+            "upright_uk": "Глибоке сімейне щастя, гармонія у взаєминах, відчуття затишку й повноти життя.",
+            "upright_en": "Deep family happiness, harmony in relationships, a sense of coziness and fullness of life.",
+            "reversed_uk": "Суперечки в родині, розлад у домі або показова гармонія, за якою ховався конфлікт.",
+            "reversed_en": "Family disputes, discord at home, or ostentatious harmony behind which a conflict was hidden."
+          },
+          {
+            "card_uk": "Паж Кубків",
+            "card_en": "Page of Cups",
+            "upright_uk": "Романтичне послання, комплімент, зародження симпатії або творче поривання.",
+            "upright_en": "Romantic message, compliment, birth of sympathy, or creative impulse.",
+            "reversed_uk": "Емоційна вразливість, дитячі капризи або невиконані обіцянки.",
+            "reversed_en": "Emotional vulnerability, childish caprices, or unfulfilled promises."
+          },
+          {
+            "card_uk": "Лицар Кубків",
+            "card_en": "Knight of Cups",
+            "upright_uk": "Щирий романтичний порив, гарна пропозиція або слідування за мрією.",
+            "upright_en": "Sincere romantic impulse, good proposal, or following a dream.",
+            "reversed_uk": "Ідеалізація, маніпулювання почуттями або розчарування в людині, якій довіряли.",
+            "reversed_en": "Idealization, manipulation of feelings, or disappointment in a person who was trusted."
+          },
+          {
+            "card_uk": "Королева Кубків",
+            "card_en": "Queen of Cups",
+            "upright_uk": "Прояв емпатії, інтуїтивна підтримка, турбота та душевна теплота від вас чи оточуючих.",
+            "upright_en": "Manifestation of empathy, intuitive support, care, and soulful warmth from you or others.",
+            "reversed_uk": "Емоційна нестабільність, маніпуляція провиною або занурення у власні образи.",
+            "reversed_en": "Emotional instability, manipulation of guilt, or plunging into one's own grievances."
+          },
+          {
+            "card_uk": "Король Кубків",
+            "card_en": "King of Cups",
+            "upright_uk": "Прояв мудрості, емоційної зрілості, отримання підтримки від доброзичливої людини.",
+            "upright_en": "Manifestation of wisdom, emotional maturity, receiving support from a benevolent person.",
+            "reversed_uk": "Холодність, прихована агресія або підступна маніпуляція почуттями з боку когось з минулого.",
+            "reversed_en": "Coldness, hidden aggression, or insidious manipulation of feelings from someone from the past."
+          }
+        ]
+      },
+      "swords": {
+        "name_uk": "Мечі — Повітря, Думки, Інтелект, Конфлікти",
+        "name_en": "Swords — Air, Thoughts, Intellect, Conflicts",
+        "cards": [
+          {
+            "card_uk": "Туз Мечів",
+            "card_en": "Ace of Swords",
+            "upright_uk": "Рішучий розрив, внесення абсолютної ясності, чесна розмова чи логічне рішення.",
+            "upright_en": "Decisive break, introduction of absolute clarity, honest conversation, or logical decision.",
+            "reversed_uk": "Плутанина, затуманений розум, гострий конфлікт або помилкові висновки.",
+            "reversed_en": "Confusion, clouded mind, acute conflict, or erroneous conclusions."
+          },
+          {
+            "card_uk": "2 Мечів",
+            "card_en": "2 of Swords",
+            "upright_uk": "Спроба заплющити очі на проблему, відкладання вибору та закритість від фактів.",
+            "upright_en": "Attempt to turn a blind eye to a problem, postponing a choice, and closedness from facts.",
+            "reversed_uk": "Вимушений вибір, зняття пов'язки з очей та вихід із внутрішнього кута.",
+            "reversed_en": "Forced choice, removing the blindfold from eyes, and coming out of an internal corner."
+          },
+          {
+            "card_uk": "3 Мечів",
+            "card_en": "3 of Swords",
+            "upright_uk": "Болісне розчарування, розрив стосунків, смуток або конфлікт між розумом і серцем.",
+            "upright_en": "Painful disappointment, breakdown of relationships, sadness, or conflict between mind and heart.",
+            "reversed_uk": "Початок зцілення після важкого удару, вибачення або зменшення душевної болі.",
+            "reversed_en": "Beginning of healing after a heavy blow, apology, or reduction of mental pain."
+          },
+          {
+            "card_uk": "4 Мечів",
+            "card_en": "4 of Swords",
+            "upright_uk": "Вимушена пауза для відновлення сил, відхід від справ, лікування чи медитація.",
+            "upright_en": "Forced pause to restore strength, withdrawal from affairs, treatment, or meditation.",
+            "reversed_uk": "Вимушений вихід із ізоляції, виснаження через відсутність нормального відпочинку.",
+            "reversed_en": "Forced exit from isolation, exhaustion due to lack of normal rest."
+          },
+          {
+            "card_uk": "5 Мечів",
+            "card_en": "5 of Swords",
+            "upright_uk": "Руйнівний конфлікт, нечесна боротьба, зрада або «перемога», яка коштувала занадто дорого.",
+            "upright_en": "Destructive conflict, unfair fight, betrayal, or a 'victory' that cost too much.",
+            "reversed_uk": "Усвідомлення безглуздості суперечки, мінімізація втрат та вихід з ворожнечі.",
+            "reversed_en": "Realization of the absurdity of the dispute, minimization of losses, and withdrawal from hostility."
+          },
+          {
+            "card_uk": "6 Мечів",
+            "card_en": "6 of Swords",
+            "upright_uk": "Перехід у спокійніший період, відхід від проблем, зміна оточення або поїздка.",
+            "upright_en": "Transition to a calmer period, withdrawal from problems, change of environment, or a trip.",
+            "reversed_uk": "Неможливість втекти від минулих труднощів, скасування поїздки або затримка на шляху.",
+            "reversed_en": "Impossibility to escape from past difficulties, cancellation of a trip, or delay along the way."
+          },
+          {
+            "card_uk": "7 Мечів",
+            "card_en": "7 of Swords",
+            "upright_uk": "Хитрість, таємні дії, маніпуляції, обхідні шляхи або приховування правди.",
+            "upright_en": "Cunning, secret actions, manipulations, workarounds, or hiding the truth.",
+            "reversed_uk": "Викриття обману, визнання помилок або невдала спроба щось приховати.",
+            "reversed_en": "Exposure of deception, admission of mistakes, or a failed attempt to hide something."
+          },
+          {
+            "card_uk": "8 Мечів",
+            "card_en": "8 of Swords",
+            "upright_uk": "Відчуття пастки, обмеження волі, загнаність у кут власними страхами чи переконаннями.",
+            "upright_en": "Feeling of a trap, restriction of will, being cornered by one's own fears or beliefs.",
+            "reversed_uk": "Звільнення від чужого тиску, подолання внутрішніх блоків та відновлення свободи.",
+            "reversed_en": "Liberation from external pressure, overcoming internal blocks, and restoration of freedom."
+          },
+          {
+            "card_uk": "9 Мечів",
+            "card_en": "9 of Swords",
+            "upright_uk": "Нічні тривоги, безсоння, сильне відчуття провини чи страхи, які виснажили нервову систему.",
+            "upright_en": "Night anxieties, insomnia, strong sense of guilt or fears that exhausted the nervous system.",
+            "reversed_uk": "Поступове повернення спокою, усвідомлення, що страхи були перебільшені.",
+            "reversed_en": "Gradual return of calm, realization that fears were exaggerated."
+          },
+          {
+            "card_uk": "10 Мечів",
+            "card_en": "10 of Swords",
+            "upright_uk": "Раптовий і остаточний фінал, болісна крапка, крах планів чи повне знесилення.",
+            "upright_en": "Sudden and final ending, painful period, collapse of plans, or complete exhaustion.",
+            "reversed_uk": "Початок відродження після катастрофи, повернення до життя після важкої поразки.",
+            "reversed_en": "Beginning of rebirth after a catastrophe, return to life after a heavy defeat."
+          },
+          {
+            "card_uk": "Паж Мечів",
+            "card_en": "Page of Swords",
+            "upright_uk": "Збір інформації, критичний огляд ситуації, стеження або гостра дискусія.",
+            "upright_en": "Gathering information, critical review of the situation, surveillance, or sharp discussion.",
+            "reversed_uk": "Плітки, дріб'язкові претензії, поширення чуток чи бракована інформація.",
+            "reversed_en": "Gossip, petty claims, spreading rumors, or defective information."
+          },
+          {
+            "card_uk": "Лицар Мечів",
+            "card_en": "Knight of Swords",
+            "upright_uk": "Стрімка й агресивна атака, безкомпромісне відстоювання своєї правди, конфлікт.",
+            "upright_en": "Swift and aggressive attack, uncompromising defense of one's truth, conflict.",
+            "reversed_uk": "Необачність, руйнівна критика, імпульсивні сварки або необдумані вчинки.",
+            "reversed_en": "Rashness, destructive criticism, impulsive quarrels, or reckless actions."
+          },
+          {
+            "card_uk": "Королева Мечів",
+            "card_en": "Queen of Swords",
+            "upright_uk": "Холодний логічний аналіз, встановлення суворих кордонів, прояв незалежності.",
+            "upright_en": "Cold logical analysis, establishing strict boundaries, manifestation of independence.",
+            "reversed_uk": "Цинізм, жорстокість, емоційне відчуження або дія з почуття помсти.",
+            "reversed_en": "Cynicism, cruelty, emotional alienation, or acting out of a sense of revenge."
+          },
+          {
+            "card_uk": "Король Мечів",
+            "card_en": "King of Swords",
+            "upright_uk": "Прийняття суворого, але справедливого рішення, безапеляційна логіка, вплив експерта.",
+            "upright_en": "Making a strict but fair decision, unequivocal logic, influence of an expert.",
+            "reversed_uk": "Зловживання владою, жорсткий тиск, деспотизм або холодний маніпулятивний розрахунок.",
+            "reversed_en": "Abuse of power, hard pressure, despotism, or cold manipulative calculation."
+          }
+        ]
+      },
+      "pentacles": {
+        "name_uk": "Пентаклі — Земля, Матеріальний світ, Ресурси, Тіло",
+        "name_en": "Pentacles — Earth, Material World, Resources, Body",
+        "cards": [
+          {
+            "card_uk": "Туз Пентаклів",
+            "card_en": "Ace of Pentacles",
+            "upright_uk": "Отримання відмінної матеріальної можливості, фінансовий дарунок або міцний старт.",
+            "upright_en": "Receiving an excellent material opportunity, financial gift, or solid start.",
+            "reversed_uk": "Втрачений фінансовий шанс, невдала інвестиція або брак ресурсів на початку.",
+            "reversed_en": "Missed financial chance, unsuccessful investment, or lack of resources at the beginning."
+          },
+          {
+            "card_uk": "2 Пентаклів",
+            "card_en": "2 of Pentacles",
+            "upright_uk": "Лавірування між кількома справами, пошук балансу та гнучкість у фінансових питаннях.",
+            "upright_en": "Juggling between multiple affairs, searching for balance, and flexibility in financial matters.",
+            "reversed_uk": "Втрата рівноваги, фінансовий хаос, перевантаження обов'язками.",
+            "reversed_en": "Loss of equilibrium, financial chaos, overload with responsibilities."
+          },
+          {
+            "card_uk": "3 Пентаклів",
+            "card_en": "3 of Pentacles",
+            "upright_uk": "Командна праця, залучення фахівців, підвищення майстерності та якісна робота.",
+            "upright_en": "Teamwork, involving specialists, improving mastery, and high-quality work.",
+            "reversed_uk": "Брак професіоналізму, розлад у команді або неякісно виконана робота.",
+            "reversed_en": "Lack of professionalism, discord in the team, or poorly performed work."
+          },
+          {
+            "card_uk": "4 Пентаклів",
+            "card_en": "4 of Pentacles",
+            "upright_uk": "Збереження ресурсів, прагнення стабільності, утримання досягнутого та обережність.",
+            "upright_en": "Preservation of resources, striving for stability, retaining what has been achieved, and caution.",
+            "reversed_uk": "Жадібність, страх утратити контроль, марнотратство або блокування грошових потоків.",
+            "reversed_en": "Greed, fear of losing control, wastefulness, or blocking money flows."
+          },
+          {
+            "card_uk": "5 Пентаклів",
+            "card_en": "5 of Pentacles",
+            "upright_uk": "Фінансова сутужність, брак ресурсів, відчуття виключеності або тимчасова криза.",
+            "upright_en": "Financial tightness, lack of resources, sense of exclusion, or temporary crisis.",
+            "reversed_uk": "Вихід з фінансової скрути, знаходження підтримки та поступове відновлення.",
+            "reversed_en": "Getting out of financial hardship, finding support, and gradual recovery."
+          },
+          {
+            "card_uk": "6 Пентаклів",
+            "card_en": "6 of Pentacles",
+            "upright_uk": "Отримання допомоги, фінансова підтримка, чесний розподіл ресурсів чи щедрість.",
+            "upright_en": "Receiving help, financial support, fair distribution of resources, or generosity.",
+            "reversed_uk": "Нечесна угода, відмова у допомозі, боги або невигідні кабальні умови.",
+            "reversed_en": "Unfair deal, refusal to help, debts, or unfavorable bondage conditions."
+          },
+          {
+            "card_uk": "7 Пентаклів",
+            "card_en": "7 of Pentacles",
+            "upright_uk": "Вкладення праці й довготривале терпляче очікування перших результатів.",
+            "upright_en": "Investment of labor and long-term patient waiting for the first results.",
+            "reversed_uk": "Розчарування через повільний прогрес, даремно витрачений час і зусилля.",
+            "reversed_en": "Disappointment due to slow progress, wasted time, and effort."
+          },
+          {
+            "card_uk": "8 Пентаклів",
+            "card_en": "8 of Pentacles",
+            "upright_uk": "Ретельна рутинна праця, відточування навичок, навчання та увага до деталей.",
+            "upright_en": "Thorough routine labor, honing skills, learning, and attention to detail.",
+            "reversed_uk": "Перфекціонізм, лінь, недороблена робота або халтура, яка зіпсувала результат.",
+            "reversed_en": "Perfectionism, laziness, unfinished work, or sloppy work that ruined the result."
+          },
+          {
+            "card_uk": "9 Пентаклів",
+            "card_en": "9 of Pentacles",
+            "upright_uk": "Досягнення фінансової незалежності, комфорту, самостійності та безпеки.",
+            "upright_en": "Achievement of financial independence, comfort, self-reliance, and security.",
+            "reversed_uk": "Фінансова залежність від когось, марнотратство або втрата стабільного доходу.",
+            "reversed_en": "Financial dependence on someone, wastefulness, or loss of stable income."
+          },
+          {
+            "card_uk": "10 Пентаклів",
+            "card_en": "10 of Pentacles",
+            "upright_uk": "Створення міцної матеріальної бази, підтримка родини, стабільний довгостроковий фундамент.",
+            "upright_en": "Creation of a strong material base, family support, stable long-term foundation.",
+            "reversed_uk": "Сімейні суперечки через майно, втрата стабільності або руйнування довгострокових планів.",
+            "reversed_en": "Family disputes over property, loss of stability, or destruction of long-term plans."
+          },
+          {
+            "card_uk": "Паж Пентаклів",
+            "card_en": "Page of Pentacles",
+            "upright_uk": "Початок практичного навчання, добрі новини про гроші чи роботу, ретельний підхід.",
+            "upright_en": "Beginning of practical training, good news about money or work, thorough approach.",
+            "reversed_uk": "Легковажність, безвідповідальне ставлення до грошей, нереалізовані плани.",
+            "reversed_en": "Frivolity, irresponsible attitude towards money, unrealized plans."
+          },
+          {
+            "card_uk": "Лицар Пентаклів",
+            "card_en": "Knight of Pentacles",
+            "upright_uk": "Послідовна, методична праця, відповідальність, надійність та повільний, але впевнений рух.",
+            "upright_en": "Consistent, methodical labor, responsibility, reliability, and slow but confident movement.",
+            "reversed_uk": "Нудьга, упертість, надмірний консерватизм або застій у справах через лінь.",
+            "reversed_en": "Boredom, stubbornness, excessive conservatism, or stagnation in affairs due to laziness."
+          },
+          {
+            "card_uk": "Королева Пентаклів",
+            "card_en": "Queen of Pentacles",
+            "upright_uk": "Дбайливе господарювання, створення затишку, турбота про ресурси й здоров'я.",
+            "upright_en": "Careful housekeeping, creating coziness, caring for resources and health.",
+            "reversed_uk": "Скупість, зацикленість на матеріальному, занедбаність обов'язків.",
+            "reversed_en": "Stinginess, fixation on the material, neglect of duties."
+          },
+          {
+            "card_uk": "Король Пентаклів",
+            "card_en": "King of Pentacles",
+            "upright_uk": "Надійне фінансове заступництво, стабільний бізнес, прояв ділової хватки.",
+            "upright_en": "Reliable financial patronage, stable business, manifestation of business acumen.",
+            "reversed_uk": "Фінансові ризики, жадібність, зацикленість лише на грошах або корупція.",
+            "reversed_en": "Financial risks, greed, fixation only on money, or corruption."
+          }
+        ]
+      }
+    }
+  }
+}
