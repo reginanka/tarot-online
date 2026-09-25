@@ -7,6 +7,18 @@ createApp({
 
         const currentView = ref('home');
         const mobileMenuOpen = ref(false);
+        const selectedSpread = ref(null);
+        const selectedCard = ref(null);
+        const userQuestion = ref('');
+        const readingStep = ref('focus');
+        const readingResult = ref({ cards: [] });
+        const showResults = ref(false);
+        const copySuccess = ref(false);
+
+        // Accessing constants from data.js / cards.js
+        const spreads = ref(spreadsData);
+        const cards = ref(allTarotCards);
+
         // Unified catalog filter (single-select)
         // kind: 'all' | 'size' | 'query' | 'category'
         const activeFilter = ref({ kind: 'all', id: 'all' });
