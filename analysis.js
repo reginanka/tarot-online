@@ -440,6 +440,49 @@
       const v = variants[Math.floor(Math.random() * variants.length)];
       return lang === 'uk' ? v.uk : v.en;
     };
+    ctx.nameAt = (i, lang) => {
+      const c = cards[i];
+      if (!c) return lang === 'uk' ? 'карта' : 'a card';
+      const n = lang === 'uk' ? (c.name || c.name_en) : (c.name_en || c.name);
+      const rev = c.reversed ? (lang === 'uk' ? ' (перевернута)' : ' (reversed)') : '';
+      return (n || '?') + rev;
+    };
+    ctx.shortMeaningAt = (i, lang) => {
+      const c = cards[i];
+      if (!c) return '';
+      let raw;
+      if (c.reversed) {
+        raw = lang === 'uk'
+          ? (c.meaning_reversed || c.meaning_reversed_en || c.meaning_upright || '')
+          : (c.meaning_reversed_en || c.meaning_reversed || c.meaning_upright_en || c.meaning_upright || '');
+      } else {
+        raw = lang === 'uk'
+          ? (c.meaning_upright || c.meaning_upright_en || '')
+          : (c.meaning_upright_en || c.meaning_upright || '');
+      }
+      if (!raw) return '';
+      let t = String(raw).replace(/\s+/g, ' ').trim();
+      // drop leading card name if meaning repeats it
+      const nm = (lang === 'uk' ? (c.name || '') : (c.name_en || '')).trim();
+      if (nm && t.toLowerCase().startsWith(nm.toLowerCase())) {
+        t = t.slice(nm.length).replace(/^[\s—–\-:,]+/, '');
+      }
+      // also common "Name — sense" in data
+      const dash = t.match(/^[^—–\-]{2,40}[—–\-]\s+/);
+      if (dash && nm && dash[0].toLowerCase().includes(nm.toLowerCase().slice(0, 6))) {
+        t = t.slice(dash[0].length);
+      }
+      const cut = t.search(/[.!?]\s/);
+      if (cut > 15 && cut < 160) t = t.slice(0, cut + 1);
+      else if (t.length > 120) t = t.slice(0, 117).replace(/\s+\S*$/, '') + '…';
+      return t;
+    };
+    ctx.labelAt = (i, lang) => {
+      const name = ctx.nameAt(i, lang);
+      const sense = ctx.shortMeaningAt(i, lang);
+      if (!sense) return name;
+      return name + ' — ' + sense;
+    };
     return ctx;
   }
 
@@ -563,19 +606,65 @@
         ],
       },
       {
-        id: 'cc_action',
+        id: 'cc_core_synthesis',
         when: (ctx) => ctx.n >= 10,
-        // always fires once as spread-specific advice (soft)
-        variants: [
-          {
-            uk: 'Специфіка Кельтського хреста: зберіть три відповіді — (1) що є суттю зараз, (2) що реально блокує, (3) який наступний крок у найближчому майбутньому. Без цього розклад лишається «красивою картою».',
-            en: 'Celtic Cross focus: answer three points — (1) what is the core now, (2) what truly blocks, (3) the next step in the near future. Without that the spread stays a “pretty map”.',
-          },
-          {
-            uk: 'Практичний акцент хреста: зіставте Підсвідомість і Свідомість, потім перевірте, чи Підсумок не суперечить вашим Надіям/страхам. Там, де суперечність — там точка росту.',
-            en: 'Practical Cross focus: align Subconscious and Conscious, then check whether Outcome conflicts with Hopes/Fears. Where they clash — that is the growth edge.',
-          },
-        ],
+        // Always: real mini-forecast from Heart / Obstacle / Near Future / Outcome
+        text: (ctx, lang) => {
+          const uk = lang === 'uk';
+          const heart = ctx.labelAt(0, lang);
+          const obs = ctx.labelAt(1, lang);
+          const near = ctx.labelAt(5, lang);
+          const out = ctx.labelAt(9, lang);
+          const hope = ctx.labelAt(8, lang);
+          if (uk) {
+            return (
+              'Ключ розкладу:\n' +
+              '• Суть зараз: ' + heart + '\n' +
+              '• Тиск / зміна гри: ' + obs + '\n' +
+              '• Найближчий розвиток: ' + near + '\n' +
+              '• Ймовірний підсумок: ' + out + '\n' +
+              '• Надії й страхи: ' + hope
+            );
+          }
+          return (
+            'Cross key:\n' +
+            '• Core now: ' + heart + '\n' +
+            '• Pressure / shift: ' + obs + '\n' +
+            '• Near development: ' + near + '\n' +
+            '• Likely outcome: ' + out + '\n' +
+            '• Hopes & fears: ' + hope
+          );
+        },
+      },
+      {
+        id: 'cc_advice_line',
+        when: (ctx) => ctx.n >= 10,
+        text: (ctx, lang) => {
+          const uk = lang === 'uk';
+          const heartMaj = ctx.isMajorAt(0);
+          const obsMaj = ctx.isMajorAt(1);
+          const nearMaj = ctx.isMajorAt(5);
+          const outMaj = ctx.isMajorAt(9);
+          const mindRev = ctx.isRevAt(4);
+          if (obsMaj && !heartMaj) {
+            return uk
+              ? 'Тиск іде з «великої» теми в перешкоді, тоді як центр ще про старт/імпульс: не роздувай кризу — спочатку закріпи один зрозумілий крок від суті ситуації.'
+              : 'Pressure comes from a “big” theme in the obstacle while the center is still about a start/impulse: don’t inflate crisis — first secure one clear step from the core.';
+          }
+          if (mindRev) {
+            return uk
+              ? 'Свідомість зараз у перевернутому режимі: думки можуть спотворювати картину сильніше за самі події. Перед рішенням звір «що я думаю» з найближчим майбутнім і підсумком.'
+              : 'The conscious mind is in a reversed mode: thoughts may distort the picture more than events themselves. Before deciding, check “what I think” against near future and outcome.';
+          }
+          if (outMaj) {
+            return uk
+              ? 'Підсумок позначений сильною картою: фінал важливіший за дрібні коливання середини. Тримай курс на те, куди веде остання позиція, а не на кожну тривогу з «надій і страхів».'
+              : 'Outcome is marked by a strong card: the ending matters more than mid-spread noise. Steer by the final position, not by every anxiety in hopes & fears.';
+          }
+          return uk
+            ? 'Практично: від суті ситуації зроби один крок у бік найближчого майбутнього й перевір, чи він не суперечить підсумку — якщо суперечить, крок занадто різкий або не той.'
+            : 'Practically: from the core, take one step toward the near future and check it against the outcome — if they clash, the step is too sharp or off-track.';
+        },
       },
     ],
   };
@@ -588,7 +677,12 @@
     for (const rule of rules) {
       try {
         if (rule.when(ctx)) {
-          const text = ctx.pickVariant(rule.variants, lang);
+          let text = null;
+          if (typeof rule.text === 'function') {
+            text = rule.text(ctx, lang);
+          } else {
+            text = ctx.pickVariant(rule.variants, lang);
+          }
           if (text) out.push(text);
         }
       } catch (e) {
