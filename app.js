@@ -101,6 +101,21 @@ createApp({
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
         });
 
+        const readingAnalysis = computed(() => {
+            if (!showResults.value || !readingResult.value?.cards?.length || !selectedSpread.value) {
+                return { paragraphs: [], stats: null };
+            }
+            if (typeof TarotAnalysis === 'undefined' || !TarotAnalysis.analyzeReading) {
+                return { paragraphs: [], stats: null };
+            }
+            return TarotAnalysis.analyzeReading(
+                readingResult.value.cards,
+                selectedSpread.value,
+                lang.value
+            );
+        });
+
+
         let isInitialLoad = true;
 
         const syncHashToState = () => {
@@ -229,7 +244,14 @@ createApp({
                 return `${i+1}. ${posName}: ${cardName} (${orientation})`;
             }).join('\n');
 
-            const text = `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}`;
+            let analysisBlock = '';
+            const analysis = readingAnalysis.value;
+            if (analysis && analysis.paragraphs && analysis.paragraphs.length) {
+                const title = l === 'uk' ? 'Аналітичний огляд' : 'Analytical overview';
+                analysisBlock = '\n\n' + title + ':\n' + analysis.paragraphs.map(p => '• ' + p).join('\n');
+            }
+
+            const text = `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}${analysisBlock}`;
             
             try {
                 await navigator.clipboard.writeText(text);
@@ -342,7 +364,7 @@ createApp({
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
             catalogFilters, activeFilter, activeFilterKey, setCatalogFilter,
             selectedSpread, selectedCard, userQuestion, cards,
-            readingStep, readingResult, showResults, copySuccess,
+            readingStep, readingResult, showResults, copySuccess, readingAnalysis,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,

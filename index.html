@@ -395,6 +395,27 @@
                                 </div>
                             </div>
                             
+                            <!-- Automated forecast / analysis -->
+                            <div v-if="readingAnalysis && readingAnalysis.paragraphs && readingAnalysis.paragraphs.length"
+                                 class="mt-8 mb-8 p-5 rounded-xl border border-tarot-gold/30 bg-tarot-gold/5">
+                                <h4 class="text-lg font-serif font-bold text-tarot-gold mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    {{ lang === 'uk' ? 'Аналітичний огляд розкладу' : 'Analytical overview' }}
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li v-for="(p, i) in readingAnalysis.paragraphs" :key="i"
+                                        class="text-gray-200 text-sm sm:text-base leading-relaxed flex gap-2">
+                                        <span class="text-tarot-gold mt-1 shrink-0">•</span>
+                                        <span>{{ p }}</span>
+                                    </li>
+                                </ul>
+                                <p class="mt-4 text-xs text-gray-500 italic">
+                                    {{ lang === 'uk'
+                                        ? 'Автоматичні спостереження за структурою розкладу (не замінює тлумачення окремих карт).'
+                                        : 'Automated observations from spread structure (does not replace individual card meanings).' }}
+                                </p>
+                            </div>
+
                             <div class="flex flex-wrap gap-3">
                                 <button @click="copyReading" class="flex items-center px-6 py-3 bg-tarot-gold hover:bg-yellow-400 text-tarot-dark font-bold rounded-lg transition-colors shadow-lg shadow-yellow-500/20">
                                     <i class="fa-regular fa-copy mr-2"></i> {{ t.copyResult }}
@@ -659,6 +680,7 @@
 <!-- Scripts -->
 <script src="cards.js"></script>
 <script src="data.js"></script>
+<script src="analysis.js"></script>
 <script src="app.js"></script>
 
 <!-- PWA Service Worker + Install Banner -->
