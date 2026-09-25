@@ -8,6 +8,8 @@ createApp({
         const currentView = ref('home');
         const mobileMenuOpen = ref(false);
         const activeCategoryUa = ref('Всі');
+        const activeSize = ref('all');      // all | quick | medium | deep
+        const activeQueryType = ref('all'); // all | yesno | choice | causes | forecast
         const selectedSpread = ref(null);
         const selectedCard = ref(null);
         const userQuestion = ref('');
@@ -54,10 +56,54 @@ createApp({
                 : cat;
         };
 
+        const getSpreadSize = (s) => {
+            const n = s.cards_count || 0;
+            if (n <= 4) return 'quick';
+            if (n <= 7) return 'medium';
+            return 'deep'; // 8+ (10–21 grand spreads)
+        };
+
         const filteredSpreads = computed(() => {
-            if (activeCategoryUa.value === 'Всі') return spreads.value;
-            return spreads.value.filter(s => s.category === activeCategoryUa.value);
+            return spreads.value.filter(s => {
+                const byCat = activeCategoryUa.value === 'Всі' || s.category === activeCategoryUa.value;
+                const bySize = activeSize.value === 'all' || getSpreadSize(s) === activeSize.value;
+                const types = s.query_types || [];
+                const byQuery = activeQueryType.value === 'all' || types.includes(activeQueryType.value);
+                return byCat && bySize && byQuery;
+            });
         });
+
+        const sizeFilters = computed(() => {
+            if (lang.value === 'uk') {
+                return [
+                    { id: 'all', label: t.value.filterAll },
+                    { id: 'quick', label: t.value.sizeQuick, hint: t.value.sizeQuickHint },
+                    { id: 'medium', label: t.value.sizeMedium, hint: t.value.sizeMediumHint },
+                    { id: 'deep', label: t.value.sizeDeep, hint: t.value.sizeDeepHint },
+                ];
+            }
+            return [
+                { id: 'all', label: t.value.filterAll },
+                { id: 'quick', label: t.value.sizeQuick, hint: t.value.sizeQuickHint },
+                { id: 'medium', label: t.value.sizeMedium, hint: t.value.sizeMediumHint },
+                { id: 'deep', label: t.value.sizeDeep, hint: t.value.sizeDeepHint },
+            ];
+        });
+
+        const queryFilters = computed(() => [
+            { id: 'all', label: t.value.filterAll },
+            { id: 'yesno', label: t.value.queryYesNo },
+            { id: 'choice', label: t.value.queryChoice },
+            { id: 'causes', label: t.value.queryCauses },
+            { id: 'forecast', label: t.value.queryForecast },
+        ]);
+
+        const setSizeFilter = (id) => { activeSize.value = id; };
+        const setQueryFilter = (id) => { activeQueryType.value = id; };
+        const resetExtraFilters = () => {
+            activeSize.value = 'all';
+            activeQueryType.value = 'all';
+        };
 
         const quickSpreads = computed(() => {
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
@@ -302,6 +348,7 @@ createApp({
 
         return {
             lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
+            activeSize, activeQueryType, sizeFilters, queryFilters, setSizeFilter, setQueryFilter, resetExtraFilters,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess,
             navigateTo, openSpread, startReading, switchLanguage, setCategory,

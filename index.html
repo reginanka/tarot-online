@@ -206,8 +206,8 @@
             <div v-else-if="currentView === 'catalog'" key="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <h1 class="text-4xl font-serif font-bold text-center text-white mb-8">{{ t.catalogTitle }}</h1>
                 
-                <!-- Filters -->
-                <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <!-- Filters: category -->
+                <div class="flex flex-wrap justify-center gap-2 mb-4">
                     <button 
                         v-for="cat in categories" 
                         :key="cat"
@@ -218,8 +218,48 @@
                     </button>
                 </div>
 
+                <!-- Filters: size (time / complexity) -->
+                <div class="flex flex-col items-center gap-2 mb-3">
+                    <span class="text-xs uppercase tracking-wider text-gray-500">{{ t.filterBySize }}</span>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <button
+                            v-for="sf in sizeFilters"
+                            :key="'size-'+sf.id"
+                            @click="setSizeFilter(sf.id)"
+                            :class="['px-3 py-1.5 rounded-full text-sm font-medium transition-all', activeSize === sf.id ? 'bg-tarot-purple text-white ring-1 ring-tarot-gold/50' : 'bg-white/5 text-gray-400 hover:bg-white/10']"
+                            :title="sf.hint || ''"
+                        >
+                            {{ sf.label }}<span v-if="sf.hint" class="opacity-60 ml-1 text-xs">({{ sf.hint }})</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters: query type -->
+                <div class="flex flex-col items-center gap-2 mb-10">
+                    <span class="text-xs uppercase tracking-wider text-gray-500">{{ t.filterByQuery }}</span>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <button
+                            v-for="qf in queryFilters"
+                            :key="'query-'+qf.id"
+                            @click="setQueryFilter(qf.id)"
+                            :class="['px-3 py-1.5 rounded-full text-sm font-medium transition-all', activeQueryType === qf.id ? 'bg-tarot-purple text-white ring-1 ring-tarot-gold/50' : 'bg-white/5 text-gray-400 hover:bg-white/10']"
+                        >
+                            {{ qf.label }}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Empty state -->
+                <div v-if="filteredSpreads.length === 0" class="text-center py-16 text-gray-400">
+                    <i class="fa-solid fa-filter-circle-xmark text-3xl mb-3 opacity-50"></i>
+                    <p>{{ t.noSpreadsFound }}</p>
+                    <button @click="resetExtraFilters(); setCategory(lang === 'uk' ? 'Всі' : 'All')" class="mt-4 text-tarot-gold hover:underline text-sm">
+                        {{ t.filterAll }}
+                    </button>
+                </div>
+
                 <!-- Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div v-for="spread in filteredSpreads" :key="spread.id" class="glass-panel rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all group cursor-pointer" @click="openSpread(spread)">
                         <div class="h-40 bg-gradient-to-br from-tarot-purple to-tarot-dark flex items-center justify-center relative overflow-hidden">
                             <div class="absolute inset-0 bg-[url('https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/card-back.webp')] opacity-20 bg-cover"></div>
