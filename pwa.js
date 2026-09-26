@@ -129,18 +129,18 @@ function showUpdateBanner(reg) {
 
   const banner = document.createElement('div');
   banner.id = 'pwa-update-banner';
-  banner.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-40px)] max-w-[340px]';
+  banner.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-32px)] max-w-[360px]';
   banner.innerHTML = `
-    <div class="glass-panel p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-tarot-gold/40 text-white font-sans backdrop-blur-md">
-      <div class="w-10 h-10 rounded-xl bg-tarot-gold/20 flex items-center justify-center shrink-0">
-        <i class="fa-solid fa-rotate text-tarot-gold text-lg"></i>
+    <div class="glass-panel px-3 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2.5 border border-tarot-gold/40 text-white font-sans backdrop-blur-md">
+      <div class="w-8 h-8 rounded-lg bg-tarot-gold/20 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-rotate text-tarot-gold text-sm"></i>
       </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-sm text-white mb-0.5 truncate">${strings.pwaUpdateTitle}</div>
-        <div class="text-xs text-gray-300 truncate">${strings.pwaUpdateDesc}</div>
+      <div class="flex-1 min-w-0 leading-tight">
+        <div class="font-bold text-[13px] text-white">${strings.pwaUpdateTitle}</div>
+        <div class="text-[11px] text-gray-300 mt-0.5">${strings.pwaUpdateDesc}</div>
       </div>
-      <button id="pwa-update-btn" class="bg-tarot-gold text-tarot-dark px-3.5 py-2 rounded-lg font-bold text-sm hover:bg-yellow-400 transition-colors shrink-0">${strings.pwaUpdateYes}</button>
-      <button id="pwa-update-dismiss" class="text-gray-400 hover:text-white px-2 py-1 text-xl leading-none transition-colors shrink-0">&times;</button>
+      <button id="pwa-update-btn" class="bg-tarot-gold text-tarot-dark px-3 py-1.5 rounded-lg font-bold text-xs hover:bg-yellow-400 transition-colors shrink-0">${strings.pwaUpdateYes}</button>
+      <button id="pwa-update-dismiss" class="text-gray-400 hover:text-white px-1.5 py-1 text-lg leading-none transition-colors shrink-0" aria-label="Close">&times;</button>
     </div>
   `;
   document.body.appendChild(banner);
