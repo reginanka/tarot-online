@@ -1,6 +1,6 @@
 // Бампніть CACHE_VERSION (або CACHE_NAME) при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і клієнти зможуть отримати свіжі файли.
-const CACHE_VERSION = 'v1.3';
+const CACHE_VERSION = 'v1.2';
 const CACHE_NAME = `tarot-cache-${CACHE_VERSION}`;
 
 const urlsToCache = [
