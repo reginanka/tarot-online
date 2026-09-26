@@ -1,6 +1,6 @@
 // Бампніть цю версію при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
-const CACHE_VERSION = 'v13';
+const CACHE_VERSION = 'v14';
 const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
 // CDN base for card images (tarot-cards repo)
