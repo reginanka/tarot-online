@@ -78,9 +78,7 @@ function showUpdateBanner(waitingWorker) {
     'fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-40px)] max-w-[340px]';
   banner.innerHTML = `
     <div class="glass-panel p-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 text-white font-sans backdrop-blur-md">
-      <div class="w-10 h-10 rounded-xl bg-tarot-gold/20 flex items-center justify-center shrink-0 text-tarot-gold text-lg">
-        <i class="fa-solid fa-arrows-rotate"></i>
-      </div>
+      <i class="fa-solid fa-arrows-rotate text-white/90 text-lg shrink-0" aria-hidden="true"></i>
       <div class="flex-1 min-w-0">
         <div class="font-bold text-sm text-white mb-0.5 truncate">${strings.pwaUpdateTitle}</div>
         <div class="text-xs text-gray-300 truncate">${strings.pwaUpdateDesc}</div>
