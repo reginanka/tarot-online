@@ -594,94 +594,241 @@
     return out;
   }
 
+  // ─── YES/NO CARD POLARITY (−2 … +2) ─────────────────────────────────────────
+  // +2 = strong Yes, +1 = mild Yes, 0 = neutral, −1 = mild No, −2 = strong No
+  // Reversed cards flip the sign of the base bias.
+  const YES_BIAS = {
+    // Major Arcana
+    m00:  1,  // Fool
+    m01:  2,  // Magician
+    m02:  1,  // High Priestess
+    m03:  2,  // Empress
+    m04:  1,  // Emperor
+    m05:  0,  // Hierophant
+    m06:  1,  // Lovers
+    m07:  2,  // Chariot
+    m08:  2,  // Strength
+    m09:  0,  // Hermit
+    m10:  1,  // Wheel of Fortune
+    m11:  0,  // Justice
+    m12: -1,  // Hanged Man
+    m13: -1,  // Death
+    m14:  1,  // Temperance
+    m15: -2,  // Devil
+    m16: -2,  // Tower
+    m17:  2,  // Star
+    m18: -1,  // Moon
+    m19:  2,  // Sun
+    m20:  1,  // Judgement
+    m21:  2,  // World
+
+    // Wands (Fire) — generally active / yes-leaning
+    w01:  2, w02:  0, w03:  2, w04:  2, w05: -1,
+    w06:  2, w07:  1, w08:  2, w09: -1, w10: -2,
+    w11:  1, w12:  1, w13:  1, w14:  2,
+
+    // Cups (Water) — emotional / mostly yes
+    c01:  2, c02:  1, c03:  2, c04: -1, c05: -2,
+    c06:  2, c07:  0, c08: -1, c09:  2, c10:  2,
+    c11:  1, c12:  1, c13:  2, c14:  1,
+
+    // Swords (Air) — conflict / mostly no or mixed
+    s01:  0, s02:  0, s03: -2, s04: -1, s05: -2,
+    s06:  1, s07: -1, s08: -2, s09: -2, s10: -2,
+    s11:  0, s12: -1, s13:  0, s14:  1,
+
+    // Pentacles (Earth) — material / mixed-stable
+    p01:  2, p02:  0, p03:  2, p04: -1, p05: -2,
+    p06:  1, p07:  0, p08:  1, p09:  2, p10:  2,
+    p11:  1, p12:  1, p13:  1, p14:  2,
+  };
+
+  function getCardPolarity(card) {
+    if (!card) return 0;
+    const id = String(card.id || '');
+    const base = YES_BIAS[id] !== undefined ? YES_BIAS[id] : 0;
+    return card.reversed ? -base : base;
+  }
+
   // ─── YES OR NO SYNTHESIS ─────────────────────────────────────────────────────
   function synthesizeYesNo(ctx, lang) {
     const uk = lang === 'uk';
     const items = [];
+    const cleanEnd = (str) => (str ? str.replace(/[.,\s]+$/, '') : '');
+
+    const forCard = ctx.cardAt(0);
+    const againstCard = ctx.cardAt(1);
+    const keyCard = ctx.cardAt(2);
+
+    const polFor = getCardPolarity(forCard);       // −2…+2
+    const polAgainst = getCardPolarity(againstCard);
+    const polKey = getCardPolarity(keyCard);
+
+    // Score model:
+    // • "За" contributes its polarity directly (positive card → more Yes)
+    // • "Проти" contributes the inverse (negative card in Against → stronger No)
+    // • Key has 0.75 weight and can tip a close result
+    const yesScore = polFor;
+    const noScore = -polAgainst;          // e.g. Devil upright in Against → noScore = +2
+    const keyScore = polKey * 0.75;
+    const totalScore = yesScore + noScore + keyScore;
 
     const majFor = ctx.isMajorAt(0);
     const majAgainst = ctx.isMajorAt(1);
     const majKey = ctx.isMajorAt(2);
-
     const revFor = ctx.isRevAt(0);
     const revAgainst = ctx.isRevAt(1);
     const revKey = ctx.isRevAt(2);
 
-    // Вага сторін
-    const yesWeight = (majFor ? 2 : 1) + (revFor ? -1 : 1);
-    const noWeight = (majAgainst ? 2 : 1) + (revAgainst ? -1 : 1);
-    const keyPositive = !revKey;
+    // ── 1. Чітка відповідь ────────────────────────────────────────────────────
+    let verdictUk, verdictEn, balanceUk, balanceEn;
 
-    // 1. Загальний баланс
-    let balanceText = '';
-    if (yesWeight > noWeight && keyPositive) {
-      balanceText = uk
-        ? `Загальний баланс: Сили «За» явно переважають — розклад схиляється до ствердної відповіді. Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує цей вектор.`
-        : `Overall balance: The "Yes" forces clearly outweigh — the reading leans toward a positive answer. The key card (${ctx.nameAt(2, 'en')}) confirms this direction.`;
-    } else if (yesWeight > noWeight && !keyPositive) {
-      balanceText = uk
-        ? `Загальний баланс: Сили «За» переважають, але карта-ключ (${ctx.nameAt(2, 'uk')}) застерігає від поспіху або вказує на необхідну умову для позитивного результату.`
-        : `Overall balance: "Yes" forces lead, but the key card (${ctx.nameAt(2, 'en')}) cautions against rushing or points to a necessary condition for success.`;
-    } else if (noWeight > yesWeight && !keyPositive) {
-      balanceText = uk
-        ? `Загальний баланс: Сили «Проти» переважають — розклад схиляється до заперечної відповіді. Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує наявність суттєвих перешкод.`
-        : `Overall balance: The "No" forces outweigh — the reading leans toward a negative answer. The key card (${ctx.nameAt(2, 'en')}) confirms significant obstacles.`;
-    } else if (noWeight > yesWeight && keyPositive) {
-      balanceText = uk
-        ? `Загальний баланс: Сили «Проти» переважають, але карта-ключ (${ctx.nameAt(2, 'uk')}) пропонує шлях, що може змінити ситуацію на краще.`
-        : `Overall balance: "No" forces lead, yet the key card (${ctx.nameAt(2, 'en')}) offers a path that may turn things around.`;
+    if (totalScore >= 2.5) {
+      verdictUk = 'Чітке Так';
+      verdictEn = 'Clear Yes';
+      balanceUk = `Сили «За» значно переважають (рахунок ${totalScore.toFixed(1)}). Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує позитивний вектор.`;
+      balanceEn = `"Yes" forces clearly dominate (score ${totalScore.toFixed(1)}). The key card (${ctx.nameAt(2, 'en')}) confirms the positive direction.`;
+    } else if (totalScore >= 1.0) {
+      verdictUk = 'Так, але з умовами';
+      verdictEn = 'Yes, but with conditions';
+      balanceUk = `Перевага на боці «Так» (рахунок ${totalScore.toFixed(1)}), проте є нюанси. Карта-ключ (${ctx.nameAt(2, 'uk')}) вказує на умову, яку варто врахувати.`;
+      balanceEn = `"Yes" has the edge (score ${totalScore.toFixed(1)}), yet nuances remain. The key card (${ctx.nameAt(2, 'en')}) points to a condition to consider.`;
+    } else if (totalScore > -1.0) {
+      verdictUk = 'Невизначено — залежить від вас';
+      verdictEn = 'Undetermined — depends on you';
+      balanceUk = `Сили майже врівноважені (рахунок ${totalScore.toFixed(1)}). Однозначна відповідь залежить від вашого наступного кроку. Карта-ключ (${ctx.nameAt(2, 'uk')}) є вирішальним фактором.`;
+      balanceEn = `Forces are nearly balanced (score ${totalScore.toFixed(1)}). The clear answer depends on your next step. The key card (${ctx.nameAt(2, 'en')}) is decisive.`;
+    } else if (totalScore > -2.5) {
+      verdictUk = 'Скоріше Ні, але є шанс';
+      verdictEn = 'More likely No, but a chance remains';
+      balanceUk = `Перевага на боці «Ні» (рахунок ${totalScore.toFixed(1)}). Карта-ключ (${ctx.nameAt(2, 'uk')}) пропонує шлях, який може пом’якшити або змінити ситуацію.`;
+      balanceEn = `"No" has the edge (score ${totalScore.toFixed(1)}). The key card (${ctx.nameAt(2, 'en')}) offers a path that may soften or reverse the outcome.`;
     } else {
-      balanceText = uk
-        ? `Загальний баланс: Сили «За» та «Проти» врівноважені — однозначна відповідь залежить від вашого наступного кроку. Карта-ключ (${ctx.nameAt(2, 'uk')}) є вирішальним фактором.`
-        : `Overall balance: "Yes" and "No" forces are in equilibrium — the clear answer depends on your next step. The key card (${ctx.nameAt(2, 'en')}) is the decisive factor.`;
+      verdictUk = 'Чітке Ні';
+      verdictEn = 'Clear No';
+      balanceUk = `Сили «Проти» значно переважають (рахунок ${totalScore.toFixed(1)}). Карта-ключ (${ctx.nameAt(2, 'uk')}) підтверджує наявність суттєвих перешкод.`;
+      balanceEn = `"No" forces clearly dominate (score ${totalScore.toFixed(1)}). The key card (${ctx.nameAt(2, 'en')}) confirms significant obstacles.`;
     }
-    items.push(balanceText);
 
-    const cleanEnd = (str) => str ? str.replace(/[.,\s]+$/, '') : '';
+    items.push(uk
+      ? `Чітка відповідь: ${verdictUk}. ${balanceUk}`
+      : `Clear answer: ${verdictEn}. ${balanceEn}`);
 
-    // 2. Аналіз «За»
+    // ── 2. Чинники «За» (без дослівного дублювання shortMeaning) ─────────────
     const forMeaning = cleanEnd(ctx.shortMeaningAt(0, lang));
-    items.push(uk
-      ? `Чинники «За»: ${ctx.nameAt(0, 'uk')}${forMeaning ? ' — ' + forMeaning : ''}. ${revFor ? 'Ця сила діє не в повну потужність або вимагає додаткових зусиль.' : 'Ця сила активна та сприяє позитивному вирішенню.'}`
-      : `Factors for "Yes": ${ctx.nameAt(0, 'en')}${forMeaning ? ' — ' + forMeaning : ''}. ${revFor ? 'This force is not at full strength or requires additional effort.' : 'This force is active and supports a positive outcome.'}`);
+    let forExtraUk = '';
+    let forExtraEn = '';
+    if (polFor >= 2) {
+      forExtraUk = 'Сильна підтримка — ця енергія активно працює на позитивний результат.';
+      forExtraEn = 'Strong support — this energy actively works toward a positive outcome.';
+    } else if (polFor >= 1) {
+      forExtraUk = 'Помірна, але реальна підтримка на користь «Так».';
+      forExtraEn = 'Moderate but real support for a "Yes".';
+    } else if (polFor === 0) {
+      forExtraUk = 'Нейтральний фактор — сам по собі не схиляє шальку.';
+      forExtraEn = 'Neutral factor — does not tip the scale by itself.';
+    } else if (polFor >= -1) {
+      forExtraUk = 'Слабка або суперечлива підтримка; варто перевірити, чи справді цей фактор на вашому боці.';
+      forExtraEn = 'Weak or mixed support; question whether this factor truly works in your favor.';
+    } else {
+      forExtraUk = 'Цей фактор виглядає швидше як прихований ризик, ніж як справжня підтримка.';
+      forExtraEn = 'This factor looks more like a hidden risk than genuine support.';
+    }
+    if (majFor) {
+      forExtraUk += ' Старший Аркан підсилює вагу цього чинника.';
+      forExtraEn += ' A Major Arcana increases the weight of this factor.';
+    }
+    if (revFor && YES_BIAS[forCard && forCard.id] > 0) {
+      forExtraUk += ' Перевернуте положення послаблює або спотворює позитивну енергію.';
+      forExtraEn += ' The reversed position weakens or distorts the positive energy.';
+    }
 
-    // 3. Аналіз «Проти»
+    items.push(uk
+      ? `Чинники «За»: ${ctx.nameAt(0, 'uk')}${forMeaning ? ' — ' + forMeaning : ''}. ${forExtraUk}`
+      : `Factors for "Yes": ${ctx.nameAt(0, 'en')}${forMeaning ? ' — ' + forMeaning : ''}. ${forExtraEn}`);
+
+    // ── 3. Чинники «Проти» ───────────────────────────────────────────────────
     const againstMeaning = cleanEnd(ctx.shortMeaningAt(1, lang));
-    items.push(uk
-      ? `Чинники «Проти»: ${ctx.nameAt(1, 'uk')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${revAgainst ? 'Ця перешкода вже слабшає або може бути подолана.' : 'Ця перешкода є реальною і потребує уваги.'}`
-      : `Factors against: ${ctx.nameAt(1, 'en')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${revAgainst ? 'This obstacle is already weakening or can be overcome.' : 'This obstacle is real and requires attention.'}`);
+    let againstExtraUk = '';
+    let againstExtraEn = '';
+    // polAgainst high positive → weak obstacle; low/negative → strong obstacle
+    if (polAgainst <= -2) {
+      againstExtraUk = 'Серйозна перешкода — цей фактор реально блокує або ускладнює шлях.';
+      againstExtraEn = 'Serious obstacle — this factor genuinely blocks or complicates the path.';
+    } else if (polAgainst <= -1) {
+      againstExtraUk = 'Відчутна перешкода, яку не варто ігнорувати.';
+      againstExtraEn = 'A tangible obstacle that should not be ignored.';
+    } else if (polAgainst === 0) {
+      againstExtraUk = 'Нейтральний або слабкий опір — навряд чи стане вирішальним.';
+      againstExtraEn = 'Neutral or weak resistance — unlikely to be decisive.';
+    } else if (polAgainst >= 1) {
+      againstExtraUk = 'Перешкода виглядає слабкою або навіть містить приховану можливість.';
+      againstExtraEn = 'The obstacle appears weak or even contains a hidden opportunity.';
+    } else {
+      againstExtraUk = 'Цей фактор у позиції «Проти» працює слабко.';
+      againstExtraEn = 'This factor in the "Against" position has little force.';
+    }
+    if (majAgainst) {
+      againstExtraUk += ' Старший Аркан робить цю перешкоду принциповою.';
+      againstExtraEn += ' A Major Arcana makes this obstacle fundamental.';
+    }
+    if (revAgainst && YES_BIAS[againstCard && againstCard.id] < 0) {
+      againstExtraUk += ' Перевернуте положення пом’якшує негативний вплив.';
+      againstExtraEn += ' The reversed position softens the negative impact.';
+    }
 
-    // 4. Ключ
+    items.push(uk
+      ? `Чинники «Проти»: ${ctx.nameAt(1, 'uk')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${againstExtraUk}`
+      : `Factors against: ${ctx.nameAt(1, 'en')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${againstExtraEn}`);
+
+    // ── 4. Порада / Ключ ─────────────────────────────────────────────────────
     const keyMeaning = cleanEnd(ctx.shortMeaningAt(2, lang));
+    let keyExtraUk = '';
+    let keyExtraEn = '';
+    if (polKey >= 1) {
+      keyExtraUk = 'Дотримуйтесь цієї поради — вона підсилює шанси на позитивний результат.';
+      keyExtraEn = 'Follow this advice — it strengthens the chances of a positive outcome.';
+    } else if (polKey <= -1) {
+      keyExtraUk = 'Карта-ключ застерігає: без врахування цього фактора бажаний результат під питанням.';
+      keyExtraEn = 'The key card warns: without addressing this factor the desired outcome is in doubt.';
+    } else {
+      keyExtraUk = 'Ключ вказує на важливий нюанс, який варто свідомо врахувати у рішенні.';
+      keyExtraEn = 'The key points to an important nuance to consciously include in your decision.';
+    }
+    if (majKey) {
+      keyExtraUk += ' Старший Аркан у ключі підкреслює принципову важливість цієї рекомендації.';
+      keyExtraEn += ' A Major Arcana in the key position underlines the fundamental importance of this guidance.';
+    }
+
     items.push(uk
-      ? `Порада / Ключ: ${ctx.nameAt(2, 'uk')}${keyMeaning ? ' — ' + keyMeaning : ''}${majKey ? '. Старший Аркан у позиції ключа підкреслює принципову важливість цього фактора.' : '.'}`
-      : `Advice / Key: ${ctx.nameAt(2, 'en')}${keyMeaning ? ' — ' + keyMeaning : ''}${majKey ? '. A Major Arcana in the key position underlines the fundamental importance of this factor.' : '.'}`);
+      ? `Порада / Ключ: ${ctx.nameAt(2, 'uk')}${keyMeaning ? ' — ' + keyMeaning : ''}. ${keyExtraUk}`
+      : `Advice / Key: ${ctx.nameAt(2, 'en')}${keyMeaning ? ' — ' + keyMeaning : ''}. ${keyExtraEn}`);
 
-    // 5. Знакові комбінації
-    analyzeCombos(ctx, lang).forEach(c => items.push(c));
+    // ── 5. Знакові комбінації ─────────────────────────────────────────────────
+    analyzeCombos(ctx, lang).forEach((c) => items.push(c));
 
-    // 6. Головний фокус
-    let focusText = '';
-    if (majKey && keyPositive) {
+    // ── 6. Головний фокус ────────────────────────────────────────────────────
+    let focusText;
+    if (totalScore >= 2.5) {
       focusText = uk
-        ? `Головний фокус: Зверніть особливу увагу на послання карти-ключа (${ctx.nameAt(2, 'uk')}) — дотримуючись його, ви підсилите позитивний результат.`
-        : `Main focus: Pay special attention to the key card's message (${ctx.nameAt(2, 'en')}) — following it will strengthen the positive outcome.`;
-    } else if (majKey && !keyPositive) {
+        ? `Головний фокус: Дійте впевнено. Карта-ключ (${ctx.nameAt(2, 'uk')}) показує, як найкраще реалізувати вже сприятливий сценарій.`
+        : `Main focus: Act with confidence. The key card (${ctx.nameAt(2, 'en')}) shows how to best realize an already favorable scenario.`;
+    } else if (totalScore >= 1.0) {
       focusText = uk
-        ? `Головний фокус: Карта-ключ (${ctx.nameAt(2, 'uk')}) вказує на умову, що потребує вирішення до досягнення бажаного результату.`
-        : `Main focus: The key card (${ctx.nameAt(2, 'en')}) points to a condition that must be resolved before reaching the desired outcome.`;
-    } else if (yesWeight > noWeight) {
+        ? `Головний фокус: «Так» можливе, але лише за умови, що ви врахуєте послання ключа (${ctx.nameAt(2, 'uk')}).`
+        : `Main focus: "Yes" is possible, but only if you heed the key card's message (${ctx.nameAt(2, 'en')}).`;
+    } else if (totalScore > -1.0) {
       focusText = uk
-        ? 'Головний фокус: Дійте впевнено, враховуючи пораду карти-ключа для досягнення найкращого результату.'
-        : 'Main focus: Act confidently, incorporating the key card\'s guidance for the best possible outcome.';
-    } else if (noWeight > yesWeight) {
+        ? `Головний фокус: Ситуація вимагає вашого активного рішення. Карта-ключ (${ctx.nameAt(2, 'uk')}) містить підказку, яка схилить шальку в потрібний бік.`
+        : `Main focus: The situation calls for your active decision. The key card (${ctx.nameAt(2, 'en')}) holds the insight that will tip the balance.`;
+    } else if (totalScore > -2.5) {
       focusText = uk
-        ? 'Головний фокус: Спочатку усуньте або визнайте перешкоди з позиції «Проти». Карта-ключ показує шлях вперед.'
-        : 'Main focus: First address or acknowledge the obstacles from the "Against" position. The key card shows the way forward.';
+        ? `Головний фокус: Спочатку усуньте або пом’якште чинники «Проти». Карта-ключ (${ctx.nameAt(2, 'uk')}) показує можливий вихід.`
+        : `Main focus: First address or soften the "Against" factors. The key card (${ctx.nameAt(2, 'en')}) shows a possible way forward.`;
     } else {
       focusText = uk
-        ? 'Головний фокус: Ситуація вимагає вашого активного рішення. Карта-ключ містить підказку, яка схилить шальку в потрібний бік.'
-        : 'Main focus: The situation calls for your active decision. The key card holds the insight that will tip the balance.';
+        ? `Головний фокус: Зараз відповідь швидше негативна. Карта-ключ (${ctx.nameAt(2, 'uk')}) підказує, що саме потрібно змінити, перш ніж повертатися до питання.`
+        : `Main focus: The answer leans negative for now. The key card (${ctx.nameAt(2, 'en')}) indicates what needs to change before revisiting the question.`;
     }
     items.push(focusText);
 
