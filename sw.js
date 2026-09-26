@@ -1,6 +1,6 @@
 // Бампніть цю версію при кожному деплої зі значними змінами —
 // це гарантує, що старий кеш видалиться і всі клієнти отримають свіжі файли.
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v10';
 const CACHE_NAME = `tarot-pwa-${CACHE_VERSION}`;
 
 // CDN base for card images (tarot-cards repo)
@@ -77,7 +77,8 @@ self.addEventListener('install', (event) => {
         }
       }
       console.log('[SW] Встановлено успішно');
-      return self.skipWaiting();
+      // Не викликаємо skipWaiting() одразу — чекаємо команду від клієнта
+      // (щоб користувач міг підтвердити оновлення через банер)
     })
   );
 });
@@ -99,6 +100,13 @@ self.addEventListener('activate', (event) => {
       return self.clients.claim();
     })
   );
+});
+
+// ── Message: дозволяємо клієнту форсувати skipWaiting ───────────────────────
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // ── Fetch ───────────────────────────────────────────────────────────────────

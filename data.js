@@ -675,7 +675,10 @@ const uiTranslations = {
         pwaInstallTitle: 'Встановити Таро',
         pwaInstallDesc: 'Додати на головний екран',
         pwaInstallYes: 'Так',
-        pwaInstallBlocked: 'Ваш браузер зараз блокує автоматичне встановлення. Скористайтеся меню браузера ("Додати на головний екран" або значок встановлення в адресному рядку).'
+        pwaInstallBlocked: 'Ваш браузер зараз блокує автоматичне встановлення. Скористайтеся меню браузера ("Додати на головний екран" або значок встановлення в адресному рядку).',
+        pwaUpdateTitle: 'Доступна нова версія',
+        pwaUpdateDesc: 'Оновіть, щоб отримати останні зміни',
+        pwaUpdateYes: 'Оновити'
     },
     en: {
         navHome: 'Home',
@@ -768,6 +771,9 @@ const uiTranslations = {
         pwaInstallTitle: 'Install Tarot',
         pwaInstallDesc: 'Add to Home Screen',
         pwaInstallYes: 'Yes',
-        pwaInstallBlocked: 'Your browser is currently blocking automatic installation. Please use the browser menu ("Add to Home Screen" or the install icon in the address bar).'
+        pwaInstallBlocked: 'Your browser is currently blocking automatic installation. Please use the browser menu ("Add to Home Screen" or the install icon in the address bar).',
+        pwaUpdateTitle: 'New version available',
+        pwaUpdateDesc: 'Update to get the latest changes',
+        pwaUpdateYes: 'Update'
     }
 };
