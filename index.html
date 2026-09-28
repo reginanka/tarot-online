@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн Таро - Безкоштовні розклади</title>
     <meta name="description" content="Сервіс онлайн-гадання на картах Таро без реєстрації. 28 розкладів.">
+    <meta property="og:title" content="Онлайн Таро - Безкоштовні розклади">
+    <meta property="og:description" content="Сервіс онлайн-гадання на картах Таро без реєстрації. 28 розкладів.">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -690,16 +692,48 @@
             {{ t.copySuccess }}
         </div>
     </transition>
+
+  <!-- Question Modal (replaces browser prompt) -->
+  <div v-if="showQuestionModal" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background:rgba(0,0,0,0.75)">
+    <div class="relative rounded-2xl p-8 max-w-md w-full shadow-2xl" style="background:linear-gradient(135deg,#1a1040,#2d1b69);border:1px solid rgba(255,215,0,0.3)">
+      <h3 class="text-xl font-bold mb-2 text-center" style="color:#ffd700;font-family:'Cormorant Garamond',serif">
+        {{ lang === 'uk' ? 'Ваше питання' : 'Your question' }}
+      </h3>
+      <p class="text-sm mb-5 text-center" style="color:rgba(255,255,255,0.6)">
+        {{ lang === 'uk' ? 'Сформулюйте питання або залиште порожнім для загального гадання' : 'Write your question or leave empty for a general reading' }}
+      </p>
+      <textarea
+        v-model="questionInput"
+        @keydown.ctrl.enter="confirmQuestion"
+        rows="3"
+        class="w-full rounded-xl px-4 py-3 text-white text-sm resize-none focus:outline-none"
+        style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,215,0,0.25);font-family:'Cormorant Garamond',serif;font-size:1rem"
+        :placeholder="lang === 'uk' ? 'Що мені варто знати про...' : 'What should I know about...'"
+      ></textarea>
+      <div class="flex gap-3 mt-5">
+        <button
+          @click="cancelQuestion"
+          class="flex-1 py-3 rounded-xl text-sm font-semibold"
+          style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1)"
+        >{{ lang === 'uk' ? 'Скасувати' : 'Cancel' }}</button>
+        <button
+          @click="confirmQuestion"
+          class="flex-1 py-3 rounded-xl text-sm font-bold"
+          style="background:linear-gradient(135deg,#9d50bb,#6e48aa);color:#fff;border:1px solid rgba(255,215,0,0.3)"
+        >{{ lang === 'uk' ? 'Розпочати' : 'Begin' }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Scripts -->
-<script src="cards.js"></script>
 <script src="data.js"></script>
-<script src="celtic_cross_positions.js"></script>
-<script src="analysis.js"></script>
+<script src="dynamic_data.js"></script>
+    <script src="analysis.js"></script>
 <script src="app.js"></script>
 
 <!-- PWA Service Worker + Install Banner -->
 <script src="pwa.js"></script>
+
 </body>
 </html>

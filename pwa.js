@@ -163,7 +163,7 @@ function showInstallBanner() {
       console.log('[PWA] Результат встановлення:', outcome);
       deferredPrompt = null;
     } else {
-      alert(strings.pwaInstallBlocked);
+      console.warn('[PWA]', strings.pwaInstallBlocked);
     }
   });
 

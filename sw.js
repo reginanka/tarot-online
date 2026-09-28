@@ -1,6 +1,5 @@
-// Бампніть CACHE_VERSION (або CACHE_NAME) при кожному деплої зі значними змінами —
-// це гарантує, що старий кеш видалиться і клієнти зможуть отримати свіжі файли.
-const CACHE_VERSION = 'v1.3';
+
+const CACHE_VERSION = 'v2.0';
 const CACHE_NAME = `tarot-cache-${CACHE_VERSION}`;
 
 const urlsToCache = [
@@ -11,24 +10,27 @@ const urlsToCache = [
   './pwa.js',
   './manifest.json',
   './favicon.ico',
-  './cards.js',
+  './dynamic_data.js',
+  './data/cards.json',
   './data.js',
   './analysis.js',
-  './celtic_cross_positions.js',
+  './data/spreads/celtic-cross.json',
+  './data/spreads/one-card.json',
+  './data/spreads/three-cards.json',
+  './data/spreads/yes-no.json',
+  './data/spreads/love-triangle.json',
 ];
 
-// Інсталяція: кешуємо ресурси. НЕ викликаємо skipWaiting() тут —
-// новий SW залишається в стані waiting, доки користувач не натисне «Оновити».
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Кешування ресурсів...');
+      console.log(`[SW] Кешування ресурсів ${CACHE_VERSION}...`);
       return cache.addAll(urlsToCache);
     })
   );
 });
 
-// Активація: видаляємо старі кеші і беремо контроль над клієнтами
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
@@ -47,24 +49,58 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Cache-first з мережевим fallback (офлайн)
+// Network-first для коду та даних із кешованим fallback для офлайну
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).catch(() => {
-          // опційний fallback для навігації
-          if (event.request.mode === 'navigate') {
-            return caches.match('./index.html');
+  const url = event.request.url;
+  const isCodeOrData = url.includes('/data/') ||
+                       url.endsWith('.js') ||
+                       url.endsWith('.json') ||
+                       url.endsWith('.html') ||
+                       url.endsWith('.css') ||
+                       event.request.mode === 'navigate';
+
+  if (isCodeOrData) {
+    // Network-first: завжди намагаємося взяти найсвіжіше з мережі
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
           }
-          return new Response('', { status: 404, statusText: 'Offline' });
+          return networkResponse;
         })
-      );
-    })
-  );
+        .catch(() => {
+          return caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) return cachedResponse;
+            if (event.request.mode === 'navigate') {
+              return caches.match('./index.html');
+            }
+            return new Response('', { status: 404, statusText: 'Offline' });
+          });
+        })
+    );
+  } else {
+    // Cache-first для статичних картинок
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return networkResponse;
+        });
+      })
+    );
+  }
 });
 
 // Кнопка «Оновити» у банері надсилає SKIP_WAITING → новий SW стає активним

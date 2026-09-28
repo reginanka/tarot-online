@@ -1,0 +1,782 @@
+{
+  "m00": {
+    "upright": {
+      "ua": "Початок із чистого аркуша. Довіртеся потоку, ризикніть і зробіть крок у невідоме.",
+      "en": "Fresh start. Trust the flow, take a risk, and step into the unknown."
+    },
+    "reversed": {
+      "ua": "Зупиніться. Не робіть необдуманих вчинків і перевірте факти, перш ніж стрибати.",
+      "en": "Stop. Do not make rash decisions and check the facts before leaping."
+    }
+  },
+  "m01": {
+    "upright": {
+      "ua": "Дійте рішуче. У вас є всі ресурси та інструменти, щоб здійснити задумане.",
+      "en": "Act decisively. You have all the resources and tools to achieve your goals."
+    },
+    "reversed": {
+      "ua": "Зачекайте з реалізацією. Остерігайтеся обману, маніпуляцій чи власної непевності.",
+      "en": "Wait on implementation. Beware of deception, manipulation, or self-doubt."
+    }
+  },
+  "m02": {
+    "upright": {
+      "ua": "Прислухайтеся до інтуїції. Відповідь вже є всередині вас, зберігайте спокій і таємницю.",
+      "en": "Listen to your intuition. The answer is already within you; keep calm and keep secrets."
+    },
+    "reversed": {
+      "ua": "Зніміть ілюзії. Ви ігноруєте очевидні факти або піддаєтеся чужим пліткам.",
+      "en": "Strip away illusions. You are ignoring obvious facts or giving in to gossip."
+    }
+  },
+  "m03": {
+    "upright": {
+      "ua": "Творіть і розквітайте. Час росту, турботи про себе, затишку та матеріального достатку.",
+      "en": "Create and flourish. A time of growth, self-care, comfort, and material abundance."
+    },
+    "reversed": {
+      "ua": "Відновіть ресурс. Ви витрачаєте занадто багато сил або занедбали свої потреби.",
+      "en": "Restore your resources. You are spending too much energy or neglecting your needs."
+    }
+  },
+  "m04": {
+    "upright": {
+      "ua": "Наведіть порядок. Наведіть дисципліну, встановіть кордони та візьміть контроль у свої руки.",
+      "en": "Establish order. Bring discipline, set boundaries, and take control."
+    },
+    "reversed": {
+      "ua": "Послабте тиск. Уникайте надмірного контролю, упертості й конфліктів із владою.",
+      "en": "Ease up on pressure. Avoid excessive control, stubbornness, and conflicts with authority."
+    }
+  },
+  "m05": {
+    "upright": {
+      "ua": "Чиніть за совістю. Дотримуйтеся правил, шукайте мудру пораду чи вчіться новому.",
+      "en": "Act with a clear conscience. Follow the rules, seek wise advice, or learn something new."
+    },
+    "reversed": {
+      "ua": "Мисліть критично. Не слідуйте сліпо чужим догмам чи застарілим стереотипам.",
+      "en": "Think critically. Do not blindly follow others' dogmas or outdated stereotypes."
+    }
+  },
+  "m06": {
+    "upright": {
+      "ua": "Зробіть вибір серцем. Час гармонії, щирості та важливого рішення на користь любові.",
+      "en": "Make a choice from the heart. A time of harmony, sincerity, and an important decision for love."
+    },
+    "reversed": {
+      "ua": "Усуньте внутрішній розкол. Уникайте сумнівів, конфліктів і хибного вибору.",
+      "en": "Resolve internal division. Avoid doubts, conflicts, and false choices."
+    }
+  },
+  "m07": {
+    "upright": {
+      "ua": "Рухайтеся вперед. Беріть кермо у свої руки, тисніть на газ і досягайте мети.",
+      "en": "Move forward. Take the wheel, push forward, and achieve your goal."
+    },
+    "reversed": {
+      "ua": "Сповільніть темп. Поспіх призведе до втрати контролю або помилок.",
+      "en": "Slow down the pace. Haste will lead to loss of control or mistakes."
+    }
+  },
+  "m08": {
+    "upright": {
+      "ua": "Дійте м'яко, але впевнено. Проявіть терпіння, витримку та внутрішню стійкість.",
+      "en": "Act gently yet confidently. Show patience, endurance, and inner resilience."
+    },
+    "reversed": {
+      "ua": "Відпочиньте. Ви емоційно виснажені або піддаєтеся спалахам агресії чи слабкості.",
+      "en": "Rest. You are emotionally exhausted or giving in to outbursts of aggression/weakness."
+    }
+  },
+  "m09": {
+    "upright": {
+      "ua": "Побудьте насамоті. Час для роздумів, пошуку власної істини та переоцінки цінностей.",
+      "en": "Spend time alone. A time for reflection, finding your own truth, and reassessing values."
+    },
+    "reversed": {
+      "ua": "Виходьте до людей. Ви занадто закрилися в собі та зловживаєте ізоляцією.",
+      "en": "Reach out to people. You have closed yourself off too much and are overusing isolation."
+    }
+  },
+  "m10": {
+    "upright": {
+      "ua": "Ловіть момент. Зміни несуть везіння, довіртеся долі та адаптуйтеся до подій.",
+      "en": "Seize the moment. Changes bring good fortune, trust destiny and adapt to events."
+    },
+    "reversed": {
+      "ua": "Перечекайте смугу затримки. Не опирайтеся обставинам, це тимчасовий спад.",
+      "en": "Wait out the delay. Do not resist circumstances; this is a temporary downturn."
+    }
+  },
+  "m11": {
+    "upright": {
+      "ua": "Будьте чесними й об'єктивними. Приймайте зважені рішення та зважуйте всі «за» і «проти».",
+      "en": "Be honest and objective. Make balanced decisions and weigh all pros and cons."
+    },
+    "reversed": {
+      "ua": "Виправте помилку. Уникайте упередженості, самообману чи порушення правил.",
+      "en": "Correct the mistake. Avoid bias, self-deception, or rule-breaking."
+    }
+  },
+  "m12": {
+    "upright": {
+      "ua": "Змініть кут зору. Зробіть паузу, ситуація вимагає іншого погляду, а не активних дій.",
+      "en": "Change your perspective. Take a pause; the situation requires a different view, not active steps."
+    },
+    "reversed": {
+      "ua": "Досить гаяти час. Припиніть грати роль жертви й зробіть вирішальний крок.",
+      "en": "Stop wasting time. Quit playing the victim and take a decisive step."
+    }
+  },
+  "m13": {
+    "upright": {
+      "ua": "Відпустіть старе. Настав час для кардинальних змін і оновлення, закрийте минуле.",
+      "en": "Let go of the old. It's time for radical changes and renewal; close the past."
+    },
+    "reversed": {
+      "ua": "Не чіпляйтеся за минуле. Опір змінам лише затягує неприємний процес.",
+      "en": "Do not cling to the past. Resistance to change only drags out an unpleasant process."
+    }
+  },
+  "m14": {
+    "upright": {
+      "ua": "Знаходьте баланс. Час для компромісів, внутрішнього спокою та поступового руху.",
+      "en": "Find balance. A time for compromises, inner peace, and gradual progress."
+    },
+    "reversed": {
+      "ua": "Уникайте крайнощів. Неспокій, поспіх чи надмірність порушують вашу гармонію.",
+      "en": "Avoid extremes. Restlessness, haste, or excess disrupt your harmony."
+    }
+  },
+  "m15": {
+    "upright": {
+      "ua": "Усвідомте свої спокуси. Остерігайтеся залежностей, токсичних зв'язків та маніпуляцій.",
+      "en": "Acknowledge your temptations. Beware of addictions, toxic ties, and manipulations."
+    },
+    "reversed": {
+      "ua": "Звільняйтеся. Ви ламаєте шкідливі звички й скидаєте чужий гніт.",
+      "en": "Break free. You are breaking bad habits and casting off someone else's yoke."
+    }
+  },
+  "m16": {
+    "upright": {
+      "ua": "Зруйнуйте ілюзії. Прийміть раптові зміни — вони звільняють місце для нового.",
+      "en": "Shatter illusions. Accept sudden changes—they make room for the new."
+    },
+    "reversed": {
+      "ua": "Відверніть катастрофу. Виправте ситуацію, поки вона не розвалилася остаточно.",
+      "en": "Avert disaster. Fix the situation before it completely collapses."
+    }
+  },
+  "m17": {
+    "upright": {
+      "ua": "Мрійте й надихайтеся. Попереду світлі перспективи, збережіть віру в успіх.",
+      "en": "Dream and be inspired. Bright prospects ahead; keep faith in success."
+    },
+    "reversed": {
+      "ua": "Поверніть надію. Не падайте духом через тимчасові розчарування.",
+      "en": "Restore hope. Do not lose heart over temporary disappointments."
+    }
+  },
+  "m18": {
+    "upright": {
+      "ua": "Будьте обережні. Не все є тим, чим здається; довіряйте інтуїції, а не страхам.",
+      "en": "Be cautious. Not everything is as it seems; trust your intuition, not your fears."
+    },
+    "reversed": {
+      "ua": "Туман розсіюється. Правду розкрито, ілюзії та страхи відступають.",
+      "en": "The fog clears. The truth is revealed; illusions and fears recede."
+    }
+  },
+  "m19": {
+    "upright": {
+      "ua": "Радійте й сяйте. На вас чекає повний успіх, ясність, тепло та енергія.",
+      "en": "Rejoice and shine. Total success, clarity, warmth, and energy await you."
+    },
+    "reversed": {
+      "ua": "Знайдіть позитив. Успіх поруч, просто хмари тимчасово заступили світло.",
+      "en": "Find the positive. Success is near; clouds have just temporarily blocked the light."
+    }
+  },
+  "m20": {
+    "upright": {
+      "ua": "Час відродження. Прийміть важливе рішення й крокуйте на новий рівень життя.",
+      "en": "Time of rebirth. Make an important decision and step into a new level of life."
+    },
+    "reversed": {
+      "ua": "Не відкладайте важливе. Подолайте сумніви й страх перед осудом.",
+      "en": "Do not delay what's important. Overcome doubts and fear of judgment."
+    }
+  },
+  "m21": {
+    "upright": {
+      "ua": "Вітаємо з фінішем. Завершення справи, повна гармонія та вихід на новий рівень.",
+      "en": "Congratulations on the finish. Completion of a matter, full harmony, and leveling up."
+    },
+    "reversed": {
+      "ua": "Доведіть справу до кінця. Лишився останній крок для повного успіху.",
+      "en": "See it through to the end. Only one final step remains for complete success."
+    }
+  },
+  "w01": {
+    "upright": {
+      "ua": "Хапайте ідею. Час для нового пристрасного старту та сміливих дій.",
+      "en": "Grab the idea. Time for a new passionate start and bold actions."
+    },
+    "reversed": {
+      "ua": "Бережіть сили. Брак енергії чи мотивації; не форсуйте події.",
+      "en": "Conserve your strength. Lack of energy or motivation; do not force events."
+    }
+  },
+  "w02": {
+    "upright": {
+      "ua": "Плануйте масштабніше. Сплануйте наступний крок і розширюйте горизонти.",
+      "en": "Plan bigger. Map out your next step and expand your horizons."
+    },
+    "reversed": {
+      "ua": "Подолайте боязнь. Не бійтеся вийти з зони комфорту.",
+      "en": "Overcome fear. Don't be afraid to step out of your comfort zone."
+    }
+  },
+  "w03": {
+    "upright": {
+      "ua": "Рухайтеся далі. Ваші перші кроки дають результати, розгортайте масштаб.",
+      "en": "Move further. Your first steps are yielding results; scale up."
+    },
+    "reversed": {
+      "ua": "Усуньте затримки. Перевірте партнерок чи деталі, десь виник збій.",
+      "en": "Eliminate delays. Check partners or details; a glitch occurred somewhere."
+    }
+  },
+  "w04": {
+    "upright": {
+      "ua": "Відсвяткуйте успіх. Насолоджуйтеся затишком, стабільністю та результатом.",
+      "en": "Celebrate success. Enjoy comfort, stability, and the outcome."
+    },
+    "reversed": {
+      "ua": "Наведіть лад у домі/колективі. Дрібні суперечки заважають затишку.",
+      "en": "Tidy up your home/team. Minor disputes are disrupting the coziness."
+    }
+  },
+  "w05": {
+    "upright": {
+      "ua": "Доведіть свою правоту. Відстоюйте позицію у здоровій конкуренції.",
+      "en": "Prove your point. Defend your position in healthy competition."
+    },
+    "reversed": {
+      "ua": "Уникайте дріб'язкових сварок. Не витрачайте ресурси на безглузді суперечки.",
+      "en": "Avoid petty quarrels. Don't waste resources on pointless arguments."
+    }
+  },
+  "w06": {
+    "upright": {
+      "ua": "Ви на висоті. Прийміть заслужену перемогу та визнання.",
+      "en": "You are on top. Accept well-deserved victory and recognition."
+    },
+    "reversed": {
+      "ua": "Не зважайте на чужі заздрощі. Поразки тимчасові, тримайте гордість.",
+      "en": "Ignore others' envy. Defeats are temporary; keep your pride."
+    }
+  },
+  "w07": {
+    "upright": {
+      "ua": "Стойте на своєму. Захищайте власні кордони та інтереси до кінця.",
+      "en": "Stand your ground. Defend your boundaries and interests to the end."
+    },
+    "reversed": {
+      "ua": "Не здавайтеся. Зберіть сили, щоб не поступитися під тиском.",
+      "en": "Do not give up. Gather your strength so you don't yield under pressure."
+    }
+  },
+  "w08": {
+    "upright": {
+      "ua": "Події прискорюються. Очікуйте швидких новин чи вирішення питань.",
+      "en": "Events accelerate. Expect quick news or resolution of issues."
+    },
+    "reversed": {
+      "ua": "Не поспішайте. Через суєту та поспіх легко припуститися помилки.",
+      "en": "Do not rush. Haste and fuss easily lead to mistakes."
+    }
+  },
+  "w09": {
+    "upright": {
+      "ua": "Будьте напоготові. Ви збудували міцну оборону, вистоїте.",
+      "en": "Stay alert. You have built a strong defense; you will hold your ground."
+    },
+    "reversed": {
+      "ua": "Послабте захист. Постійна напруга лише виснажує вас.",
+      "en": "Ease up on defense. Constant tension only exhausts you."
+    }
+  },
+  "w10": {
+    "upright": {
+      "ua": "Дотягніть до фінішу. Тягар важкий, але ви вже на порозі завершення.",
+      "en": "Push through to the finish. The burden is heavy, but you are on the verge of completion."
+    },
+    "reversed": {
+      "ua": "Скиньте зайве. Припиніть тягнути чужу відповідальність і турботи.",
+      "en": "Drop the excess. Stop pulling other people's responsibilities and worries."
+    }
+  },
+  "w11": {
+    "upright": {
+      "ua": "Відкрийтеся новому. На вас чекає цікава новина або свіжа ідея.",
+      "en": "Open up to the new. An interesting news item or fresh idea awaits you."
+    },
+    "reversed": {
+      "ua": "Перевіряйте інформацію. Не вірте чуткам і не дійте інфантильно.",
+      "en": "Verify information. Don't believe rumors or act childishly."
+    }
+  },
+  "w12": {
+    "upright": {
+      "ua": "Дійте стрімко. Час для сміливих рішень, поїздок і драйву.",
+      "en": "Act swiftly. Time for bold decisions, trips, and drive."
+    },
+    "reversed": {
+      "ua": "Вгамуйте імпульсивність. Не робіть різких рухів у гарячці.",
+      "en": "Tame your impulsivity. Avoid rash moves in the heat of the moment."
+    }
+  },
+  "w13": {
+    "upright": {
+      "ua": "Проявіть харизму. Будьте впевненими, яскравими та незалежними.",
+      "en": "Show charisma. Be confident, bright, and independent."
+    },
+    "reversed": {
+      "ua": "Відновіть самооцінку. Уникайте спалахів ревнощів чи емоційного вигорання.",
+      "en": "Restore your self-esteem. Avoid outbursts of jealousy or burnout."
+    }
+  },
+  "w14": {
+    "upright": {
+      "ua": "Беріть відповідальність. Час ставати лідером і вести за собою.",
+      "en": "Take responsibility. Time to step up as a leader and guide others."
+    },
+    "reversed": {
+      "ua": "Уникайте самодурства. Не тисніть на інших заради власного его.",
+      "en": "Avoid tyranny. Do not pressure others for the sake of your ego."
+    }
+  },
+  "c01": {
+    "upright": {
+      "ua": "Відкрийте серце. На вас чекає хвиля щирої любові, натхнення та радості.",
+      "en": "Open your heart. A wave of sincere love, inspiration, and joy awaits you."
+    },
+    "reversed": {
+      "ua": "Наповніть себе. Ви емоційно виснажені, дайте собі час на відновлення.",
+      "en": "Fill yourself up. You are emotionally exhausted; give yourself time to recover."
+    }
+  },
+  "c02": {
+    "upright": {
+      "ua": "Шукайте гармонію. Час для теплого спілкування, примирення та взаємності.",
+      "en": "Seek harmony. A time for warm communication, reconciliation, and reciprocity."
+    },
+    "reversed": {
+      "ua": "Виправте непорозуміння. Відновіть контакт і вислухайте іншу сторону.",
+      "en": "Fix the misunderstanding. Restore contact and listen to the other side."
+    }
+  },
+  "c03": {
+    "upright": {
+      "ua": "Розділіть радість. Проведіть час із друзями, святкуйте та відпочивайте.",
+      "en": "Share the joy. Spend time with friends, celebrate, and relax."
+    },
+    "reversed": {
+      "ua": "Очистіть оточення. Уникайте фальшивих друзів і пустих розмов.",
+      "en": "Clear out your circle. Avoid fake friends and empty talks."
+    }
+  },
+  "c04": {
+    "upright": {
+      "ua": "Струсіть нудьгу. Озирніться — поруч є шанс, який ви ігноруєте.",
+      "en": "Shake off boredom. Look around—there is a chance you are ignoring."
+    },
+    "reversed": {
+      "ua": "Виходьте з апатії. Час повертатися до активного життя.",
+      "en": "Break out of apathy. Time to return to active life."
+    }
+  },
+  "c05": {
+    "upright": {
+      "ua": "Відпустіть сум. Не дивіться на втрати, помітьте те, що залишилося.",
+      "en": "Let go of sorrow. Don't focus on losses; notice what remains."
+    },
+    "reversed": {
+      "ua": "Зцілення близько. Біль відступає, час дивитися в майбутнє.",
+      "en": "Healing is near. The pain is receding; time to look to the future."
+    }
+  },
+  "c06": {
+    "upright": {
+      "ua": "Подаруйте тепло. Ностальгія, приємні спогади чи щира турбота про близьких.",
+      "en": "Give warmth. Nostalgia, pleasant memories, or sincere care for loved ones."
+    },
+    "reversed": {
+      "ua": "Живіть сьогоденням. Не застрягайте в минулому.",
+      "en": "Live in the present. Do not get stuck in the past."
+    }
+  },
+  "c07": {
+    "upright": {
+      "ua": "Спустіться на землю. Оцініть мрії тверезо й зробіть реальний вибір.",
+      "en": "Come down to earth. Evaluate dreams soberly and make a real choice."
+    },
+    "reversed": {
+      "ua": "Зніміть рожеві окуляри. Прозріння допоможе уникнути обману.",
+      "en": "Take off rose-colored glasses. Enlightenment will help avoid deception."
+    }
+  },
+  "c08": {
+    "upright": {
+      "ua": "Йдіть далі. Якщо ситуація вичерпалася, час шукати нові сенси.",
+      "en": "Move on. If the situation has run its course, it's time to seek new meanings."
+    },
+    "reversed": {
+      "ua": "Зважтеся на крок. Не залишайтеся там, де немає розвитку.",
+      "en": "Take the step. Don't stay where there is no growth."
+    }
+  },
+  "c09": {
+    "upright": {
+      "ua": "Насолоджуйтеся моментом. Ваші бажання здійснюються, час задоволення.",
+      "en": "Enjoy the moment. Your wishes are coming true; a time of satisfaction."
+    },
+    "reversed": {
+      "ua": "Шукайте справжні цінності. Зовнішній блиск не замінить внутрішньої глибини.",
+      "en": "Look for true values. Outer gloss cannot replace inner depth."
+    }
+  },
+  "c10": {
+    "upright": {
+      "ua": "Бережіть родинне щастя. Гармонія, затишок та емоційна повнота в домі.",
+      "en": "Protect family happiness. Harmony, coziness, and emotional fullness at home."
+    },
+    "reversed": {
+      "ua": "Поверніть мир у дім. Усуньте дрібні побутові непорозуміння.",
+      "en": "Bring peace back home. Clear up minor domestic misunderstandings."
+    }
+  },
+  "c11": {
+    "upright": {
+      "ua": "Прийміть ніжність. Очікуйте приємного знаку, компліменту чи творчого пориву.",
+      "en": "Accept tenderness. Expect a pleasant sign, compliment, or creative impulse."
+    },
+    "reversed": {
+      "ua": "Не капризуйте. Уникайте емоційної незрілості та образ.",
+      "en": "Don't throw tantrums. Avoid emotional immaturity and taking offense."
+    }
+  },
+  "c12": {
+    "upright": {
+      "ua": "Слідуйте за мрією. Відкрийтеся романтиці, красивим жестам і гарним пропозиціям.",
+      "en": "Follow your dream. Open up to romance, grand gestures, and good proposals."
+    },
+    "reversed": {
+      "ua": "Не вірте красивим обіцянкам. Перевіряйте щирість намірів.",
+      "en": "Don't trust empty promises. Verify the sincerity of intentions."
+    }
+  },
+  "c13": {
+    "upright": {
+      "ua": "Проявіть емпатію. Дослухайтеся до почуттів і подаруйте підтримку.",
+      "en": "Show empathy. Listen to feelings and offer support."
+    },
+    "reversed": {
+      "ua": "Опануйте емоції. Не дозволяйте настрою та образам керувати вами.",
+      "en": "Master your emotions. Do not let mood and resentment control you."
+    }
+  },
+  "c14": {
+    "upright": {
+      "ua": "Зберігайте спокій. Зрілість і душевна рівновага допоможуть вирішити все.",
+      "en": "Stay calm. Maturity and mental balance will help resolve everything."
+    },
+    "reversed": {
+      "ua": "Уникайте маніпуляцій. Не приховуйте справжні почуття під маскою байдужості.",
+      "en": "Avoid manipulation. Do not hide true feelings under a mask of indifference."
+    }
+  },
+  "s01": {
+    "upright": {
+      "ua": "Внесіть ясність. Прийміть тверде рішення й відсічіть усе зайве.",
+      "en": "Bring clarity. Make a firm decision and cut away everything unnecessary."
+    },
+    "reversed": {
+      "ua": "Не рубайте з плеча. Різкі слова чи рішення зараз лише нашкодять.",
+      "en": "Don't act rashly. Harsh words or decisions now will only harm."
+    }
+  },
+  "s02": {
+    "upright": {
+      "ua": "Візьміть паузу. Зважте факти, перш ніж робити болісний вибір.",
+      "en": "Take a pause. Weigh the facts before making a painful choice."
+    },
+    "reversed": {
+      "ua": "Зніміть пов'язку з очей. Час зустрітися з реальністю віч-на-віч.",
+      "en": "Remove the blindfold. Time to face reality head-on."
+    }
+  },
+  "s03": {
+    "upright": {
+      "ua": "Прийміть правду. Навіть якщо вона болюча, це очистить вас від ілюзій.",
+      "en": "Accept the truth. Even if painful, it will cleanse you of illusions."
+    },
+    "reversed": {
+      "ua": "Загоюйте рани. Біль минає, час відпускати образи.",
+      "en": "Heal your wounds. Pain is passing; time to let go of grudges."
+    }
+  },
+  "s04": {
+    "upright": {
+      "ua": "Відпочиньте. Вашому розуму та тілу потрібне повне відновлення.",
+      "en": "Rest. Your mind and body need complete recovery."
+    },
+    "reversed": {
+      "ua": "Повертайтеся до дій. Період вимушеної паузи добігає кінця.",
+      "en": "Return to action. The period of enforced pause is coming to an end."
+    }
+  },
+  "s05": {
+    "upright": {
+      "ua": "Оберіть мир. Іноді краще зберегти спокій, ніж виграти конфлікт.",
+      "en": "Choose peace. Sometimes it's better to keep calm than to win a conflict."
+    },
+    "reversed": {
+      "ua": "Вийдіть із брудної гри. Припиніть ворожнечу та зведіть втрати до мінімуму.",
+      "en": "Step out of the dirty game. Stop the feud and minimize losses."
+    }
+  },
+  "s06": {
+    "upright": {
+      "ua": "Рухайтеся до спокою. Залиште проблеми позаду й переходьте на кращі береги.",
+      "en": "Move toward peace. Leave problems behind and cross to better shores."
+    },
+    "reversed": {
+      "ua": "Не відкладайте переїзд/зміни. Опір лише затримує вас у кризовому стані.",
+      "en": "Do not delay changes/relocation. Resistance only keeps you in crisis."
+    }
+  },
+  "s07": {
+    "upright": {
+      "ua": "Дійте гнучко. Використовуйте хитрість, дипломатію й розум, а не лобовий напад.",
+      "en": "Act flexibly. Use cunning, diplomacy, and wit rather than a frontal attack."
+    },
+    "reversed": {
+      "ua": "Будьте чесними. Таємне випливе нагору, грайте за правилами.",
+      "en": "Be honest. Secrets will come out; play by the rules."
+    }
+  },
+  "s08": {
+    "upright": {
+      "ua": "Зруйнуйте ментальні рамки. Обмеження лише у вашій голові, шукайте вихід.",
+      "en": "Shatter mental frames. Limitations are only in your head; look for a way out."
+    },
+    "reversed": {
+      "ua": "Звільніться від страхів. Ви здатні діяти, пов'язка впала.",
+      "en": "Free yourself from fears. You are capable of acting; the blindfold has fallen."
+    }
+  },
+  "s09": {
+    "upright": {
+      "ua": "Проженіть тривогу. Більшість ваших кошмарів існує лише у вашій уяві.",
+      "en": "Banish anxiety. Most of your nightmares exist only in your imagination."
+    },
+    "reversed": {
+      "ua": "Ранок наступає. Тривожний період закінчується, відпускайте паніку.",
+      "en": "Morning is coming. The anxious period is ending; let go of panic."
+    }
+  },
+  "s10": {
+    "upright": {
+      "ua": "Поставте крапку. Важкий етап завершено, попереду — світанок.",
+      "en": "Put a period. The difficult stage is over; dawn lies ahead."
+    },
+    "reversed": {
+      "ua": "Піднімайтеся. Найдепресивніший момент позаду, час відновлюватися.",
+      "en": "Get up. The most depressive moment is behind you; time to recover."
+    }
+  },
+  "s11": {
+    "upright": {
+      "ua": "Збирайте факти. Будьте уважними до деталей і критично оцінюйте інформацію.",
+      "en": "Gather facts. Pay attention to details and critically evaluate information."
+    },
+    "reversed": {
+      "ua": "Ігноруйте плітки. Не втягуйтеся в дріб'язкові суперечки.",
+      "en": "Ignore gossip. Don't get dragged into petty arguments."
+    }
+  },
+  "s12": {
+    "upright": {
+      "ua": "Вирішуйте проблему швидко. Дійте сміливо, гостро та без зволікань.",
+      "en": "Solve the problem quickly. Act boldly, sharply, and without delay."
+    },
+    "reversed": {
+      "ua": "Вгамуйте гнів. Уникайте агресивних суперечок і слів, про які пошкодуєте.",
+      "en": "Tame your anger. Avoid aggressive arguments and words you will regret."
+    }
+  },
+  "s13": {
+    "upright": {
+      "ua": "Мисліть холодно. Оцінюйте ситуацію розумом, а не емоціями; тримайте кордони.",
+      "en": "Think coldly. Evaluate the situation with reason, not emotions; hold your boundaries."
+    },
+    "reversed": {
+      "ua": "Пом'якшіть суворість. Цинізм і холодність заважають порозумінню.",
+      "en": "Softness required. Cynicism and coldness hinder mutual understanding."
+    }
+  },
+  "s14": {
+    "upright": {
+      "ua": "Будьте експертом. Приймайте справедливі, законні та логічні рішення.",
+      "en": "Be an expert. Make fair, lawful, and logical decisions."
+    },
+    "reversed": {
+      "ua": "Не будьте тираном. Авторитарність чи жорстокість зіпсують справу.",
+      "en": "Don't be a tyrant. Authoritarianism or cruelty will ruin the matter."
+    }
+  },
+  "p01": {
+    "upright": {
+      "ua": "Ловіть шанс. На вас чекає чудова матеріальна можливість чи реальний подарунок.",
+      "en": "Catch the chance. A great material opportunity or real gift awaits you."
+    },
+    "reversed": {
+      "ua": "Не проґавте вигоду. Уникайте марнотратства та непродуманих витрат.",
+      "en": "Don't miss the benefit. Avoid wastefulness and ill-considered expenses."
+    }
+  },
+  "p02": {
+    "upright": {
+      "ua": "Будьте гнучкими. Лавіруйте між справами легко та зберігайте баланс.",
+      "en": "Be flexible. Juggle tasks easily and maintain balance."
+    },
+    "reversed": {
+      "ua": "Впорядкуйте справи. Хаос у фінансах чи графіку потребує структури.",
+      "en": "Organize your affairs. Chaos in finances or schedule requires structure."
+    }
+  },
+  "p03": {
+    "upright": {
+      "ua": "Працюйте якісно. Працюйте в команді, вдосконалюйте майстерність.",
+      "en": "Work with high quality. Team up, improve your craft."
+    },
+    "reversed": {
+      "ua": "Не халтурте. Виправте огріхи в роботі та залучіть фахівців.",
+      "en": "Don't slack off. Fix flaws in your work and bring in specialists."
+    }
+  },
+  "p04": {
+    "upright": {
+      "ua": "Збережіть надбане. Закріпіть позиції, дбайте про стабільність і безпеку.",
+      "en": "Preserve what you've earned. Secure positions, care for stability and safety."
+    },
+    "reversed": {
+      "ua": "Послабте контроль. Надмірна скупість і страх втрати гальмують розвиток.",
+      "en": "Ease up control. Excessive stinginess and fear of loss hinder development."
+    }
+  },
+  "p05": {
+    "upright": {
+      "ua": "Попросіть про допомогу. Якщо ресурси на нулі, шукайте підтримку поруч.",
+      "en": "Ask for help. If resources are at zero, look for support nearby."
+    },
+    "reversed": {
+      "ua": "Криза минає. Покращення фінансового стану чи здоров'я вже близько.",
+      "en": "The crisis is passing. Improvement in financial standing or health is near."
+    }
+  },
+  "p06": {
+    "upright": {
+      "ua": "Дотримуйтеся балансу. Діліться ресурсами або сміливо приймайте підтримку.",
+      "en": "Maintain balance. Share resources or boldly accept support."
+    },
+    "reversed": {
+      "ua": "Уникайте боргових пасток. Перевірте умови угод та рівноцінність обміну.",
+      "en": "Avoid debt traps. Check agreement terms and fair exchange."
+    }
+  },
+  "p07": {
+    "upright": {
+      "ua": "Майте терпіння. Результати потребують часу, не квапте події.",
+      "en": "Have patience. Results take time; do not rush events."
+    },
+    "reversed": {
+      "ua": "Змініть стратегію. Якщо праця не дає плодів, час міняти підхід.",
+      "en": "Change strategy. If work yields no fruit, it's time to change the approach."
+    }
+  },
+  "p08": {
+    "upright": {
+      "ua": "Відточуйте майстерність. Відповідальна рутинна праця принесе стабільний дохід.",
+      "en": "Hone your skills. Responsible routine work will bring stable income."
+    },
+    "reversed": {
+      "ua": "Знайдіть мотивацію. Подолайте лінь і нудьгу у повсякденних справах.",
+      "en": "Find motivation. Overcome laziness and boredom in daily tasks."
+    }
+  },
+  "p09": {
+    "upright": {
+      "ua": "Насолоджуйтеся комфортом. Ви заслужили на відпочинок і достаток.",
+      "en": "Enjoy comfort. You have earned rest and abundance."
+    },
+    "reversed": {
+      "ua": "Не купуйтеся на зовнішній блиск. Оцінюйте свої реальні фінансові сили.",
+      "en": "Don't fall for outer gloss. Evaluate your real financial strength."
+    }
+  },
+  "p10": {
+    "upright": {
+      "ua": "Дбайте про добробут. Родинний затишок, довгострокова стабільність та впевненість.",
+      "en": "Care for well-being. Family coziness, long-term stability, and confidence."
+    },
+    "reversed": {
+      "ua": "Усуньте майнові суперечки. Не псуйте стосунки через фінансові питання.",
+      "en": "Resolve property disputes. Don't ruin relationships over financial matters."
+    }
+  },
+  "p11": {
+    "upright": {
+      "ua": "Вивчайте практичне. Гарний шанс навчитися нового або зробити вигідний крок.",
+      "en": "Study the practical. A great chance to learn something new or make a profitable step."
+    },
+    "reversed": {
+      "ua": "Будьте відповідальними. Уникайте непрактичності й легкодухливості у грошах.",
+      "en": "Be responsible. Avoid impracticality and lightheadedness with money."
+    }
+  },
+  "p12": {
+    "upright": {
+      "ua": "Рухайтеся планомірно. Повільний, але абсолютно надійний шлях до успіху.",
+      "en": "Move steadily. A slow but completely reliable path to success."
+    },
+    "reversed": {
+      "ua": "Зруште застій. Надмірний консерватизм гальмує ваші справи.",
+      "en": "Break the stagnation. Excessive conservatism is slowing down your affairs."
+    }
+  },
+  "p13": {
+    "upright": {
+      "ua": "Дбайте про ресурс. Практичність, турбота про тіло, здоров'я та комфорт.",
+      "en": "Care for your resources. Practicality, care for the body, health, and comfort."
+    },
+    "reversed": {
+      "ua": "Перестаньте тривожитися за гроші. Приділіть увагу душевній теплоті.",
+      "en": "Stop worrying about money. Pay attention to soul warmth."
+    }
+  },
+  "p14": {
+    "upright": {
+      "ua": "Управляйте розумно. Приймайте масштабні, надійні та практичні рішення.",
+      "en": "Manage wisely. Make large-scale, reliable, and practical decisions."
+    },
+    "reversed": {
+      "ua": "Не будьте скнарою. Жорстка зацикленість на вигоді шкодить стосункам.",
+      "en": "Don't be a miser. Rigid fixation on profit harms relationships."
+    }
+  }
+}

@@ -500,23 +500,7 @@
     // 4. Знакові комбінації
     analyzeCombos(ctx, lang).forEach(c => items.push(c));
 
-    // 5. Ключ розкладу
-    const pastLabel = ctx.labelAt(0, lang);
-    const presLabel = ctx.labelAt(1, lang);
-    const futLabel = ctx.labelAt(2, lang);
-
-    const keyText = uk
-      ? 'Ключ розкладу:\n' +
-        '• Минуле: ' + pastLabel + '\n' +
-        '• Теперішнє: ' + presLabel + '\n' +
-        '• Майбутнє: ' + futLabel
-      : 'Spread key:\n' +
-        '• Past: ' + pastLabel + '\n' +
-        '• Present: ' + presLabel + '\n' +
-        '• Future: ' + futLabel;
-    items.push(keyText);
-
-    // 6. Головний фокус
+    // 5. Головний фокус
     let focusText = '';
     if (maj3) {
       focusText = uk
@@ -714,8 +698,7 @@
       ? `Чітка відповідь: ${verdictUk}. ${balanceUk}`
       : `Clear answer: ${verdictEn}. ${balanceEn}`);
 
-    // ── 2. Чинники «За» (без дослівного дублювання shortMeaning) ─────────────
-    const forMeaning = cleanEnd(ctx.shortMeaningAt(0, lang));
+    // ── 2. Чинники «За» (без дослівного дублювання опису карти) ─────────────
     let forExtraUk = '';
     let forExtraEn = '';
     if (polFor >= 2) {
@@ -744,11 +727,10 @@
     }
 
     items.push(uk
-      ? `Чинники «За»: ${ctx.nameAt(0, 'uk')}${forMeaning ? ' — ' + forMeaning : ''}. ${forExtraUk}`
-      : `Factors for "Yes": ${ctx.nameAt(0, 'en')}${forMeaning ? ' — ' + forMeaning : ''}. ${forExtraEn}`);
+      ? `Чинники «За»: ${ctx.nameAt(0, 'uk')}. ${forExtraUk}`
+      : `Factors for "Yes": ${ctx.nameAt(0, 'en')}. ${forExtraEn}`);
 
     // ── 3. Чинники «Проти» ───────────────────────────────────────────────────
-    const againstMeaning = cleanEnd(ctx.shortMeaningAt(1, lang));
     let againstExtraUk = '';
     let againstExtraEn = '';
     // polAgainst high positive → weak obstacle; low/negative → strong obstacle
@@ -778,11 +760,10 @@
     }
 
     items.push(uk
-      ? `Чинники «Проти»: ${ctx.nameAt(1, 'uk')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${againstExtraUk}`
-      : `Factors against: ${ctx.nameAt(1, 'en')}${againstMeaning ? ' — ' + againstMeaning : ''}. ${againstExtraEn}`);
+      ? `Чинники «Проти»: ${ctx.nameAt(1, 'uk')}. ${againstExtraUk}`
+      : `Factors against: ${ctx.nameAt(1, 'en')}. ${againstExtraEn}`);
 
     // ── 4. Порада / Ключ ─────────────────────────────────────────────────────
-    const keyMeaning = cleanEnd(ctx.shortMeaningAt(2, lang));
     let keyExtraUk = '';
     let keyExtraEn = '';
     if (polKey >= 1) {
@@ -801,8 +782,8 @@
     }
 
     items.push(uk
-      ? `Порада / Ключ: ${ctx.nameAt(2, 'uk')}${keyMeaning ? ' — ' + keyMeaning : ''}. ${keyExtraUk}`
-      : `Advice / Key: ${ctx.nameAt(2, 'en')}${keyMeaning ? ' — ' + keyMeaning : ''}. ${keyExtraEn}`);
+      ? `Порада / Ключ: ${ctx.nameAt(2, 'uk')}. ${keyExtraUk}`
+      : `Advice / Key: ${ctx.nameAt(2, 'en')}. ${keyExtraEn}`);
 
     // ── 5. Знакові комбінації ─────────────────────────────────────────────────
     analyzeCombos(ctx, lang).forEach((c) => items.push(c));

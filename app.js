@@ -1,5 +1,6 @@
 const { createApp, ref, computed, onMounted } = Vue;
 
+window.initDynamicData().then(() => {
 createApp({
     setup() {
         const lang = ref(localStorage.getItem('tarot-lang') || (navigator.language.startsWith('uk') ? 'uk' : 'en'));
@@ -15,7 +16,12 @@ createApp({
         const showResults = ref(false);
         const copySuccess = ref(false);
 
-        // Accessing constants from data.js / cards.js
+        // Question modal
+        const showQuestionModal = ref(false);
+        const pendingSpread = ref(null);
+        const questionInput = ref('');
+
+        // Accessing constants from data.js
         const spreads = ref(spreadsData);
         const cards = ref(allTarotCards);
 
@@ -94,21 +100,6 @@ createApp({
             return spreads.value;
         });
 
-        // backward-compat aliases (home / other places)
-        const categories = catalogFilters;
-        const activeCategory = computed(() => {
-            const f = activeFilter.value;
-            if (f.kind === 'all') return lang.value === 'uk' ? 'Всі' : 'All';
-            const match = catalogFilters.value.find(x => x.kind === f.kind && x.id === f.id);
-            return match ? match.label : (lang.value === 'uk' ? 'Всі' : 'All');
-        });
-        const setCategory = (label) => {
-            const item = catalogFilters.value.find(x => x.label === label);
-            if (item) setCatalogFilter(item);
-            else activeFilter.value = { kind: 'all', id: 'all' };
-        };
-
-
         const quickSpreads = computed(() => {
             return spreads.value.filter(s => s.category === 'Короткі (Швидкі)');
         });
@@ -146,6 +137,7 @@ createApp({
                     const spread = spreads.value.find(s => s.id == id);
                     if (spread) {
                         selectedSpread.value = spread;
+                        if (window.TarotPositions) window.TarotPositions.loadSpread(spread.slug);
                         // Якщо це перше завантаження сторінки з view=reading —
                         // стан гадання не збережено, тому повертаємось на spread-detail
                         if (view === 'reading' && isInitialLoad) {
@@ -183,6 +175,7 @@ createApp({
         };
 
         const openSpread = (spread) => {
+            if(window.TarotPositions) window.TarotPositions.loadSpread(spread.slug);
             selectedSpread.value = spread;
             navigateTo('spread-detail');
         };
@@ -193,17 +186,32 @@ createApp({
         };
 
         const startReading = (spread) => {
+            if(window.TarotPositions) window.TarotPositions.loadSpread(spread.slug);
+            pendingSpread.value = spread;
+            questionInput.value = '';
+            showQuestionModal.value = true;
+        };
+
+        const confirmQuestion = () => {
+            const spread = pendingSpread.value;
+            if (!spread) return;
             selectedSpread.value = spread;
-            const question = prompt(t.value.enterQuestionPrompt);
-            userQuestion.value = question || t.value.generalPrediction;
+            userQuestion.value = questionInput.value.trim() || t.value.generalPrediction;
+            showQuestionModal.value = false;
+            pendingSpread.value = null;
             readingStep.value = 'focus';
             showResults.value = false;
             copySuccess.value = false;
             navigateTo('reading');
-            
             setTimeout(() => {
                 performShuffleAndDeal();
             }, 3000);
+        };
+
+        const cancelQuestion = () => {
+            showQuestionModal.value = false;
+            pendingSpread.value = null;
+            questionInput.value = '';
         };
 
         const performShuffleAndDeal = () => {
@@ -252,17 +260,23 @@ createApp({
             };
         };
 
+        const getCardFullMeaning = (card) => {
+            if (!card) return '';
+            const isUk = lang.value === 'uk';
+            if (isUk) {
+                return (card.reversed ? card.meaning_reversed : card.meaning_upright) || '';
+            }
+            return (card.reversed
+                ? (card.meaning_reversed_en || card.meaning_reversed)
+                : (card.meaning_upright_en || card.meaning_upright)) || '';
+        };
+
         const getCardPositionMeaning = (card, index) => {
             if (!card) return '';
             if (typeof TarotPositions !== 'undefined' && TarotPositions.getPositionMeaning) {
                 return TarotPositions.getPositionMeaning(card, selectedSpread.value, index, lang.value);
             }
-            return (lang.value === 'uk' ? (card.reversed ? card.meaning_reversed : card.meaning_upright) : (card.reversed ? (card.meaning_reversed_en || card.meaning_reversed) : (card.meaning_upright_en || card.meaning_upright))) || '';
-        };
-
-        const getCardFullMeaning = (card) => {
-            if (!card) return '';
-            return (lang.value === 'uk' ? (card.reversed ? card.meaning_reversed : card.meaning_upright) : (card.reversed ? (card.meaning_reversed_en || card.meaning_reversed) : (card.meaning_upright_en || card.meaning_upright))) || '';
+            return getCardFullMeaning(card);
         };
 
         const copyReading = async () => {
@@ -402,11 +416,12 @@ createApp({
 
 
         return {
-            lang, t, currentView, mobileMenuOpen, activeCategory, categories, filteredSpreads, quickSpreads,
+            lang, t, currentView, mobileMenuOpen, filteredSpreads, quickSpreads,
             catalogFilters, activeFilter, activeFilterKey, setCatalogFilter,
             selectedSpread, selectedCard, userQuestion, cards,
             readingStep, readingResult, showResults, copySuccess, readingAnalysis,
-            navigateTo, openSpread, startReading, switchLanguage, setCategory,
+            navigateTo, openSpread, startReading, confirmQuestion, cancelQuestion, switchLanguage,
+            showQuestionModal, questionInput,
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,
             selectedCardIndex, prevCard, nextCard,
@@ -414,3 +429,4 @@ createApp({
         };
     }
 }).mount('#app');
+});

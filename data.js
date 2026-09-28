@@ -1,6 +1,6 @@
 /**
- * data.js — spreads + UI translations only.
- * Card data lives in cards.js (single source of truth).
+ * data.js — spreads + UI translations.
+ * Tarot cards are dynamically loaded from data/cards.json via dynamic_data.js.
  */
 
 const spreadsData = [
@@ -128,17 +128,18 @@ const spreadsData = [
     { 
         id: 25, slug: 'love-triangle', 
         title: 'Кохання (Любовний трикутник)', title_en: 'Love Triangle',
-        cards_count: 3,
+        cards_count: 4,
         query_types: [], category: 'Кохання та Стосунки', category_en: 'Love & Relationships',
-        difficulty: 'Легка', difficulty_en: 'Easy',
+        difficulty: 'Середня', difficulty_en: 'Medium',
         short_description: 'Аналіз динаміки стосунків між трьома людьми або вибір між двома партнерами.', 
         short_description_en: 'Analysis of relationship dynamics between three people or a choice between two partners.',
-        intro_text: 'Складна ситуація в коханні потребує ясності. Три карти висвітлюють приховані мотиви, почуття сторін та допомагають зрозуміти, до чого веде це заплутане коло.',
-        intro_text_en: 'A complex situation in love requires clarity. Three cards highlight hidden motives, feelings of the parties, and help you understand where this tangled circle is leading.',
+        intro_text: 'Складна ситуація в коханні потребує ясності. Чотири карти висвітлюють приховані мотиви, почуття обох сторін та динаміку стосунків між вами, допомагаючи зрозуміти, що насправді відбувається.',
+        intro_text_en: 'A complex situation in love requires clarity. Four cards highlight hidden motives, feelings of both parties, and the dynamics between you, helping understand what is truly happening.',
         positions: [
             { name: 'Ви', name_en: 'You', description: 'Ваша роль і почуття в ситуації', description_en: 'Your role and feelings in the situation' },
             { name: 'Перша особа', name_en: 'First person', description: 'Позиція та мотиви першої сторони', description_en: 'Position and motives of the first party' },
-            { name: 'Друга особа', name_en: 'Second person', description: 'Позиція та мотиви другої сторони', description_en: 'Position and motives of the second party' }
+            { name: 'Друга особа', name_en: 'Second person', description: 'Позиція та мотиви другої сторони', description_en: 'Position and motives of the second party' },
+            { name: 'Динаміка стосунків', name_en: 'Relationship Dynamics', description: 'Що насправді відбувається між вами', description_en: 'What is truly happening between you' }
         ]
     },
 
@@ -580,8 +581,6 @@ const spreadsData = [
     }
 ];
 
-
-// allTarotCards is defined in cards.js (loaded before this file)
 
 const uiTranslations = {
     uk: {
