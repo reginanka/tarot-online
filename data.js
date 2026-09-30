@@ -186,18 +186,18 @@ const spreadsData = [
     // ⚡ Короткі (Швидкі)
     { 
         id: 15, slug: 'three-cards', 
-        title: 'Три карти', title_en: 'Three Cards',
+        title: 'Три карти: Минуле, Теперішнє, Майбутнє', title_en: 'Three Cards: Past, Present, Future',
         cards_count: 3,
         query_types: [], category: 'Короткі (Швидкі)', category_en: 'Quick Reads',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Класичний швидкий розклад: минуле, теперішнє, майбутнє.', 
-        short_description_en: 'Classic quick spread: past, present, future.',
-        intro_text: 'Три карти дають чітку часову лінію розвитку ситуації. Ідеально, коли потрібна швидка відповідь без зайвої складності.',
-        intro_text_en: 'Three cards give a clear timeline of the situation. Ideal when you need a quick answer without extra complexity.',
+        short_description: 'Коли треба швидко розібратися, що відбувається і що робити далі.', 
+        short_description_en: 'When you need to quickly understand what is happening and what to do next.',
+        intro_text: 'Буває так, що ситуация здається заплутаною, емоції зашкалюють і ти не знаєш, за що хапатися. Цей класичний розклад — твій швидкий психологічний рентген. Замість довгих роздумів він розкладає будь-яку твою проблему (в стосунках, роботі, грошах) по поличках усього за три кроки.\n\nДля чого він підходить ідеально:\n• Коли треба прийняти термінове рішення, а в голові каша.\n• Коли стосунки або справа зайшли у глухий кут і треба зрозуміти, чому так сталося.\n• Коли хочеться дізнатися: «А що буде далі, якщо я вчиню саме так?».',
+        intro_text_en: 'Sometimes a situation seems so confusing, emotions run high, and you don\'t know where to start. This classic spread is your quick psychological X-ray. Instead of long hesitation, it puts any of your problems (in relationships, work, or money) into perspective in just three steps.\n\nPerfect for:\n• When you need to make an urgent decision but your head is spinning.\n• When a relationship or business is at a dead end and you need to understand why.\n• When you want to know: "What will happen next if I act this way?".',
         positions: [
-            { name: 'Минуле', name_en: 'Past', description: 'Що вже вплинуло на ситуацію', description_en: 'What has already influenced the situation' },
-            { name: 'Теперішнє', name_en: 'Present', description: 'Поточний стан справ', description_en: 'Current state of affairs' },
-            { name: 'Майбутнє', name_en: 'Future', description: 'Ймовірний розвиток подій', description_en: 'Likely development of events' }
+            { name: 'Звідки ростуть ноги? (Минуле)', name_en: 'Where do the roots lie? (Past)', description: 'Показує першопричину твоїх теперішніх обставин та корінь проблеми.', description_en: 'Shows the root cause of your current circumstances and the root of the problem.' },
+            { name: 'Що відбувається насправді? (Теперішнє)', name_en: 'What is happening now? (Present)', description: 'Реальна картина без ілюзій, паніки чи рожевих окулярів.', description_en: 'The real picture without illusions, panic, or rose-colored glasses.' },
+            { name: 'Куди все котиться? (Майбутнє)', name_en: 'Where is everything rolling? (Future)', description: 'Найімовірніший фінал ситуації, якщо ти залишиш усе, як є.', description_en: 'The most likely outcome of the situation if you leave everything as it is.' }
         ]
     },
     { 
@@ -206,14 +206,29 @@ const spreadsData = [
         cards_count: 3,
         query_types: ['yesno'], category: 'Короткі (Швидкі)', category_en: 'Quick Reads',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Конкретна відповідь на конкретне питання через аналіз сприятливих та заважаючих факторів.', 
-        short_description_en: 'A specific answer to a specific question through the analysis of favorable and hindering factors.',
-        intro_text: 'Коли вам потрібне чітке "так" або "ні", цей розклад допоможе зважити сили за і проти. Третя карта виступає порадою або вказує на вирішальний фактор.',
-        intro_text_en: 'When you need a clear "yes" or "no", this spread helps you weigh the pros and cons. The third card acts as advice or indicates a decisive factor.',
+        short_description: 'Короткий і точний аналіз сил, коли потрібно прийняти рішення або дізнатися перспективи справи.', 
+        short_description_en: 'A quick and accurate analysis of forces when you need to make a decision or discover the outlook of a matter.',
+        intro_text: 'Цей розклад створений для конкретних питань, які потребують чіткої та швидкої відповіді. Замість довгих роздумів система аналізує вагу кожної випалої карти, зіставляє чинники «За» і «Проти» та виводить підсумковий вердикт — від помірного сумніву до впевненого «Так» чи «Ні» з точним математичним розрахунком сил.',
+        intro_text_en: 'This spread is designed for specific questions that require a clear, direct, and fast answer. Instead of long hesitation, the system analyzes the weight of each card, balances the "For" and "Against" factors, and delivers a final verdict — ranging from cautious doubt to a definitive "Yes" or "No", backed by a precise mathematical calculation of forces.',
         positions: [
-            { name: 'За (Так)', name_en: 'For (Yes)', description: 'Фактори на користь позитивної відповіді', description_en: 'Factors in favor of a positive answer' },
-            { name: 'Проти (Ні)', name_en: 'Against (No)', description: 'Фактори, що вказують на негативну відповідь', description_en: 'Factors pointing to a negative answer' },
-            { name: 'Порада / Ключ', name_en: 'Advice / Key', description: 'Вирішальний фактор або рекомендація', description_en: 'Decisive factor or recommendation' }
+            { 
+                name: 'За (Так)', 
+                name_en: 'For (Yes)', 
+                description: 'Енергії, обставини та сили, що працюють на вашу користь. Це ваші головні козирі, зелене світло від Всесвіту та приховані ресурси для досягнення мети.', 
+                description_en: 'Energies, circumstances, and strengths working in your favor. These are your main assets, a green light from the Universe, and hidden resources to achieve your goal.' 
+            },
+            { 
+                name: 'Проти (Ні)', 
+                name_en: 'Against (No)', 
+                description: 'Перешкоди, внутрішні блоки або зовнішні обставини, які ускладнюють шлях. Те, що заважає розвитку, застерігає від поспіху або потребує особливої уваги.', 
+                description_en: 'Obstacles, internal blocks, or external circumstances that complicate your path. What hinders progress, cautions against haste, or demands special attention.' 
+            },
+            { 
+                name: 'Порада / Ключ', 
+                name_en: 'Advice / Key', 
+                description: 'Фінальний орієнтир та рекомендація Таро. Стратегія чи спосіб дій, які допоможуть вам вийти на найкращий сценарій розвитку подій та обернути ситуацію на свою користь.', 
+                description_en: 'The final guidance and Tarot recommendation. The strategy or course of action that will help you unlock the best possible scenario and turn the situation to your advantage.' 
+            }
         ]
     },
     { 
@@ -223,9 +238,9 @@ const spreadsData = [
         query_types: ['forecast'], category: 'Короткі (Швидкі)', category_en: 'Quick Reads',
         difficulty: 'Легка', difficulty_en: 'Easy',
         short_description: 'Розклад дня, що допомагає сфокусуватися на головному та уникнути помилок.', 
-        short_description_en: 'Daily layout helping you focus on the essentials and avoid mistakes.',
+        short_description_en: 'A daily spread that helps you focus on what matters most and avoid mistakes.',
         intro_text: 'Цей розклад — ваш особистий навігатор на день. Він показує основну енергію дня, можливі перешкоди та те, де сьогодні варто шукати ресурс.',
-        intro_text_en: 'This spread is your personal navigator for the day. It shows the main energy of the day, potential obstacles, and where you should look for resources today.',
+        intro_text_en: 'This spread is your personal daily navigator. It shows the main energy of the day, potential obstacles, and where to look for resources today.',
         positions: [
             { name: 'Енергія дня', name_en: 'Day Energy', description: 'Головна тема та настрій дня', description_en: 'Main theme and mood of the day' },
             { name: 'Перешкода', name_en: 'Obstacle', description: 'Що може завадити сьогодні', description_en: 'What may hinder you today' },
@@ -300,14 +315,29 @@ const spreadsData = [
         cards_count: 3,
         query_types: ['forecast'], category: 'Прогнози', category_en: 'Forecasts',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Особливий розклад для переходу в новий особистий рік: підсумок та перспектива.', 
-        short_description_en: 'A special spread for the transition into a new personal year: summary and perspective.',
-        intro_text: 'День народження — це точка сили. Цей розклад допоможе відпустити минулий досвід, визначити вашу головну енергію зараз та побачити вектор розвитку на майбутнє.',
-        intro_text_en: 'A birthday is a point of power. This spread helps you release past experiences, define your main energy now, and see the vector of development for the future.',
+        short_description: 'Підсумки минулого року та орієнтири на новий. Найкраще робити саме у день народження для чесного аналізу.', 
+        short_description_en: 'Reflect on the past year and set bearings for the new one. Best done on your birthday for deep personal analysis.',
+        intro_text: 'Цей розклад створений для дня народження, коли ви переходите у свій новий рік. Він допомагає підбити чесні підсумки минулого року, переосмислити прожитий досвід, відчути свою точку опори і свідомо обрати напрямок на наступні 12 місяців.',
+        intro_text_en: 'This spread is designed for your birthday as you transition into your new personal year. It helps you honestly reflect on the past year, re-evaluate lived experiences, find your inner grounding, and consciously choose your direction for the next 12 months.',
         positions: [
-            { name: 'Минуле', name_en: 'Past', description: 'Уроки та досвід минулого року', description_en: 'Lessons and experience of the past year' },
-            { name: 'Енергія', name_en: 'Energy', description: 'Головна сила вашого нового року', description_en: 'Main force of your new year' },
-            { name: 'Майбутнє', name_en: 'Future', description: 'Вектор розвитку на рік вперед', description_en: 'Development vector for the year ahead' }
+            { 
+                name: 'Уроки минулого року', 
+                name_en: 'Lessons of the Past Year', 
+                description: 'Головний досвід і висновки за минулий рік: яку мудрість варто взяти із собою, а що назавжди відпустити.', 
+                description_en: 'Key experiences and takeaways from the past year: what wisdom to carry forward and what to leave behind.' 
+            },
+            { 
+                name: 'Головна енергія року', 
+                name_en: 'Core Energy of the Year', 
+                description: 'Ваша внутрішня сила та опора в теперішньому моменті: ресурс, який буде найактивнішим у новому році.', 
+                description_en: 'Your inner strength and grounding in the present moment: the key resource that will empower you in the new year.' 
+            },
+            { 
+                name: 'Вектор розвитку', 
+                name_en: 'Development Vector', 
+                description: 'Головний фокус, ключові можливості та сфера життя, куди варто спрямувати увагу в наступні 12 місяців.', 
+                description_en: 'Main focus, key opportunities, and the life area where you should direct your attention over the next 12 months.' 
+            }
         ]
     },
 
@@ -353,18 +383,33 @@ const spreadsData = [
     },
     { 
         id: 24, slug: 'mind-body-spirit', 
-        title: 'Розум-Тіло-Дух', title_en: 'Mind-Body-Spirit',
+        title: 'Розум, Тіло, Дух', title_en: 'Mind, Body, Spirit',
         cards_count: 3,
         query_types: [], category: 'Духовність та Здоров\'я', category_en: 'Spirituality & Health',
         difficulty: 'Легка', difficulty_en: 'Easy',
-        short_description: 'Швидкий огляд балансу розуму, тіла та духу.', 
-        short_description_en: 'Quick overview of the balance of mind, body and spirit.',
-        intro_text: 'Три карти показують стан трьох ключових рівнів вашого буття. Допомагає зрозуміти, де потрібна увага для відновлення гармонії.',
-        intro_text_en: 'Three cards show the state of three key levels of your being. Helps understand where attention is needed to restore harmony.',
+        short_description: 'Чек-ап при втомі та вигоранні: експрес-діагностика ментального стану, фізичних сил і внутрішнього ресурсу.', 
+        short_description_en: 'Quick check-up for burnout and fatigue: diagnose your mental state, physical energy, and inner balance.',
+        intro_text: 'Коли накочує втома, а в голові забагато думок, важливо вчасно зупинитися й перевірити свій стан. Цей розклад працює як швидка діагностика: всього три карти допоможуть зазирнути всередину себе, виявити джерела внутрішнього дисбалансу та зрозуміти, яка саме сфера зараз найбільше потребує відпочинку, перезавантаження чи підтримки.\n\nКоли розклад буде особливо корисним:\n• У моменти емоційного вигорання, затяжної втоми чи апатії;\n• Коли відчуваєте, що втратили орієнтири й рухаєтесь суто «на автопілоті»;\n• Як регулярний щотижневий чек-ін для підтримки контакту з собою.',
+        intro_text_en: 'When fatigue sets in and your mind feels cluttered, it is essential to pause and check in with yourself. This spread serves as a swift personal diagnosis: three cards help uncover internal imbalances and identify which area of your life needs rest, a reset, or extra care.\n\nWhen this reading is most helpful:\n• During emotional burnout, lingering fatigue, or apathy;\n• When you feel like you are moving on "autopilot" and lost your spark;\n• As a regular weekly check-in to stay attuned to your inner well-being.',
         positions: [
-            { name: 'Розум', name_en: 'Mind', description: 'Думки, фокус і ментальний стан', description_en: 'Thoughts, focus and mental state' },
-            { name: 'Тіло', name_en: 'Body', description: 'Фізичний стан і енергія тіла', description_en: 'Physical state and body energy' },
-            { name: 'Дух', name_en: 'Spirit', description: 'Духовний стан і зв\'язок із сенсом', description_en: 'Spiritual state and connection to meaning' }
+            { 
+                name: 'Розум (Ментальний стан)', 
+                name_en: 'Mind (Mental State)', 
+                description: 'Що відбувається в голові: рівень фонового стресу, нав\'язливі думки, тривожність та ментальне перевантаження, які заважають зосередитися.', 
+                description_en: 'What is happening in your head: background stress, racing thoughts, anxiety, and mental overload hindering your focus.' 
+            },
+            { 
+                name: 'Тіло (Фізична енергія)', 
+                name_en: 'Body (Physical Energy)', 
+                description: 'Реальний запас сил організму: сигналізує про фізичне виснаження та потребу в паузі або підтверджує наявність ресурсу для активних дій.', 
+                description_en: 'Your body\'s actual energy reserve: flags physical exhaustion and the need for rest, or confirms strength for active steps.' 
+            },
+            { 
+                name: 'Дух (Внутрішній стан)', 
+                name_en: 'Spirit (Inner State)', 
+                description: 'Зв\'язок із сенсами та бажаннями: чи відчуваєте ви натхнення та радість, чи тимчасово втратили орієнтир і дієте за інерцією.', 
+                description_en: 'Connection with your purpose and joy: whether you feel genuine inspiration, or are operating on momentum without inner spark.' 
+            }
         ]
     },
     { 

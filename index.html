@@ -73,13 +73,13 @@
     <nav class="fixed w-full z-50 glass-panel border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center cursor-pointer" @click="navigateTo('home')">
+                <a href="#" @click.prevent="navigateTo('home')" class="flex items-center cursor-pointer">
                     <i class="fa-solid fa-moon text-tarot-gold text-2xl mr-2"></i>
                     <span class="font-serif text-2xl font-bold text-white tracking-wider">TARO.ONLINE</span>
-                </div>
+                </a>
                 <div class="hidden md:flex items-center">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a @click="navigateTo('catalog')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navSpreads }}</a>
+                        <a href="#view=catalog" @click.prevent="navigateTo('catalog')" class="hover:text-tarot-gold px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors">{{ t.navSpreads }}</a>
                     </div>
                     
                     <!-- Language Switcher -->
@@ -109,7 +109,7 @@
         <!-- Mobile Menu -->
         <div v-if="mobileMenuOpen" class="md:hidden bg-tarot-dark border-b border-white/10">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a @click="navigateTo('catalog'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navSpreads }}</a>
+                <a href="#view=catalog" @click.prevent="navigateTo('catalog'); mobileMenuOpen = false" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">{{ t.navSpreads }}</a>
             </div>
         </div>
     </nav>
@@ -132,9 +132,9 @@
                             <span class="text-tarot-gold block">{{ t.heroBadge2 }}</span>
                         </p>
                         <div class="mt-10 flex justify-center gap-4">
-                            <button @click="navigateTo('catalog')" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-tarot-dark bg-tarot-gold hover:bg-yellow-400 md:py-4 md:text-lg md:px-10 transition-all shadow-lg shadow-yellow-500/20">
+                            <a href="#view=catalog" @click.prevent="navigateTo('catalog')" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-tarot-dark bg-tarot-gold hover:bg-yellow-400 md:py-4 md:text-lg md:px-10 transition-all shadow-lg shadow-yellow-500/20 flex items-center justify-center">
                                 {{ t.btnSelectSpread }}
-                            </button>
+                            </a>
                             <button @click="scrollToSection('how-it-works')" class="px-8 py-3 border border-gray-500 text-base font-medium rounded-md text-gray-300 hover:bg-white/10 md:py-4 md:text-lg md:px-10 transition-all">
                                 {{ t.btnHowItWorks }}
                             </button>
@@ -150,9 +150,10 @@
                             <p class="text-gray-400">{{ t.popularDesc }}</p>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div v-for="spread in quickSpreads" :key="spread.id" 
-                                 @click="openSpread(spread)"
-                                 class="glass-panel p-6 rounded-2xl hover:border-tarot-gold/50 hover:shadow-xl hover:shadow-yellow-500/5 transition-all group cursor-pointer border border-white/5">
+                            <a v-for="spread in quickSpreads" :key="spread.id" 
+                                 :href="'#view=spread-detail&id=' + spread.id"
+                                 @click.prevent="openSpread(spread)"
+                                 class="glass-panel p-6 rounded-2xl hover:border-tarot-gold/50 hover:shadow-xl hover:shadow-yellow-500/5 transition-all group cursor-pointer border border-white/5 block">
 
                                 <h3 class="text-xl font-bold text-white mb-3 group-hover:text-tarot-gold transition-colors">
                                     {{ lang === 'uk' ? spread.title : spread.title_en }}
@@ -166,7 +167,7 @@
                                         {{ t.tryIt }} <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i>
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -231,7 +232,7 @@
 
                 <!-- Grid -->
                 <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div v-for="spread in filteredSpreads" :key="spread.id" class="glass-panel rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all group cursor-pointer" @click="openSpread(spread)">
+                    <a v-for="spread in filteredSpreads" :key="spread.id" :href="'#view=spread-detail&id=' + spread.id" @click.prevent="openSpread(spread)" class="glass-panel rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all group cursor-pointer block">
                         <div class="h-40 bg-gradient-to-br from-tarot-purple to-tarot-dark flex items-center justify-center relative overflow-hidden">
                             <div class="absolute inset-0 bg-[url('https://cdn.jsdelivr.net/gh/reginanka/tarot-cards@main/cards/card-back.webp')] opacity-20 bg-cover"></div>
                             <i class="fa-solid fa-star text-5xl text-white/10 group-hover:scale-110 transition-transform duration-500"></i>
@@ -253,15 +254,15 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <!-- SPREAD DETAIL VIEW -->
             <div v-else-if="currentView === 'spread-detail'" key="spread-detail" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <button @click="navigateTo('catalog')" class="mb-6 text-gray-400 hover:text-white flex items-center">
+                <a href="#view=catalog" @click.prevent="navigateTo('catalog')" class="mb-6 text-gray-400 hover:text-white inline-flex items-center">
                     <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.backToCatalog }}
-                </button>
+                </a>
                 
                 <div v-if="selectedSpread" class="glass-panel rounded-2xl p-8 md:p-12">
                     <div class="text-center mb-10">
@@ -280,7 +281,7 @@
                         <div class="md:col-span-2 space-y-6">
                             <div>
                                 <h3 class="text-2xl font-serif font-bold text-white mb-4">{{ t.aboutSpread }}</h3>
-                                <p class="text-gray-300 leading-relaxed">
+                                <p class="text-gray-300 leading-relaxed whitespace-pre-line">
                                     {{ lang === 'uk' ? selectedSpread.intro_text : (selectedSpread.intro_text_en || selectedSpread.intro_text) }}
                                 </p>
                             </div>
@@ -413,22 +414,74 @@
                                 </div>
                             </div>
                             
-                            <!-- Automated Synthesis Block -->
-                            <div v-if="readingAnalysis && readingAnalysis.items && readingAnalysis.items.length"
-                                 class="mt-8 mb-8 p-5 rounded-xl border border-tarot-gold/20 bg-white/5">
-                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <i class="fa-solid fa-sparkles text-tarot-gold text-sm"></i>
-                                    {{ lang === 'uk' ? 'Синтез розкладу' : 'Spread Synthesis' }}
-                                </h4>
-                                <ul class="space-y-3.5">
-                                    <li v-for="(item, i) in readingAnalysis.items" :key="'syn-'+i"
-                                        class="text-gray-300 text-sm sm:text-base leading-relaxed flex items-start gap-2">
-                                        <span class="text-tarot-gold mt-1 shrink-0">•</span>
-                                        <span class="whitespace-pre-line flex-1">{{ item }}</span>
-                                    </li>
-                                </ul>
-                                <div class="mt-5 pt-4 border-t border-white/10 flex items-start gap-2.5 text-xs text-gray-400 leading-relaxed">
-                                    <i class="fa-solid fa-circle-info text-tarot-gold/70 mt-0.5 shrink-0 text-xs"></i>
+                            <!-- Premium Editorial Synthesis Block -->
+                            <div v-if="readingAnalysis && (readingAnalysis.lead || (readingAnalysis.items && readingAnalysis.items.length))"
+                                 class="mt-10 mb-8 p-6 sm:p-8 rounded-2xl glass-panel border border-tarot-gold/25 relative overflow-hidden animate-slide-up">
+                                
+                                <!-- Minimalist luxury header -->
+                                <div class="flex items-center gap-2.5 pb-4 mb-6 border-b border-white/10">
+                                    <span class="text-tarot-gold text-sm tracking-widest uppercase font-serif flex items-center gap-2">
+                                        <span class="text-base text-tarot-gold/80">✦</span>
+                                        <span class="font-semibold text-white tracking-wider text-base sm:text-lg">
+                                            {{ lang === 'uk' ? 'Синтез розкладу' : 'Spread Synthesis' }}
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <!-- Special highlighted Verdict for Yes/No spreads -->
+                                <div v-if="readingAnalysis.yesNo" 
+                                     :class="getVerdictClass(readingAnalysis.yesNo.verdict).bg"
+                                     class="mb-6 p-5 rounded-xl border bg-gradient-to-r text-center shadow-lg transition-all duration-300">
+                                    <div class="text-xs uppercase tracking-widest text-tarot-gold/85 mb-1.5 font-bold">
+                                        {{ lang === 'uk' ? 'Підсумковий вердикт' : 'Final Verdict' }}
+                                    </div>
+                                    <div :class="getVerdictClass(readingAnalysis.yesNo.verdict).text"
+                                         class="text-2xl sm:text-3xl font-serif font-bold drop-shadow-sm mb-2 flex items-center justify-center gap-2">
+                                         <i :class="getVerdictClass(readingAnalysis.yesNo.verdict).icon"></i>
+                                         <span>{{ readingAnalysis.yesNo.verdict }}</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-lg mx-auto">
+                                        {{ readingAnalysis.yesNo.balance }}
+                                    </div>
+                                </div>
+
+                                <!-- Lead / Essence Paragraph (High legibility, upright, clean contrast) -->
+                                <div v-if="readingAnalysis.lead" class="text-base sm:text-[17px] text-white font-sans font-normal leading-relaxed border-l-2 border-tarot-gold pl-4 py-2.5 my-5 bg-white/[0.03] rounded-r-xl">
+                                    {{ readingAnalysis.lead }}
+                                </div>
+
+                                <!-- Additional Editorial Sections (Interplay, Elemental balance, Dynamics) -->
+                                <div v-if="readingAnalysis.sections && readingAnalysis.sections.length" class="space-y-4 my-6">
+                                    <div v-for="(sec, idx) in readingAnalysis.sections" :key="'sec-'+idx" class="text-sm sm:text-base text-gray-200 leading-relaxed border-t border-white/5 pt-4">
+                                        <div v-if="sec.title" class="font-bold text-tarot-gold text-xs uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                                            <span class="text-[9px] text-tarot-gold/80">✦</span>
+                                            <span>{{ sec.title }}</span>
+                                        </div>
+                                        <p class="text-gray-200 leading-relaxed font-sans">{{ sec.body }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Fallback if not structured into lead/sections -->
+                                <div v-else-if="!readingAnalysis.lead && readingAnalysis.items && readingAnalysis.items.length" class="space-y-4 my-6">
+                                    <div v-for="(item, idx) in readingAnalysis.items" :key="'it-'+idx" class="text-sm sm:text-base text-gray-200 leading-relaxed border-t border-white/5 pt-3 first:border-0 first:pt-0 font-sans">
+                                        {{ item }}
+                                    </div>
+                                </div>
+
+                                <!-- Key Guidance / Core Takeaway Callout -->
+                                <div v-if="readingAnalysis.guidance" class="mt-6 p-4 sm:p-5 rounded-xl bg-amber-500/[0.07] border-l-2 border-tarot-gold text-gray-200">
+                                    <div class="text-xs uppercase tracking-wider text-tarot-gold font-bold mb-1.5 flex items-center gap-2">
+                                        <span class="text-[10px]">✦</span>
+                                        <span>{{ lang === 'uk' ? 'Напуття та орієнтир' : 'Core Guidance & Focus' }}</span>
+                                    </div>
+                                    <p class="text-sm sm:text-base text-white leading-relaxed font-sans">
+                                        {{ readingAnalysis.guidance }}
+                                    </p>
+                                </div>
+
+                                <!-- Disclaimer Footer -->
+                                <div class="mt-6 pt-4 border-t border-white/10 flex items-start gap-2.5 text-xs text-gray-400 leading-relaxed">
+                                    <i class="fa-solid fa-circle-info text-tarot-gold/80 mt-0.5 shrink-0 text-xs"></i>
                                     <span>{{ t.synthesisDisclaimer }}</span>
                                 </div>
                             </div>
@@ -458,9 +511,9 @@
                             {{ line }}
                         </p>
                     </div>
-                    <button @click="navigateTo('home')" class="mt-12 text-tarot-gold flex items-center hover:underline">
+                    <a href="#" @click.prevent="navigateTo('home')" class="mt-12 text-tarot-gold inline-flex items-center hover:underline">
                         <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -473,9 +526,9 @@
                             {{ line }}
                         </p>
                     </div>
-                    <button @click="navigateTo('home')" class="mt-12 text-tarot-gold flex items-center hover:underline">
+                    <a href="#" @click.prevent="navigateTo('home')" class="mt-12 text-tarot-gold inline-flex items-center hover:underline">
                         <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -523,9 +576,9 @@
                     </div>
                 </template>
 
-                <button @click="navigateTo('home')" class="mt-4 text-tarot-gold flex items-center hover:underline">
+                <a href="#" @click.prevent="navigateTo('home')" class="mt-4 text-tarot-gold inline-flex items-center hover:underline">
                     <i class="fa-solid fa-arrow-left mr-2"></i> {{ t.navHome }}
-                </button>
+                </a>
             </div>
         </transition>
     </main>
@@ -633,16 +686,16 @@
                 <div>
                     <h4 class="text-white font-bold mb-4">{{ t.footerNav }}</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a @click="navigateTo('home')" class="hover:text-tarot-gold cursor-pointer">{{ t.navHome }}</a></li>
-                        <li><a @click="navigateTo('catalog')" class="hover:text-tarot-gold cursor-pointer">{{ t.navSpreads }}</a></li>
-                        <li><a @click="navigateTo('cards')" class="hover:text-tarot-gold cursor-pointer">{{ t.navCards }}</a></li>
+                        <li><a href="#" @click.prevent="navigateTo('home')" class="hover:text-tarot-gold cursor-pointer">{{ t.navHome }}</a></li>
+                        <li><a href="#view=catalog" @click.prevent="navigateTo('catalog')" class="hover:text-tarot-gold cursor-pointer">{{ t.navSpreads }}</a></li>
+                        <li><a href="#view=cards" @click.prevent="navigateTo('cards')" class="hover:text-tarot-gold cursor-pointer">{{ t.navCards }}</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4">{{ t.footerInfo }}</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a @click="navigateTo('privacy')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.privacy }}</a></li>
-                        <li><a @click="navigateTo('terms')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.terms }}</a></li>
+                        <li><a href="#view=privacy" @click.prevent="navigateTo('privacy')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.privacy }}</a></li>
+                        <li><a href="#view=terms" @click.prevent="navigateTo('terms')" class="hover:text-tarot-gold cursor-pointer transition-colors">{{ t.terms }}</a></li>
                     </ul>
                 </div>
                 <div>

@@ -279,6 +279,38 @@ createApp({
             return getCardFullMeaning(card);
         };
 
+        const getVerdictClass = (verdict) => {
+            if (!verdict) return { icon: 'fa-solid fa-circle-info', bg: 'from-blue-900/20 to-indigo-900/20 border-blue-500/20', text: 'text-blue-400' };
+            const v = verdict.toLowerCase();
+            if (v.startsWith('чітке так') || v.startsWith('clear yes')) {
+                return { icon: 'fa-solid fa-circle-check', bg: 'from-emerald-950/40 to-green-900/20 border-emerald-500/30 shadow-emerald-900/10', text: 'text-emerald-400' };
+            }
+            if (v.includes('так') || v.includes('yes')) {
+                return { icon: 'fa-solid fa-circle-check', bg: 'from-amber-950/30 to-yellow-900/10 border-amber-500/20 shadow-amber-900/5', text: 'text-amber-400' };
+            }
+            if (v.startsWith('чітке ні') || v.startsWith('clear no')) {
+                return { icon: 'fa-solid fa-circle-xmark', bg: 'from-rose-950/40 to-red-900/20 border-rose-500/30 shadow-rose-900/10', text: 'text-rose-400' };
+            }
+            if (v.includes('ні') || v.includes('no')) {
+                return { icon: 'fa-solid fa-circle-xmark', bg: 'from-orange-950/30 to-amber-950/10 border-orange-500/20 shadow-orange-900/5', text: 'text-orange-400' };
+            }
+            return { icon: 'fa-solid fa-scale-balanced', bg: 'from-blue-950/30 to-indigo-950/10 border-blue-500/20 shadow-blue-900/5', text: 'text-sky-400' };
+        };
+
+        const formatSynthesisItem = (text) => {
+            if (!text) return { label: '', body: '', isAdvice: false };
+
+            const colonIdx = text.indexOf(':');
+            if (colonIdx > 1 && colonIdx < 60) {
+                const label = text.slice(0, colonIdx).trim();
+                const body = text.slice(colonIdx + 1).trim();
+                const lower = label.toLowerCase();
+                const isAdvice = lower.includes('орієнтир') || lower.includes('порада') || lower.includes('ключ') || lower.includes('фокус') || lower.includes('напуття') || lower.includes('guidance') || lower.includes('advice');
+                return { label, body, isAdvice };
+            }
+            return { label: '', body: text, isAdvice: false };
+        };
+
         const copyReading = async () => {
             const l = lang.value;
             const spreadTitle = l === 'uk' ? selectedSpread.value.title : selectedSpread.value.title_en;
@@ -295,15 +327,25 @@ createApp({
 
             let analysisBlock = '';
             const analysis = readingAnalysis.value;
-            if (analysis && analysis.items && analysis.items.length) {
-                const title = l === 'uk' ? 'Синтез розкладу' : 'Spread synthesis';
-                const itemsText = analysis.items.map(p => {
-                    if (p.includes('\n')) {
-                        return '• ' + p.split('\n').join('\n  ');
-                    }
-                    return '• ' + p;
-                }).join('\n');
-                analysisBlock = `\n\n${title}:\n${itemsText}`;
+            if (analysis && (analysis.lead || (analysis.items && analysis.items.length))) {
+                const title = l === 'uk' ? 'СИНТЕЗ РОЗКЛАДУ' : 'SPREAD SYNTHESIS';
+                const parts = [];
+                if (analysis.lead) {
+                    parts.push(analysis.lead);
+                }
+                if (analysis.sections && analysis.sections.length) {
+                    analysis.sections.forEach(s => {
+                        if (s.title) parts.push(`• ${s.title}: ${s.body}`);
+                        else parts.push(`• ${s.body}`);
+                    });
+                } else if (analysis.items && analysis.items.length) {
+                    analysis.items.forEach(it => parts.push(`• ${it}`));
+                }
+                if (analysis.guidance) {
+                    const guideLabel = l === 'uk' ? 'Напуття та орієнтир' : 'Guidance';
+                    parts.push(`✦ ${guideLabel}: ${analysis.guidance}`);
+                }
+                analysisBlock = `\n\n🔮 ${title}:\n\n${parts.join('\n\n')}`;
             }
 
             const text = `🔮 ${resultText.toUpperCase()} 🔮\n\n${t.value.navSpreads}: ${spreadTitle}\n${questionLabel}: ${userQuestion.value}\n\n${cardLines}${analysisBlock}`;
@@ -425,7 +467,8 @@ createApp({
             copyReading, startNewReading, scrollToSection, copyAndGoToAI,
             getCardWord, openCard, closeCard,
             selectedCardIndex, prevCard, nextCard,
-            expandedCards, toggleCardDetails, getCardPositionMeaning, getCardFullMeaning
+            expandedCards, toggleCardDetails, getCardPositionMeaning, getCardFullMeaning, getVerdictClass,
+            formatSynthesisItem
         };
     }
 }).mount('#app');

@@ -1,0 +1,2498 @@
+{
+  "m00": {
+    "1": {
+      "upright": {
+        "ua": "Розум відкритий до нових ідей та ідеалів, але є ризик відсутності чіткого плану чи розсіяності думок.",
+        "en": "The mind is open to new ideas, but there is a risk of a lack of a clear plan or scattered thoughts."
+      },
+      "reversed": {
+        "ua": "Ментальний хаос, необдумані рішення через втому або страх перед невідомим.",
+        "en": "Mental chaos, hasty decisions due to fatigue or fear of the unknown."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує легких та спонтанних активностей, перезавантаження та відмови від жорстких рамок.",
+        "en": "The body needs light and spontaneous activities, resetting, and abandoning rigid structures."
+      },
+      "reversed": {
+        "ua": "Фізична необачність, ігнорування сигналів тіла, ризик травм чи фізичного виснаження.",
+        "en": "Physical carelessness, ignoring body signals, risk of injury or physical exhaustion."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Чистий внутрішній ресурс, готовність розпочати новий духовний етап з чистого аркуша.",
+        "en": "Pure inner resource, readiness to start a new spiritual phase with a clean slate."
+      },
+      "reversed": {
+        "ua": "Втрата орієнтирів, відчуття безцільності та духовного глухого кута.",
+        "en": "Loss of direction, feeling aimless and at a spiritual dead end."
+      }
+    }
+  },
+  "m01": {
+    "1": {
+      "upright": {
+        "ua": "Висока концентрація, здатність систематизувати думки та знайти вихід із будь-якої ментальної плутанини.",
+        "en": "High concentration, ability to structure thoughts and find a way out of any mental confusion."
+      },
+      "reversed": {
+        "ua": "Перевантаження інформацією, інтелектуальне виснаження, спроби маніпулювати власним ресурсом.",
+        "en": "Information overload, intellectual exhaustion, attempts to manipulate one's own resource."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло має достатньо ресурсів для дій; сприятливий час для активного відновлення й самопочуття.",
+        "en": "The body has enough resources to act; favorable time for active recovery and well-being."
+      },
+      "reversed": {
+        "ua": "Брак фізичної енергії, блокування життєвих сил через внутрішнє напруження.",
+        "en": "Lack of physical energy, blocking vital forces due to internal tension."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Сильний вольовий імпульс, відчуття внутрішнього потенціалу та здатності творити свою реальність.",
+        "en": "Strong volitional impulse, feeling of inner potential and ability to shape your reality."
+      },
+      "reversed": {
+        "ua": "Сумніви у власних силах, зневіра у своєму покликанні, розтрата духовного ресурсу.",
+        "en": "Self-doubt, disbelief in your calling, wasting spiritual energy."
+      }
+    }
+  },
+  "m02": {
+    "1": {
+      "upright": {
+        "ua": "Глибокий ментальний спокій, потреба в тиші, об'єктивний аналіз без зайвих емоцій.",
+        "en": "Deep mental calm, need for silence, objective analysis without unnecessary emotions."
+      },
+      "reversed": {
+        "ua": "Шум у голові, ігнорування очевидних фактів, інформаційне перенасичення.",
+        "en": "Mental noise, ignoring obvious facts, information overload."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Організм вимагає пасивного відпочинку, повноцінного сну та дбайливого ставлення до потреб тіла.",
+        "en": "The body requires passive rest, quality sleep, and attentive care for physical needs."
+      },
+      "reversed": {
+        "ua": "Ігнорування фізичної втоми, приховані симптоми недомагання через ігнорування потреб тіла.",
+        "en": "Ignoring physical fatigue, hidden symptoms of discomfort due to neglecting body needs."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Сильна інтуїція, глибокий зв'язок із підсвідомістю та внутрішня мудрість.",
+        "en": "Strong intuition, deep connection with the subconscious, and inner wisdom."
+      },
+      "reversed": {
+        "ua": "Втрата контакту з внутрішнім голосом, підсвідомі тривоги та емоційне закриття.",
+        "en": "Loss of contact with the inner voice, subconscious anxiety, and emotional withdrawal."
+      }
+    }
+  },
+  "m03": {
+    "1": {
+      "upright": {
+        "ua": "Творчі думки, натхнення, продуктивні ідеї для облаштування комфортного життя.",
+        "en": "Creative thoughts, inspiration, productive ideas for organizing a comfortable life."
+      },
+      "reversed": {
+        "ua": "Ментальний блок, заклицистість на побутових дрібницях або нездійсненних планах.",
+        "en": "Mental block, fixation on everyday trifles or unrealistic plans."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло наповнене ресурсом; турбота про себе, догляд, смачна їжа та розслаблення відновлять сили.",
+        "en": "The body is filled with resources; self-care, pampering, good food, and relaxation will restore strength."
+      },
+      "reversed": {
+        "ua": "Фізична втома від побуту, проблеми з самооцінкою, недбале ставлення до власного здоров'я.",
+        "en": "Physical exhaustion from routine, self-esteem issues, neglecting one's own health."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Гармонія з собою, відчуття достатку, прийняття та любов до світу.",
+        "en": "Harmony with oneself, a sense of abundance, acceptance, and love for the world."
+      },
+      "reversed": {
+        "ua": "Духовне виснаження, відчуття порожнечі, брак творчого натхнення.",
+        "en": "Spiritual exhaustion, feeling of emptiness, lack of creative inspiration."
+      }
+    }
+  },
+  "m04": {
+    "1": {
+      "upright": {
+        "ua": "Структуровані думки, чітка дисципліна, контроль над власними роздумами.",
+        "en": "Structured thoughts, clear discipline, control over one's reflections."
+      },
+      "reversed": {
+        "ua": "Жорстке ментальне напруження, надмірна вимогливість до себе, критиканство.",
+        "en": "Rigid mental tension, excessive demands on oneself, hypercriticism."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Стабільний стан тіла, хороша витривалість, користь від впорядкованого режиму дня.",
+        "en": "Stable physical state, good endurance, benefits from a structured daily schedule."
+      },
+      "reversed": {
+        "ua": "Тілесні затиски через контроль, м'язова напруга, занепад сил від постійного стресу.",
+        "en": "Physical tightness due to control, muscle tension, loss of strength from ongoing stress."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Міцний внутрішній стержень, впевненість, відчуття безпеки та власної сили.",
+        "en": "Strong inner core, confidence, sense of security and personal strength."
+      },
+      "reversed": {
+        "ua": "Втрата внутрішньої опори, безсилля перед обставинами, конфлікт з авторитетами.",
+        "en": "Loss of inner grounding, helplessness in the face of circumstances, conflict with authority."
+      }
+    }
+  },
+  "m05": {
+    "1": {
+      "upright": {
+        "ua": "Пошук глибших сенсів, переосмислення переконань, прагнення до нових знань.",
+        "en": "Search for deeper meanings, rethinking beliefs, desire for new knowledge."
+      },
+      "reversed": {
+        "ua": "Зацикленість на застарілих переконаннях, ментальні догми, внутрішній супротив навчанню.",
+        "en": "Fixation on outdated beliefs, mental dogmas, internal resistance to learning."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує перевірених методів оздоровлення, традиційного відпочинку та розміреного ритму.",
+        "en": "The body needs proven health methods, traditional rest, and a measured pace."
+      },
+      "reversed": {
+        "ua": "Дисбаланс через недотримання базових потреб організму, опір здоровому способу життя.",
+        "en": "Imbalance due to neglect of basic needs, resistance to a healthy lifestyle."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовне піднесення, підтримка через цінності, віру чи мудрі настанови.",
+        "en": "Spiritual elevation, support through values, faith, or wise guidance."
+      },
+      "reversed": {
+        "ua": "Втрата віри в себе, розчарування в ідеалах, відчуття морального глухого кута.",
+        "en": "Loss of self-faith, disappointment in ideals, feeling a moral dead end."
+      }
+    }
+  },
+  "m06": {
+    "1": {
+      "upright": {
+        "ua": "Необхідність прийняти важливе ментальне рішення, зважити всі «за» і «проти».",
+        "en": "Need to make an important mental decision, weighing all pros and cons."
+      },
+      "reversed": {
+        "ua": "Внутрішній розкол, сумніви, нерішучість, суперечливі думки.",
+        "en": "Internal split, doubts, indecision, conflicting thoughts."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло вимагає балансу та гармонії, взаємодії з приємними людьми для відновлення сил.",
+        "en": "The body requires balance and harmony, interaction with pleasant people to restore strength."
+      },
+      "reversed": {
+        "ua": "Фізичне виснаження через внутрішні або зовнішні конфлікти, брак самопідтримки.",
+        "en": "Physical exhaustion due to internal or external conflicts, lack of self-support."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Гармонія душі, прийняття правильного вибору серцем, духовне єднання.",
+        "en": "Harmony of the soul, making the right heart-centered choice, spiritual unity."
+      },
+      "reversed": {
+        "ua": "Дисбаланс між розумом і серцем, розчарування у власних цінностях.",
+        "en": "Imbalance between mind and heart, disappointment in one's own values."
+      }
+    }
+  },
+  "m07": {
+    "1": {
+      "upright": {
+        "ua": "Цілеспрямований розум, чіткий фокус на результат, амбітні плани.",
+        "en": "Purposeful mind, clear focus on results, ambitious plans."
+      },
+      "reversed": {
+        "ua": "Хаотичні думки, дезорієнтація, втрата контролю над власним розумовим процесом.",
+        "en": "Chaotic thoughts, disorientation, loss of control over one's thought process."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Високий рівень фізичної енергії, але є ризик перевтоми через надмірний поспіх.",
+        "en": "High physical energy, but a risk of overtiredness due to excessive haste."
+      },
+      "reversed": {
+        "ua": "Фізичне вигорання від бігу «на автопілоті», загроза спаду сил чи травматизму.",
+        "en": "Physical burnout from running on autopilot, threat of a slump in strength or injury."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Сильна воля, готовність долати будь-які внутрішні перешкоди.",
+        "en": "Strong willpower, readiness to overcome any internal obstacles."
+      },
+      "reversed": {
+        "ua": "Відчуття безсилля, опускання рук через втрату мотивації.",
+        "en": "Sense of powerlessness, giving up due to loss of motivation."
+      }
+    }
+  },
+  "m08": {
+    "1": {
+      "upright": {
+        "ua": "Об'єктивна оцінка ситуації, тверезий аналіз, пошук правди та балансу.",
+        "en": "Objective assessment of the situation, sober analysis, search for truth and balance."
+      },
+      "reversed": {
+        "ua": "Самокритика, упереджене ставлення до себе, ментальний дисбаланс.",
+        "en": "Self-criticism, biased attitude toward oneself, mental imbalance."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Потреба у збалансованому режимі, відпочинку, поміркованості у навантаженнях.",
+        "en": "Need for a balanced routine, rest, moderation in physical loads."
+      },
+      "reversed": {
+        "ua": "Соматичні наслідки перевтоми, порушення нормального ритму життя.",
+        "en": "Somatic consequences of overwork, disruption of the normal life rhythm."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Прийняття відповідальності за свій стан, чесність перед собою.",
+        "en": "Taking responsibility for your state, honesty with yourself."
+      },
+      "reversed": {
+        "ua": "Відчуття несправедливості життя, перекладання відповідальності, духовна криза.",
+        "en": "Sense of life's injustice, shifting responsibility, spiritual crisis."
+      }
+    }
+  },
+  "m09": {
+    "1": {
+      "upright": {
+        "ua": "Глибокі роздуми, потреба в самотності для переосмислення життя.",
+        "en": "Deep reflections, need for solitude to rethink life."
+      },
+      "reversed": {
+        "ua": "Тривожні думки від ізоляції, зацикленість на страхах, депресивні настрої.",
+        "en": "Anxious thoughts from isolation, fixation on fears, depressive moods."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує спокою, усамітнення, повільного відновлення сил подалі від метушні.",
+        "en": "The body needs peace, solitude, slow restoration of strength away from hustle."
+      },
+      "reversed": {
+        "ua": "Фізична самотність, виснаження від відсутності зовнішньої підтримки.",
+        "en": "Physical loneliness, exhaustion from lack of external support."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Мудрість, знаходження внутрішнього світла та орієнтирів у темряві.",
+        "en": "Wisdom, finding inner light and guidance in the dark."
+      },
+      "reversed": {
+        "ua": "Відчуття відчуженості, втрата сенсу дій, духовне самотність.",
+        "en": "Feeling of alienation, loss of meaning, spiritual loneliness."
+      }
+    }
+  },
+  "m10": {
+    "1": {
+      "upright": {
+        "ua": "Розуміння циклічності життя, готовність адаптуватися до нових думкових патернів.",
+        "en": "Understanding life's cyclicity, readiness to adapt to new thought patterns."
+      },
+      "reversed": {
+        "ua": "Опір неминучим змінам, застрягання в негативних думках.",
+        "en": "Resistance to inevitable changes, getting stuck in negative thoughts."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло проходить період перенастроювання; очікуйте швидкої зміни енергетичного рівня.",
+        "en": "The body is undergoing a realignment period; expect a quick change in energy levels."
+      },
+      "reversed": {
+        "ua": "Фізичні застої, часті коливання самопочуття, метеозалежність чи нестача сил.",
+        "en": "Physical stagnation, frequent shifts in well-being, weather sensitivity or lack of strength."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Довіра до долі, відчуття, що Всесвіт веде вас правильним шляхом.",
+        "en": "Trust in fate, feeling that the Universe is guiding you on the right path."
+      },
+      "reversed": {
+        "ua": "Відчуття «чорної смуги», фаталізм, втрата віри у позитивний результат.",
+        "en": "Feeling of a 'bad streak', fatalism, loss of faith in a positive outcome."
+      }
+    }
+  },
+  "m11": {
+    "1": {
+      "upright": {
+        "ua": "Ментальна витривалість, приборкання тривожних думок розумом і м'якістю.",
+        "en": "Mental endurance, taming anxious thoughts with reason and gentleness."
+      },
+      "reversed": {
+        "ua": "Брак самоконтролю, емоційний вибух, ментальна слабкість.",
+        "en": "Lack of self-control, emotional outburst, mental weakness."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Внутрішній фізичний резерв є; м'яке відновлення сил, турбота про тіло.",
+        "en": "Inner physical reserve exists; gentle recovery of strength, caring for the body."
+      },
+      "reversed": {
+        "ua": "Фізичне безсилля, хронічна втома, тіло розплачується за надмірні навантаження.",
+        "en": "Physical powerlessness, chronic fatigue, body pays the price for overexertion."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовна міць, стійкість духу, вміння приборкати внутрішніх «демонів».",
+        "en": "Spiritual strength, resilience of spirit, ability to tame inner 'demons'."
+      },
+      "reversed": {
+        "ua": "Сумніви у власному ресурсі, почуття безпорадності, внутрішній злам.",
+        "en": "Doubts in one's resourcefulness, feeling helpless, internal breakdown."
+      }
+    }
+  },
+  "m12": {
+    "1": {
+      "upright": {
+        "ua": "Необхідність змінити кут зору на проблеми, вимушена ментальна пауза.",
+        "en": "Need to change perspective on problems, forced mental pause."
+      },
+      "reversed": {
+        "ua": "Зацикленість, небажання бачити інші варіанти рішення, марна витрата розумової енергії.",
+        "en": "Fixation, unwillingness to see alternative solutions, waste of mental energy."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує повної зупинки, розслаблення, можливо, медитативних практик.",
+        "en": "The body needs a complete pause, relaxation, perhaps meditative practices."
+      },
+      "reversed": {
+        "ua": "Фізичне «зависання», виснаження від тривалого перебування у стресовому стані.",
+        "en": "Physical standstill, exhaustion from prolonged stress state."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Переоцінка цінностей, готовність відпустити старе заради нового етапу.",
+        "en": "Reevaluation of values, readiness to let go of the old for a new stage."
+      },
+      "reversed": {
+        "ua": "Відчуття себе жертвою обставин, апатія, безвихідь.",
+        "en": "Feeling like a victim of circumstances, apathy, hopelessness."
+      }
+    }
+  },
+  "m13": {
+    "1": {
+      "upright": {
+        "ua": "Очищення розуму від віджилих переконань, радикальне закриття старих тем.",
+        "en": "Clearing the mind of outdated beliefs, radically closing old themes."
+      },
+      "reversed": {
+        "ua": "Страх відпустити минулі думки, тримання за токсичні ментальні патерни.",
+        "en": "Fear of letting go of past thoughts, holding onto toxic mental patterns."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Глибока трансформація тіла; очищення, позбавлення від того, що шкодить здоров'ю.",
+        "en": "Deep bodily transformation; cleansing, getting rid of what harms health."
+      },
+      "reversed": {
+        "ua": "Опір природним потребам тіла у відпочинку, болісний процес перевтоми.",
+        "en": "Resistance to the body's natural needs for rest, painful process of overwork."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Переродження, внутрішній прорив після тривалого виснаження.",
+        "en": "Rebirth, internal breakthrough after long-term exhaustion."
+      },
+      "reversed": {
+        "ua": "Затяжна духовна криза, опір необхідним життєвим змінам.",
+        "en": "Prolonged spiritual crisis, resistance to necessary life changes."
+      }
+    }
+  },
+  "m14": {
+    "1": {
+      "upright": {
+        "ua": "Спокійні, збалансовані думки, уникнення крайнощів у судженнях.",
+        "en": "Calm, balanced thoughts, avoiding extremes in judgment."
+      },
+      "reversed": {
+        "ua": "Дисбаланс у голові, роздратування, постійні хитання з боку в бік.",
+        "en": "Imbalance in the mind, irritation, constantly swinging from side to side."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відновлення фізичного ресурсу, м'яка реабілітація, баланс активності та відпочинку.",
+        "en": "Physical resource recovery, soft rehabilitation, balance of activity and rest."
+      },
+      "reversed": {
+        "ua": "Порушення водного/енергетичного балансу, надмірності, шкідливі звички через стрес.",
+        "en": "Disruption of water/energy balance, excesses, bad habits due to stress."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішня гармонія, зцілення душі, відчуття глибокого миру.",
+        "en": "Inner harmony, healing of the soul, feeling of deep peace."
+      },
+      "reversed": {
+        "ua": "Внутрішній неспокій, відсутність душевної рівноваги, конфлікт із собою.",
+        "en": "Inner unrest, lack of emotional poise, conflict with oneself."
+      }
+    }
+  },
+  "m15": {
+    "1": {
+      "upright": {
+        "ua": "Нав'язливі думки, залежність від контролю, ментальна пастка негативу.",
+        "en": "Obsessive thoughts, control addiction, mental trap of negativity."
+      },
+      "reversed": {
+        "ua": "Усвідомлення своїх ілюзій, початок звільнення від ментальних залежностей.",
+        "en": "Awareness of illusions, start of liberation from mental addictions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Фізичне виснаження через шкідливі звички, перевтому або токсичний вплив.",
+        "en": "Physical exhaustion through unhealthy habits, overwork, or toxic influence."
+      },
+      "reversed": {
+        "ua": "Скидання тілесного напруження, відновлення здоров'я після виснажливого періоду.",
+        "en": "Releasing bodily tension, health recovery after an exhausting period."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Спокуса піддатися апатії, духовні прив'язки, що висмоктують ресурс.",
+        "en": "Temptation to yield to apathy, spiritual attachments draining energy."
+      },
+      "reversed": {
+        "ua": "Звільнення внутрішнього духу від деструктивних патернів, перемога над моментом кризи.",
+        "en": "Freeing the inner spirit from destructive patterns, victory over the crisis point."
+      }
+    }
+  },
+  "m16": {
+    "1": {
+      "upright": {
+        "ua": "Різкий крах ілюзій, раптове усвідомлення проблеми, що шокує розум.",
+        "en": "Sudden collapse of illusions, unexpected realization shocking the mind."
+      },
+      "reversed": {
+        "ua": "Страх перед прийняттям неминучої правди, затягування ментальної кризи.",
+        "en": "Fear of accepting the inevitable truth, dragging out a mental crisis."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Раптовий занепад сил, тілесний стрес, схильність до вигорання («ламає» тіло).",
+        "en": "Sudden drop in energy, bodily stress, tendency to burn out (body breaking down)."
+      },
+      "reversed": {
+        "ua": "Хронічне напруження, уникнення вигорання в останній момент, але стан нестабільний.",
+        "en": "Chronic tension, avoiding burnout at the last moment, but state remains unstable."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Очищення через руйнування старого, шанс побудувати новий міцний фундамент.",
+        "en": "Purification through destruction of the old, a chance to build a solid new foundation."
+      },
+      "reversed": {
+        "ua": "Застрягання у зруйнованому стані, опір оновленню духу.",
+        "en": "Getting stuck in a broken state, resistance to spiritual renewal."
+      }
+    }
+  },
+  "m17": {
+    "1": {
+      "upright": {
+        "ua": "Світлі думки, оптимізм, бачення перспектив та нових можливостей.",
+        "en": "Bright thoughts, optimism, seeing prospects and new possibilities."
+      },
+      "reversed": {
+        "ua": "Песимізм, зневіра у власних ідеях, втрата інтелектуального натхнення.",
+        "en": "Pessimism, disbelief in one's ideas, loss of intellectual inspiration."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відновлення фізичних сил, легкість, користь від водних процедур і свіжого повітря.",
+        "en": "Restoration of physical strength, lightness, benefit from water treatments and fresh air."
+      },
+      "reversed": {
+        "ua": "Відчуття млявості, слабкості, нестача енергії для втілення задумів.",
+        "en": "Feeling sluggish, weak, lack of energy to implement plans."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибоке вірування в краще, оновлення ресурсу, натхнення та спокій.",
+        "en": "Deep faith in the better, resource renewal, inspiration, and peace."
+      },
+      "reversed": {
+        "ua": "Втрата надії, розчарування, відчуття відірваності від Всесвіту.",
+        "en": "Loss of hope, disappointment, feeling disconnected from the Universe."
+      }
+    }
+  },
+  "m18": {
+    "1": {
+      "upright": {
+        "ua": "Заплутаність у думках, тривожність, ілюзії, страх перед невизначеністю.",
+        "en": "Confusion in thoughts, anxiety, illusions, fear of uncertainty."
+      },
+      "reversed": {
+        "ua": "Розсіювання туману в голові, прояснення ситуації, вихід із самообману.",
+        "en": "Dissipating mental fog, clarifying the situation, exiting self-deception."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Психосоматичні симптоми, безсоння, тривожність, що відбивається на тілі.",
+        "en": "Psychosomatic symptoms, insomnia, anxiety reflecting on the body."
+      },
+      "reversed": {
+        "ua": "Поліпшення сну, зменшення фізичного напруження, одужання.",
+        "en": "Improved sleep, reduced physical tension, recovery."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Подорож у глибини підсвідомості, опрацювання прихованих страхів.",
+        "en": "Journey into the depths of the subconscious, working through hidden fears."
+      },
+      "reversed": {
+        "ua": "Звільнення від глибинних тривог, здобуття внутрішньої прозорості.",
+        "en": "Release from deep anxieties, gaining internal clarity."
+      }
+    }
+  },
+  "m19": {
+    "1": {
+      "upright": {
+        "ua": "Ясність розуму, позитивне мислення, прості й зрозумілі рішення.",
+        "en": "Clarity of mind, positive thinking, simple and clear solutions."
+      },
+      "reversed": {
+        "ua": "Тимчасове затьмарення розуму, самопевність або легкий песимізм.",
+        "en": "Temporary mental clouding, self-conceit, or slight pessimism."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Приплив вітальності, сонячна енергія, чудове фізичне самопочуття.",
+        "en": "Surge of vitality, solar energy, excellent physical well-being."
+      },
+      "reversed": {
+        "ua": "Тимчасова млявість, легкий перегрів чи перевтома від активності.",
+        "en": "Temporary fatigue, mild overheating or exhaustion from activity."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Радість життя, чистий дитячий захоплення, наповненість духу.",
+        "en": "Joy of life, pure childlike enthusiasm, spiritual fullness."
+      },
+      "reversed": {
+        "ua": "Згасання внутрішнього вогню, брак щирої радості.",
+        "en": "Fading of the inner fire, lack of genuine joy."
+      }
+    }
+  },
+  "m20": {
+    "1": {
+      "upright": {
+        "ua": "Прозріння, переосмислення життєвого шляху, прийняття важливих рішень.",
+        "en": "Insight, rethinking life's journey, making key decisions."
+      },
+      "reversed": {
+        "ua": "Самоосуд, жаль про минулі помилки, ментальні блоки.",
+        "en": "Self-judgment, regret over past mistakes, mental blocks."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Пробудження тілесного ресурсу, друге дихання, позбавлення давніх болячок.",
+        "en": "Awakening of body resources, second wind, getting rid of old ailments."
+      },
+      "reversed": {
+        "ua": "Тілесний застій, ігнорування потреб у відновленні, затяжні проблеми зі здоров'ям.",
+        "en": "Physical stagnation, ignoring recovery needs, prolonged health issues."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовне відродження, звільнення від тягаря минулого, відчуття покликання.",
+        "en": "Spiritual rebirth, liberation from past burdens, sense of calling."
+      },
+      "reversed": {
+        "ua": "Застрягання у минулому, неприйняття свого досвіду, духовне згасання.",
+        "en": "Getting stuck in the past, non-acceptance of your experience, spiritual decline."
+      }
+    }
+  },
+  "m21": {
+    "1": {
+      "upright": {
+        "ua": "Цілісне бачення картини світу, завершеність думок, розширена свідомість.",
+        "en": "Holistic vision of the world, completeness of thoughts, expanded consciousness."
+      },
+      "reversed": {
+        "ua": "Вузькість мислення, незавершені ментальні проєкти, дезорієнтація.",
+        "en": "Narrow thinking, unfinished mental projects, disorientation."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Повна гармонія тіла, високий рівень фізичного задоволення та балансу.",
+        "en": "Full body harmony, high level of physical satisfaction and balance."
+      },
+      "reversed": {
+        "ua": "Відчуття відірваності від власного тіла, незадоволеність фізичним станом.",
+        "en": "Feeling disconnected from one's body, dissatisfaction with physical state."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовна інтеграція, відчуття єдності зі svітом, глибокий спокій.",
+        "en": "Spiritual integration, feeling of unity with the world, deep peace."
+      },
+      "reversed": {
+        "ua": "Відчуття ізольованості, невизначеність внутрішніх орієнтирів.",
+        "en": "Feeling of isolation, uncertainty of internal reference points."
+      }
+    }
+  },
+  "w01": {
+    "1": {
+      "upright": {
+        "ua": "Спалах творчої думки, ясне бачення нових можливостей та стартів.",
+        "en": "Spark of creative thought, clear vision of new opportunities and starts."
+      },
+      "reversed": {
+        "ua": "Брак ідей, ментальний тупик, втрата інтересу до справ.",
+        "en": "Lack of ideas, mental stalemate, loss of interest in business."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Високий рівень енергії, сплеск життєвих сил, готовність до активності.",
+        "en": "High energy level, surge of vitality, readiness for activity."
+      },
+      "reversed": {
+        "ua": "Різкий спад енергії, виснаження вольового ресурсу, апатія.",
+        "en": "Sharp drop in energy, exhaustion of willpower, apathy."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Вогняний ентузіазм, внутрішня пристрасть, потужний заповзятий ресурс.",
+        "en": "Fiery enthusiasm, inner passion, powerful entrepreneurial resource."
+      },
+      "reversed": {
+        "ua": "Згаслий внутрішній вогонь, відсутність мотивації та натхнення.",
+        "en": "Extinguished inner fire, lack of motivation and inspiration."
+      }
+    }
+  },
+  "w02": {
+    "1": {
+      "upright": {
+        "ua": "Стратегічне мислення, планування подальших кроків, зважування перспектив.",
+        "en": "Strategic thinking, planning further steps, weighing prospects."
+      },
+      "reversed": {
+        "ua": "Страх перед прийняттям рішень, розгубленість у виборі напрямку.",
+        "en": "Fear of decision-making, confusion in choosing a direction."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Очікування відновлення сил, накопичення енергії для майбутніх дій.",
+        "en": "Waiting for energy restoration, accumulating energy for future actions."
+      },
+      "reversed": {
+        "ua": "Фізична зажатість у «зоні комфорту», дискомфорт через застій.",
+        "en": "Physical tightness in the 'comfort zone', discomfort due to stagnation."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Амбітне бачення майбутнього, розширення внутрішніх горизонтів.",
+        "en": "Ambitious vision of the future, expansion of internal horizons."
+      },
+      "reversed": {
+        "ua": "Втрата орієнтиру, страх вийти за власні межі.",
+        "en": "Loss of direction, fear of stepping beyond one's limits."
+      }
+    }
+  },
+  "w03": {
+    "1": {
+      "upright": {
+        "ua": "Ясне розуміння перспектив, задоволеність першими результатами рішень.",
+        "en": "Clear understanding of prospects, satisfaction with initial decision results."
+      },
+      "reversed": {
+        "ua": "Розчарування у власних прогнозах, ментальне розчарування.",
+        "en": "Disappointment in one's forecasts, mental frustration."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло готується до тривалої дистанції; стабільний і впевнений рівень сил.",
+        "en": "The body prepares for a long haul; stable and confident energy level."
+      },
+      "reversed": {
+        "ua": "Затримки відновлення сил через надмірне очікування швидких результатів.",
+        "en": "Delays in energy recovery due to over-expecting quick results."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Впевненість у власному шляху, відкритість до нових духовних досвідів.",
+        "en": "Confidence in one's path, openness to new spiritual experiences."
+      },
+      "reversed": {
+        "ua": "Відчуття ізольованості від своїх цілей, сумніви у виборі.",
+        "en": "Feeling isolated from your goals, doubts about choices."
+      }
+    }
+  },
+  "w04": {
+    "1": {
+      "upright": {
+        "ua": "Спокійні думки про дім, гармонія в ідеях, відчуття безпеки.",
+        "en": "Calm thoughts about home, harmony in ideas, sense of security."
+      },
+      "reversed": {
+        "ua": "Незгода із собою, внутрішні суперечки, відсутність ментального затишку.",
+        "en": "Disagreement with oneself, internal disputes, lack of mental comfort."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відмінне фізичне самопочуття, розслаблення, відчуття затишку та комфорту.",
+        "en": "Excellent physical well-being, relaxation, sense of coziness and comfort."
+      },
+      "reversed": {
+        "ua": "Неможливість розслабитися вдома, фізична напруженість у тілі.",
+        "en": "Inability to relax at home, physical tension in the body."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Душевне свято, відчуття внутрішньої гармонії та задоволення.",
+        "en": "Spiritual celebration, feeling of inner harmony and satisfaction."
+      },
+      "reversed": {
+        "ua": "Відчуття чужості, брак спільності із собою чи оточенням.",
+        "en": "Feeling alien, lack of community with oneself or surroundings."
+      }
+    }
+  },
+  "w05": {
+    "1": {
+      "upright": {
+        "ua": "Внутрішній діалог, конфлікт думок, пошук істини у суперечках із собою.",
+        "en": "Internal dialogue, conflict of thoughts, search for truth in self-arguments."
+      },
+      "reversed": {
+        "ua": "Уникнення вирішення внутрішніх суперечностей, ментальний хаос.",
+        "en": "Avoiding resolution of internal contradictions, mental chaos."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує скидання напруги через спорт, танці або активний рух.",
+        "en": "The body needs tension release through sports, dancing, or active movement."
+      },
+      "reversed": {
+        "ua": "Фізичне виснаження від безглуздої суєти, сильна втома.",
+        "en": "Physical exhaustion from meaningless bustle, heavy fatigue."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Змагальний дух, бажання довести собі власну спроможність.",
+        "en": "Competitive spirit, desire to prove one's capabilities to oneself."
+      },
+      "reversed": {
+        "ua": "Втомленість від боротьби, прихований внутрішній супротив.",
+        "en": "Weariness from struggling, covert internal resistance."
+      }
+    }
+  },
+  "w06": {
+    "1": {
+      "upright": {
+        "ua": "Усвідомлення своїх досягнень, позитивна самооцінка, ясні цілі.",
+        "en": "Awareness of achievements, positive self-esteem, clear goals."
+      },
+      "reversed": {
+        "ua": "Сумніви у власному успіху, залежність від чужої думки.",
+        "en": "Doubts about success, dependency on others' opinions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Приплив тонусу, відчуття фізичного піднесення та здорової сили.",
+        "en": "Surge of vitality, feeling of physical uplift and healthy strength."
+      },
+      "reversed": {
+        "ua": "Тимчасова затримка у відновленні, занепад сил після звершень.",
+        "en": "Temporary delay in recovery, energy crash after achievements."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Триумф духу, гордість за свій шлях, внутрішня перемога.",
+        "en": "Triumph of spirit, pride in your path, internal victory."
+      },
+      "reversed": {
+        "ua": "Відчуття поразки, брак визнання з боку власного «Я».",
+        "en": "Feeling of defeat, lack of recognition from one's own Self."
+      }
+    }
+  },
+  "w07": {
+    "1": {
+      "upright": {
+        "ua": "Аналіз і відстоювання своїх ментальних кордонів, тверда позиція.",
+        "en": "Analyzing and defending one's mental boundaries, firm position."
+      },
+      "reversed": {
+        "ua": "Відчуття тиску, сумніви у правильності переконань.",
+        "en": "Feeling pressured, doubts about the correctness of beliefs."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Мобілізація фізичних сил, здатність витримати поточні навантаження.",
+        "en": "Mobilization of physical strength, ability to withstand current workloads."
+      },
+      "reversed": {
+        "ua": "Тіло виснажене обороною, загроза повного занепаду сил через перевтому.",
+        "en": "Body exhausted by defense, threat of total energy loss through overwork."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Незламність, стійкість внутрішнього ресурсу перед обставинами.",
+        "en": "Unbreakability, resilience of internal resource before circumstances."
+      },
+      "reversed": {
+        "ua": "Капітуляція перед труднощами, відчуття беззахисності.",
+        "en": "Surrender to difficulties, feeling of defenselessness."
+      }
+    }
+  },
+  "w08": {
+    "1": {
+      "upright": {
+        "ua": "Швидкий потік думок, оперативне прийняття рішень, ясне розуміння.",
+        "en": "Rapid flow of thoughts, quick decision-making, clear understanding."
+      },
+      "reversed": {
+        "ua": "Хаос у голові, непорозуміння, затримки з висновками.",
+        "en": "Mental chaos, misunderstandings, delays with conclusions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Швидке відновлення, динамічний процес повернення тонусу.",
+        "en": "Fast recovery, dynamic process of regaining vitality."
+      },
+      "reversed": {
+        "ua": "Затримка у відновленні, застійні явища у тілі, запізніла реакція.",
+        "en": "Delay in recovery, physical stagnation, slowed response."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішній прорив, стрімке зростання мотивації та сил.",
+        "en": "Internal breakthrough, rapid growth of motivation and strength."
+      },
+      "reversed": {
+        "ua": "Брак напрямку для енергетичного імпульсу, розсіювання ресурсу.",
+        "en": "Lack of direction for the energy impulse, scattering of resource."
+      }
+    }
+  },
+  "w09": {
+    "1": {
+      "upright": {
+        "ua": "Аналіз минулого досвіду травм, нахил до обережності в думках.",
+        "en": "Analyzing past trauma experience, tendency towards mental caution."
+      },
+      "reversed": {
+        "ua": "Параноя, зайві підозри, ментальна втома від постійної настороженості.",
+        "en": "Paranoia, excessive suspicion, mental fatigue from constant alertness."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло виснажене, але здатне зробити останній ривок до відпочинку.",
+        "en": "The body is exhausted, but capable of making a final push toward rest."
+      },
+      "reversed": {
+        "ua": "Граничне фізичне виснаження, відсутність захисного бар'єра організму.",
+        "en": "Extreme physical exhaustion, lack of bodily protective barriers."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішня витривалість, збереження останніх резервів духу.",
+        "en": "Internal endurance, preserving the final spiritual reserves."
+      },
+      "reversed": {
+        "ua": "Внутрішня вразливість, повна втрата захисного ресурсу.",
+        "en": "Internal vulnerability, complete loss of protective resource."
+      }
+    }
+  },
+  "w10": {
+    "1": {
+      "upright": {
+        "ua": "Перевантаження думками, забагато зобов'язань у голові, важкі роздуми.",
+        "en": "Thought overload, too many mental obligations, heavy reflections."
+      },
+      "reversed": {
+        "ua": "Поступове скидання ментального тягаря, спрощення рішень.",
+        "en": "Gradual shedding of mental burdens, simplifying decisions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Важкість у тілі, сильне вигорання, фізична перевтома від списку справ.",
+        "en": "Heaviness in the body, severe burnout, physical exhaustion from to-do lists."
+      },
+      "reversed": {
+        "ua": "Звільнення від фізичного перевантаження, delegate справ, полегшення.",
+        "en": "Release from physical overload, delegating tasks, relief."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Відчуття тиску обов'язків на душу, межа витривалості.",
+        "en": "Sense of duty pressing on the soul, limit of endurance."
+      },
+      "reversed": {
+        "ua": "Відмова від неважливого, скидання «чужого хреста», духовне розвантаження.",
+        "en": "Refusing the unimportant, dropping 'others' cross', spiritual offloading."
+      }
+    }
+  },
+  "w11": {
+    "1": {
+      "upright": {
+        "ua": "Допитливість, нові ідеї, бажання вчитися й досліджувати.",
+        "en": "Curiosity, new ideas, desire to learn and explore."
+      },
+      "reversed": {
+        "ua": "Розпорошеність думок, брак серйозності, погані новини.",
+        "en": "Scattered thoughts, lack of seriousness, unpleasant news."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує легкої активності, нових вражень, руху на свіжому повітрі.",
+        "en": "The body needs light activity, new experiences, outdoor movement."
+      },
+      "reversed": {
+        "ua": "Нервова непосидючість, дрібні фізичні нездужання, розсіяність сил.",
+        "en": "Nervous restlessness, minor physical ailments, scattered energy."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Творчий задор, дитячий інтерес до життя, відродження мотивації.",
+        "en": "Creative enthusiasm, childlike interest in life, revival of motivation."
+      },
+      "reversed": {
+        "ua": "Неуважність до внутрішніх потреб, інфантильні реакції на втому.",
+        "en": "Inattention to internal needs, infantile reactions to fatigue."
+      }
+    }
+  },
+  "w12": {
+    "1": {
+      "upright": {
+        "ua": "Рішучі ідеї, готовність до дій, швидка ментальна реакція.",
+        "en": "Decisive ideas, readiness for action, quick mental reaction."
+      },
+      "reversed": {
+        "ua": "Імпульсивність у думках, суперечки, поспішні й непродумані висновки.",
+        "en": "Thought impulsiveness, arguments, hasty and ill-considered conclusions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Активний рух, приплив адреналіну, готовність до змін і поїздок.",
+        "en": "Active movement, adrenaline rush, readiness for changes and trips."
+      },
+      "reversed": {
+        "ua": "Хаотичне розкидання сил, ризик фізичного надриву через поспіх.",
+        "en": "Chaotic scattering of energy, risk of physical strain due to haste."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Заповзятий дух, пристрасний імпульс до досягнення мети.",
+        "en": "Eager spirit, passionate impulse to achieve goals."
+      },
+      "reversed": {
+        "ua": "Згасання пристрасті, розчарування від власного поспіху.",
+        "en": "Fading passion, disappointment from one's own haste."
+      }
+    }
+  },
+  "w13": {
+    "1": {
+      "upright": {
+        "ua": "Яскраві думки, впевнене бачення, творча самостійність.",
+        "en": "Vibrant thoughts, confident vision, creative independence."
+      },
+      "reversed": {
+        "ua": "Зацикленість на собі, ревнощі до успіху інших, ментальна образа.",
+        "en": "Self-fixation, jealousy of others' success, mental resentment."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тепла, гармонійна фізична енергія, турбота про власний затишок і красу.",
+        "en": "Warm, harmonious physical energy, care for personal comfort and beauty."
+      },
+      "reversed": {
+        "ua": "Фізична демонстративність, виснаження від намагань всім сподобатися.",
+        "en": "Physical ostentatiousness, exhaustion from trying to please everyone."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Харизматична внутрішня сила, віра в себе, духовна незалежність.",
+        "en": "Charismatic inner strength, self-faith, spiritual independence."
+      },
+      "reversed": {
+        "ua": "Прихована невпевненість під маскою гордості, занепад натхнення.",
+        "en": "Hidden insecurity behind a mask of pride, decline of inspiration."
+      }
+    }
+  },
+  "w14": {
+    "1": {
+      "upright": {
+        "ua": "Масштабне стратегічне мислення, бачення великих перспектив.",
+        "en": "Large-scale strategic thinking, vision of grand prospects."
+      },
+      "reversed": {
+        "ua": "Авторитарні думки, впертість, небажання слухати поради.",
+        "en": "Authoritarian thoughts, stubbornness, unwillingness to listen to advice."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Сильний фізичний тонус, здатність вести за собою та керувати ресурсами.",
+        "en": "Strong physical tone, ability to lead and manage resources."
+      },
+      "reversed": {
+        "ua": "Перевтома від опіки над усіма, фізичний тиск відповідальності.",
+        "en": "Exhaustion from taking care of everyone, physical burden of responsibility."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішній вогонь лідерства, непохитна віра у свій проєкт і життя.",
+        "en": "Inner fire of leadership, unwavering faith in your project and life."
+      },
+      "reversed": {
+        "ua": "Духовний деспотизм, розчарування через брак контролю.",
+        "en": "Spiritual despotism, disappointment due to lack of control."
+      }
+    }
+  },
+  "c01": {
+    "1": {
+      "upright": {
+        "ua": "Світлі, чисті думки, відкритість до нових емоційних досвідів.",
+        "en": "Bright, pure thoughts, openness to new emotional experiences."
+      },
+      "reversed": {
+        "ua": "Заблоковані емоції в голові, холодні розрахунки замість відчуттів.",
+        "en": "Blocked emotions in the mind, cold calculations instead of feelings."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відчуття тілесної гармонії, наповненість, покращення самопочуття.",
+        "en": "Feeling of bodily harmony, fullness, improved well-being."
+      },
+      "reversed": {
+        "ua": "Емоційна втома, психосоматична порожнеча, брак тепла.",
+        "en": "Emotional fatigue, psychosomatic emptiness, lack of warmth."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибоке емоційне оновлення, любов до життя, чисте джерело натхнення.",
+        "en": "Deep emotional renewal, love for life, pure source of inspiration."
+      },
+      "reversed": {
+        "ua": "Душевна черствість, емоційне вигорання, брак натхнення.",
+        "en": "Emotional numbness, emotional burnout, lack of inspiration."
+      }
+    }
+  },
+  "c02": {
+    "1": {
+      "upright": {
+        "ua": "Пошук внутрішньої згоди, думки про співпрацю та діалог із собою.",
+        "en": "Seeking inner agreement, thoughts of cooperation and self-dialogue."
+      },
+      "reversed": {
+        "ua": "Внутрішній конфлікт, розбіжність між бажаннями та реальними діями.",
+        "en": "Internal conflict, discrepancy between desires and real actions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тілесна гармонія через приємну взаємодію, тепло, розслаблення.",
+        "en": "Bodily harmony through pleasant interaction, warmth, relaxation."
+      },
+      "reversed": {
+        "ua": "Фізичний дискомфорт у контактах із людьми, затиснутість.",
+        "en": "Physical discomfort in contacts with people, stiffness."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішня цілісність, примирення протилежностей у душі.",
+        "en": "Internal integrity, reconciliation of opposites in the soul."
+      },
+      "reversed": {
+        "ua": "Духовна самотність, відчуття віддаленості від власних потреб.",
+        "en": "Spiritual loneliness, feeling distant from one's own needs."
+      }
+    }
+  },
+  "c03": {
+    "1": {
+      "upright": {
+        "ua": "Легкі думки, бажання розділити радість, пошук позитивних вражень.",
+        "en": "Light thoughts, desire to share joy, searching for positive experiences."
+      },
+      "reversed": {
+        "ua": "Втома від поверхневого спілкування, плітки, ментальне перевантаження.",
+        "en": "Fatigue from superficial communication, gossip, mental overload."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відновлення сил через приємні зустрічі, розваги, позитивний емоційний фон.",
+        "en": "Restoration of strength through pleasant meetings, entertainment, positive emotional background."
+      },
+      "reversed": {
+        "ua": "Фізична втома від застіль чи гамірних компаній, потреба в тиші.",
+        "en": "Physical exhaustion from parties or noisy crowds, need for quiet."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Почуття вдячності, духовний підйом від відчуття спільноти.",
+        "en": "Feeling of gratitude, spiritual uplift from sense of community."
+      },
+      "reversed": {
+        "ua": "Відчуття самотності серед людей, брак глибинного зв'язку.",
+        "en": "Feeling lonely among people, lack of deep connection."
+      }
+    }
+  },
+  "c04": {
+    "1": {
+      "upright": {
+        "ua": "Пасивність у думках, хандра, нудьга, ігнорування нових ідей.",
+        "en": "Passive thinking, blues, boredom, ignoring new ideas."
+      },
+      "reversed": {
+        "ua": "Повернення інтересу, вихід із ментального застою, відкритість до рішень.",
+        "en": "Return of interest, exiting mental stagnation, openness to solutions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Застій у тілі, низький рівень енергії через лінощі або розчарування.",
+        "en": "Bodily stagnation, low energy level due to laziness or disappointment."
+      },
+      "reversed": {
+        "ua": "Приплив нових фізичних сил, готовність діяти, струшування апатії.",
+        "en": "Surge of new physical strength, readiness to act, shaking off apathy."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Пересичення, байдужість до того, що є, пошук втраченого сенсу.",
+        "en": "Satiety, indifference to what is, searching for lost meaning."
+      },
+      "reversed": {
+        "ua": "Новий подих, здобуття натхнення, переоцінка можливостей.",
+        "en": "Second wind, gaining inspiration, reassessing possibilities."
+      }
+    }
+  },
+  "c05": {
+    "1": {
+      "upright": {
+        "ua": "Зацикленість на втратах, сумні думки, жаль про минулі помилки.",
+        "en": "Fixation on losses, sad thoughts, regret over past mistakes."
+      },
+      "reversed": {
+        "ua": "Прийняття ситуації, переключення уваги на нові перспективи.",
+        "en": "Accepting the situation, shifting focus to new perspectives."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Фізичне виснаження через смуток і сльози, схильність до смутку.",
+        "en": "Physical exhaustion from sadness and tears, tendency to grieve."
+      },
+      "reversed": {
+        "ua": "Загоєння ран, поступове повернення фізичного тонусу.",
+        "en": "Healing of wounds, gradual return of physical tone."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Душевна біль, відчуття втрати, але з можливістю знайти нову опору.",
+        "en": "Emotional pain, sense of loss, but with the opportunity to find new support."
+      },
+      "reversed": {
+        "ua": "Прошення, звільнення від образи, відродження духу.",
+        "en": "Forgiveness, release of resentment, revival of spirit."
+      }
+    }
+  },
+  "c06": {
+    "1": {
+      "upright": {
+        "ua": "Ностальгічні думки, повернення до дитячих або приємних минулих спогадів.",
+        "en": "Nostalgic thoughts, returning to childhood or pleasant past memories."
+      },
+      "reversed": {
+        "ua": "Застрягання у минулому, небажання жити теперішнім, ідеалізація.",
+        "en": "Getting stuck in the past, unwillingness to live in the present, idealization."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує турботи, дитячого затишку, м'якості та безпеки.",
+        "en": "The body needs care, childlike comfort, softness, and safety."
+      },
+      "reversed": {
+        "ua": "Дитяча безпорадність перед фізичною втомою, брак самостійності.",
+        "en": "Childlike helplessness in the face of physical fatigue, lack of independence."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Щирість душі, повернення до власної справжньої природи, тепло.",
+        "en": "Sincerity of soul, returning to one's true nature, warmth."
+      },
+      "reversed": {
+        "ua": "Спроба повернути минулі почуття, які вже не викликають відгуку.",
+        "en": "Attempting to return past feelings that no longer resonate."
+      }
+    }
+  },
+  "c07": {
+    "1": {
+      "upright": {
+        "ua": "Розпорошеність уваги, мрійливість, самообман, фантазії замість дій.",
+        "en": "Scattered attention, dreaminess, self-deception, fantasies instead of actions."
+      },
+      "reversed": {
+        "ua": "Прозріння, скидання рожевих окулярів, тверезий погляд на речі.",
+        "en": "Epiphany, taking off rose-colored glasses, sober view of things."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тілесний дисбаланс через ілюзію відпочинку, брак чіткого режиму.",
+        "en": "Bodily imbalance due to the illusion of rest, lack of a clear routine."
+      },
+      "reversed": {
+        "ua": "Відновлення зв'язку з тілом, дисципліна у догляді за здоров'ям.",
+        "en": "Restoring connection with the body, discipline in health care."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Шукання ідеалу, блукання у власних бажаннях, відсутність заземлення.",
+        "en": "Searching for the ideal, wandering in desires, lack of grounding."
+      },
+      "reversed": {
+        "ua": "Вибір чіткої внутрішньої мети, позбавлення від ілюзорних сподівань.",
+        "en": "Choosing a clear internal goal, getting rid of illusory expectations."
+      }
+    }
+  },
+  "c08": {
+    "1": {
+      "upright": {
+        "ua": "Усвідомлення необхідності піти з некомфортної ментальної ситуації.",
+        "en": "Awareness of the need to leave an uncomfortable mental situation."
+      },
+      "reversed": {
+        "ua": "Страх перед змінами, повернення до виснажливих думок.",
+        "en": "Fear of change, returning to exhausting thoughts."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує зміни обстановки, подорожі або відмови від старих звичок.",
+        "en": "The body needs a change of scenery, travel, or giving up old habits."
+      },
+      "reversed": {
+        "ua": "Фізична прив'язаність до місця/звичок, що виснажують, брак сил зробити крок.",
+        "en": "Physical attachment to exhausting places/habits, lack of strength to take a step."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовний пошук, відхід від поверхневого заради знаходження сенсу.",
+        "en": "Spiritual search, moving away from the superficial to find meaning."
+      },
+      "reversed": {
+        "ua": "Внутрішній застій, змирення з токсичною ситуацією, втрата орієнтирів.",
+        "en": "Internal stagnation, resignation to a toxic situation, loss of reference points."
+      }
+    }
+  },
+  "c09": {
+    "1": {
+      "upright": {
+        "ua": "Задоволення своїм станом, оптимістичні та комфортні думки.",
+        "en": "Satisfaction with one's state, optimistic and comfortable thoughts."
+      },
+      "reversed": {
+        "ua": "Поверхневе задоволення, приховане незадоволення власними думками.",
+        "en": "Superficial satisfaction, hidden dissatisfaction with one's thoughts."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відмінний фізичний стан, комфорт, насолода відпочинком і їжею.",
+        "en": "Excellent physical state, comfort, enjoying rest and food."
+      },
+      "reversed": {
+        "ua": "Перенасичення, фізична лінь, наслідки надмірностей у відпочинку.",
+        "en": "Overindulgence, physical laziness, consequences of excesses in rest."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішня наповненість, емоційне благополуччя, відчуття щастя.",
+        "en": "Internal fullness, emotional well-being, feeling of happiness."
+      },
+      "reversed": {
+        "ua": "Духовний пересит, відсутність справжньої радості від досягнутого.",
+        "en": "Spiritual satiety, lack of true joy from what has been achieved."
+      }
+    }
+  },
+  "c10": {
+    "1": {
+      "upright": {
+        "ua": "Думки про спокій, гармонійне майбутнє, сімейний затишок.",
+        "en": "Thoughts of peace, a harmonious future, family comfort."
+      },
+      "reversed": {
+        "ua": "Розбіжності у баченні щастя, ментальна напруга через стосунки.",
+        "en": "Disagreements in the vision of happiness, mental tension over relationships."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Повне фізичне відновлення в атмосфері безпеки, тепла та підтримки.",
+        "en": "Complete physical recovery in an atmosphere of safety, warmth, and support."
+      },
+      "reversed": {
+        "ua": "Побутова втома, напружена атмосфера вдома, що заважає відпочинку.",
+        "en": "Domestic fatigue, tense home atmosphere preventing rest."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибоке відчуття захищеності, душевний спокій і цілісність.",
+        "en": "Deep sense of security, emotional peace, and integrity."
+      },
+      "reversed": {
+        "ua": "Відчуття самотності у родині, брак емоційної єдності.",
+        "en": "Feeling lonely in the family, lack of emotional unity."
+      }
+    }
+  },
+  "c11": {
+    "1": {
+      "upright": {
+        "ua": "Творче натхнення, романтичні ідеї, чутливе сприйняття світу.",
+        "en": "Creative inspiration, romantic ideas, sensitive perception of the world."
+      },
+      "reversed": {
+        "ua": "Емоційна вразливість, дитячі образи, ментальна нестабільність.",
+        "en": "Emotional vulnerability, childish grudges, mental instability."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує м'якого догляду, приємних спа-процедур, емоційного тепла.",
+        "en": "The body needs soft care, pleasant spa treatments, emotional warmth."
+      },
+      "reversed": {
+        "ua": "Психосоматичні реакції на критику, фізична чутливість до стресу.",
+        "en": "Psychosomatic reactions to criticism, physical sensitivity to stress."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Відкритість серця, зародження нового емоційного ресурсу.",
+        "en": "Openness of heart, emergence of a new emotional resource."
+      },
+      "reversed": {
+        "ua": "Капризи, образи, небажання дорослішати емоційно.",
+        "en": "Capriciousness, grudges, unwillingness to mature emotionally."
+      }
+    }
+  },
+  "c12": {
+    "1": {
+      "upright": {
+        "ua": "Мрійливі думки, пошук краси, поетичне сприйняття дійсності.",
+        "en": "Dreamy thoughts, search for beauty, poetic perception of reality."
+      },
+      "reversed": {
+        "ua": "Ілюзорні плани, нереалістичні очікування від себе та інших.",
+        "en": "Illusory plans, unrealistic expectations of oneself and others."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Плавний рух до відновлення, потреба у приємному відпочинку.",
+        "en": "Smooth movement towards recovery, need for pleasant rest."
+      },
+      "reversed": {
+        "ua": "Емоційне гойдання, пасивність, відсутність сил для дій.",
+        "en": "Emotional mood swings, passivity, lack of strength for action."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Романтичний підйом духу, прагнення гармонії та краси.",
+        "en": "Romantic spiritual uplift, pursuit of harmony and beauty."
+      },
+      "reversed": {
+        "ua": "Розчарування в ідеалах, фальшиві обіцянки самому собі.",
+        "en": "Disappointment in ideals, false promises to oneself."
+      }
+    }
+  },
+  "c13": {
+    "1": {
+      "upright": {
+        "ua": "Інтуїтивне розуміння ситуації, емпатичність, психологічна гнучкість.",
+        "en": "Intuitive understanding of the situation, empathy, psychological flexibility."
+      },
+      "reversed": {
+        "ua": "Надмірна емоційність, дратуваність, занурення у чужі проблеми.",
+        "en": "Excessive emotionality, irritability, immersion in others' problems."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Організм вимагає дбайливого відновлення, водної терапії, глибокого сну.",
+        "en": "The body requires gentle recovery, water therapy, deep sleep."
+      },
+      "reversed": {
+        "ua": "Фізичне виснаження через чужі емоції, психосоматична втома.",
+        "en": "Physical exhaustion through others' emotions, psychosomatic fatigue."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибоке емоційне милосердя, самоспівчуття, душевна мудрість.",
+        "en": "Deep emotional compassion, self-compassion, emotional wisdom."
+      },
+      "reversed": {
+        "ua": "Маніпулювання жертовністю, емоційна нестабільність, образа.",
+        "en": "Manipulating victimhood, emotional instability, resentment."
+      }
+    }
+  },
+  "c14": {
+    "1": {
+      "upright": {
+        "ua": "Зріле емоційне мислення, контроль за почуттями через розум, дипломатія.",
+        "en": "Mature emotional thinking, controlling feelings through reason, diplomacy."
+      },
+      "reversed": {
+        "ua": "Емоційна холодність, приховані стримані страхи, стримування почуттів.",
+        "en": "Emotional coldness, hidden repressed fears, suppressing feelings."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Стабільне відновлення тонусу, спокійний і врівноважений стан тіла.",
+        "en": "Stable tone recovery, calm and balanced state of the body."
+      },
+      "reversed": {
+        "ua": "Затиснуті почуття відбиваються у тілі, судини чи шлунок реагують на стрес.",
+        "en": "Repressed feelings reflect in the body; blood vessels or stomach respond to stress."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовна шляхетність, спокійний і зрілий ресурс, душевна підтримка.",
+        "en": "Spiritual nobility, calm and mature resource, soul support."
+      },
+      "reversed": {
+        "ua": "Внутрішній цинізм, холодна байдужість до власного стану.",
+        "en": "Internal cynicism, cold indifference to one's own state."
+      }
+    }
+  },
+  "s01": {
+    "1": {
+      "upright": {
+        "ua": "Ментальний прорив, ясність думки, швидке та точне розв'язання проблеми.",
+        "en": "Mental breakthrough, clarity of thought, quick and precise problem-solving."
+      },
+      "reversed": {
+        "ua": "Заплутані висновки, плутанина в голові, ризик нашкодити собі словами.",
+        "en": "Confused conclusions, mental chaos, risk of harming oneself with words."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Гострота відчуттів, тіло готове до мобілізації та точних дій.",
+        "en": "Acuteness of senses, body ready for mobilization and precise actions."
+      },
+      "reversed": {
+        "ua": "Гострий біль, нервове виснаження, спазми від перенапруження.",
+        "en": "Sharp pain, nervous exhaustion, spasms from overexertion."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Сила істини, розкриття обману, внутрішня рішучість і твердість.",
+        "en": "Power of truth, exposing deception, internal determination and firmness."
+      },
+      "reversed": {
+        "ua": "Самообман, жорстокі висновки, руйнування внутрішнього миру.",
+        "en": "Self-deception, harsh conclusions, destruction of inner peace."
+      }
+    }
+  },
+  "s02": {
+    "1": {
+      "upright": {
+        "ua": "Патова ситуація в думках, блокування рішення, вимушене пауза в роздумах.",
+        "en": "Mental stalemate, decision blocking, forced pause in reflection."
+      },
+      "reversed": {
+        "ua": "Неминучий вибір, зняття пов'язки з очей, прояснення складної теми.",
+        "en": "Inevitable choice, removing the blindfold, clarifying a difficult topic."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло затиснуте через небажання відчувати, перекриття фізичних сигналів.",
+        "en": "Body stiffened due to unwillingness to feel, blocking physical signals."
+      },
+      "reversed": {
+        "ua": "Вихід із тілесного затиску, вивільнення накопиченої напруги.",
+        "en": "Exiting bodily tightness, releasing accumulated tension."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Спроба захистити душевний спокій через закритість, тимчасовий компроміс.",
+        "en": "Attempting to protect inner peace through closure, temporary compromise."
+      },
+      "reversed": {
+        "ua": "Внутрішня тривожність, прорив прихованих емоцій і страхів.",
+        "en": "Internal anxiety, breakthrough of hidden emotions and fears."
+      }
+    }
+  },
+  "s03": {
+    "1": {
+      "upright": {
+        "ua": "Болісні думки, ментальна травма, гірке усвідомлення реальності.",
+        "en": "Painful thoughts, mental trauma, bitter realization of reality."
+      },
+      "reversed": {
+        "ua": "Початок загоєння ментальних ран, полегшення після душевного болю.",
+        "en": "Beginning of mental wound healing, relief after emotional pain."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Психосоматичний біль у грудях/серці, фізичне переживання стресу.",
+        "en": "Psychosomatic chest/heart pain, physical experience of stress."
+      },
+      "reversed": {
+        "ua": "Поступове зменшення фізичного затиску, одужання після кризи.",
+        "en": "Gradual reduction of physical tightness, recovery after crisis."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Душевний біль, розчарування, необхідність пережити й відпустити сум.",
+        "en": "Emotional pain, disappointment, need to experience and release grief."
+      },
+      "reversed": {
+        "ua": "Прощення, звільнення серця від старої образи, оновлення.",
+        "en": "Forgiveness, releasing old resentment from the heart, renewal."
+      }
+    }
+  },
+  "s04": {
+    "1": {
+      "upright": {
+        "ua": "Потреба вимкнути думки, ментальний канікули, зупинити потік інформації.",
+        "en": "Need to turn off thoughts, mental vacation, stop the flow of information."
+      },
+      "reversed": {
+        "ua": "Вимушене повернення до справ без відновлення, переривання відпочинку.",
+        "en": "Forced return to tasks without recovery, interruption of rest."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує постільного режиму, повного фізичного розслаблення та сну.",
+        "en": "The body needs bed rest, complete physical relaxation, and sleep."
+      },
+      "reversed": {
+        "ua": "Неможливість заснути через тривогу, виснажлива бездіяльність.",
+        "en": "Inability to sleep due to anxiety, exhausting inactivity."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Молитовний або медитативний стан, знаходження внутрішньої тиші.",
+        "en": "Prayer or meditative state, finding inner silence."
+      },
+      "reversed": {
+        "ua": "Духовна ізоляція, відчуття вигнання із власного ресурсу.",
+        "en": "Spiritual isolation, feeling banished from your own resource."
+      }
+    }
+  },
+  "s05": {
+    "1": {
+      "upright": {
+        "ua": "Деструктивні думки, самокритика, відчуття поразки у суперечці.",
+        "en": "Destructive thoughts, self-criticism, feeling defeated in an argument."
+      },
+      "reversed": {
+        "ua": "Припинення ментальних самозвинувачень, вихід із деструктиву.",
+        "en": "Stopping mental self-blame, exiting destructiveness."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Фізичне виснаження від постійних суперечок і стресу, брудні відчуття у тілі.",
+        "en": "Physical exhaustion from constant arguments and stress, dirty feelings in the body."
+      },
+      "reversed": {
+        "ua": "Повільне відновлення тілесного ресурсу після конфлікту.",
+        "en": "Slow restoration of bodily resources after conflict."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Піррова перемога, відчуття порожнечі після досягнення мети за будь-яку ціну.",
+        "en": "Pyrrhic victory, feeling of emptiness after reaching a goal at any cost."
+      },
+      "reversed": {
+        "ua": "Усвідомлення марності ворожнечі, прагнення примирення.",
+        "en": "Realization of the futility of hostility, desire for reconciliation."
+      }
+    }
+  },
+  "s06": {
+    "1": {
+      "upright": {
+        "ua": "Перехід до спокійніших думок, залишення тривог позаду, вирівнювання фокусу.",
+        "en": "Transition to calmer thoughts, leaving anxieties behind, balancing focus."
+      },
+      "reversed": {
+        "ua": "Ментальний застій, тривоги тягнуться за вами, невирішені питання.",
+        "en": "Mental stagnation, anxieties drag behind you, unresolved issues."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Покращення самопочуття, переїзд або фізичний відпочинок, що відновлює сили.",
+        "en": "Improving well-being, moving or physical rest that restores strength."
+      },
+      "reversed": {
+        "ua": "Перешкоди у відновленні здоров'я, важкість у дорозі або переміщеннях.",
+        "en": "Obstacles in health recovery, heaviness during trips or movement."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Здобуття душевного спокою, шлях до світлішого життєвого етапу.",
+        "en": "Gaining inner peace, path to a brighter stage in life."
+      },
+      "reversed": {
+        "ua": "Неможливість відпустити минулий біль, неготовність до руху далі.",
+        "en": "Inability to let go of past pain, unreadiness to move forward."
+      }
+    }
+  },
+  "s07": {
+    "1": {
+      "upright": {
+        "ua": "Хитрість, спроба виправдати власні помилки, шукання таємних виходів.",
+        "en": "Cunning, attempting to justify own mistakes, searching for secret exits."
+      },
+      "reversed": {
+        "ua": "Викриття власного самообману, каяття, чесність із собою.",
+        "en": "Exposing own self-deception, repentance, honesty with oneself."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Приховане виснаження, втеча від вирішення фізичних проблем соматики.",
+        "en": "Hidden exhaustion, escaping physical health resolution."
+      },
+      "reversed": {
+        "ua": "Провал ненадійних методів лікування чи відпочинку, викриття симптомів.",
+        "en": "Failure of unreliable treatment or rest methods, exposure of symptoms."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Відчуття самотності у своїх діях, таємний захист свого ресурсу.",
+        "en": "Feeling lonely in actions, secret protection of one's resource."
+      },
+      "reversed": {
+        "ua": "Звільнення від хитрих стратегій, повернення щирості душі.",
+        "en": "Release from tricky strategies, returning sincerity of soul."
+      }
+    }
+  },
+  "s08": {
+    "1": {
+      "upright": {
+        "ua": "Відчуття пастки в голові, обмеження власного мислення, страхи.",
+        "en": "Feeling trapped in the mind, limiting one's thinking, fears."
+      },
+      "reversed": {
+        "ua": "Звільнення від ментальних обмежень, знаходження виходу з тупика.",
+        "en": "Liberation from mental constraints, finding a way out of a dead end."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тілесна затиснутість, страх рухатися, відчуття безсилля і зв'язаності.",
+        "en": "Bodily stiffness, fear of moving, feeling weak and bound."
+      },
+      "reversed": {
+        "ua": "Скидання путів втоми, скидання фізичного блок-фактора.",
+        "en": "Shedding fatigue bonds, dropping physical block factors."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Психологічна криза, відчуття безпорадності перед обставинами.",
+        "en": "Psychological crisis, feeling helpless before circumstances."
+      },
+      "reversed": {
+        "ua": "Прорив до внутрішньої свободи, здобуття впевненості у силах.",
+        "en": "Breakthrough to inner freedom, gaining confidence in one's power."
+      }
+    }
+  },
+  "s09": {
+    "1": {
+      "upright": {
+        "ua": "Нічні тривоги, нав'язливі думки, почуття провини, ментальний жах.",
+        "en": "Nighttime anxiety, obsessive thoughts, feelings of guilt, mental terror."
+      },
+      "reversed": {
+        "ua": "Поступове заспокоєння після тривожного періоду, розвіювання страхів.",
+        "en": "Gradual calming after an anxious period, dispelling fears."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Безсоння, головні болі, фізична виснаженість від переживань.",
+        "en": "Insomnia, headaches, physical exhaustion from worrying."
+      },
+      "reversed": {
+        "ua": "Відновлення нормального сну, зменшення невротичного напруження.",
+        "en": "Restoration of normal sleep, reduction of neurotic tension."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибокий душевний відчай, боротьба з «внутрішніми демонами».",
+        "en": "Deep spiritual despair, struggling with 'inner demons'."
+      },
+      "reversed": {
+        "ua": "Світло в кінці тунелю, вихід із розпачу, душевне полегшення.",
+        "en": "Light at the end of the tunnel, exiting despair, spiritual relief."
+      }
+    }
+  },
+  "s10": {
+    "1": {
+      "upright": {
+        "ua": "Повний інтелектуальний крах, критична точка вигорання в думках.",
+        "en": "Total intellectual collapse, critical burnout point in thoughts."
+      },
+      "reversed": {
+        "ua": "Початок відновлення після завершення найважчого етапу.",
+        "en": "Beginning of recovery after finishing the hardest stage."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Повне фізичне виснаження, дно ресурсу, тіло відмовляється працювати.",
+        "en": "Total physical exhaustion, rock bottom of resource, body refuses to work."
+      },
+      "reversed": {
+        "ua": "Повільний підйом із дна, початок накопичення фізичних сил.",
+        "en": "Slow rise from the bottom, start of accumulating physical strength."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Завершення важкого кармічного періоду (гірше вже не буде).",
+        "en": "End of a difficult karmic period (it won't get worse)."
+      },
+      "reversed": {
+        "ua": "Затягування болісного фіналу через небажання відпустити старе.",
+        "en": "Dragging out a painful finale due to reluctance to let go of the old."
+      }
+    }
+  },
+  "s11": {
+    "1": {
+      "upright": {
+        "ua": "Гострий розум, допитливість, збір інформації для вирішення проблем.",
+        "en": "Sharp mind, curiosity, collecting information to solve problems."
+      },
+      "reversed": {
+        "ua": "Критика, дріб'язковість, ментальне роздратування через дрібниці.",
+        "en": "Criticism, pettiness, mental irritation over small things."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Нервова рухливість, необхідність зняти фізичне напруження через прогулянки.",
+        "en": "Nervous agility, need to relieve physical tension through walks."
+      },
+      "reversed": {
+        "ua": "Дрібні спазми, нервові тіки, виснаження від дрібного клопоту.",
+        "en": "Minor spasms, nervous tics, exhaustion from petty hassles."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Готовність відстоювати правду, пильність духу, інтелектуальна сміливість.",
+        "en": "Readiness to stand for truth, spiritual vigilance, intellectual courage."
+      },
+      "reversed": {
+        "ua": "Дріб'язкові образи, підозрілість, брак внутрішньої зрілості.",
+        "en": "Petty resentments, suspicion, lack of internal maturity."
+      }
+    }
+  },
+  "s12": {
+    "1": {
+      "upright": {
+        "ua": "Стрімкий інтелектуальний штурм, категоричність, поспішність у висновках.",
+        "en": "Rapid intellectual storm, decisiveness, rashness in conclusions."
+      },
+      "reversed": {
+        "ua": "Агресивні думки, ментальний хаос, розрив комунікації із собою.",
+        "en": "Aggressive thoughts, mental chaos, broken self-communication."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Різкий сплеск сил, готовність до вирішення кризових завдань.",
+        "en": "Sharp surge of strength, readiness to resolve crisis tasks."
+      },
+      "reversed": {
+        "ua": "Фізичний травматизм через поспіх, різке виснаження після атаки.",
+        "en": "Physical trauma due to haste, sudden exhaustion after attack."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Безкомпромісне прагнення до істини, бойовий дух.",
+        "en": "Uncompromising pursuit of truth, fighting spirit."
+      },
+      "reversed": {
+        "ua": "Безцільна агресія, руйнування власних ресурсів через гнів.",
+        "en": "Aimless aggression, destruction of own resources through anger."
+      }
+    }
+  },
+  "s13": {
+    "1": {
+      "upright": {
+        "ua": "Незалежне мислення, холодний логічний аналіз, відсікання зайвого.",
+        "en": "Independent thinking, cold logical analysis, cutting off the unnecessary."
+      },
+      "reversed": {
+        "ua": "Цинізм, жорстокість у думках, цинічне самоосудження.",
+        "en": "Cynicism, mental cruelty, cynical self-condemnation."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Фізична дистанційованість від стресу, стриманість, тонус через контроль.",
+        "en": "Physical distancing from stress, restraint, tone maintained by control."
+      },
+      "reversed": {
+        "ua": "Тілесна холодність, затиснутість, проблеми із кровообігом/напругою.",
+        "en": "Bodily coldness, stiffness, circulation/tension problems."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовна автономія, мудрість через пережитий біль, свобода.",
+        "en": "Spiritual autonomy, wisdom through experienced pain, freedom."
+      },
+      "reversed": {
+        "ua": "Гірка самотність, душевна черствість, закритість від світу.",
+        "en": "Bitter loneliness, emotional numbness, closure from the world."
+      }
+    }
+  },
+  "s14": {
+    "1": {
+      "upright": {
+        "ua": "Стратегічне керівництво власною свідомістю, авторитетна думка.",
+        "en": "Strategic leadership of your own consciousness, authoritative thought."
+      },
+      "reversed": {
+        "ua": "Тиранія розуму над почуттями, суворість до власного ресурсу.",
+        "en": "Tyranny of reason over feelings, harshness toward your own resource."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Контроль над самопочуттям, дисципліна у дотриманні режиму відпочинку.",
+        "en": "Control over well-being, discipline in maintaining rest schedules."
+      },
+      "reversed": {
+        "ua": "Перевтома від гіперконтролю, відсутність гнучкості в тілі.",
+        "en": "Exhaustion from hyper-control, lack of flexibility in the body."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Незламний інтелектуальний стержень, закон і порядок у душі.",
+        "en": "Unshakeable intellectual core, law and order in the soul."
+      },
+      "reversed": {
+        "ua": "Зловживання власним ресурсом, духовний деспотизм.",
+        "en": "Abuse of one's own resource, spiritual despotism."
+      }
+    }
+  },
+  "p01": {
+    "1": {
+      "upright": {
+        "ua": "Практичні думки, пошук реальних матеріальних рішень для відновлення.",
+        "en": "Practical thoughts, search for real material solutions for recovery."
+      },
+      "reversed": {
+        "ua": "Хвилювання про гроші, ментальний застій через фінансові страхи.",
+        "en": "Worry about money, mental stagnation due to financial fears."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Чудовий задел фізичних сил, відчуття заземленості та реального ресурсу.",
+        "en": "Great reservoir of physical strength, feeling grounded and truly resourced."
+      },
+      "reversed": {
+        "ua": "Упущена можливість відпочити, брак фізичних ресурсів.",
+        "en": "Missed opportunity to rest, lack of physical resources."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Здобуття нового міцного фундаменту, матеріальна підтримка духу.",
+        "en": "Gaining a solid new foundation, material support for the spirit."
+      },
+      "reversed": {
+        "ua": "Втрата орієнтирів у матеріальному світі, відчуття нестабільності.",
+        "en": "Loss of focus in the material world, feeling of instability."
+      }
+    }
+  },
+  "p02": {
+    "1": {
+      "upright": {
+        "ua": "Гнучке мислення, лавірування між завданнями, адаптивність.",
+        "en": "Flexible thinking, maneuvering between tasks, adaptability."
+      },
+      "reversed": {
+        "ua": "Дезорієнтація через спробу зробити все одночасно, ментальний хаос.",
+        "en": "Disorientation from trying to do everything at once, mental chaos."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Адаптація тіла до змінних навантажень, легкість у русі.",
+        "en": "Body adaptation to variable loads, lightness in movement."
+      },
+      "reversed": {
+        "ua": "Втрата фізичного балансу, перевтома від суєти та біганини.",
+        "en": "Loss of physical balance, exhaustion from fuss and running around."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Ігрове ставлення до труднощів, внутрішня гнучкість.",
+        "en": "Playful attitude towards difficulties, internal flexibility."
+      },
+      "reversed": {
+        "ua": "Перенапруження через спроби втримати невикличувану рівновагу.",
+        "en": "Overstrain from trying to maintain unmaintainable equilibrium."
+      }
+    }
+  },
+  "p03": {
+    "1": {
+      "upright": {
+        "ua": "Конструктивні думки про розвиток, майстерність, планування дій.",
+        "en": "Constructive thoughts about development, mastery, planning actions."
+      },
+      "reversed": {
+        "ua": "Невпевненість у своїх навичках, ментальний блок у роботі.",
+        "en": "Insecurity in skills, mental block at work."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Поступове та якісне будівництво фізичного ресурсу, тренування.",
+        "en": "Gradual and quality building of physical resources, workouts."
+      },
+      "reversed": {
+        "ua": "Низька ефективність відпочинку, халтурний догляд за здоров'ям.",
+        "en": "Low rest efficiency, careless health maintenance."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Гордість за власну працю, відчуття майстерності та розвитку.",
+        "en": "Pride in work, sense of mastery and development."
+      },
+      "reversed": {
+        "ua": "Брак визнання власних зусиль, розчарування у процесі.",
+        "en": "Lack of recognition for your efforts, disappointment in the process."
+      }
+    }
+  },
+  "p04": {
+    "1": {
+      "upright": {
+        "ua": "Думки про збереження ресурсу, економія сил, контроль кордонів.",
+        "en": "Thoughts of preserving resources, saving energy, controlling borders."
+      },
+      "reversed": {
+        "ua": "Страх втратити контроль, надмірна скупість у розтраті сил.",
+        "en": "Fear of losing control, excessive stinginess in spending energy."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Збереження сил, стабільний рівень енергії, але є ризик затиснутості.",
+        "en": "Energy preservation, stable energy level, but a risk of tightness."
+      },
+      "reversed": {
+        "ua": "Фізичне марнотратство або запекла жадібність до відпочинку.",
+        "en": "Physical wastefulness or fierce stinginess toward resting."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Відчуття матеріальної стабільності та захищеності духу.",
+        "en": "Feeling of material stability and security of spirit."
+      },
+      "reversed": {
+        "ua": "Страх бідності/безсилля, зацикленість на збереженні замість росту.",
+        "en": "Fear of poverty/powerlessness, fixation on preservation instead of growth."
+      }
+    }
+  },
+  "p05": {
+    "1": {
+      "upright": {
+        "ua": "Думки про брак ресурсів, відчуття бідності та обмеженості.",
+        "en": "Thoughts of resource lack, feeling of poverty and limitations."
+      },
+      "reversed": {
+        "ua": "Знаходження виходу з ментальної скрути, поява нових ідей.",
+        "en": "Finding a way out of mental hardship, emergence of new ideas."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Фізична криза, виснаження, мерзлякуватість, ослаблення імунітету.",
+        "en": "Physical crisis, exhaustion, chilliness, weakened immunity."
+      },
+      "reversed": {
+        "ua": "Початок виходу з хвороби або вигорання, повернення тонусу.",
+        "en": "Start of exiting illness or burnout, return of vitality."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Духовне відчуття кинутості, занедбаності, покинутості.",
+        "en": "Spiritual feeling of abandonment, neglect, loneliness."
+      },
+      "reversed": {
+        "ua": "Відновлення віри, отримати допомогу та тепла у важкий момент.",
+        "en": "Restoration of faith, receiving help and warmth in a difficult time."
+      }
+    }
+  },
+  "p06": {
+    "1": {
+      "upright": {
+        "ua": "Думки про баланс «віддавати — отримувати», розумний розподіл сили.",
+        "en": "Thoughts about 'give and take' balance, smart distribution of power."
+      },
+      "reversed": {
+        "ua": "Відчуття несправедливого розподілу ресурсів, дисбаланс у відносинах.",
+        "en": "Feeling unfair distribution of resources, imbalance in relationships."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Отримання необхідної фізичної підтримки, відпочинку чи допомоги.",
+        "en": "Receiving necessary physical support, rest, or assistance."
+      },
+      "reversed": {
+        "ua": "Фізичне виснаження через спроби всім допомогти на шкоду собі.",
+        "en": "Physical exhaustion from trying to help everyone to your own detriment."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Душевна щедрість, прийняття підтримки від Всесвіту.",
+        "en": "Spiritual generosity, accepting support from the Universe."
+      },
+      "reversed": {
+        "ua": "Егоїзм або відчуття, що вам усі винні, духовний борг.",
+        "en": "Egoism or the feeling that everyone owes you, spiritual debt."
+      }
+    }
+  },
+  "p07": {
+    "1": {
+      "upright": {
+        "ua": "Терплячий аналіз результатів, очікування плодів своєї праці.",
+        "en": "Patient analysis of results, awaiting the fruits of labor."
+      },
+      "reversed": {
+        "ua": "Розчарування від повільного прогресу, сумніви у виборі.",
+        "en": "Disappointment over slow progress, doubts about choices."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Повільне, але стабільне накопичення фізичних сил, потреба у терпінні.",
+        "en": "Slow but steady accumulation of physical strength, need for patience."
+      },
+      "reversed": {
+        "ua": "Фізична втома від довгої праці без видимої віддачі, опущені руки.",
+        "en": "Physical fatigue from long work without visible return, giving up."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Віра у довгостроковий успіх, духовне терпіння та зрілість.",
+        "en": "Faith in long-term success, spiritual patience, and maturity."
+      },
+      "reversed": {
+        "ua": "Відчуття марнотратства часу й сил, розчарування у шляху.",
+        "en": "Feeling of wasted time and effort, disappointment in the path."
+      }
+    }
+  },
+  "p08": {
+    "1": {
+      "upright": {
+        "ua": "Фокус на деталях, систематична розумова робота, самовдосконалення.",
+        "en": "Focus on details, systematic mental work, self-improvement."
+      },
+      "reversed": {
+        "ua": "Перфекціонізм, ментальне виснаження від дріб'язковості.",
+        "en": "Perfectionism, mental exhaustion from pettiness."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Регулярні дрібні кроки для покращення здоров'я (режим, вітаміни).",
+        "en": "Regular small steps to improve health (schedule, vitamins)."
+      },
+      "reversed": {
+        "ua": "Рутина виснажує тіло, монотонна втома, занедбаність.",
+        "en": "Routine exhausts the body, monotonous fatigue, neglect."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Любов до своєї справи, духовне зростання через працю й терпіння.",
+        "en": "Love for your work, spiritual growth through labor and patience."
+      },
+      "reversed": {
+        "ua": "Втрата сенсу у щоденній праці, відчуття «колеса білки».",
+        "en": "Loss of meaning in daily work, feeling like a 'hamster wheel'."
+      }
+    }
+  },
+  "p09": {
+    "1": {
+      "upright": {
+        "ua": "Аналіз власної самодостатності, спокійні думки про добробут.",
+        "en": "Analyzing self-sufficiency, calm thoughts about well-being."
+      },
+      "reversed": {
+        "ua": "Сумніви у власному успіху, ментальна залежність від зовнішніх факторів.",
+        "en": "Doubts in personal success, mental dependence on external factors."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Відмінне фізичне самопочуття, насолода комфортом, тілесне відновлення.",
+        "en": "Great physical well-being, enjoying comfort, bodily recovery."
+      },
+      "reversed": {
+        "ua": "Невміння розслабитися на самоті, незадоволеність своїм тілом.",
+        "en": "Inability to relax alone, dissatisfaction with your body."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Внутрішня гармонія, самодостатність, насолода власним товариством.",
+        "en": "Inner harmony, self-sufficiency, enjoying your own company."
+      },
+      "reversed": {
+        "ua": "Поверхневий затишок, що приховує душевну порожнечу.",
+        "en": "Superficial comfort hiding emotional emptiness."
+      }
+    }
+  },
+  "p10": {
+    "1": {
+      "upright": {
+        "ua": "Думки про довгостроковий спокій, фундаментальний успіх, стабільність.",
+        "en": "Thoughts of long-term peace, foundational success, stability."
+      },
+      "reversed": {
+        "ua": "Тривоги про майбутнє роду чи фінанси, порушення традицій.",
+        "en": "Anxieties about family future or finances, breaking traditions."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Міцне здоров'я, родовий резерв сил, повне відновлення ресурсу.",
+        "en": "Strong health, ancestral energy reserve, complete resource recovery."
+      },
+      "reversed": {
+        "ua": "Побутове виснаження, проблеми зі спадковістю чи родовим навантаженням.",
+        "en": "Domestic exhaustion, genetic health issues, or ancestral burdens."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Глибоке відчуття традицій, спадкоємність, духовне багатство.",
+        "en": "Deep sense of tradition, continuity, spiritual wealth."
+      },
+      "reversed": {
+        "ua": "Відчуття відірваності від коріння, фінансовий чи духовний дисбаланс.",
+        "en": "Feeling disconnected from roots, financial or spiritual imbalance."
+      }
+    }
+  },
+  "p11": {
+    "1": {
+      "upright": {
+        "ua": "Практичність, вивчення нових методів відновлення, добрі новини.",
+        "en": "Practicality, studying new recovery methods, good news."
+      },
+      "reversed": {
+        "ua": "Легковажне ставлення до важливих питань, невміння планувати.",
+        "en": "Frivolous attitude to important matters, inability to plan."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло потребує заземлення, роботи з матерією, прогулянок на природі.",
+        "en": "The body needs grounding, working with matter, nature walks."
+      },
+      "reversed": {
+        "ua": "Лінь, відсутність фізичного тонусу, дрібні фінансові/тілесні проблеми.",
+        "en": "Laziness, lack of physical tone, minor financial/bodily issues."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Реалістичний підхід до духовного розвитку, сумлінність.",
+        "en": "Realistic approach to spiritual development, conscientiousness."
+      },
+      "reversed": {
+        "ua": "Брак глибини, детячі примхи щодо власних потреб.",
+        "en": "Lack of depth, childish whims regarding personal needs."
+      }
+    }
+  },
+  "p12": {
+    "1": {
+      "upright": {
+        "ua": "Методичне, прагматичне мислення, послідовний план дій.",
+        "en": "Methodical, pragmatic thinking, consistent action plan."
+      },
+      "reversed": {
+        "ua": "Зацикленість на рутині, занудство, брак гнучкості в ідеях.",
+        "en": "Fixation on routine, tedium, lack of flexibility in ideas."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Стабільне, розмірене відновлення сил, витривалість, наполегливість.",
+        "en": "Stable, measured recovery of strength, endurance, perseverance."
+      },
+      "reversed": {
+        "ua": "Фізичний застій, важкість, запертість у монотонній праці.",
+        "en": "Physical stagnation, heaviness, stuck in monotonous work."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Вірність своїм принципам, надійна та непохитна внутрішня позиція.",
+        "en": "Loyalty to your principles, reliable and firm internal stance."
+      },
+      "reversed": {
+        "ua": "Впертість, небажання змінювати неефективний підхід до життя.",
+        "en": "Stubbornness, reluctance to change an inefficient approach to life."
+      }
+    }
+  },
+  "p13": {
+    "1": {
+      "upright": {
+        "ua": "Практичний розум, турбота про затишок, тверезе оцінювання ресурсу.",
+        "en": "Practical mind, care for comfort, sober assessment of resources."
+      },
+      "reversed": {
+        "ua": "Тривожність щодо достатку, зацикленість на матеріальних деталях.",
+        "en": "Anxiety about prosperity, obsession with material details."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Тіло оточене турботою; якісний відпочинок, здорове харчування, спа.",
+        "en": "The body is surrounded by care; quality rest, healthy food, spa."
+      },
+      "reversed": {
+        "ua": "Ненедбале ставлення до здоров'я, втома від домашніх обов'язків.",
+        "en": "Neglectful health attitude, fatigue from household duties."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Щедрість душі, материнське милосердя до себе, внутрішній достаток.",
+        "en": "Generosity of soul, maternal self-compassion, internal abundance."
+      },
+      "reversed": {
+        "ua": "Невпевненість у власному майбутньому, брак внутрішнього затишку.",
+        "en": "Uncertainty about your future, lack of internal comfort."
+      }
+    }
+  },
+  "p14": {
+    "1": {
+      "upright": {
+        "ua": "Аналітичний, фундаментальний розум, бачення практичної користі.",
+        "en": "Analytical, foundational mind, seeing practical utility."
+      },
+      "reversed": {
+        "ua": "Меркантильність, скупість у думках, страх втратити контроль.",
+        "en": "Mercenariness, mental stinginess, fear of losing control."
+      }
+    },
+    "2": {
+      "upright": {
+        "ua": "Максимальна фізична стабільність, міцне здоров'я, високий рівень сил.",
+        "en": "Maximum physical stability, robust health, high energy level."
+      },
+      "reversed": {
+        "ua": "Перевтома від бізнесу чи праці, трудоголізм, що руйнує тіло.",
+        "en": "Work-related overwork, workaholism destroying the body."
+      }
+    },
+    "3": {
+      "upright": {
+        "ua": "Успіх, матеріальне та духовне процвітання, впевненість.",
+        "en": "Success, material and spiritual prosperity, confidence."
+      },
+      "reversed": {
+        "ua": "Залежність від матеріального статку, втрата духовного фокусу.",
+        "en": "Dependency on material wealth, loss of spiritual focus."
+      }
+    }
+  }
+}

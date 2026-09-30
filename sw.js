@@ -1,5 +1,5 @@
 
-const CACHE_VERSION = 'v2.0';
+const CACHE_VERSION = 'v2.5';
 const CACHE_NAME = `tarot-cache-${CACHE_VERSION}`;
 
 const urlsToCache = [
@@ -19,6 +19,9 @@ const urlsToCache = [
   './data/spreads/three-cards.json',
   './data/spreads/yes-no.json',
   './data/spreads/love-triangle.json',
+  './data/spreads/daily-path.json',
+  './data/spreads/birthday.json',
+  './data/spreads/mind-body-spirit.json',
 ];
 
 self.addEventListener('install', (event) => {

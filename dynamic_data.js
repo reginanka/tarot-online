@@ -1,5 +1,5 @@
 // Curated spreads that actually have position-specific JSON files in data/spreads/
-const CURATED_SPREAD_SLUGS = new Set(['celtic-cross', 'one-card', 'three-cards', 'yes-no', 'love-triangle']);
+const CURATED_SPREAD_SLUGS = new Set(['celtic-cross', 'one-card', 'three-cards', 'yes-no', 'love-triangle', 'daily-path', 'birthday', 'mind-body-spirit']);
 
 // Global storage for dynamic data
 window.allTarotCards = [];
@@ -16,7 +16,7 @@ window.TarotPositions = {
 
         this._loading[spreadSlug] = (async () => {
             try {
-                const res = await fetch('data/spreads/' + spreadSlug + '.json?v=1.8');
+                const res = await fetch('/data/spreads/' + spreadSlug + '.json?v=1.8');
                 const contentType = res.headers.get('content-type') || '';
                 if (res.ok && contentType.includes('application/json')) {
                     this.loadedSpreads[spreadSlug] = await res.json();
@@ -51,6 +51,8 @@ window.TarotPositions = {
                     meaningObj = posData[posNum][state];
                 } else if (namedKey && posData[namedKey] && posData[namedKey][state]) {
                     meaningObj = posData[namedKey][state];
+                } else if (posData[posNum] && (posData[posNum].ua || posData[posNum].uk || posData[posNum].en)) {
+                    meaningObj = posData[posNum];
                 } else if (posData[state]) {
                     meaningObj = posData[state];
                 }
@@ -82,12 +84,24 @@ window.TarotPositions = {
 
 window.initDynamicData = async function() {
     try {
-        const res = await fetch('data/cards.json');
-        window.allTarotCards = await res.json();
-        console.log('Cards loaded');
+        const res = await fetch('/data/cards.json');
+        const cardsData = await res.json();
+        
+        // Correct Ukrainian suit endings in card names globally
+        cardsData.forEach(c => {
+            if (c.name) {
+                if (c.name.endsWith('Жезли')) c.name = c.name.replace(/Жезли$/, 'Жезлів');
+                else if (c.name.endsWith('Кубки')) c.name = c.name.replace(/Кубки$/, 'Кубків');
+                else if (c.name.endsWith('Мечі')) c.name = c.name.replace(/Мечі$/, 'Мечів');
+                else if (c.name.endsWith('Пентаклі')) c.name = c.name.replace(/Пентаклі$/, 'Пентаклів');
+            }
+        });
+
+        window.allTarotCards = cardsData;
+        console.log('Cards loaded and Ukrainian names corrected');
 
         // Preload the curated spreads immediately so they are instantly ready
-        const curatedSpreads = ['celtic-cross', 'one-card', 'three-cards', 'yes-no', 'love-triangle'];
+        const curatedSpreads = ['celtic-cross', 'one-card', 'three-cards', 'yes-no', 'love-triangle', 'daily-path'];
         curatedSpreads.forEach(slug => {
             window.TarotPositions.loadSpread(slug);
         });
