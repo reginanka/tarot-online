@@ -3,6 +3,40 @@ const CURATED_SPREAD_SLUGS = new Set(['celtic-cross', 'one-card', 'three-cards',
 
 // Global storage for dynamic data
 window.allTarotCards = [];
+
+// Helper function to resolve paths reliably across root domains, local dev, and GitHub Pages subdirectories
+async function fetchJsonData(relativePath) {
+    const cleanPath = relativePath.replace(/^\/+/, '');
+    
+    // Determine the base path safely
+    let baseUri = document.baseURI || window.location.href;
+    baseUri = baseUri.split('?')[0].split('#')[0];
+    if (!baseUri.endsWith('/') && !baseUri.includes('.')) {
+        baseUri += '/';
+    }
+
+    const candidateUrls = [
+        new URL(cleanPath, baseUri).href,
+        './' + cleanPath,
+        '/' + cleanPath
+    ];
+
+    const uniqueUrls = [...new Set(candidateUrls)];
+
+    for (const url of uniqueUrls) {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) continue;
+            const contentType = res.headers.get('content-type') || '';
+            if (contentType.includes('text/html')) continue;
+            return await res.json();
+        } catch (e) {
+            // try next candidate
+        }
+    }
+    throw new Error('Failed to load JSON data from: ' + relativePath);
+}
+
 window.TarotPositions = {
     loadedSpreads: {},
     _loading: {},
@@ -16,10 +50,9 @@ window.TarotPositions = {
 
         this._loading[spreadSlug] = (async () => {
             try {
-                const res = await fetch('/data/spreads/' + spreadSlug + '.json?v=1.8');
-                const contentType = res.headers.get('content-type') || '';
-                if (res.ok && contentType.includes('application/json')) {
-                    this.loadedSpreads[spreadSlug] = await res.json();
+                const data = await fetchJsonData('data/spreads/' + spreadSlug + '.json?v=1.8');
+                if (data) {
+                    this.loadedSpreads[spreadSlug] = data;
                     console.log('Loaded spread data for', spreadSlug);
                 }
             } catch(e) {
@@ -84,8 +117,7 @@ window.TarotPositions = {
 
 window.initDynamicData = async function() {
     try {
-        const res = await fetch('/data/cards.json');
-        const cardsData = await res.json();
+        const cardsData = await fetchJsonData('data/cards.json');
         
         // Correct Ukrainian suit endings in card names globally
         cardsData.forEach(c => {

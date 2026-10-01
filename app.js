@@ -216,6 +216,22 @@ createApp({
 
         const performShuffleAndDeal = () => {
             let deck = [...cards.value];
+            if (!deck.length && window.allTarotCards && window.allTarotCards.length) {
+                deck = [...window.allTarotCards];
+                cards.value = window.allTarotCards;
+            }
+            if (!deck.length) {
+                console.warn('Tarot cards are not yet loaded, retrying...');
+                if (window.initDynamicData) {
+                    window.initDynamicData().then(() => {
+                        if (window.allTarotCards && window.allTarotCards.length) {
+                            cards.value = window.allTarotCards;
+                            performShuffleAndDeal();
+                        }
+                    });
+                }
+                return;
+            }
             for (let i = deck.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [deck[i], deck[j]] = [deck[j], deck[i]];

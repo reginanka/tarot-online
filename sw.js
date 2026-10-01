@@ -1,5 +1,5 @@
 
-const CACHE_VERSION = 'v2.6';
+const CACHE_VERSION = 'v2.7';
 const CACHE_NAME = `tarot-cache-${CACHE_VERSION}`;
 
 const urlsToCache = [
