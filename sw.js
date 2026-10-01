@@ -1,5 +1,5 @@
 
-const CACHE_VERSION = 'v2.5';
+const CACHE_VERSION = 'v2.6';
 const CACHE_NAME = `tarot-cache-${CACHE_VERSION}`;
 
 const urlsToCache = [
@@ -25,7 +25,7 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
+  // Не викликаємо skipWaiting автоматично — чекаємо підтвердження користувача
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log(`[SW] Кешування ресурсів ${CACHE_VERSION}...`);
